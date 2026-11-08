@@ -30,8 +30,9 @@ It beats search, and it doesn't beat grep yet.
 
 Most of the questions grep gets and recall misses are about current state. An older note says one thing, a newer note
 says it changed, and the session that read the index first sees the change. I tried recency first. Ranking newer notes
-higher, and putting the newer of two linked notes first, changed nothing beyond run-to-run variation, on the dev
-questions and on the held-out ones.
+higher, and putting the newer of two linked notes first, moved the dev retrieval score by 0.003, under the 0.005 bar I
+had set. Held out, the recall agent went from 0.877 to 0.900 with 9 questions up and 5 down, and one recall call went 3
+up and 3 down. I don't read either as a gain, so recency stays off by default.
 
 Then I put each note's date in the block with one line saying the newer of two notes is current. That made it worse:
 0.810 against 0.822 and 0.829 for two runs of the unchanged system. The reader started overriding right answers with
