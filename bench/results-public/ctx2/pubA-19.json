@@ -1,0 +1,20 @@
+{
+ "id": "pubA-19",
+ "type": "verbatim",
+ "answer": "`SB_SEARCH_DIR` keeps the full-text search index on disk. On a single-space server, set it to a writable folder outside your space; without it, the index runs in memory and is rebuilt at every start.",
+ "tokens": 512,
+ "seconds": 0.004,
+ "e2e_seconds": 2.3,
+ "source_hits": 0.0,
+ "block": "## Which environment variable keeps the server's full-text search index on disk so it isn't rebuilt every start?\n\n--- [vault:corpus/docs/Search.md] ---\n### The search index\n\n# The search index\nThe server keeps a full-text index of the space and updates it as pages change, usually within a second. After the server starts, it builds or catches up the index in the background. Until that finishes, results come with a \u201cSearch index building\u201d notice and may be incomplete.\n\nWhere the index lives:\n* On a server with several spaces, under `search/indexes/` in the server\u2019s data folder, so restarts reuse it.\n* On a single-space server, in memory and rebuilt at every start, or in `SB_SEARCH_DIR` when it is set (see [[#Single-space servers]]).\n* In SilverBullet Desktop, in the app\u2019s data folder.\n\n--- [vault:corpus/docs/Search.md] ---\n### Semantic search > Single-space servers\n\n## Single-space servers\nSet `SB_SEARCH_DIR` to a writable folder outside your space to persist search indexes. Without it, full-text search runs in memory and rebuilds on startup. To enable semantic search, also set `SB_SEARCH_MODEL` to one of the model IDs above. Model files are stored in the search directory. Restart the server after changing these environment variables. See [[Install/Configuration]].",
+ "meta": {
+  "engine_seconds": 0.004132332999999989,
+  "sources": [
+   "vault:corpus/docs/Search.md",
+   "vault:corpus/docs/Search.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,22 @@
+{
+ "id": "pubB-44",
+ "type": "verbatim",
+ "answer": "A page tagged `#meta/template/slash` becomes a slash template.",
+ "tokens": 1232,
+ "seconds": 0.388,
+ "e2e_seconds": 2.35,
+ "source_hits": 1.0,
+ "block": "Memory for: Which tag turns a page into a slash template?\n[1] Template.md (Creating templates)\n  Slash templates: [[Slash Templates]] are pages tagged with `#meta/template/slash`. They define [[Slash Command|slash commands]] that insert templated content at the cursor position. The last component of the page name becomes the slash command name. / See also: [[API/template]], [[Page Template]], [[Slash Templates]], [[Space Lua]]\n  A template in SilverBullet is a string that contains `${expression}` placeholders, which get evaluated using [[Space Lua]]. When a template runs, its placeholders are evaluated. Page and slash templates insert the resulting text into a page. That text stays saved until you edit it. A template called from a page expression renders a live result instead. See [[Guide/When Results Update]] for update behavior. / They are often used in [[Slash Templates]] and [[Page Template]].\n[2] Slash Templates.md (Creating a slash template)\n  Slash templates are a quick way to define [[Slash Command|slash commands]] that insert templated content at the cursor position. They are defined as pages tagged with `#meta/template/slash`. The inserted text is saved in the destination page. Later edits to the template do not change earlier insertions.\n  Example: A minimal page named `Library/Slash Template/action-items` with this content: / ~~~ / --- / tags: meta/template/slash / description: Insert a standard action items section / ---\n[3] Slash Command.md (Built-in slash commands)\n  Slash templates: Most slash commands are implemented as [[Slash Templates]] \u2014 pages tagged with `#meta/template/slash` whose content is inserted at the cursor. The standard library includes slash templates for: / * `/query` \u2014 insert a SLIQ query block / * `/lua-query` \u2014 insert a Lua query expression / * `/code` \u2014 insert a fenced code block / * `/data` \u2014 insert a [[Tag/data|data block]], with the cursor where its tag goes / * `/table` \u2014 insert a Markdown table / * `/hr` \u2014 insert a horizontal rule / * `/note-admonition`, `/warning-admonition`, `/success-admonition`, `/danger-admonition` \u2014 insert admonition blocks / * `/tpl` \u2014 insert a template expression / * `/func` \u2014 insert a Lua function definition / * `/lua-command` \u2014 insert a command definition / * `/lua-slash-command` \u2014 insert a slash command definition\n  Defining your own: There are two ways to create custom slash commands: / 1. **Slash templates** (recommended): Create a page tagged `#meta/template/slash`. See [[Slash Templates]] for details. / 2. **`slashCommand.define`**: For slash commands that need logic beyond simple text insertion. See [[API/slashCommand#slashCommand.define(spec)]].\n[4] Reference/Concepts.md (Pages and files)\n  Tasks and templates: * [[Task]] \u2014 task lists and completion states. / * [[Page Template]] and [[Slash Templates]] \u2014 reusable starting content. / For tags, frontmatter and attributes, see [[Reference/SilverBullet Features#Data and queries]]. For editing commands and views of incoming links, see [[Reference/SilverBullet Features#Navigat ...\nExact facts:\n- [1] Put reusable definitions in a `space-lua` block in your own space, then run `System: Reload`. Use `template.new` to create a template function from a string. By convention, template strings use `[==[` and `]==]` as delimiters:\n- [1] templates.greet = template.new[==[Hello, ${name}!]==]\n- [1] ${templates.greet {name = \"Sam\"}}",
+ "meta": {
+  "notes": [
+   "Template.md",
+   "Slash Templates.md",
+   "Slash Command.md",
+   "Reference/Concepts.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "PARTIAL",
+ "exact": 1.0
+}

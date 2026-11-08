@@ -1,0 +1,20 @@
+{
+ "id": "pubA-16",
+ "type": "verbatim",
+ "answer": "The error message starts with `cancelled:`. It is raised by `oauth.deviceFlow` when the user closes the code dialog.",
+ "tokens": 1365,
+ "seconds": 0.369,
+ "e2e_seconds": 2.75,
+ "source_hits": 1.0,
+ "block": "Memory for: When the device-code sign-in fails because the user shut the code dialog, what prefix does the error message start with?\n[1] API/oauth.md (oauth)\n  Errors: `oauth.deviceFlow` raises an error whose message starts with one of these prefixes, so callers can tell the outcomes apart: / * `cancelled:` the user closed the code dialog. / * `expired:` the device code expired before it was approved. / * `denied:` the user (or the server) denied the request. / * `failed:` anything else, such as a network error or an unexpected response. The text after the prefix is the underlying message. An OAuth error code from the server (for example `unauthorized_client`) appears in it. / ```lua / local ok, err = pcall(oauth.deviceFlow, opts) / if not ok and tostring(err):find(\"cancelled:\", 1, true) then / return nil / end / ``` / <!--#lua spacelua.renderApiDocumentation(\"oauth\") -->\n  oauth.deviceFlow: `oauth.deviceFlow(opts)` / Runs an OAuth 2.0 device authorization flow (RFC 8628). Shows a modal with a code for the user to enter, polls until approved, and returns the raw token response. Errors start with one of `cancelled:`, `expired:`, `denied:` or `failed:`. / **Parameters:** / - `opts` (`table`) \u2014 Table with `deviceCodeUrl`, `tokenUrl`, `clientId`, and optionally `scope` and `deviceName`. / **Returns:** / - Value \u2014 The token response as a table. / **Example:** / ```lua / local token = oauth.deviceFlow { / deviceCodeUrl = \"https://github.com/login/device/code\", / tokenUrl = \"https://github.com/login/oauth/access_token\", / clientId = \"my-client-id\", / scope = \"repo gist\", / } / ``` / <!--/lua-->\n[2] Runtime API.md (Setup)\n  Error handling: * **503** \u2014 Runtime API not enabled: `{\"error\": \"Runtime API is not enabled\"}`. This also holds when it is switched off for the running server (by an administrator or `SB_RUNTIME_API=0`), Chrome is missing, or the runtime pool failed to start. A headless browser that is not ready yet answers `{\"error\": \"...\", \"code\": \"bridge_unavailable\"}`; retry shortly. / * **504** \u2014 Timeout exceeded: `{\"error\": \"...\", \"code\": \"timeout\"}`.\n  Error handling: All error responses are JSON with `Content-Type: application/json` and an `error` key. Runtime execution failures also include a stable machine-readable `code`. / Status codes used across the Runtime API: / * **403** \u2014 The caller lacks Write or Runtime API permission. / * **400** \u2014 Empty request body: `{\"error\": \"Request body is required\"}`. Invalid screenshot selector syntax: `{\"error\": \"...\", \"code\": \"invalid_selector\"}`. / * **404** \u2014 No visible element matches the screenshot selector: `{\"error\": \"...\", \"code\": \"selector_not_found\"}`. / * **500** \u2014 Lua/JS execution error (the evaluated code threw, e.g. a Lua error): `{\"error\": \"<error message>\", \"code\": \"script_error\"}`. The message is the concise client error (e.g. `attempt to call a nil value`). The full stack is available in the runtime console log.\nExact facts:\n- [2] Navigate first with the Lua endpoint, e.g. `editor.navigate(\"Projects\")`. On SilverBullet Desktop, the runtime is the space\u2019s visible editor window: the screenshot shows what the user sees, and fails while that window is minimized or hidden.\n- [2] Values with no JSON form appear as string markers: `\"<function>\"`, `\"<symbol>\"`, `\"<binary: N bytes>\"`, `\"<cycle>\"` for a self-reference, `\"<max depth>\"` beyond 200 levels, `\"<error: message>\"`, and `\"<ClassName>\"` for other class instances.",
+ "meta": {
+  "notes": [
+   "API/oauth.md",
+   "Runtime API.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

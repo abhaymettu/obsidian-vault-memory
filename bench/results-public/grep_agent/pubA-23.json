@@ -1,0 +1,22 @@
+{
+ "id": "pubA-23",
+ "type": "verbatim",
+ "answer": "The key combo is `Ctrl-q q`: press `Ctrl-q`, then `q`. `Keyboard Shortcuts.md` lists it as creating a Quick Note. `CHANGELOG.md` says `Ctrl-q Ctrl-q` (hitting `Ctrl-q` twice) also works.",
+ "tokens": 762,
+ "seconds": 3.398,
+ "e2e_seconds": 3.4,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3669,
+  "final_context": 4437,
+  "billed_input": 8106,
+  "turns": 2,
+  "cost_usd": 0.007591100000000001,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"quick note\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 30}\nAPI/capture.md:10:When something is shared into a space, SilverBullet shows an editable draft and offers the actions defined as [[Service|services]] with the `capture` selector. Each action is a `service.define` call with a `match` and a `run` function, see [[^Library/Std/APIs/Capture]] for the full description and the bundled **Save as Quick Note** action, which you can hide by setting `capture.quickNote` to `false`.\nPage Template.md:55:If you would like to override an existing page template (for instance the Quick Note) template with your own, you can take advantage of the load order determined by the `priority` frontmatter. Built in page templates will have a priority set that is higher than the default. Therefore, their commands and keybindings will be set early. Therefore, by simply defining your own version of the page template _with the same command name_ will let that version override the versions that are built in.\nPage Template.md:57:## Example: overriding the Quick Note template\nPage Template.md:60:command: Quick Note\nPage Template.md:62:suggestedName: \"Quick notes/${os.date('%Y-%m-%d/%H-%M-%S')}\"\nPage Template.md:66:This is my quick note version\nKeyboard Shortcuts.md:35:  * `Ctrl-q q` creates a [[^Library/Std/Page Templates/Quick Note]]\nGuide/Best Practices.md:10:Common folder conventions include `Inbox/` for quick notes, `Journal/` for dated entries and `Library/` for installed [[Library|libraries and customizations]]. These are useful patterns, not prerequisites for taking notes. [[Guide/Finding Content]] compares the navigation options.\nCHANGELOG.md:393:  * `Quick note` is now bound to both `Ctrl-q q` (type `Ctrl-q` first, then hit `q` again) and `Ctrl-q Ctrl-q` (hit `Ctrl-q` twice)"
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,22 @@
+{
+ "id": "pubA-05",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 1152,
+ "seconds": 0.005,
+ "e2e_seconds": 1.98,
+ "source_hits": 1.0,
+ "block": "## How can a script find out how many messages in a Lua message queue are waiting, in flight, or have failed permanently?\n\n--- [vault:corpus/docs/Plugs/Development/Reference.md] ---\n### Hooks > `mqSubscriptions`\n\n## `mqSubscriptions`\nSubscribes the function to a [[API/mq|message queue]]. Useful for background / batched work.\n\n```yaml\nprocessQueue:\n  path: ./worker.ts:processQueue\n  mqSubscriptions:\n    - queue: myQueue\n      batchSize: 10\n      pollInterval: 5000\n      autoAck: true\n```\n\n```typescript\nimport type { Message } from \"@silverbulletmd/silverbullet/type/datastore\";\n\nexport async function processQueue(messages: Message[]) {\n  for (const msg of messages) {\n    console.log(\"processing\", msg.body);\n  }\n}\n```\n\n--- [vault:corpus/docs/API/mq.md] ---\n### mq.awaitEmptyQueue\n\n## mq.awaitEmptyQueue\n`mq.awaitEmptyQueue(queue)`\n\nWaits until a queue has no pending or processing messages.\n\n**Parameters:**\n\n- `queue` (`string`) \u2014 Queue name.\n\n--- [vault:corpus/docs/API/mq.md] ---\n### mq.subscribe\n\n## mq.subscribe\n`mq.subscribe(spec)`\n\nSubscribes a Space Lua callback to a message queue.\n\n**Parameters:**\n\n- `spec` (`table`) \u2014 Subscription with queue, optional batchSize and pollInterval, autoAck (default true), and a run(messages) callback. Each message has queue, id, and body fields.\n\n**Example:**\n\n```lua\nmq.subscribe { queue = \"tasks\", batchSize = 1, run = function(messages) print(messages[1].body) end }\n```\n<!--/lua-->\n\n--- [vault:corpus/docs/API/mq.md] ---\n### Example\n\n## Example\nIn your own space, install this subscriber in a `space-lua` block and reload definitions:\n\n```lua\nmq.subscribe {\n  queue = \"testqueue\",\n  batchSize = 1,\n  run = function(messages)\n    for _, msg in ipairs(messages) do\n      editor.flashNotification(\"Received message: \" .. msg.body)\n    end\n  end\n}\n```\n\nThen copy this Markdown into a page in that space:\n\n```markdown\n${widgets.button(\"Send message on queue\", function()\n  mq.send(\"testqueue\", \"Hello world\")\nend)}\n```\n\nClicking the button queues `Hello world`. The subscriber displays \u201cReceived message: Hello world\u201d. This example is inert here so reading the reference neither registers a subscriber nor writes queue state.\n\n--- [vault:corpus/docs/API/mq.md] ---\n### mq.batchAck\n\n## mq.batchAck\n`mq.batchAck(queue, ids)`\n\nAcknowledges multiple queue messages as processed.\n\n**Parameters:**\n\n- `queue` (`string`) \u2014 Queue name.\n- `ids` (`table`) \u2014 Message IDs.",
+ "meta": {
+  "engine_seconds": 0.004970832999999402,
+  "sources": [
+   "vault:corpus/docs/Plugs/Development/Reference.md",
+   "vault:corpus/docs/API/mq.md",
+   "vault:corpus/docs/API/mq.md",
+   "vault:corpus/docs/API/mq.md",
+   "vault:corpus/docs/API/mq.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

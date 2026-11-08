@@ -1,0 +1,20 @@
+{
+ "id": "pubB-02",
+ "type": "single",
+ "answer": "In Managed mode, SilverBullet commits about 30 seconds after things go quiet by default. During a long editing session it commits at least every 5 minutes. Both timings depend on the per-space **Commit frequency** setting (**Responsive** is the default, then **Balanced** and **Relaxed**), and slower settings mean fewer, larger commits.",
+ "tokens": 1176,
+ "seconds": 0.42,
+ "e2e_seconds": 2.98,
+ "source_hits": 1.0,
+ "block": "Memory for: With git-backed history turned on so SilverBullet commits for me, how long after I stop typing does a commit happen, and is there a cap during a long editing session?\n[1] Revisions.md (Browsing history)\n  Automatic commits: In _Managed_ mode, changes are committed a short while after things go quiet \u2014 about 30 seconds by default, and at least every 5 minutes during a long editing session. You can change this per space, under **Commit frequency**: **Responsive** (the default), **Balanced**, or **Relaxed**. A slower setting means fewer, larger commits. / Commits are attributed to whoever made the change: / * If known, the acting account\u2019s **Full name** and **Email**. / * **SilverBullet**, for a change made through SilverBullet with no account attached \u2014 a single-user server without authentication. / * **External**, for a change SilverBullet detected, but did not make: e.g. another editor, a script, or coding agent. / `Revision: Create snapshot` can be used with write access to commit everything outstanding immediately rather than waiting.\n  SilverBullet can automatically keep a full revision history of your [[Space]] backed by a [Git](https://git-scm.com/) repository.\n[2] Guide/Git Sync.md (Syncing with a remote)\n  Progress and timing: The connection overview shows live status and the last successful sync. Members can use **Git: View status** and **Git: Review conflicts**. Writers can request **Git: Sync now**. Space History also shows Git sync status. Unknown or unavailable status is not the same as being up to date. / Local changes are pushed after an automatic commit. The revisions **Commit frequency** setting controls that timing. **Check remote changes** controls how often SilverBullet checks for other people\u2019s commits. **Only when this space changes** disables periodic remote checks, but a sync triggered by your changes still fetches and merges before pushing. It is not a push-only mode. / Pulled changes reach open editors through the normal file-change mechanism. Network failures show an error and retry with backoff. Authentication or configuration problems require repairing the connection.\n[3] CHANGELOG.md (CHANGELOG)\n  2.11.0: * **HTML comments are now parsed as markdown** ([[Markdown/Comment]]): the body of a `<!-- ... -->` block is now parsed and rendered as ordinary markdown. This enables a communication channel (likely using [[Recipient|recipients]]) to communicate between team members. / * [[Revisions]]: In three modes: **Managed** (SilverBullet commits your changes for you), **Unmanaged** (an existing git repository\u2019s history is read, but SilverBullet never commits to it) or **Disabled**. / * Accounts now carry a full name and email, used to attribute revision commits and shown as the presence label for concurrent edits. / * Every user gets a **Profile** page ([[Authentication#Accounts]]) to set their own full name and email.\nExact facts:\n- [1] ${widgets.commandButton(\"Revision: Space History\")} lists commits across the whole space.\n- [2] Use Git sync to keep a managed space\u2019s revision repository connected to a Git remote. It fetches, merges and pushes committed history. For access from a phone or another Desktop installation, start with [[Guide/Devices and Publishing]] instead.\n- [3] Sharing no longer changes the source page or stores `share.hash` in its frontmatter.",
+ "meta": {
+  "notes": [
+   "Revisions.md",
+   "Guide/Git Sync.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

@@ -1,0 +1,14 @@
+{
+ "id": "pubA-28",
+ "type": "verbatim",
+ "answer": "Lua was first integrated in commit 3cf7b72e (https://github.com/silverbulletmd/silverbullet/commit/3cf7b72e), in 2024-10.",
+ "tokens": 528,
+ "seconds": 0.003,
+ "e2e_seconds": 2.32,
+ "source_hits": 1.0,
+ "block": "--- ADR/005 Space Lua.md ---\nContext | References\n* First Lua integration: [commit 3cf7b72e](https://github.com/silverbulletmd/silverbullet/commit/3cf7b72e) (2024-10).\n* [[Space Lua]] \u00b7 [[Space Lua/Integrated Query]] \u00b7 [[Migrate from v1]] \u2014 what changed from directives / Handlebars / Space Script.\n\n--- API.md ---\nLua Standard Library | description\nLua standard library, Space Lua APIs and SilverBullet syscalls.\n\n--- ADR/005 Space Lua.md ---\nContext | Decision\nWriting our own interpreter (for partly historical reasons) bought a very smooth interoperability story: friction-free access to a lot of SilverBullet and browser functionality, and deep enough integration with the Lua runtime to support editor features like code completion and jump-to-definition. It also opened the path to develop SilverBullet-specific language extensions, specifically [[Space Lua/Integrated Query]] that otherwise would have been impossible.\n\n--- Architecture/Space Lua.md ---\nSpace Lua\n[[Space Lua]] is SilverBullet\u2019s embedded Lua dialect and runtime for extensions. It implements most of the Lua 5.4 standard library plus Space Lua-specific [[API]]s, and can reach all [[Architecture/Syscalls]].\n\n--- Space Lua.md ---\nDefinitions | description\nSilverBullet\u2019s embedded Lua language for queries, scripts and extensions.",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

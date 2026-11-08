@@ -1,0 +1,19 @@
+{
+ "id": "pubA-01",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 579,
+ "seconds": 0.14,
+ "e2e_seconds": 2.55,
+ "source_hits": 0.0,
+ "block": "## In the original 2022 sync design, what happened when the same file was edited in two places, and why wasn't the newer write simply kept?\n\n--- [vault:corpus/docs/Guide/Git Sync.md] ---\n### Syncing with a remote > Conflicts\n\n## Conflicts\nWhen changes cannot merge automatically, **Review conflicts** lists the affected files. For editable Markdown conflicts, the page presents **This space** and **Remote repository**, with choices to keep either side, keep both, or edit manually.\n\nIf you edit manually, remove the conflict markers and let the page save. SilverBullet checks the saved text and resolves eligible text conflicts automatically. There is no mandatory Mark resolved step. Partly removed markers keep the conflict open. Resolved files leave the list, and sync resumes when every file has been resolved. The sync status shows whether the resulting push succeeds.\n\nThe server only uses marker removal for files that had a supported text conflict. Binary and non-Markdown files require an explicit choice of version. Members can download either original side. Writers can keep a side or their edited file. If one side deleted a file and the other edited it, choose whether to keep the edited file or delete it. Unsupported conflict types remain unresolved with an explanation rather than silently choosing a side.\n\n--- [vault:corpus/docs/Editor.md] ---\n### Untitled\n\nBy design, the vast majority of the SilverBullet UI is taken up by the editor. This is where the magic happens.\n\nThis is where you write in [[Markdown]].",
+ "meta": {
+  "engine_seconds": 0.038896457999999995,
+  "sources": [
+   "vault:corpus/docs/Guide/Git Sync.md",
+   "vault:corpus/docs/Editor.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

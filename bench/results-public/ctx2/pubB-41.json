@@ -1,0 +1,20 @@
+{
+ "id": "pubB-41",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 332,
+ "seconds": 0.004,
+ "e2e_seconds": 1.78,
+ "source_hits": 0.0,
+ "block": "## What's the keyboard shortcut for inserting a comment block after the current block?\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Disabling keyboard shortcuts\n\n# Disabling keyboard shortcuts\nYou can use the [[^Library/Std/APIs/Command#command.update(commandDef)]] API to disable keyboard shortcuts of existing commands by setting them to an empty string, for example:\n\n```lua\ncommand.update {\n  name = \"Task: Cycle State\",\n  key = \"\",\n  mac = \"\"\n}\n```\n\n--- [vault:corpus/docs/Local Space.md] ---\n### Global keyboard shortcuts\n\n# Global keyboard shortcuts\nBind system-wide keyboard shortcuts to any SilverBullet [[Command]] in any space.",
+ "meta": {
+  "engine_seconds": 0.003716542000000004,
+  "sources": [
+   "vault:corpus/docs/Keyboard Shortcuts.md",
+   "vault:corpus/docs/Local Space.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

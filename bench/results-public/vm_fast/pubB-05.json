@@ -1,0 +1,21 @@
+{
+ "id": "pubB-05",
+ "type": "single",
+ "answer": "Press **Shift-Enter** in the page picker. It creates or opens a page with exactly the name you typed, whereas **Enter** opens the closest existing match.",
+ "tokens": 1267,
+ "seconds": 0.376,
+ "e2e_seconds": 2.7,
+ "source_hits": 1.0,
+ "block": "Memory for: When I type a new page name in the picker it keeps opening the closest existing match. Which key makes it open or create exactly what I typed?\n[1] Page Picker.md (Result ordering)\n  Result ordering: When no filter phrase is entered, pages are ordered by their latest activity in descending order. For each page, the picker uses whichever is newer: the last time it was opened on this client or its last modified date. / When entering a filter phrase, the best matches should appear closer to the top, however the second option will always be an option to create a new page with _exactly_ the page name entered as the filter phrase.\n  Use the page picker to find a note by name or create one in a writable space. For searching inside notes, use [[Search]]. The published documentation is read-only: use your own space for the creation steps below. / The page picker has two main functions: / 1. Enables quick navigation between [[Page]] / 2. Enables creation of new pages / * Based on the entered name / * Based on [[Link|linked]] to, but not yet created page names / The page picker can be invoked by clicking the \ud83d\udcd4 icon in the top bar, or by pressing `Cmd-k` on Mac, or `Ctrl-k` on Windows/Linux. / The main input is the **fi ...\n[2] Guide/My First Markdown Page.md (Creating a page)\n  Creating a page: In the page picker input box type `Photo Walk`, then press **Shift-Enter** to create a page with exactly that name. If your space already contains other pages that match \u201cphoto walk\u201d in their name, they may appear here too and hitting **Enter** would open that old page rather than create a new page, pressing **Shift-Enter** ensures you create a new page. / It\u2019s time to start typing. Enter the following markdown (or copy and paste it): / ```markdown / Sam Rivera is planning a photo walk on 2026-06-14.\n[3] Guide/Knowledge Base.md (Create topic pages)\n  Create topic pages: Start with subjects you want to return to. In the [[Page Picker]] (**Cmd-k / Ctrl-k**), type a title and press **Shift-Enter** to open that exact name. Write enough context that the page makes sense when opened directly. / Keep each page focused enough that its name is useful in a sentence. You can start at the top level and add folders later. [[Guide/Best Practices]] describes the tradeoffs.\n[4] View.md (Widgets and views)\n  Using a panel: * `Shift-Enter` creates whatever you typed, in views that allow it. A create row also appears on its own: second in a list, pinned below the tree in a tree. / * The **first character typed into an empty box can route**: / * `^` narrows the page picker to [[Meta Page|meta pages]]. / * `$` opens the anchor picker / * `#` the tag picker / * In the page picker, `Space` on an empty phrase inserts the folder you are currently in, and `Alt-Space` extends the phrase by one more path segment of the best match. A `#tag` anywhere in the phrase filters by tag rather than matching names. / In a tree that supports it: drag a row onto a folder to move it (renaming through SilverBullet\u2019s own machinery, so backlinks follow).\nExact facts:\n- [1] If the filter phrase starts with `$`, the picker switches to navigating [[Markdown/Anchor|anchors]] instead of pages: everything after the `$` filters anchor names from across your [[Space]], and each result shows a snippet of the anchored content along with the host page it lives on. Deleting the `\n- [1] > Any page tagged with a tag starting with `#meta`, even though technically regular pages, will **not** appear in the page picker. To navigate to them, use the [[Meta Picker]] instead.",
+ "meta": {
+  "notes": [
+   "Page Picker.md",
+   "Guide/My First Markdown Page.md",
+   "Guide/Knowledge Base.md",
+   "View.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

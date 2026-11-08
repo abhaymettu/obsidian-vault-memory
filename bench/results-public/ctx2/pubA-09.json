@@ -1,0 +1,19 @@
+{
+ "id": "pubA-09",
+ "type": "single",
+ "answer": "No. Frontmatter `authors:` credits the page as a whole but does not cascade to unsigned blocks, so an `@mention` elsewhere on the page without its own `-- @name` signature stays unattributed.",
+ "tokens": 725,
+ "seconds": 0.006,
+ "e2e_seconds": 2.55,
+ "source_hits": 1.0,
+ "block": "## If a page lists authors in its frontmatter, are @mentions further down the page credited to them?\n\n--- [vault:corpus/docs/Authorship.md] ---\n### `authors:` frontmatter\n\n# `authors:` frontmatter\nDeclaring `authors:` in a page\u2019s frontmatter credits the whole page, the same way `recipients:` addresses the whole page:\n\n```yaml\n---\nauthors: [\"jo\", \"sam\"]\n---\n```\n\nA wiki-link value in `authors:`, like `[[Jo]]`, is not a name and is silently ignored \u2014 unlike `recipients:`, which keeps a wiki link as an ordinary page link.\n\nThis does **not** cascade down to unsigned blocks in the page body: an `@mention` written elsewhere on the page without its own `-- @name` stays unattributed. Frontmatter `authors:` is page-level credit only \u2014 crediting a specific block still needs an inline signature on that block.\n\n--- [vault:corpus/docs/Tag/relation.md] ---\n### Kinds\n\n## Kinds\n* `mention`: a plain wikilink or markdown link (to a page, file, anchor, or external URL \u2014 see `toTag`).\n* `at-mention`: an [[At-Mention|`@name` mention]] of an [[Identity]]. `to` is always the name\u2019s `@name` identifier (`toTag: \"identity\"`). An identity is a name, so there is never a page behind it.\n* `authored`: a block-ending signature or an `authors:` frontmatter declaration credits an identity. Signatures carry a source `range`. Page-level declarations do not.\n* `co-mention`: two refs co-occurring in the same item (with its nested children) or paragraph. Emitted in both directions and dedup\u2019d at the innermost shared scope.\n* *user predicates*: any other `kind` value is a typed attribute edge whose label is the key (e.g. `spouse`). `from`/`fromTag` indicate whether it came from frontmatter, an inline attribute, or a data block.",
+ "meta": {
+  "engine_seconds": 0.005748750000000001,
+  "sources": [
+   "vault:corpus/docs/Authorship.md",
+   "vault:corpus/docs/Tag/relation.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

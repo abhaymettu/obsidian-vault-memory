@@ -1,0 +1,13 @@
+{
+ "id": "pubB-15",
+ "type": "single",
+ "answer": "No, that's not a bug. Ranking of candidates is relative to the page the link appears on, so two pages linking `[[Config]]` can legitimately have different `resolvesTo` values for the same `name`.",
+ "tokens": 562,
+ "seconds": 0.004,
+ "e2e_seconds": 2.13,
+ "source_hits": 1.0,
+ "block": "--- API/index.md ---\nindex | index.aggregates > index.ambiguousLinks\n`index.ambiguousLinks()`\n\nReturns links whose page name matches more than one page as a query collection.\n\n--- Tag/ambiguous-link.md ---\nambiguous-link | Attributes\n* `name`: the link target as written, which turned out not to identify a unique page.\n* `resolvesTo`: the page the link currently resolves to, which is the first entry of `candidates`.\n* `candidates`: every page sharing the name, in ranked order.\n* `page`: the page the link appears on.\n* `pos`: byte offset of the link within `page`.\n* `range`: `[start, end]` byte offsets of the link syntax within `page`.\n\nRanking is relative to `page`, so two pages linking `[[Config]]` can legitimately have different `resolvesTo` values for the same `name`.\n\n--- Tag/ambiguous-link.md ---\nambiguous-link | description\nLinks whose name matches more than one page.\n\n--- Link.md ---\nInternal links | Link resolution > Ambiguous links\nEvery ambiguous link to a page is indexed as an [[Tag/ambiguous-link|ambiguous-link]] object.\n\n--- Tag/ambiguous-link.md ---\nambiguous-link\nLike [[Tag/aspiring-page|aspiring pages]], these records are produced by the relation indexer and are recomputed whenever the page is re-indexed, so an ambiguity disappears from the index as soon as it is fixed (by qualifying the link, or by renaming one of the colliding pages).",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT"
+}

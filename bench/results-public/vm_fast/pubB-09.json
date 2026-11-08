@@ -1,0 +1,23 @@
+{
+ "id": "pubB-09",
+ "type": "single",
+ "answer": "Space Lua is missing a few Lua 5.4 features: coroutines (not planned), `_ENV` (planned), and hexadecimal numeric constants with a fractional part or binary exponents (not supported by JavaScript's number parser either).",
+ "tokens": 1280,
+ "seconds": 0.483,
+ "e2e_seconds": 2.53,
+ "source_hits": 1.0,
+ "block": "Memory for: Which parts of standard Lua 5.4 can't I rely on in SilverBullet scripts?\n[1] Architecture/Space Lua.md (Space Lua)\n  [[Space Lua]] is SilverBullet\u2019s embedded Lua dialect and runtime for extensions. It implements most of the Lua 5.4 standard library plus Space Lua-specific [[API]]s, and can reach all [[Architecture/Syscalls]].\n[2] Space Lua/Quirks.md (Lua implementation notes)\n  Lua implementation notes: Space Lua is intended to be a more or less complete implementation of [Lua 5.4](https://www.lua.org/manual/5.4/). However, a few features are (still) missing: / * coroutines (not planned, not useful in the SilverBullet context) / * _ENV (planned) / * Hexadecimal numeric constants with a fractional part, or binary exponents (not supported by JavaScript number parser either)\n[3] CHANGELOG.md (CHANGELOG)\n  2.3.0: This release (re)introduces [[Share]], formalizes [[Library]], and introduces in initial version of the Library Manager, a type of package manager for SilverBullet. It also progresses on Lua 5.4 compatibility. / Here\u2019s what\u2019s new: / * [[Share]]: a new mechanism to push content to external places and pull external content in (also used as the foundation of [[Library]]). This partially replaces many [[Export]] use cases. Export will be more for one-off use cases.\n[4] Extensions.md (Libraries)\n  Space Lua: [[Space Lua]] is SilverBullet\u2019s embedded scripting language. You can write scripts directly in `space-lua` fenced code blocks on any page. These scripts are active across your entire space and can define functions, commands, widgets, event handlers, and more. / Space Lua is the foundation that libraries are built on. See [[Space Lua]] for a full guide.\n[5] Workbench/Code/Scripts.md (Scripts)\n  The **Space Lua** section of the [[Workbench/Code|Code]] tab lists every `space-lua` block in your space, in the order SilverBullet loads them: by priority, highest first (see [[Space Lua#Definition loading]]). / ${widgets.commandButton(\"Workbench: Scripts\")} opens the [[Workbench]] on this section. / Each row shows: / * **Status:** a green dot when the script loaded, red when it failed, and amber when it\u2019s quarantined. / * **Script:** the page it\u2019s on. When a page holds several scripts, each row also shows the script\u2019s position in the page, like `@66`. / * **Priority** and **Load:** its priority and how long running it took. / Scripts that failed to load show their error right below the row, with the same message, marked line and clickable stack as in the console. To narrow the list, use the filter field and two sets of buttons, each showing counts:\n[6] ADR/005 Space Lua.md (Context)\n  Alternatives considered: * **Keep JavaScript (Space Script) + Handlebars + the old query language.** Rejected: three languages and the seams between them, and JS is awkward to sandbox safely for in-space user code. / * **Embed an existing Lua (a WebAssembly build, Fengari, or LuaJIT).** Rejected: a from-scratch implementation gives a far smoother interoperability story with SilverBullet and browser function ...\nExact facts:\n- [3] `sb lua` runs a Lua expression or script (`sb eval` and `sb script` still work as aliases). Like `sb query` and the new `sb screenshot --page <name>`, it first lets the index catch up with recent file changes and prints a note on stderr when it could not, and console output goes to stderr so stdout ",
+ "meta": {
+  "notes": [
+   "Architecture/Space Lua.md",
+   "Space Lua/Quirks.md",
+   "CHANGELOG.md",
+   "Extensions.md",
+   "Workbench/Code/Scripts.md",
+   "ADR/005 Space Lua.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

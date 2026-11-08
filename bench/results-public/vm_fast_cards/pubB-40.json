@@ -1,0 +1,22 @@
+{
+ "id": "pubB-40",
+ "type": "verbatim",
+ "answer": "The `Editor: Vim: Load Vim Config` command manually reloads the vim section of CONFIG.",
+ "tokens": 1353,
+ "seconds": 0.432,
+ "e2e_seconds": 2.37,
+ "source_hits": 1.0,
+ "block": "Memory for: After editing the vim section of CONFIG, which command reloads it by hand?\n[1] Vim.md (Configuration)\n  - The `Editor: Vim: Load Vim Config` command manually reloads the vim section of CONFIG.\n  Vim editing mode with configurable key mappings and ex commands.\n  - A configuration reference for SilverBullet's Vim editing mode, covering how to toggle it and how to define key mappings and ex commands in the CONFIG file. Names: SilverBullet, Vim, CONFIG, config.set.\n  - The CONFIG file can define and extend Vim commands by unmapping keys, creating custom mappings with `map` and `noremap`, and defining ex commands that map to built-in or custom SilverBullet commands.\n  SilverBullet has a basic Vim mode. You can toggle it using the ${widgets.commandButton(\"Editor: Toggle Vim Mode\")} command. / In addition, it supports various ex commands that you can run as you would expect, for instance: `:imap jj <Esc>`. / The [[CONFIG]] file can also be used to define and extend these commands. It supports the following: / - **Key unmapping** - disable existing keybindings / - **Custom mappings** - using `map` and `noremap` / - **Ex command definitions** - map custom ex commands to built-in or custom SilverBullet commands / SilverBullet [[Command]] bindings take precedence over Vim bindings, you may wish to update or disable some [[Keyboard Shortcuts]] or remap the desired functionality in Vim as shown below. / To manually reload the `vim` section of your [[CONFIG]], use the ${widgets.commandButton(\"Editor: Vim: Load Vim Config\")} command.\n[2] API/editor.md (editor)\n  - editor.vimEx(exCommand) executes a Vim Ex command in the active Vim-mode editor.\n  editor.vimEx: `editor.vimEx(exCommand)` / Executes a Vim Ex command in the active Vim-mode editor. / **Parameters:** / - `exCommand` (`string`) \u2014 The Ex command to execute. / <!--/lua-->\n[3] Guide/When Results Update.md (After editing a page)\n  - A tag transform that changes indexed objects must be placed in `CONFIG`, reloaded, and followed by `Space: Reindex`, because existing records must be rebuilt under the new transform.\n[4] Workbench/Configuration.md (Saving)\n  The Configuration tab edits your space\u2019s configuration without hand-editing [[Space Lua]] in [[CONFIG]]. `Configuration: Open` (`Cmd-,` or `Ctrl-,`) opens the [[Workbench]] on this tab, and `Configuration: Keyboard Shortcuts` opens it on its Key bindings section. On Desktop, *Settings\u2026* in the app menu does the same. / ${widgets.commandButton(\"Workbench: Configuration\")} opens this tab in the [[Workbench]]. / A sidebar on the left lists two sections. In a narrow panel it becomes a drop-down above the list. / * **Configuration**: every option registered with [[API/config#config.define(key, schema)]] that has a `ui` annotation, grouped by category. The categories are listed under the section in the sidebar. Click one to jump to it. Each option shows its label, description and a control that fits its schema: a checkbox, a drop-down, a text, password or number field. Options the tab can\u2019t edit say s ...\nExact facts:\n- [2] `editor.configureVimMode()`\n- [2] `editor.reloadConfigAndCommands()`\n- [3] After changing data used by a query, allow saving and indexing to settle. Its result updates without rebuilding the query or running `System: Reload`.\n- [3] A tag transform that changes indexed objects:** Put the definition in `CONFIG`, reload it and run `Space: Reindex`. Existing records must be rebuilt under the new transform.",
+ "meta": {
+  "notes": [
+   "Vim.md",
+   "API/editor.md",
+   "Guide/When Results Update.md",
+   "Workbench/Configuration.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

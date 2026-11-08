@@ -1,0 +1,21 @@
+{
+ "id": "pubA-02",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 1255,
+ "seconds": 0.342,
+ "e2e_seconds": 5.24,
+ "source_hits": 1.0,
+ "block": "Memory for: Can I still pull read-only pages from someone else's remote space into mine by URL prefix?\n[1] ADR/004 Federation.md (Context)\n  Decision: Add **federation**: a space can link to a remote space via a federated URL prefix, and SilverBullet would sync that external content read-only into the local client, so it could be browsed and queried alongside local pages.\n[2] API/sbShare.md (Configuration)\n  On a new device a space can be known (from `share.silverbullet.spaces`) without a usable credential on that device (none, or an expired one that can\u2019t be refreshed). Before a `push` or `sync` share, the `share:ensure` service then asks `Sign in to <space>?` and runs the device flow, so a private space is never read anonymously first (with a usable credential it does nothing). Declining fails with `Not connected to <space>` and leaves the page and the remote alone. `pull` shares and `uri:` pages never ask: they read anonymously. For a URI of a space that is not known at all, `share:ensure` first finds the space root with `sbShare.findSpaceRoot` (for `http:` and `https:` URIs), asks `Connect to <space>?`, signs in and remembers the space.\n[3] API/share.md (API)\n  Pull: A pull reads the remote and: / * The remote equals the page: nothing to do (`share.hash` is set if it doesn\u2019t match). / * The remote matches `share.hash`: only the page changed, so there is nothing to pull and the local changes stay. / * The page matches `share.hash`: only the remote changed, and it replaces the page. / * The page changed since `share.hash`: you are asked whether to overwrite your local changes. / * No `share.hash`: you are asked whether to overwrite the page with the remote version, except for [[#share.isManaged(name, text)|installed libraries and repositories]], which are overwritten.\n  share.changedPages(): Returns the names of the pages `Share: All Changed` shares: the `sync` pages whose [[#share.status(name)]] is `localChanged`, and the `push` pages whose [[#share.check(names)]] is `differs` or `missing` (so their remotes are read, a push page whose check fails, say because its remote needs a sign-in, is left out for its own share to report). `pull` pages never.\n[4] Shared Pages.md (Status)\n  Check: The **Check** button on a group reads the remote of each page in it and shows what it found, until you next act on that page: / * _up to date_: the remote has what a share would send. / * _missing_: nothing is on the remote yet. / * _changed here_: only your page changed. / * _remote changed_: only the remote changed. / * _changed both sides_: both changed. / * _differs_: they differ. For a push page or a collection\u2019s page this means sharing would write it. For a pull or sync page, it means there is no `share.hash` to tell which side changed. / * _check failed_: the remote couldn\u2019t be read. Hover the status for the reason. Check never signs in, so a remote you haven\u2019t connected to from this device fails here until you share to it once.\nExact facts:\n- [1] Users wanted to reference and read pages from *other* spaces, shared libraries, public/published spaces without copying the content into their own.\n- [2] Helpers behind sharing pages to another SilverBullet space. See [[^Library/Std/Infrastructure/SilverBullet Share]] and [[API/share]].\n- [2] A shared page is addressed by a URI of the form `<space url>/<page name>`, for example `https://example.com/notes/Shared/Page`. Reads and writes use the other space\u2019s `.fs` API with a token obtained through the device flow, kept under the credential key `sb:<space url>` (see [[API/auth]]).",
+ "meta": {
+  "notes": [
+   "ADR/004 Federation.md",
+   "API/sbShare.md",
+   "API/share.md",
+   "Shared Pages.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

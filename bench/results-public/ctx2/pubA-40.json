@@ -1,0 +1,19 @@
+{
+ "id": "pubA-40",
+ "type": "multi",
+ "answer": "@pete.smith is one mention: names may contain dots, so dotted usernames like @pete.smith are carried whole rather than stopping at the dot. As for access, the memory doesn't say whether mentioning him gives him access to the space.",
+ "tokens": 508,
+ "seconds": 0.004,
+ "e2e_seconds": 2.49,
+ "source_hits": 0.5,
+ "block": "## If I mention @pete.smith, is that one mention or does it stop at the dot, and does mentioning him give him access to the space?\n\n--- [vault:corpus/docs/Linked Tasks.md] ---\n### Untitled\n\nIt is a common SilverBullet pattern to give people, groups of people and places dedicated pages so you can easily reference them. It then becomes very convenient to mention these pages elsewhere in your space, and using [[Linked Mention]] you can easily find what _pages_ link back to that page.\n\nThe equivalent of this idea in the context of [[Task]] is Linked Tasks. These are tasks that _mention_ a particular page.\n\n--- [vault:corpus/docs/At-Mention.md] ---\n### `@name` syntax\n\n# `@name` syntax\nType `@` followed by a name with no spaces, e.g. @jo. While typing, autocomplete offers every known identity.\n\nA name may contain dots, so dotted usernames carry whole: @pete.smith and @sam.rivera are each one mention.\n\n**Any name is a valid mention.** Nothing needs declaring up front: mentioning @sales makes `sales` a known identity. See [[Identity]] for more info.\n\nFor a complete request, reply and resolution workflow, see [[Guide/Comments, Mentions and Replies]].",
+ "meta": {
+  "engine_seconds": 0.003817333000000019,
+  "sources": [
+   "vault:corpus/docs/Linked Tasks.md",
+   "vault:corpus/docs/At-Mention.md"
+  ]
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

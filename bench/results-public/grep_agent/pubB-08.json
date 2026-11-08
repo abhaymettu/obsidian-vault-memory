@@ -1,0 +1,21 @@
+{
+ "id": "pubB-08",
+ "type": "single",
+ "answer": "Closing the Workbench keeps your unsaved changes, but reloading the browser page loses them. Per `Workbench/Configuration.md`, pending changes \"survive switching tabs and closing the Workbench, but not reloading the page.\" To keep them, click **Save and apply** or press `Cmd-s`/`Ctrl-s` while the tab has focus.",
+ "tokens": 1751,
+ "seconds": 6.183,
+ "e2e_seconds": 6.18,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3707,
+  "final_context": 5426,
+  "billed_input": 17907,
+  "turns": 4,
+  "cost_usd": 0.013714500000000001,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"Workbench\", \"-i\": true, \"output_mode\": \"files_with_matches\"}\nFound 58 files\nWorkbench/Overview.md\nWorkbench/Maintenance.md\nWorkbench/Libraries.md\nWorkbench/Data.md\nWorkbench/Console.md\nWorkbench/Configuration.md\nWorkbench/Code/Styles.md\nWorkbench/Code/Scripts.md\nWorkbench/Code.md\nWorkbench.md\nTroubleshooting.md\nTask.md\nTag/data.md\nTag/aspiring-page.md\nSpace Lua.md\nSilverBullet.md\nShared Pages.md\nShare.md\nRepository.md\nReference/SilverBullet Features.md\nQueries and Data.md\nPlugs/Development/Distribution and Testing.md\nPlugs.md\nObject.md\nObject Index.md\nMigrate from v1.md\nMeta Space.md\nLog.md\nLive Object Edit.md\nLibrary/Website.md\nLibrary/Development.md\nLibrary.md\nKeyboard Shortcuts.md\nGuide/When Results Update.md\nGuide/Task Management.md\nGuide/Server Setup.md\nGuide/Reading These Docs.md\nGuide/Make it your own.md\nGuide/Knowledge Base.md\nGuide/Journal.md\nGuide/Best Practices.md\nGuide/Aggregator Pages.md\nGuide/Add Structure and Query.md\nGetting Started.md\nFonts.md\nExtensions.md\nDocument Editor.md\nConfiguration Manager.md\nCommand.md\nCommand Palette.md\nCONFIG.md\nCHANGELOG.md\nAPI/widgets.md\nAPI/tag.md\nAPI/share.md\nAPI/service.md\nAPI/config.md\nADR/011 Link Resolution by Name.md\n{\"pattern\": \"unsaved|not saved|draft|persist|reload\", \"-i\": true, \"output_mode\": \"content\", \"path\": \"corpus/docs/Workbench\"}\nWorkbench/Libraries.md:6:The Libraries tab manages the [[Library|libraries]] in your space. In a read-only space it only shows what\u2019s there: installing, updating, removing and checking for updates are hidden, with a note saying why (a read-only server doesn\u2019t reach other servers, so there is nothing to check against). It reloads every time you show the tab, so what you see matches your space.\nWorkbench/Console.md:30:* **Local variables:** a `local` you define stays available to later input, until you reload the page.\nWorkbench/Console.md:32:* **History:** Up and Down step through earlier input. History is kept in your browser, except with client-side encryption enabled, where it only lasts until you reload.\nWorkbench/Configuration.md:25:Changes stay pending until you click **Save and apply**, or press `Cmd-s`/`Ctrl-s` while the tab has focus. **Discard** drops them. While anything is pending, the tab\u2019s label shows a `\u2022`. Pending changes survive switching tabs and closing the Workbench, but not reloading the page.\nWorkbench/Configuration.md:27:Saving writes only what you changed into a managed `space-lua` block in [[CONFIG]], then reloads your configuration. Everything outside that block is left alone, and so are values in it that you didn\u2019t touch here, such as those [[Share]] remembers. Simple hand edits to the managed block survive a round trip through this tab. If the block isn\u2019t valid Lua, the tab shows the error and refuses to save until you fix it in CONFIG.\nWorkbench/Configuration.md:29:The footer counts the options or commands, how many you changed, and how many changes are unsaved, and links to CONFIG.\nWorkbench/Code/Scripts.md:28:**Reload** runs all your `space-lua` blocks again, and the list updates when they\u2019re done.\nWorkbench/Code/Styles.md:22:Click a row to jump to the style. **Reload** applies all styles again and updates the list.\n{\"pattern\": \"unsaved|not saved|draft|persist|reload\", \"-i\": true, \"output_mode\": \"content\", \"path\": \"corpus/docs/Configuration Manager.md\"}\nNo matches found"
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

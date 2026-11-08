@@ -1,0 +1,22 @@
+{
+ "id": "pubA-25",
+ "type": "verbatim",
+ "answer": "The config key is `fonts.editorSize`, for example `config.set(\"fonts.editorSize\", 20)`. It sets the editor text size in pixels. The default is 18, and the allowed range is 10 to 48. This is documented in `Fonts.md`, under \"Editor font size\".",
+ "tokens": 988,
+ "seconds": 4.682,
+ "e2e_seconds": 4.68,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3684,
+  "final_context": 4663,
+  "billed_input": 12392,
+  "turns": 3,
+  "cost_usd": 0.0097599,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"font ?size|fontSize|textSize\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 30}\nAPI/config.md:177:config.set({theme = \"dark\", fontSize = 14})\nGuide/Make it your own.md:12:![Configuration\u2019s Appearance controls with Inter selected as the editor font and the font size set to 20.](../Screenshots/customization-appearance.png)\nFonts.md:24:# Editor font size\nFonts.md:25:**Editor font size**, also under **Appearance**, sets the size of page text in the editor, in pixels: 18 by default, from 10 to 48. Headings, code and list indents scale with it. A proportional font often looks smaller than a monospace one at the same size, so you may want to raise it after switching. In [[CONFIG]]:\n{\"file_path\": \"corpus/docs/Fonts.md\", \"offset\": 20, \"limit\": 20}\n20\tconfig.set(\"fonts.ui\", \"system-sans\")\n21\tconfig.set(\"fonts.code\", \"ia-writer-mono\")\n22\t```\n23\t\n24\t# Editor font size\n25\t**Editor font size**, also under **Appearance**, sets the size of page text in the editor, in pixels: 18 by default, from 10 to 48. Headings, code and list indents scale with it. A proportional font often looks smaller than a monospace one at the same size, so you may want to raise it after switching. In [[CONFIG]]:\n26\t\n27\t```lua\n28\tconfig.set(\"fonts.editorSize\", 20)\n29\t```\n30\t\n31\t# Built-in fonts\n32\tThese come with SilverBullet, or with your operating system, and work offline:\n33\t\n34\t* **iA Writer Mono** (`ia-writer-mono`): the default for all three.\n35\t* **Inter** (`inter`): a clear sans for the interface and the editor.\n36\t* **System sans**, **System serif** and **System mono** (`system-sans`, `system-serif`, `system-mono`): your operating system's own fonts, such as San Francisco on Apple devices and Segoe UI on Windows.\n37\t\n38\t# The default font\n39\tWhen a space doesn\u2019t pick an interface or editor font, it uses the default font: in SilverBullet Server, the **Default font** in the dashboard's Server settings; in SilverBullet Desktop, **Font** under Advanced. The default font also sets the dashboard and sign-in pages."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

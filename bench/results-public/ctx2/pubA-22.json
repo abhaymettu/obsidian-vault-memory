@@ -1,0 +1,20 @@
+{
+ "id": "pubA-22",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 358,
+ "seconds": 0.003,
+ "e2e_seconds": 1.88,
+ "source_hits": 1.0,
+ "block": "## With the standalone server binary, what command moves me onto builds that track the main branch?\n\n--- [vault:corpus/docs/Install.md] ---\n### Server\n\n# Server\nRun Server when you want browser access, a shared team space or a synchronization point for Desktop installations. Install it with [[Install/Docker|Docker]] or the [[Install/Server Binary|standalone binary]]. You can start on this computer and make it reachable from other devices when needed.\n\n[[Guide/Server Setup]] covers setup and administration. [[Install/Server]] describes deployment choices and filesystem requirements.\n\n--- [vault:corpus/docs/Install/Server Binary.md] ---\n### Untitled\n\ndescription: \"Download and run the standalone SilverBullet Server binary.\"\ntags: getting-started\nreferences:\n- bin/silverbullet/src/main.rs\n- bin/silverbullet/build.rs",
+ "meta": {
+  "engine_seconds": 0.003138333999999986,
+  "sources": [
+   "vault:corpus/docs/Install.md",
+   "vault:corpus/docs/Install/Server Binary.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

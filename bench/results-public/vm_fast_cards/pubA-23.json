@@ -1,0 +1,21 @@
+{
+ "id": "pubA-23",
+ "type": "verbatim",
+ "answer": "`Ctrl-q q` creates a Quick Note (the page `^Library/Std/Page Templates/Quick Note`). Since version 2.5.0 it is also bound to `Ctrl-q Ctrl-q`.",
+ "tokens": 1539,
+ "seconds": 0.402,
+ "e2e_seconds": 2.76,
+ "source_hits": 1.0,
+ "block": "Memory for: What key combo creates a quick note?\n[1] Keyboard Shortcuts.md (Modifier keys)\n  - Ctrl-q q creates a Quick Note, which is the page ^Library/Std/Page Templates/Quick Note.\n  Combos: Generally keyboard shortcuts are single stroke, however it possible to configure them as \u201ccombos\u201d (multiple shortcuts entered in sequence). Out of the box, SilverBullet reserves two prefix keys for this \u201ccombo\u201d use: / * `Mod-.` (so \u201ccommand dot\u201d or Mac and \u201cCtrl dot\u201d on Linux/Windows), used for various [[Outlines]] related commands / * `Ctrl-q` used and reserved for [[Page Template]] use cases / * `Ctrl-q q` creates a [[^Library/Std/Page Templates/Quick Note]] / * `Ctrl-q t` runs the `Page: From Template` command / * `Ctrl-g` reserved for navigational commands: / * `Ctrl-g h` navigates to the index (home) page\n  - A reference note on keyboard shortcuts in SilverBullet, covering modifier keys, browser and CodeMirror constraints, reserved combo prefixes, and how to assign or disable shortcuts for commands. Names: SilverBullet, CodeMirror, command.update, command.define, Task: Cycle State, My command, Page: From Template, Quick Note.\n  - Ctrl-q is reserved as a combo prefix key for Page Template use cases.\n[2] Page Template.md (Creating a page template)\n  - The Quick Note override example uses the key `Ctrl-q q` and the suggestedName `Quick notes/${os.date('%Y-%m-%d/%H-%M-%S')}`.\n  Example: overriding the Quick Note template: ~~~ / --- / command: Quick Note / key: \"Ctrl-q q\" / suggestedName: \"Quick notes/${os.date('%Y-%m-%d/%H-%M-%S')}\" / confirmName: false / tags: meta/template/page / --- / This is my quick note version / ~~~\n  - A reference note on creating reusable page templates in SilverBullet, covering how to create them, their frontmatter configuration keys, an example daily note template, and how to override built-in templates. Names: Page: From Template, Page Template, System: Reload, Journal: Daily Note, Quick Note, Ctrl-q q, meta/template/page, date.today(), os.date.\n[3] CHANGELOG.md (CHANGELOG)\n  2.5.0: * Changed keyboard bindings (sorry!). CodeMirror no longer directly allows `Alt-<letter>` and `Alt-<special-character>` [[Keyboard Shortcuts]], meaning I had to **remap a few key bindings**. It\u2019s basically a mission impossible to pick great ones, but here are the new defaults: / * `Quick note` is now bound to both `Ctrl-q q` (type `Ctrl-q` first, then hit `q` again) and `Ctrl-q Ctrl-q` (hit `Ctrl-q` twice) / * `Navigate: Home` is now bound to `Ctrl-g h` / * `Text: Marker` is now bound to `Ctrl-Alt-m` / * [[Outlines]] commands generally now use a `Mod-.` (`Cmd-.` on mac, `Ctrl-.` on Linux/Windows) prefix: / * `Outline: Move Right`: `Mod-. l` / * `Outline: Move Left`: `Mod-. h` / * `Outline: Move Up`: `Alt-ArrowUp` still works, but now also adds `Mod-. k` for consistency / * `Outline: Move Down`: `Alt-ArrowDow` still works, but now also adds `Mod-. j` for consistency\nExact facts:\n- [1] SilverBullet uses [CodeMirror](https://codemirror.net) under the hood, which does the majority of the keyboard handling. In addition, it allows to for customization of (most) keys on a per-command basis. When you open the [[Command Palette]], you will see the currently assigned keyboard shortcut(s).\n- [1] It is by far the easiest to configure your keyboard shortcuts in the Key bindings section of [[Workbench/Configuration]].\n- [1] `Cmd`: Command key (Mac only)\n- [1] `Meta`: usually the \u201cWindows\u201d key\n- [1] The keyboard shortcut is then combined to e.g. `Mod-Alt-t`.",
+ "meta": {
+  "notes": [
+   "Keyboard Shortcuts.md",
+   "Page Template.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

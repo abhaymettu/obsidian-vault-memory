@@ -1,0 +1,22 @@
+{
+ "id": "pubB-13",
+ "type": "single",
+ "answer": "The `shell` and `fetch` syscalls fail unless the plug lists the matching permission in `requiredPermissions` in its manifest. They throw at call time (when the plug invokes them), while most other syscalls are available to every plug.",
+ "tokens": 1287,
+ "seconds": 0.355,
+ "e2e_seconds": 2.82,
+ "source_hits": 1.0,
+ "block": "Memory for: Which plug API calls fail unless the plug declares a permission in its manifest, and when do they fail?\n[1] Plugs/Development/Architecture.md (Runtime model)\n  Permissions: The manifest\u2019s `requiredPermissions` list is stamped onto the plug when it loads. Syscalls that require a permission (currently `shell` and `fetch`) throw at call time if the plug didn\u2019t declare the permission. Other syscalls \u2014 most of them \u2014 are available to every plug.\n  Runtime model: At a \u201cbehind the scenes\u201d level, a plug is a JavaScript bundle (`*.plug.js`) that exports `{manifest, functionMapping}`. It is compiled from a `*.plug.yaml` manifest plus the TypeScript files it references, it can  ...\n[2] Plugs/Development/Reference.md (Manifest)\n  Syscalls: Plug code reaches the editor, space, and storage exclusively through _syscalls_. Import them from `@silverbulletmd/silverbullet/syscalls`: / ```typescript / import { editor, space, system } from \"@silverbulletmd/silverbullet/syscalls\"; / await editor.flashNotification(\"Hi\"); / const pages = await space.listPages(); / ``` / Under the hood, each of these calls `globalThis.syscall(\"editor.flashNotification\", \"Hi\")` which is forwarded from the Web Worker to the main thread (`silverbullet/plug-api/syscall.ts`). Syscalls that need a permission throw if the plug didn\u2019t declare it in `requiredPermissions`.\n  Manifest: A plug is described by a single YAML file, conventionally named `{plugname}.plug.yaml`. Top-level keys: / * `name`: Plug name (required, must be unique) / * `requiredPermissions`: List of permissions this plug may use. Recognized values: `fetch`, `shell`. / * `functions`: function-name to [[#Function definitions|function mappings]] \u2014 the heart of the manifest. / * `assets`: Glob patterns of files to bundle into the plug. Readable at runtime via [[API/asset]] calls. / * `build`: Optional pre-bundle transforms (`esbuild` / `sass` / `copy`). Rarely needed.\n[3] Document Editor.md (Usage)\n  Development: For plug manifests, resolution rules, iframe messaging and save handling, see [[Plugs/Development/Document Editors]].\n[4] Runtime API.md (Setup)\n  Error handling: All error responses are JSON with `Content-Type: application/json` and an `error` key. Runtime execution failures also include a stable machine-readable `code`. / Status codes used across the Runtime API: / * **403** \u2014 The caller lacks Write or Runtime API permission. / * **400** \u2014 Empty request body: `{\"error\": \"Request body is required\"}`. Invalid screenshot selector syntax: `{\"error\": \"...\", \"code\": \"invalid_selector\"}`. / * **404** \u2014 No visible element matches the screenshot selector: `{\"error\": \"...\", \"code\": \"selector_not_found\"}`. / * **500** \u2014 Lua/JS execution error (the evaluated code threw, e.g. a Lua error): `{\"error\": \"<error message>\", \"code\": \"script_error\"}`. The message is the concise client error (e.g. `attempt to call a nil value`). The full stack is available in the runtime console log.\n[5] API/share.md (API)\n  share.check(names): * `error`: reading failed, with the message in `error`.\nExact facts:\n- [1] This page explains how plugs are loaded, executed, and isolated within SilverBullet. If you just want to build a plug, you can skip ahead to [[Plugs/Development/Reference]] and come back here when you need to understand *why* something behaves the way it does.",
+ "meta": {
+  "notes": [
+   "Plugs/Development/Architecture.md",
+   "Plugs/Development/Reference.md",
+   "Document Editor.md",
+   "Runtime API.md",
+   "API/share.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

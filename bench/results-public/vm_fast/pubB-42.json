@@ -1,0 +1,22 @@
+{
+ "id": "pubB-42",
+ "type": "verbatim",
+ "answer": "In Firefox, go to `about:debugging#/runtime/this-firefox`, find SilverBullet under the Service Worker section, and click \"Inspect\".",
+ "tokens": 1181,
+ "seconds": 0.398,
+ "e2e_seconds": 2.64,
+ "source_hits": 1.0,
+ "block": "Memory for: Where in Firefox do I go to see SilverBullet's service worker logs?\n[1] Log.md (Log)\n  To better understand what SilverBullet is doing, especially when [[Troubleshooting]], it is good to know where and how to look at SilverBullet logs. / Start with [[Workbench/Console]] for the combined Lua, JavaScript, plug and service-worker log. For lower-level diagnostics, open your browser\u2019s JavaScript console. / * Client logs: Check your browser\u2019s JavaScript console. Usually these are part of \u201c(Web) Developer Tools\u201d buried somewhere in a Tools or Developer menu. / * Service worker logs (especially useful when debugging [[Sync]] issues): / * In Chromium-based browsers these logs are mixed with the regular JavaScript console. / * In Firefox start at `about:debugging#/runtime/this-firefox` then find it under the Service Worker section and click \u201cInspect\u201d. / * In Safari they can be accessed via `Developer > Service workers`. / * Server logs: Server logs are written to the standard output of the server process.\n[2] Workbench/Console.md (The log)\n  The log: The log collects: / * **Lua:** output of `print` in your scripts, with a link to the line that printed it, plus everything you run in the REPL. / * **JS:** anything SilverBullet\u2019s own code writes to the browser\u2019s console, plus uncaught errors. / * **Plug:** log lines from [[Plugs]], labeled with the plug\u2019s name. / * **SW:** log lines from the service worker, which handles syncing and offline support. Lines it logs while no SilverBullet window is open are not shown. / The log keeps the most recent 1000 entries. Use the filter field to search them (a plug\u2019s name matches too), and the **All**, **Lua**, **JS**, **Plug**, **SW** and **Error** buttons to show one source, or only errors.\n[3] Client Encryption.md (Details)\n  Details: A strong 256-bit cryptographic key is derived (using _PBKDF2_) on the client from your username/password combo entered upon login. This key is kept in the service worker for SilverBullet clients to obtain so that the user is not required to constant log in when refreshing a tab, or opening new SilverBullet tabs and windows. / On an account-managed multi-space server, every prefix uses the server\u2019s shared encryption salt. Prefixes have separate service-worker scopes, so a newly opened space asks the server\u2019s other same-origin SilverBullet workers for the in-memory key. As long as another unlocked space remains open, moving between spaces does not require entering the password again. Once every worker has discarded the key, the login page is required to unlock client storage again even if the server session cookie is still valid.\n[4] Architecture/Service Worker.md (Service Worker)\n  One registration per space URL scope in a browser profile. Tabs using the same scope share its active worker. The [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) makes SilverBullet offline-capable: it caches and serves the client code, embeds the [[Sync]] engine that keeps a local copy of your files, and implemen ...\nExact facts:\n- [3] However, if you are accessing SilverBullet from an \u201cuntrusted\u201d device, such as a public computer, this is not a great option, because even after closing your browser all content remains stored on the device unencrypted. You can use commands like `Client: Wipe` and `Client: Logout` to remove data loc",
+ "meta": {
+  "notes": [
+   "Log.md",
+   "Workbench/Console.md",
+   "Client Encryption.md",
+   "Architecture/Service Worker.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

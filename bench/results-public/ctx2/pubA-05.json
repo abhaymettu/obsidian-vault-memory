@@ -1,0 +1,19 @@
+{
+ "id": "pubA-05",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 438,
+ "seconds": 0.005,
+ "e2e_seconds": 2.42,
+ "source_hits": 1.0,
+ "block": "## How can a script find out how many messages in a Lua message queue are waiting, in flight, or have failed permanently?\n\n--- [vault:corpus/docs/API/mq.md] ---\n### mq.awaitEmptyQueue\n\n## mq.awaitEmptyQueue\n`mq.awaitEmptyQueue(queue)`\n\nWaits until a queue has no pending or processing messages.\n\n**Parameters:**\n\n- `queue` (`string`) \u2014 Queue name.\n\n--- [vault:corpus/docs/API/mq.md] ---\n### mq.subscribe\n\n## mq.subscribe\n`mq.subscribe(spec)`\n\nSubscribes a Space Lua callback to a message queue.\n\n**Parameters:**\n\n- `spec` (`table`) \u2014 Subscription with queue, optional batchSize and pollInterval, autoAck (default true), and a run(messages) callback. Each message has queue, id, and body fields.\n\n**Example:**\n\n```lua\nmq.subscribe { queue = \"tasks\", batchSize = 1, run = function(messages) print(messages[1].body) end }\n```\n<!--/lua-->",
+ "meta": {
+  "engine_seconds": 0.005071708000000001,
+  "sources": [
+   "vault:corpus/docs/API/mq.md",
+   "vault:corpus/docs/API/mq.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

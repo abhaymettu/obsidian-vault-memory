@@ -1,0 +1,13 @@
+{
+ "id": "pubA-15",
+ "type": "single",
+ "answer": "No. Git sync is primarily a backup mechanism (for history and backup) and shouldn't be considered for any type of collaboration; for collaboration, use a shared Server space.",
+ "tokens": 657,
+ "seconds": 0.003,
+ "e2e_seconds": 2.84,
+ "source_hits": 1.0,
+ "block": "--- Guide/Git Sync.md ---\nSyncing with a remote | Syncing with a remote\nA managed space can automatically fetch, merge, and push its Git repository. This is primarily a **backup mechanism**, it should not be considered for any type of collaboration.\n\n--- Guide/Git Sync.md ---\nSyncing with a remote\n#guide\n\nUse Git sync to keep a managed space\u2019s revision repository connected to a Git remote. It fetches, merges and pushes committed history. For access from a phone or another Desktop installation, start with [[Guide/Devices and Publishing]] instead.\n\nYou need permission to manage the space\u2019s repository connection and credentials for the destination. Use a disposable repository when trying this workflow. Enabling sync shares existing committed history as well as new changes.\n\n--- Revisions.md ---\nBrowsing history | Syncing with a remote\nA managed space can fetch, merge and push its revision repository. Follow [[Guide/Git Sync]] for setup, timing and recovery. This is primarily for history and backup. Use a shared Server space for collaboration.\n\n--- API/space.md ---\nspace | space.collidingBasenames > space.syncGitNow\n`space.syncGitNow()`\n\nRequests sync on the existing Git connection.\n\n--- Guide/Git Sync.md ---\nSyncing with a remote | Syncing with a remote > Connect a repository\nOpen the space\u2019s settings and choose **Connect repository** or **Manage Git sync**. The connection page separates setup from ordinary space settings:\n\n1. Enter a **Repository** URL. A repository web address can be converted to its clone address. The effective address is shown before testing.\n2. Choose **Deploy key for this space** or **Use server credentials**. The latter means that you manage the server\u2019s Git authentication yourself.\n3. For a deploy key, generate it, copy its public key, and install it at the repository host with write access. The key must be installed before the connection check can succeed.",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT"
+}

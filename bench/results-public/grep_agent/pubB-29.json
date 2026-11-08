@@ -1,0 +1,21 @@
+{
+ "id": "pubB-29",
+ "type": "multi",
+ "answer": "The top bar's color shows the connection state. Yellow means you have no server connection (`Top Bar.md`). If a sync takes longer than a second, a black circle progress indicator appears in the Top Bar (`Sync.md`).",
+ "tokens": 744,
+ "seconds": 5.453,
+ "e2e_seconds": 5.45,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3700,
+  "final_context": 4419,
+  "billed_input": 16201,
+  "turns": 4,
+  "cost_usd": 0.0104233,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"(?i)sync.*(top bar|action bar|color|indicator)|(top bar|action bar).*sync\", \"output_mode\": \"content\", \"head_limit\": 30}\nAPI/editor.md:848:Shows, updates, or hides a sync or indexing progress indicator.\nAPI/editor.md:852:- `progressType` (`sync | index`) \u2014 The operation represented by the indicator.\nSync.md:20:If sync takes longer than a second, a black circle progress indicator will appear in the [[Top Bar]].\nCHANGELOG.md:409:  * Better indication whether your page is synced to the server: \u201cDirty state\u201d (slightly tinted color of page name) is now aligned with actual synced-to-server state _unless_ the editor clearly indicates it is in offline mode (yellow top bar).\n{\"pattern\": \"(?i)top bar\", \"path\": \"corpus/docs/Sync.md\", \"output_mode\": \"content\"}\n20:If sync takes longer than a second, a black circle progress indicator will appear in the [[Top Bar]].\n{\"pattern\": \"(?i)offline|yellow|red\", \"path\": \"corpus/docs/Top Bar.md\", \"output_mode\": \"content\"}\n17:* **Yellow** indicates not having a server connection"
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

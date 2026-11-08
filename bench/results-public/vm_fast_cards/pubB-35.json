@@ -1,0 +1,22 @@
+{
+ "id": "pubB-35",
+ "type": "verbatim",
+ "answer": "A SilverBullet Desktop Pro license key looks like `SBPLS-XXXXX-XXXXX-XXXXX-XXXXX`. You paste it into the **Pro** tab of the Desktop dashboard and click **Activate**.",
+ "tokens": 1278,
+ "seconds": 0.393,
+ "e2e_seconds": 2.66,
+ "source_hits": 1.0,
+ "block": "Memory for: What does a SilverBullet Desktop Pro license key look like?\n[1] Licensing.md (Activating a license)\n  - A how-to and policy note on SilverBullet Desktop licensing, covering which uses are free, how to activate and remove a Pro license key, and where to manage subscriptions and invoices. Names: SilverBullet Desktop, Pro, SBPLS-XXXXX-XXXXX-XXXXX-XXXXX.\n  SilverBullet Desktop is free for personal and education use. Using it at work requires a Pro license. Tiers, prices and seats are explained on the [pricing page](https://silverbullet.md/pricing) and in the [FAQ](https://silverbullet.md/faq).\n  Activating a license: Open the Desktop dashboard, go to the **Pro** tab, paste your license key (it looks like `SBPLS-XXXXX-XXXXX-XXXXX-XXXXX`) and click **Activate**. A Pro license belongs to one user, who can activate it on as many of their own devices as they like. / To stop using a key on a device, click **Remove key** on the same tab.\n  - Using SilverBullet Desktop at work requires a Pro license.\n  - SilverBullet Desktop is free for personal and education use.\n  - A license key looks like SBPLS-XXXXX-XXXXX-XXXXX-XXXXX.\n[2] Keyboard Shortcuts.md (Modifier keys)\n  SilverBullet uses [CodeMirror](https://codemirror.net) under the hood, which does the majority of the keyboard handling. In addition, it allows to for customization of (most) keys on a per-command basis. When you open the [[Command Palette]], you will see the currently assigned keyboard shortcut(s). / It is by far the easiest to configure your keyboard shortcuts in the Key bindings section of [[Workbench/Configuration]].\n  - SilverBullet allows customization of most keys on a per-command basis.\n  - SilverBullet uses CodeMirror under the hood, and CodeMirror does the majority of the keyboard handling.\n[3] Desktop.md (In this section)\n  #desktop / SilverBullet Desktop is the native SilverBullet app for macOS, Windows and Linux: it keeps each space in a folder on your computer and can sync it with a SilverBullet Server. / Desktop runs the shared editor and extension system from [[Install|SilverBullet Server]]. Writing, navigation, queries and Space Lua work the same way. Installation, authentication and device connections depend on where the space is hosted. Desktop does not need an external Server or browser-style synchronization with its embedded server. Downloads and pricing are on the [SilverBullet Desktop page](https://silverbullet.md/desktop).\n[4] Client Encryption.md (Details)\n  Details: A strong 256-bit cryptographic key is derived (using _PBKDF2_) on the client from your username/password combo entered upon login. This key is kept in the service worker for SilverBullet clients to obtain so that the user is not required to constant log in when refreshing a tab, or opening new SilverBullet tabs and windows. / On an account-managed multi-space server, every prefix uses the server\u2019s shared encryption salt. Prefixes have separate service-worker scopes, so a newly opened space asks the server\u2019s other same-origin SilverBullet workers f ...\nExact facts:\n- [1] Manage your subscription, license keys and invoices from your [account page](https://silverbullet.md/account). The [FAQ](https://silverbullet.md/faq) explains how to get an invoice with your company details.\n- [3] [SilverBullet Desktop Tour](https://www.youtube.com/watch?v=Jcw4T0EgO2o)",
+ "meta": {
+  "notes": [
+   "Licensing.md",
+   "Keyboard Shortcuts.md",
+   "Desktop.md",
+   "Client Encryption.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

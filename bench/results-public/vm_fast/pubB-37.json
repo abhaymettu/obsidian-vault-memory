@@ -1,0 +1,21 @@
+{
+ "id": "pubB-37",
+ "type": "verbatim",
+ "answer": "Set `SB_OIDC_CA_FILE` to a PEM certificate for your private CA. SilverBullet will then trust it for provider connections, and certificate verification stays enabled.",
+ "tokens": 1298,
+ "seconds": 0.387,
+ "e2e_seconds": 2.87,
+ "source_hits": 1.0,
+ "block": "Memory for: My OIDC provider uses a certificate from a private CA. Which environment variable points SilverBullet at it?\n[1] Single Sign-On.md (Single Sign-On)\n  OpenID Connect providers: The server must reach the issuer\u2019s discovery, authorization metadata, token and key endpoints. A private certificate authority can be supplied with `SB_OIDC_CA_FILE`, pointing to a PEM certificate trusted for provider connections. Certificate verification remains enabled.\n  OpenID Connect providers: Create a confidential OIDC client, register the displayed callback and enable Authorization Code with PKCE. Use the provider\u2019s issuer URL and client credentials. The provider must supply a stable subject and a verified email, using the `openid`, `email` and `profile` scopes. / SilverBullet\u2019s provider integration tests use [Pocket ID](https://pocket-id.org/docs/), but the same generic configuration is intended for standards-compliant providers such as [Authentik](https://docs.goauthentik.io/add-secure-apps/providers/oauth2/), [Authelia](https://www.authelia.com/integration/openid-connect/introduction/), [Keycloak](https://www.keycloak.org/securing-apps/oidc-layers), and [ZITADEL](https://zitadel.com/docs/guides/integrate/login/oidc). Provider defaults vary, so verify the required scopes, PKCE support, client authentication method, and `email_verified` claim with the sign-in test before enabling SSO. ID tokens with additional audiences (such as a ZITADEL project ID) are accepted when their `azp` claim equals the client ID. The user\u2019s email must be verified at the provider.\n[2] Install/Configuration.md (Network)\n  Metrics: SilverBullet offers a few basic Prometheus metrics, these can be configured with the following environment variables: / * `SB_METRICS_PORT`: HTTP port to expose metrics (under the default `/metrics` endpoint) on\n  Legacy \u201csingle-space\u201d mode options: > **warning** Warning / > Configuring SilverBullet in a single-space server setup with environment variables is now considered a **legacy** feature and **deprecated**. / > / The environment variables below configure a **single-space** server. A fresh install will run SilverBullet in multi-space mode and let you configure most options via the [[Dashboard]].\n[3] TLS.md (LAN HTTP (no TLS))\n  Cloud VM with Caddy: There a various affordable providers of cloud servers that can be used to self-host SilverBullet in the cloud. It relatively easy to get a TLS certificate issued on a publicly exposed server. / The recommended approach for this requires two things: / 1. An Internet exposed cloud server. Affordable options include: / * [Hetzner Cloud](https://hetzner.cloud/?ref=6jW03LSGlJKf) (referral link, EU based) starting from about 3.5 euro/month. / * [Vultr](https://www.vultr.com/products/cloud-compute/) starting from about $2.5/month. / 2. A domain name of your own that you can configure DNS records on to point to your server, or using a service like [DuckDNS](https://www.duckdns.org/) which gives you a `*.duckdns.org` sub-domain for free. / After deploying Silve ...\nExact facts:\n- [1] SilverBullet (in multi-space mode) supports SSO via OpenID Connect (OIDC). Administrators provision accounts individually and assign them to spaces. Local username/password accounts remain available alongside SSO accounts.\n- [1] 4. Copy the displayed callback URL into the provider\u2019s client configuration. The path is `/.auth/central/oidc/callback`. Each space does not need a separate provider callback.",
+ "meta": {
+  "notes": [
+   "Single Sign-On.md",
+   "Install/Configuration.md",
+   "TLS.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,23 @@
+{
+ "id": "pubA-30",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 1542,
+ "seconds": 0.004,
+ "e2e_seconds": 1.87,
+ "source_hits": 0.0,
+ "block": "## What's the keyboard shortcut to refresh every frozen query output on the current page?\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Disabling keyboard shortcuts\n\n# Disabling keyboard shortcuts\nYou can use the [[^Library/Std/APIs/Command#command.update(commandDef)]] API to disable keyboard shortcuts of existing commands by setting them to an empty string, for example:\n\n```lua\ncommand.update {\n  name = \"Task: Cycle State\",\n  key = \"\",\n  mac = \"\"\n}\n```\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Assigning keyboard shortcuts\n\n# Assigning keyboard shortcuts\nKeyboard shortcuts can be assigned to [[Command|Commands]] with `key` or `mac`. If only `key` is defined, this keyboard shortcut will be used for all operating systems, if `mac` is set, this keyboard will be used for macOS.\n\nTo (re)assign a keyboard shortcut for an _existing_ command, you can use the [[^Library/Std/APIs/Command#command.update(commandDef)]] API as follows:\n```lua\ncommand.update {\n  name = \"Task: Cycle State\",\n  key = \"Ctrl-Shift-t\",\n}\n```\n\nWhen you define your own command, you can simply make them part of your command definition:\n\n```lua\ncommand.define {\n  name = \"My command\",\n  key = \"Ctrl-Shift-t\",\n  run = function()\n    editor.flashNotification \"Hello world \"\n  end\n}\n```\n\nYou can also specify multiple keyboard shortcuts by passing in a table to either `key` or `mac`:\n\n```lua\ncommand.define {\n  name = \"My command\",\n  key = {\"Ctrl-Shift-t\", \"Ctrl-Shift-o\"},\n  run = function()\n    editor.flashNotification \"Hello world \"\n  end\n}\n```\n\n--- [vault:corpus/docs/Local Space.md] ---\n### Global keyboard shortcuts\n\n# Global keyboard shortcuts\nBind system-wide keyboard shortcuts to any SilverBullet [[Command]] in any space.\n\n--- [vault:corpus/docs/Page Picker.md] ---\n### Keyboard shortcuts\n\n# Keyboard shortcuts\n* `Enter`: selects the highlighted page from the list and navigate there. If that page is marked with a `Create` chip it will create that page.\n* `Shift-Enter`: navigate to the page entered in as the filter phrase, creating it if it doesn\u2019t already exist. Does nothing in anchor or tag mode, where there is nothing to create.\n* `Space`: with an empty filter phrase will attempt to do something intelligent:\n  * If the currently opened page is nested in a [[Folder|folder]], it will auto complete the current folder name in its place.\n  * If the currently opened page name starts with an emoji, it will complete that emoji in its place.\n  * Otherwise, it will complete the full page name of the currently open page.\n* Typing `$` at the start of the filter phrase switches to [[Markdown/Anchor|anchor]] navigation\n* `ArrowUp`/`ArrowDown`: move up and down the highlighted page list\n* `PageUp`/`PageDown`: move up and down 5 entries in the page list in one go\n* `Home`: moves to the start of the list\n* `End`: moves to the end of the list\n* `Escape`: clears the filter phrase. On an empty phrase it closes the page picker\n* Typing `^` when the filter phrase is empty switches to the **Meta** segment ([[Meta Picker]]). `Tab`/`Shift-Tab` step through all four segments\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Untitled\n\nSilverBullet uses [CodeMirror](https://codemirror.net) under the hood, which does the majority of the keyboard handling. In addition, it allows to for customization of (most) keys on a per-command basis. When you open the [[Command Palette]], you will see the currently assigned keyboard shortcut(s).\n\nIt is by far the easiest to configure your keyboard shortcuts in the Key bindings section of [[Workbench/Configuration]].",
+ "meta": {
+  "engine_seconds": 0.004070000000006985,
+  "sources": [
+   "vault:corpus/docs/Keyboard Shortcuts.md",
+   "vault:corpus/docs/Keyboard Shortcuts.md",
+   "vault:corpus/docs/Local Space.md",
+   "vault:corpus/docs/Page Picker.md",
+   "vault:corpus/docs/Keyboard Shortcuts.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

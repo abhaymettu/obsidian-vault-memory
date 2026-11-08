@@ -1,0 +1,19 @@
+{
+ "id": "pubA-07",
+ "type": "single",
+ "answer": "Setting `done` on a custom task state only affects whether the `Task: Remove Completed` command treats that state as \"done.\" Beyond that, the definition mainly provides code completion for the custom state.",
+ "tokens": 420,
+ "seconds": 0.005,
+ "e2e_seconds": 2.9,
+ "source_hits": 1.0,
+ "block": "## When I define my own task state like IN PROGRESS, what does marking it as finished actually affect?\n\n--- [vault:corpus/docs/API/taskState.md] ---\n### API > taskState.define(def)\n\n## taskState.define(def)\nDefines a custom task state. Options:\n* `name`: name of the state\n* `done`: whether or not the state should be considered \u201cdone\u201d or not, used by the `Task: Remove Completed` command\n\nPrimarily used to offer code completion for custom task states for now.\n\n--- [vault:corpus/docs/Task.md] ---\n### Custom states\n\n# Custom states\nTasks support the default `x` and ` ` states (done and not done), but custom states as well. Support for this is still basic, however.\n\nExample:\n\n* [NOT STARTED] Choose a photo-walk route\n* [IN PROGRESS] Charge camera battery\n\nRestrictions:\n\n* Task states cannot contain `:` to avoid ambiguity with [[Attribute]] syntax.\n\nTo define custom states explicitly (and get code completion for them), use the [[API/taskState]] API.",
+ "meta": {
+  "engine_seconds": 0.004939042,
+  "sources": [
+   "vault:corpus/docs/API/taskState.md",
+   "vault:corpus/docs/Task.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

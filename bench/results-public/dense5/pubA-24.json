@@ -1,0 +1,14 @@
+{
+ "id": "pubA-24",
+ "type": "verbatim",
+ "answer": "The default maximum upload size is 10MB, and you can raise it with the `maximumDocumentSize` option, e.g. `config.set(\"maximumDocumentSize\", 100)`.",
+ "tokens": 851,
+ "seconds": 0.004,
+ "e2e_seconds": 2.31,
+ "source_hits": 1.0,
+ "block": "--- Document.md ---\nUploading | Uploading\nTo upload documents you have a few options:\n\n* Use the `Upload: File` command (especially useful on mobile devices)\n* Drag & drop files or images onto a page\n* Copy & paste files or images onto a page\n\nAll options will prompt you for a file name to use to store the document, and then include the document as an embedded image (if it was an image) or link to the file.\n\nBy default the maximum allowed filesize for an upload is 10MB, you can change that with the `maximumDocumentSize` option.\n```lua\nconfig.set(\"maximumDocumentSize\", 100)\n```\n\n--- CLI.md ---\nInstallation | Commands > `fs`: remote files > Output and limits\nReads and writes have a default CLI transfer cap of 16 MiB. `--max-bytes N` changes it. `--max-bytes 0` removes the CLI cap, while server request limits still apply. Oversized reads fail without emitting partial content. File operations use server-stored bytes, not unsaved editor buffers, and do not decrypt client-encrypted spaces.\n\n--- Document.md ---\nUploading | Embedding > Media resizing\nIn addition, media can be _sized_ using the following syntax:\n* Specifying only a width: `![Alt text|300](image.png)` or `![[image.png|300]]`\n* Specifying only a height: `![Alt text|x300](image.png)` or `![[image.png|x300]]`\n* Specifying both width and height: `![Hello|300x300](image.png)` or `![[image.png|300x300]]`\n* Specifying a percentage width: `![Alt text|30%](image.png)` or `![[image.png|30%]]`\n* Combining a percentage width with a pixel height: `![Alt text|30%x200](image.png)` or `![[image.png|30%x200]]`\n\nNumeric dimensions are in pixels. Percentage widths are relative to the containing content area and resize with it, rather than being a percentage of the image\u2019s original size. Decimal percentages such as `12.5%` are supported. Specifying only a width preserves the image\u2019s proportions. Specifying both dimensions can stretch it. Height must be in pixels. Percentage heights are not supported.\n\n--- CLI.md ---\nInstallation | => \"index\"\nsb lua 'return 40 + 2'\nsb lua --file myscript.lua\n\n--- Reference/Technical Reference.md ---\nExternal interfaces | Deployment and storage\n* [[Install/Server]] \u2014 Server deployment choices and filesystem requirements.",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

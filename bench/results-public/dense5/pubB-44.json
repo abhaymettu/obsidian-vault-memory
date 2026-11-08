@@ -1,0 +1,14 @@
+{
+ "id": "pubB-44",
+ "type": "verbatim",
+ "answer": "The tag is `#meta/template/slash`. Pages tagged with it define slash commands that insert templated content at the cursor position.",
+ "tokens": 480,
+ "seconds": 0.002,
+ "e2e_seconds": 2.08,
+ "source_hits": 1.0,
+ "block": "--- Template.md ---\nCreating templates | Slash templates\n[[Slash Templates]] are pages tagged with `#meta/template/slash`. They define [[Slash Command|slash commands]] that insert templated content at the cursor position. The last component of the page name becomes the slash command name.\n\nSee also: [[API/template]], [[Page Template]], [[Slash Templates]], [[Space Lua]]\n\n--- Slash Templates.md ---\nCreating a slash template | Currently active slash templates\n${query[[\n  from p = index.pages(\"meta/template/slash\")\n  select templates.fullPageItem(p)\n]]}\n\nSee also: [[Slash Command]], [[Template]], [[Page Template]]\n\n--- Slash Templates.md ---\nCreating a slash template | description\nReusable content inserted by slash commands.\n\n--- Slash Templates.md ---\nCreating a slash template\nSlash templates are a quick way to define [[Slash Command|slash commands]] that insert templated content at the cursor position. They are defined as pages tagged with `#meta/template/slash`. The inserted text is saved in the destination page. Later edits to the template do not change earlier insertions.\n\n--- Slash Templates.md ---\nCreating a slash template | Creating a slash template > Example\nA minimal page named `Library/Slash Template/action-items` with this content:\n\n~~~\n---\ntags: meta/template/slash\ndescription: Insert a standard action items section\n---",
+ "meta": {},
+ "score": 1.0,
+ "judge": "PARTIAL",
+ "exact": 1.0
+}

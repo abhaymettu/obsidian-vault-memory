@@ -1,0 +1,23 @@
+{
+ "id": "pubB-41",
+ "type": "verbatim",
+ "answer": "`Comment: Add` is bound to `Ctrl-Alt-c` (or `Cmd-Alt-c` on Mac), and the `/comment` slash command does the same, inserting a comment after the current block.",
+ "tokens": 1217,
+ "seconds": 0.004,
+ "e2e_seconds": 2.24,
+ "source_hits": 1.0,
+ "block": "## What's the keyboard shortcut for inserting a comment block after the current block?\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Disabling keyboard shortcuts\n\n# Disabling keyboard shortcuts\nYou can use the [[^Library/Std/APIs/Command#command.update(commandDef)]] API to disable keyboard shortcuts of existing commands by setting them to an empty string, for example:\n\n```lua\ncommand.update {\n  name = \"Task: Cycle State\",\n  key = \"\",\n  mac = \"\"\n}\n```\n\n--- [vault:corpus/docs/Local Space.md] ---\n### Global keyboard shortcuts\n\n# Global keyboard shortcuts\nBind system-wide keyboard shortcuts to any SilverBullet [[Command]] in any space.\n\n--- [vault:corpus/docs/Page Picker.md] ---\n### Keyboard shortcuts\n\n# Keyboard shortcuts\n* `Enter`: selects the highlighted page from the list and navigate there. If that page is marked with a `Create` chip it will create that page.\n* `Shift-Enter`: navigate to the page entered in as the filter phrase, creating it if it doesn\u2019t already exist. Does nothing in anchor or tag mode, where there is nothing to create.\n* `Space`: with an empty filter phrase will attempt to do something intelligent:\n  * If the currently opened page is nested in a [[Folder|folder]], it will auto complete the current folder name in its place.\n  * If the currently opened page name starts with an emoji, it will complete that emoji in its place.\n  * Otherwise, it will complete the full page name of the currently open page.\n* Typing `$` at the start of the filter phrase switches to [[Markdown/Anchor|anchor]] navigation\n* `ArrowUp`/`ArrowDown`: move up and down the highlighted page list\n* `PageUp`/`PageDown`: move up and down 5 entries in the page list in one go\n* `Home`: moves to the start of the list\n* `End`: moves to the end of the list\n* `Escape`: clears the filter phrase. On an empty phrase it closes the page picker\n* Typing `^` when the filter phrase is empty switches to the **Meta** segment ([[Meta Picker]]). `Tab`/`Shift-Tab` step through all four segments\n\n--- [vault:corpus/docs/Markdown/Comment.md] ---\n### Commands\n\n# Commands\n* `Comment: Add` (`Ctrl-Alt-c` / `Cmd-Alt-c`, or the `/comment` slash command) inserts a comment after the current block.\n* `Comment: Selection` wraps the selected lines in `<!--` and `-->`.\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Untitled\n\nSilverBullet uses [CodeMirror](https://codemirror.net) under the hood, which does the majority of the keyboard handling. In addition, it allows to for customization of (most) keys on a per-command basis. When you open the [[Command Palette]], you will see the currently assigned keyboard shortcut(s).\n\nIt is by far the easiest to configure your keyboard shortcuts in the Key bindings section of [[Workbench/Configuration]].",
+ "meta": {
+  "engine_seconds": 0.0033384579999983545,
+  "sources": [
+   "vault:corpus/docs/Keyboard Shortcuts.md",
+   "vault:corpus/docs/Local Space.md",
+   "vault:corpus/docs/Page Picker.md",
+   "vault:corpus/docs/Markdown/Comment.md",
+   "vault:corpus/docs/Keyboard Shortcuts.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

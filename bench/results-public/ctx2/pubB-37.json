@@ -1,0 +1,20 @@
+{
+ "id": "pubB-37",
+ "type": "verbatim",
+ "answer": "Set `SB_OIDC_CA_FILE` to a PEM certificate file for your private CA. SilverBullet will then trust it for provider connections, and certificate verification stays enabled.",
+ "tokens": 818,
+ "seconds": 0.004,
+ "e2e_seconds": 2.36,
+ "source_hits": 1.0,
+ "block": "## My OIDC provider uses a certificate from a private CA. Which environment variable points SilverBullet at it?\n\n--- [vault:corpus/docs/Single Sign-On.md] ---\n### Connect a provider > OpenID Connect providers\n\n### OpenID Connect providers\nCreate a confidential OIDC client, register the displayed callback and enable Authorization Code with PKCE. Use the provider\u2019s issuer URL and client credentials. The provider must supply a stable subject and a verified email, using the `openid`, `email` and `profile` scopes.\n\nSilverBullet\u2019s provider integration tests use [Pocket ID](https://pocket-id.org/docs/), but the same generic configuration is intended for standards-compliant providers such as [Authentik](https://docs.goauthentik.io/add-secure-apps/providers/oauth2/), [Authelia](https://www.authelia.com/integration/openid-connect/introduction/), [Keycloak](https://www.keycloak.org/securing-apps/oidc-layers), and [ZITADEL](https://zitadel.com/docs/guides/integrate/login/oidc). Provider defaults vary, so verify the required scopes, PKCE support, client authentication method, and `email_verified` claim with the sign-in test before enabling SSO. ID tokens with additional audiences (such as a ZITADEL project ID) are accepted when their `azp` claim equals the client ID. The user\u2019s email must be verified at the provider.\n\nThe server must reach the issuer\u2019s discovery, authorization metadata, token and key endpoints. A private certificate authority can be supplied with `SB_OIDC_CA_FILE`, pointing to a PEM certificate trusted for provider connections. Certificate verification remains enabled.\n\n--- [vault:corpus/docs/Install/Configuration.md] ---\n### Legacy \u201csingle-space\u201d mode options\n\n# Legacy \u201csingle-space\u201d mode options\n> **warning** Warning\n> Configuring SilverBullet in a single-space server setup with environment variables is now considered a **legacy** feature and **deprecated**.\n>\n\nThe environment variables below configure a **single-space** server. A fresh install will run SilverBullet in multi-space mode and let you configure most options via the [[Dashboard]].",
+ "meta": {
+  "engine_seconds": 0.0038719580000000065,
+  "sources": [
+   "vault:corpus/docs/Single Sign-On.md",
+   "vault:corpus/docs/Install/Configuration.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

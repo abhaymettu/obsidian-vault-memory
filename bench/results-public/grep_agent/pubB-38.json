@@ -1,0 +1,22 @@
+{
+ "id": "pubB-38",
+ "type": "verbatim",
+ "answer": "Use `_CTX.sourcePage`. It holds the page the expression's text comes from, as `{ name = \u2026 }`. Inside a transclusion that is the transcluded page, and otherwise it is the current page. This is documented in `Space Lua/Thread Locals.md`.",
+ "tokens": 613,
+ "seconds": 5.702,
+ "e2e_seconds": 5.7,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3691,
+  "final_context": 4288,
+  "billed_input": 15707,
+  "turns": 4,
+  "cost_usd": 0.0096336,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"transclu\", \"-i\": true, \"output_mode\": \"content\", \"glob\": \"**/*Context*\"}\nNo matches found\n{\"pattern\": \"@context\\\\.|_CTX|currentPage|pageRef\", \"output_mode\": \"files_with_matches\"}\nFound 7 files\nTag/table.md\nTag/page.md\nTag/header.md\nTag/data.md\nSpace Lua/Thread Locals.md\nSpace Lua.md\nAPI/markdown.md\n{\"pattern\": \"transclu\", \"-i\": true, \"output_mode\": \"content\", \"path\": \"Space Lua\"}\nSpace Lua/Thread Locals.md:11:* `_CTX.sourcePage` the page the expression\u2019s text comes from (`{ name = \u2026 }`): the transcluded page inside a transclusion, otherwise the current page\nSpace Lua/Page Lua.md:29:* A transcluded page is evaluated in its own scope. Scopes are never merged with the page that embeds it."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

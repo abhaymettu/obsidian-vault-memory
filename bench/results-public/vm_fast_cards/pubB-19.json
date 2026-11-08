@@ -1,0 +1,21 @@
+{
+ "id": "pubB-19",
+ "type": "multi",
+ "answer": "Use the Meta Picker, which only shows pages tagged with a `meta` tag prefix. From inside the page picker, type `^` as the first character in an empty box to narrow it to meta pages.",
+ "tokens": 1323,
+ "seconds": 0.494,
+ "e2e_seconds": 2.59,
+ "source_hits": 1.0,
+ "block": "Memory for: Pages with a meta tag don't show up in my normal page picker. What do I use to reach them, and how do I switch to it from inside the page picker?\n[1] Page Picker.md (Result ordering)\n  - Any page tagged with a tag starting with `#meta` does not appear in the page picker, and the Meta Picker must be used to navigate to such pages.\n  If the filter phrase starts with `$`, the picker switches to navigating [[Markdown/Anchor|anchors]] instead of pages: everything after the `$` filters anchor names from across your [[Space]], and each result shows a snippet of the anchored content along with the host page it lives on. Deleting the `$` returns you to the page list. This works from any of the pickers. / > **note** Note / > Any page tagged with a tag starting with `#meta`, even though technically regular pages, will **not** appear in the page picker. To navigate to them, use the [[Meta Picker]] instead. / Pressing the `Enter` key will open/create the selected page. / Pressing `Shift-Enter` will open or create (if it doesn\u2019t already exist) the page _exactly matching_ the filter phrase. In [[Markdown/Anchor|anchor]] and tag mode there is nothing to create, so it does nothing there.\n[2] Anything Picker.md (Anything Picker)\n  The anything picker can be used to open any page, including [[Meta Page]] and pages hidden with [[Page Decorations]]. Otherwise it\u2019s equivalent to the [[Page Picker]]. / To open, run the command ${widgets.commandButton(\"Navigate: Anything Picker\")} using this button or [[Command Palette]]. Alternatively reach it from any other picker with `Tab`: it is the **All** segment of the same [[View]].\n[3] Meta Picker.md (Meta Picker)\n  - The meta picker is functionally equivalent to the Page Picker, except that it only shows pages tagged with a `meta` tag prefix.\n  The meta picker is used to navigate between [[Meta Page]]. Functionally it\u2019s equivalent to the [[Page Picker]] except that it only shows pages tagged with a `meta` tag prefix.\n[4] View.md (Widgets and views)\n  Using a panel: * `Shift-Enter` creates whatever you typed, in views that allow it. A create row also appears on its own: second in a list, pinned below the tree in a tree. / * The **first character typed into an empty box can route**: / * `^` narrows the page picker to [[Meta Page|meta pages]]. / * `$` opens the anchor picker / * `#` the tag picker / * In the page picker, `Space` on an empty phrase inserts the folder you are currently in, and `Alt-Space` extends the phrase by one more path segment of the best match. A `#tag` anywhere in the phrase filters by tag rather than matching names. / In a tree that supports it: drag a row onto a folder to move it (renaming through SilverBullet\u2019s own machinery, so backlinks follow).\n  - The Tag picker is opened with Ctrl-Alt-t or # from the Page Picker, shows every tag with how many things carry it, opens as a modal by default, and can move to either sidebar or the bottom panel.\nExact facts:\n- [1] 1. Enables quick navigation between [[Page]]\n- [1] 2. Enables creation of new pages\n- [1] The page picker can be invoked by clicking the \ud83d\udcd4 icon in the top bar, or by pressing `Cmd-k` on Mac, or `Ctrl-k` on Windows/Linux.\n- [1] Therefore, if you _intend to create a new page_, simply type the name of the new page and hit `Shift-Enter`.\n- [1] `Enter`: selects the highlighted page from the list and navigate there. If that page is marked with a `Create` chip it will create that page.",
+ "meta": {
+  "notes": [
+   "Page Picker.md",
+   "Anything Picker.md",
+   "Meta Picker.md",
+   "View.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

@@ -1,0 +1,19 @@
+{
+ "id": "pubB-19",
+ "type": "multi",
+ "answer": "Use the Meta Picker, which works like the Page Picker but only shows pages tagged with a `meta` tag prefix. The memory doesn't say how to switch to it from inside the page picker, so that part is not in memory.",
+ "tokens": 769,
+ "seconds": 0.006,
+ "e2e_seconds": 3.17,
+ "source_hits": 1.0,
+ "block": "## Pages with a meta tag don't show up in my normal page picker. What do I use to reach them, and how do I switch to it from inside the page picker?\n\n--- [vault:corpus/docs/Meta Picker.md] ---\n### Untitled\n\nThe meta picker is used to navigate between [[Meta Page]]. Functionally it\u2019s equivalent to the [[Page Picker]] except that it only shows pages tagged with a `meta` tag prefix.\n\n--- [vault:corpus/docs/Page Picker.md] ---\n### Untitled\n\nUse the page picker to find a note by name or create one in a writable space. For searching inside notes, use [[Search]]. The published documentation is read-only: use your own space for the creation steps below.\n\nThe page picker has two main functions:\n\n1. Enables quick navigation between [[Page]]\n2. Enables creation of new pages\n   * Based on the entered name\n   * Based on [[Link|linked]] to, but not yet created page names\n\nThe page picker can be invoked by clicking the \ud83d\udcd4 icon in the top bar, or by pressing `Cmd-k` on Mac, or `Ctrl-k` on Windows/Linux.\n\nThe main input is the **filter phrase** and can be used to narrow down the list of page results.\n\nIf the filter phrase contains `#tags` the results will be filtered based on matching those tags.\n\nIf the filter phrase starts with `$`, the picker switches to navigating [[Markdown/Anchor|anchors]] instead of pages: everything after the `$` filters anchor names from across your [[Space]], and each result shows a snippet of the anchored content along with the host page it lives on. Deleting the `$` returns you to the page list. This works from any of the pickers.\n\n> **note** Note\n> Any page tagged with a tag starting with `#meta`, even though technically regular pages, will **not** appear in the page picker. To navigate to them, use the [[Meta Picker]] instead.\n\nPressing the `Enter` key will open/create the selected page.\nPressing `Shift-Enter` will open or create (if it doesn\u2019t already exist) the page _exactly matching_ the fil",
+ "meta": {
+  "engine_seconds": 0.006093792000000008,
+  "sources": [
+   "vault:corpus/docs/Meta Picker.md",
+   "vault:corpus/docs/Page Picker.md"
+  ]
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

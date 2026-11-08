@@ -1,0 +1,21 @@
+{
+ "id": "pubA-35",
+ "type": "multi",
+ "answer": "It stops firing when the runtime goes idle. A runtime that has had no requests for 30 minutes is stopped, and while it's stopped nothing runs in its client, including `cron:secondPassed` listeners. The next request starts it again. You can change the timeout with `SB_RUNTIME_IDLE_TIMEOUT` (in minutes) in single-space mode, and `0` keeps runtimes running. This is from `Runtime API.md`, \"Idle stop\".",
+ "tokens": 849,
+ "seconds": 4.591,
+ "e2e_seconds": 4.59,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3698,
+  "final_context": 4524,
+  "billed_input": 8222,
+  "turns": 2,
+  "cost_usd": 0.0081579,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"cron:secondPassed|secondPassed\", \"output_mode\": \"content\", \"-C\": 3}\nAPI/widget.md-138-  content = function()\nAPI/widget.md-139-    return os.date(\"%H:%M:%S\")\nAPI/widget.md-140-  end,\nAPI/widget.md:141:  refreshOn = { \"cron:secondPassed\" }\nAPI/widget.md-142-}}\nAPI/widget.md-143-\nAPI/widget.md-144-Top and bottom widgets from `hooks:renderTopWidgets` / `hooks:renderBottomWidgets` are not tracked because they\u2019re legacy \u2014 use a page-docked view instead.\n--\nEvent.md-57-## System events\nEvent.md-58-* `page:index`: A page has changed and needs to be indexed (used by [[Object]] indexing)\nEvent.md-59-* `plugs:loaded`: Plugs were loaded\nEvent.md:60:* `cron:secondPassed`: One second has passed (useful for implementing periodic behavior)\nEvent.md-61-\nEvent.md-62-## Widget events\nEvent.md-63-* `hooks:renderTopWidgets`: Top widgets requested to render \u2014 return widgets to display above the page content **Deprecated:** define a `page-top` view instead \u2014 see [[Widget#Showing a widget above or below every page]].\n--\nRuntime API.md-167-## Idle stop\nRuntime API.md-168-A runtime that has received no requests for 30 minutes is stopped: its Chrome exits and it uses no memory or CPU. The next request starts it again on the same profile, so the client picks up where it left off instead of rebuilding its index. That takes about a second, plus the time to index pages that changed in the meantime.\nRuntime API.md-169-\nRuntime API.md:170:While a runtime is stopped, nothing runs in its client, including Space Lua event listeners such as `cron:secondPassed`.\nRuntime API.md-171-\nRuntime API.md-172-To change the timeout, in minutes (`0` keeps runtimes running):\nRuntime API.md-173-* In single-space mode, set `SB_RUNTIME_IDLE_TIMEOUT`, for example `SB_RUNTIME_IDLE_TIMEOUT=120`."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

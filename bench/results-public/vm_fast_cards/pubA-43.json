@@ -1,0 +1,23 @@
+{
+ "id": "pubA-43",
+ "type": "multi",
+ "answer": "The graph explorer draws from the `Tag/relation` index. That index was introduced by commit 91349448 on 2026-05-21 (\"Introduce 'relation' indexer, demote 'link' to virtual view\"), and it appears in the 2.9.0 changelog.",
+ "tokens": 1382,
+ "seconds": 0.417,
+ "e2e_seconds": 3.49,
+ "source_hits": 1.0,
+ "block": "Memory for: Which index does the graph explorer draw from, and when did that index get introduced?\n[1] ADR.md (Stats)\n  - ADR 003 Indexed Object Graph was accepted on 2022-04-06, owned by Zef Hemel.\n[2] CHANGELOG.md (CHANGELOG)\n  2.9.0: * New [[Tag/relation|relation]] indexed object capturing generalized object-to-object relationships. This is a successor to `link`, which still exists as a virtual collection built on top of `relation`. / * New experimental [[Object Graph]]: an interactive, force-directed graph explorer over the [[Tag/relation|relation]] index. Try it via ${widgets.commandButton(\"Graph: Explore\")} and ${widgets.commandButton(\"Graph: Global Page Map\")}. / * Picker fuzzy search: replaced Fuse.js with a custom scorer that supports multi-token queries, path-aware ranking, and some typo tolerance. / * UX: a _lot_ of little visual tweaks and usability fixes all over the place that hopefully will trigger less of your OCD, including: / * On narrow viewports (<800px) header `#` markers no longer get pushed off-screen when the cursor enters a heading / * Positioning of the page title is now (more) left-aligned with editor text.\n[3] ADR/003 Indexed Object Graph.md (Context)\n  - Commit 91349448 introduced the 'relation' indexer and demoted 'link' to a virtual view. (2026-05-21)\n  References: * [[Object]] \u00b7 [[Object Index]] \u00b7 [[Tag/relation]] \u00b7 [[Graph View]]. / * Generalized relation: [commit 91349448](https://github.com/silverbulletmd/silverbullet/commit/91349448) (2026-05-21) \u2014 \u201cIntroduce \u2018relation\u2019 indexer, demote \u2018link\u2019 to virtual view\u201d\n  - SilverBullet continuously maintains an Object Index, a structured queryable graph automatically extracted from the markdown.\n  Decision: Continuously maintain an **[[Object Index]]**: a structured, queryable graph automatically extracted from the markdown. Every meaningful element \u2014 [[Tag/page|pages]], headers, [[Tag/task|tasks]], list items, [[Tag|tags]], links \u2014 becomes an **[[Object|object]]** (a \u201crow\u201d) with attributes, typed by one or more tags (\u201ctables\u201d), queried via [[Space Lua/Integrated Query]] and the [[API/index]] API. / Two principles hold it together: / * **Markdown is the source of truth.** Every indexed object has a representation in the markdown. The index is derived, can be flushed, and rebuilt from the files at any time (`Space: Reindex`).  ...\n[4] Graph View.md (Opening the graph)\n  - The graph is powered entirely by the Tag/relation index.\n  - The interactive object-graph explorer visualizes objects such as pages, items and blocks, and the typed relations between them.\n[5] Object Index.md (Indexing)\n  The Object Index stores [[Object|Objects]] found in your [[Space]]. / The [[Page Picker]], [[Meta Picker]] and [[Linked Mention|Linked Mentions]] use this index. Explore its records in [[Workbench/Data]], or read them through [[API/index]].\n  - index.objects(tag) is an entry point of the Object Index, for example index.objects(\"page\").\n[6] Reference/Indexing Internals.md (Indexing process)\n  - The Object Index is derived from space files.\nExact facts:\n- [1] [[ADR/003 Indexed Object Graph|003 Indexed Object Graph]] \u2014 accepted, 2022-04-06, Owner: [[Zef Hemel]]\n- [2] Full text & semantic [[Search]] is here: `Space: Search` (Cmd-Shift-f/Ctrl-Shift-f) searches every page through a full-text index and optionally a semantic search index (needs to be enabled explicitly, see [[Search#Semantic search]]).",
+ "meta": {
+  "notes": [
+   "ADR.md",
+   "CHANGELOG.md",
+   "ADR/003 Indexed Object Graph.md",
+   "Graph View.md",
+   "Object Index.md",
+   "Reference/Indexing Internals.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "pubA-28",
+ "type": "verbatim",
+ "answer": "Lua was first integrated into SilverBullet in commit 3cf7b72e, in 2024-10.",
+ "tokens": 1301,
+ "seconds": 0.497,
+ "e2e_seconds": 2.47,
+ "source_hits": 1.0,
+ "block": "Memory for: Which commit first brought Lua into SilverBullet, and when?\n[1] ADR/005 Space Lua.md (Context)\n  References: * First Lua integration: [commit 3cf7b72e](https://github.com/silverbulletmd/silverbullet/commit/3cf7b72e) (2024-10). / * [[Space Lua]] \u00b7 [[Space Lua/Integrated Query]] \u00b7 [[Migrate from v1]] \u2014 what changed from directives / Handlebars / Space Script.\n  Decision: Writing our own interpreter (for partly historical reasons) bought a very smooth interoperability story: friction-free access to a lot of SilverBullet and browser functionality, and deep enough integration with the Lua runtime to support editor features like code completion and jump-to-definition. It also opened the path to develop SilverBullet-specific language extensions, specifically [[Space Lua/Integrated Query]] that otherwise would have been impossible.\n[2] Virtual Pages.md (How it works)\n  How it works: You define a virtual page by calling `virtualPage.define` with a Lua pattern and a function. When someone navigates to a page name matching the pattern, SilverBullet calls your function instead of loading a file from disk. / The current standard-library dispatcher passes the first captured value from the pattern to the function. The function returns the Markdown content to display. Put definitions in a `space-lua` block in your own space, then run `System: Reload`. / ```lua / virtualPage.define { / pattern = \"greeting:(.+)\", / run = function(name) / return \"# Hello, \" .. name .. \"!\\nWelcome to this virtual page.\" / end / } / ``` / Navigating to `greeting:World` renders a page with the heading \u201cHello, World!\u201d \u2014 but no file is created. / Virtual pages are always **read-only**. The editor disables editing controls automatically.\n[3] Architecture/Space Lua.md (Space Lua)\n  [[Space Lua]] is SilverBullet\u2019s embedded Lua dialect and runtime for extensions. It implements most of the Lua 5.4 standard library plus Space Lua-specific [[API]]s, and can reach all [[Architecture/Syscalls]].\n[4] Runtime API.md (Setup)\n  How it works: Once ready, the server communicates with the browser directly via Chrome DevTools Protocol (CDP). Because Lua code runs inside a real SilverBullet client, it has access to the full API surface \u2014 `editor.*`, `space.*`, queries, and everything else available to in-page scripts and widgets. The results reflect live client state.\n[5] API/spacelua.md (spacelua)\n  spacelua.baseUrl: `spacelua.baseUrl()` / Returns the SilverBullet instance\u2019s base URL, or `nil` when run on the server. / **Returns:** / - `string|nil` / **Example:** / ```lua / local url = spacelua.baseUrl() / print(url) / ```\n[6] Development.md (Stack)\n  SilverBullet development can happen at various level. / At its most basic level, you can do a lot using [[Space Lua]]. If this does not give enough power, you can upgrade to [[Plugs]]. If _that_ doesn\u2019t suffice, you can contribute to SilverBullet\u2019s core (see below).\nExact facts:\n- [1] SilverBullet lets users put dynamic content: live queries, computed views, templated rendering, and custom logic directly in their pages. In v1 this was spread across **three separate mechanisms**, each with its own syntax:\n- [1] `space-lua` code blocks define space-wide functions and config.\n- [1] Space Lua Integrated Query (SLIQ)** \u2014 `${query[[ from ... select ... ]]}` replaces the old query language. Because the body after `from` is a Lua expression, it can query the [[Object Index|object index]] *or* any Lua table.",
+ "meta": {
+  "notes": [
+   "ADR/005 Space Lua.md",
+   "Virtual Pages.md",
+   "Architecture/Space Lua.md",
+   "Runtime API.md",
+   "API/spacelua.md",
+   "Development.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

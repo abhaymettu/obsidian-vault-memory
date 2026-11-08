@@ -1,0 +1,22 @@
+{
+ "id": "pubB-43",
+ "type": "verbatim",
+ "answer": "The `System: Wipe Client` command wipes your local content in v2, which is sync-mode only.",
+ "tokens": 1232,
+ "seconds": 0.423,
+ "e2e_seconds": 2.54,
+ "source_hits": 1.0,
+ "block": "Memory for: v2 has no online mode. Which command wipes the content synced into my browser?\n[1] Migrate from v1.md (Queries)\n  Removed features: Certain features have been removed: / * Online mode: v2 is sync mode only, meaning all your content will be synced into your browser. A simpler Online mode may be added back later. If you like to wipe your local content at any time, use the `System: Wipe Client` command. / * [Federation](https://v1.silverbullet.md/Federation) / * [Share](https://v1.silverbullet.md/Plugs/Share) replaced by [[^Library/Std/Infrastructure/Export]] / * Space Script: replaced by [[Space Lua]] / * Space Config: replaced by the [[API/config]] APIs. / * Command link syntax (`{[...]})`) replaced by the `${widgets.commandButton(...)}` API.\n  - v2 is sync mode only, meaning all content is synced into the browser, and a simpler Online mode may be added back later.\n  - To wipe local content at any time in v2, use the `System: Wipe Client` command.\n[2] ADR/007 Core Application Logic on the Client.md (Context)\n  Decision: v2 **eliminates the server-side PlugOS runtime**: plug execution, indexing, the query engine, [[Space Lua]], page rendering, and the [[Sync|sync engine]] now run **only in the client**. In effect, **sync mode becomes the only mode**, and the **server is reduced to a file store** \u2014 it lists, reads, writes and deletes files, handles authentication, serves the static client, and runs shell commands. See [[Architecture]].\n  - In v1, Sync mode also synced the space to the browser, and indexing and plug execution ran client-side, with users able to switch between the two modes.\n  - In v2, sync mode becomes the only mode, and the server is reduced to a file store.\n[3] CHANGELOG.md (CHANGELOG)\n  2.11.0: * **LAN HTTP support:** open SilverBullet via a LAN IP or hostname without TLS in online-only mode, with compatible hashing and text copying. Failed loads now preserve the current editor and page list instead of presenting empty content, direct requests update the connection indicator, and the browser warns before leaving an unsaved editor. See [[TLS]] for limitations. / * Fix: a linked-mention snippet that contained a `![[transclusion]]` inlined the entire target page into the Linked Mentions widget -- frontmatter first, rendered as garbage. Snippets now show such a mention as a plain link, and a transcluded page\u2019s frontmatter no longer leaks into rendered widget content. (Triggers a full space reindex on upgrade.) / * Fix: better blockquote rendering:\n[4] Sync.md (Sync)\n  SilverBullet is designed as an [[ADR/001 Offline-First PWA|Offline-First]] mindset \u2014\u00a0that is: your content should be available to you, whether you have an Internet connection or not. / Depending on the edition of SilverBullet that you use, Sync functions slightly differently. When you use the **Server** directly via the browser, your content will be synced to your browser\u2019s local storage (IndexedDB). After an online load and initial sync, cached pages can be read and edited without a connection. Edits reconci ...\nExact facts:\n- [2] This was flexible and genuinely powerful, but maintaining **two runtime environments** for PlugOS was a persistent burden: every capability had to work and the dual model produced subtle, hard-to-diagnose issues. The goal for v2 was to be genuinely **offline-first** without that complexity.",
+ "meta": {
+  "notes": [
+   "Migrate from v1.md",
+   "ADR/007 Core Application Logic on the Client.md",
+   "CHANGELOG.md",
+   "Sync.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

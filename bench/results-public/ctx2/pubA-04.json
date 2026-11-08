@@ -1,0 +1,19 @@
+{
+ "id": "pubA-04",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 467,
+ "seconds": 0.007,
+ "e2e_seconds": 2.87,
+ "source_hits": 0.0,
+ "block": "## What does the Space Lua percent-decoding helper return if I hand it a broken escape sequence?\n\n--- [vault:corpus/docs/ADR/006 Space Lua Integrated Query.md] ---\n### Consequences > Positive\n\n## Positive\n* **Declarative and familiar.** SQL/LINQ-style reads far better than hand-rolled loops for the common select/filter/aggregate task.\n* **Still one language.** SLIQ is sugar *within* Lua, not a separate DSL \u2014 it preserves the \u201cone language, no seams\u201d win of [[ADR/005 Space Lua]] (a query can `select` a template call, use Lua helpers, etc.).\n* **Uniform over any data.** Because `from` takes a Lua expression, the same syntax queries indexed objects or arbitrary in-memory tables.\n\n--- [vault:corpus/docs/Schema.md] ---\n### Schema helper functions\n\n# Schema helper functions\nThe [[^Library/Std/APIs/Schema]] library provides convenience functions like `schema.string()`, `schema.number()`, `schema.array(typ)`, etc. for building JSON Schema objects in Lua. See the API page for the full list.",
+ "meta": {
+  "engine_seconds": 0.006689667000000015,
+  "sources": [
+   "vault:corpus/docs/ADR/006 Space Lua Integrated Query.md",
+   "vault:corpus/docs/Schema.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

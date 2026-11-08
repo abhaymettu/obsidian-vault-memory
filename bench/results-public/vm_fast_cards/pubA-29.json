@@ -1,0 +1,21 @@
+{
+ "id": "pubA-29",
+ "type": "verbatim",
+ "answer": "Not in memory for the release: the changelog excerpt only mentions 2.12.1 keeping browser profiles after a stop and doesn't say when idle shutdown began. In single-space mode the variable is `SB_RUNTIME_IDLE_TIMEOUT`, set in minutes (default stop after 30 minutes idle, `0` keeps runtimes running).",
+ "tokens": 1397,
+ "seconds": 0.456,
+ "e2e_seconds": 5.16,
+ "source_hits": 1.0,
+ "block": "Memory for: In which release did idle Runtime API browsers start being shut down automatically, and which variable tunes that in single-space setups?\n[1] Runtime API.md (Setup)\n  Setup: The Runtime API is enabled automatically when Chrome, Chromium, or Chromium headless shell is detected on your system \u2014 no configuration needed. Auto-detection prefers headless shell when it is available on `PATH`. / If Chrome is not auto-detected, for some reason, set the path explicitly: / ``` / SB_CHROME_PATH=/usr/bin/chromium / ``` / In single-instance mode, set `SB_RUNTIME_API=0` to disable the Runtime API, and `SB_RUNTIME_IDLE_TIMEOUT` to change when an idle runtime stops (see [[#Idle stop]]). In multi-space mode these variables are ignored: use the **Enable runtime API** toggle in the administrator\u2019s **APIs** tab. Each writer has an independent **Runtime API** permission in the space\u2019s access grid. Existing writers default to enabled unless explicitly opted out.\n  - The idle timeout is set in minutes, where 0 keeps runtimes running; in single-space mode it is set with SB_RUNTIME_IDLE_TIMEOUT, and in multi-space mode with Stop idle runtimes after in the APIs tab, stored as runtimeIdleTimeout in server.json.\n  Idle stop: A runtime that has received no requests for 30 minutes is stopped: its Chrome exits and it uses no memory or CPU. The next request starts it again on the same profile, so the client picks up where it left off instead of rebuilding its index. That takes about a second, plus the time to index pages that changed in the meantime. / While a runtime is stopped, nothing runs in its client, including Space Lua event listeners such as `cron:secondPassed`. / To change the timeout, in minutes (`0` keeps runtimes running): / * In single-space mode, set `SB_RUNTIME_IDLE_TIMEOUT`, for example `SB_RUNTIME_IDLE_TIMEOUT=120`. / * In multi-space mode, use **Stop idle runtimes after** in the administrator's **APIs** tab, stored as `runtimeIdleTimeout` in `server.json`.\n  - In multi-space mode, the SB_RUNTIME_API and SB_RUNTIME_IDLE_TIMEOUT variables are ignored, and the Enable runtime API toggle in the administrator's APIs tab is used instead.\n  - In single-instance mode, SB_RUNTIME_API=0 disables the Runtime API.\n  - Browsers start lazily, so unused runtime permissions consume no Chrome processes, and each active user and space pair spawns several headless Chrome processes.\n[2] HTTP API.md (Authentication)\n  Runtime API: Enabled when Chrome/Chromium is available and runtime access is permitted. In single-space mode, `SB_RUNTIME_API=0` disables it. In multi-space mode, use the administrator\u2019s APIs controls and per-writer Runtime API permission. See [[Runtime API]] for full documentation, setup instructions, and examples.\n[3] CHANGELOG.md (CHANGELOG)\n  2.12.1: * Each user of a space keeps one browser profile, reused after a stop or a server restart, so the client no longer rebuilds its index from scratch every time. Profiles left behind by earlier versions are deleted at startup. / * The headless client no longer ...\nExact facts:\n- [1] > Searching the space does not need the Runtime API: see [[HTTP API#Search]].\n- [1] The Lua endpoints and `/.runtime/screenshot` can first wait until the space\u2019s index has caught up with recent file changes (edits made through the [[HTTP API]], a script or another device), so a query sees a page written a moment ago. Send `X-Await-Index: 1` (`true` and `yes` also count). The server\n- [1] 403** \u2014 The caller lacks Write or Runtime API permission.",
+ "meta": {
+  "notes": [
+   "Runtime API.md",
+   "HTTP API.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "PARTIAL",
+ "exact": 1.0
+}

@@ -1,0 +1,20 @@
+{
+ "id": "pubA-14",
+ "type": "single",
+ "answer": "The Global tab initially shows `mention` relations between content pages, all expanded. Other relations only appear once you turn them on in the filters.",
+ "tokens": 1238,
+ "seconds": 0.419,
+ "e2e_seconds": 2.51,
+ "source_hits": 1.0,
+ "block": "Memory for: When I open the whole-space map in the graph explorer, which kind of connection is shown before I change any filters?\n[1] Graph View.md (Opening the graph)\n  Opening the graph: The graph is a view (`std.graph`) with two tabs: / * **Local**: a graph around the open page. Its direct relations are loaded straight away. Add more by clicking ghost nodes. / * **Global**: every content page in the space and the `mention` relations between them, all expanded. Turn other relations on in the filters to show more connections. / These commands open it: / * ${widgets.commandButton(\"Graph: Explore\")} (`Ctrl/Cmd-Shift-G`): opens the graph on its Local tab. / * ${widgets.commandButton(\"Graph: Global Page Map\")}: opens the graph on its Global tab.\n  The toolbar: * **Filters**: shows or hides the filters and the selected object. They start open in the window and closed in a sidebar, where they slide over the graph. / * **Edge labels** and **Orphans**: whether edges are named on the canvas, and whether objects with no visible relation are shown. / * **Focus**: resets the graph to the selected object and its direct relations. / * **Expand all**: follows every shown relation outward until nothing is left to add.\n[2] CHANGELOG.md (CHANGELOG)\n  2.9.0: * `index.contentPages` now accepts an optional `tag` argument to filter content pages by an additional tag, matching the other type-specific [[API/index]] helpers. / * Fix: forced space reindex handling / * Fix: with two windows/tabs open on the same space, a full reindex (e.g. after an index-version bump) could deadlock IndexedDB. / * Fix: an interrupted full reindex (e.g. the window closed mid-reindex) no longer leaves the space permanently un-indexed. / * Fix: Clicking a wiki link to a page now places the cursor just after the page\u2019s frontmatter on first visit (matching fresh-load behavior), instead of at position 0. Pages already visited in the session still restore their previously saved cursor position. / * Fix: `$`-anchor refs now resolve through the index from every navigation path\n  Edge: * The [[Object Graph]] is now a view with **Local** and **Global** tabs (`Graph: Explore`, `Graph: Global Page Map`) that can dock in a sidebar or the bottom panel, where the lo ...\n[3] Guide/Find and Connect Pages.md (Create the linked page)\n  Graphing it out: Open `Photo Walk` and press **Cmd-Shift-g** on macOS or **Ctrl-Shift-g** on Windows/Linux, or run `Graph: Explore` from the command palette (**Cmd-/ / Ctrl-/**). / This [[Graph View|graph view]] shows connections around the current page. Switch to **Global** to see the pages across your space. Look for `Photo Walk` and `Woodland Hike`, connected by their links. Other pages in your space may appear too. / ![Graph View on its Local tab, showing Photo Walk linked to Woodland Hike.](../Screenshots/graph-view-local.png) / Double-click a page\u2019s node to open it. Scroll or pinch to zoom, and drag empty space to move around the graph. When you click nodes the expand to also reveal their relations to other pages and objects.\nExact facts:\n- [1] An interactive object-graph explorer visualizes [[Object|objects]] (pages, items, blocks) and the typed [[Tag/relation|relations]] between them \u2014 letting you navigate your space by structure rather than by name.",
+ "meta": {
+  "notes": [
+   "Graph View.md",
+   "CHANGELOG.md",
+   "Guide/Find and Connect Pages.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

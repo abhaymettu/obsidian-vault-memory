@@ -1,0 +1,22 @@
+{
+ "id": "pubA-25",
+ "type": "verbatim",
+ "answer": "The config key is `fonts.editorSize`, for example `config.set(\"fonts.editorSize\", 20)`. It is measured in pixels, defaults to 18, and accepts values from 10 to 48.",
+ "tokens": 1463,
+ "seconds": 4.276,
+ "e2e_seconds": 4.28,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3757,
+  "final_context": 5215,
+  "billed_input": 8972,
+  "turns": 2,
+  "cost_usd": 0.009267300000000001,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"What config key sets the size of page text in the editor, and what are its default and allowed range?\\\"\"}\nMemory for: What config key sets the size of page text in the editor, and what are its default and allowed range?\n[1] Fonts.md (Editor font size)\n  Editor font size: **Editor font size**, also under **Appearance**, sets the size of page text in the editor, in pixels: 18 by default, from 10 to 48. Headings, code and list indents scale with it. A proportional font often looks smaller than a monospace one at the same size, so you may want to raise it after switching. In [[CONFIG]]: / ```lua / config.set(\"fonts.editorSize\", 20) / ```\n  - The editor font size, also under Appearance, sets the size of page text in the editor in pixels, with a default of 18 and a range from 10 to 48.\n  - `config.set(\"fonts.editorSize\", 20)` sets the editor font size in CONFIG.\n  - The editor's text size is set by the `--editor-font-size` variable, which is 18px in the theme, and it is no longer a fixed font-size on `#sb-main .cm-editor`.\n  - Fonts can also be set in [[CONFIG]] with `config.set(\"fonts.editor\", \"inter\")`, `config.set(\"fonts.ui\", \"system-sans\")` and `config.set(\"fonts.code\", \"ia-writer-mono\")`.\n  SilverBullet uses three fonts, each picked separately in [[Workbench/Configuration]] under **Appearance**: / * **Interface font**: menus, panels, the page title and the [[Workbench]]. / * **Editor font**: the text of your pages. / * **Code font**: anything code-like: inline code, [[Markdown/Fenced Code Block|code blocks]], frontmatter and tables while you edit them, and `${...}` expressions while the cursor is in them. It should be a monospace font. / Instead of using the [[Workbench/Configuration]] options, you can also set them in [[CONFIG]]: / ```lua / config.set(\"fonts.editor\", \"inter\") / config.set(\"fonts.ui\", \"system-sans\") / config.set(\"fonts.code\", \"ia-writer-mono\") / ```\n[2] CONFIG.md (Site configuration)\n  View defaults: ```space-lua / config.set(\"view.defaults\", { / -- The curated Navigate tree (see [[^Library/Website]]) is this site's navigation / [\"docs.navigate\"] = { open = true, width = 360 }, / }) / ``` / ```space-lua / -- managed-by: configuration-manager / config.set(\"fonts.ui\", \"inter\") / config.set(\"fonts.editor\", \"inter\") / config.set(\"workbench.pinnedTags\", { / \"page\", / \"task\", / }) / ``` / ```space-lua / -- managed-by: workbench-schemas / -- priority: -10 / tag.define { / name = \"api/lua\", / schema = { / type = \"object\", / properties = {references = schema.array \"string\"}, / required = {\"references\"}, / }, / } / tag.define { / name = \"component\", / schema = { / type = \"object\", / properties = { / connectsTo = {anyOf = { / schema.array \"string\", / schema.ref(), / }}, / partOf = schema.ref(), / consumes = schema.ref(), / }, / }, / } / ```\n[3] API/config.md (config)\n  config.define: `config.define(key, schema)` / Defines a JSON schema for a configuration key. / **Parameters:** / - `key` (`string`) \u2014 Configuration key. / - `schema` (`table`) \u2014 JSON Schema definition. `default` supplies missing values, and `ui` annotations expose the field in Workbench\u2019s Configuration tab. / **Example:** / ```lua  ...\nExact facts:\n- [1] The editor's text size is the `--editor-font-size` variable** (18px in the theme), no longer a fixed `font-size` on `#sb-main .cm-editor`.\n- [1] A `space-style` that sets `--editor-font`, `--ui-font`, `--editor-monospace-font` or `--editor-font-size` wins over the Configuration setting**, whether it sets them on `html` or `:root`. Remove it from your style to pick fonts in Configuration instead."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

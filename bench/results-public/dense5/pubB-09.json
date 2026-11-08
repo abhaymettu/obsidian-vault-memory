@@ -1,0 +1,13 @@
+{
+ "id": "pubB-09",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 791,
+ "seconds": 0.003,
+ "e2e_seconds": 1.92,
+ "source_hits": 0.0,
+ "block": "--- API.md ---\nLua Standard Library | description\nLua standard library, Space Lua APIs and SilverBullet syscalls.\n\n--- Development.md ---\nStack\nSilverBullet development can happen at various level.\n\nAt its most basic level, you can do a lot using [[Space Lua]]. If this does not give enough power, you can upgrade to [[Plugs]]. If _that_ doesn\u2019t suffice, you can contribute to SilverBullet\u2019s core (see below).\n\n--- CHANGELOG.md ---\nCHANGELOG | Edge > 2.6.1\n* `editor.flashNotification` now supports an optional third argument with `timeout` (use `0` for persistent notifications) and `actions` (buttons with callbacks).\n* Fix: [table cell alignment for missing and misaligned cells](https://github.com/silverbulletmd/silverbullet/pull/1873)\n* Fix: [handle tagged floats before plain object check in `renderCellContent`](https://github.com/silverbulletmd/silverbullet/pull/1876) (by [Matou\u0161 Jan Fialka](https://github.com/mjf)).\n* Fix: document file opening with URL prefix.\n* Fix: autofocus on authentication page.\n* Fix: mini editor regressions.\n* Mobile: \u201clock\u201d button to toggle read-only, useful for navigating without accidentally editing.\n* Action Button enhancements:\n  * `standalone` option: only show certain action buttons in standalone/PWA mode (e.g. forward/back navigation buttons)\n  * Support for opting out action buttons from the mobile dropdown menu\n* Fix: \u201cNo such header #boot\u201d errors in PWA mode.\n* Fix: Edit buttons now work correctly for Lua expressions and code widgets whose bodies appear multiple times in the same page.\n\n--- Plugs/Development/Document Editors.md ---\nResolution | Resolution\nSilverBullet tries an installed editor declaring the file extension first, then a browser-supported safe media viewer, then the text editor for recognized text or small unknown valid UTF-8 files, then external opening. An installed plug takes precedence over the built-in fallbacks.\n\n--- Extensions.md ---\nLibraries | description\nExtend SilverBullet with libraries, Space Lua or plugs.",
+ "meta": {},
+ "score": 0.0,
+ "judge": "WRONG"
+}

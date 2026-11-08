@@ -1,0 +1,21 @@
+{
+ "id": "pubA-43",
+ "type": "multi",
+ "answer": "The graph explorer draws from the `relation` index. That index was introduced in 2.9.0, the same release that added the experimental Object Graph explorer (see `CHANGELOG.md`). The changelog doesn't give a release date.",
+ "tokens": 1264,
+ "seconds": 7.875,
+ "e2e_seconds": 7.87,
+ "source_hits": 0.5,
+ "block": null,
+ "meta": {
+  "first_context": 3684,
+  "final_context": 4939,
+  "billed_input": 20623,
+  "turns": 4,
+  "cost_usd": 0.012184200000000001,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"graph explorer\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 30}\nGraph View.md:6:An interactive object-graph explorer visualizes [[Object|objects]] (pages, items, blocks) and the typed [[Tag/relation|relations]] between them \u2014 letting you navigate your space by structure rather than by name.\nCHANGELOG.md:232:* New experimental [[Object Graph]]: an interactive, force-directed graph explorer over the [[Tag/relation|relation]] index. Try it via ${widgets.commandButton(\"Graph: Explore\")} and ${widgets.commandButton(\"Graph: Global Page Map\")}.\n{\"pattern\": \"^#+ |relation. index\", \"path\": \"corpus/docs/CHANGELOG.md\", \"output_mode\": \"content\", \"head_limit\": 40}\n3:## Edge\n72:## 2.12.1\n86:## 2.12.0 \n109:## 2.11.1\n118:## 2.11.0\n194:## 2.10.0\n230:## 2.9.0\n258:## 2.8.1\n265:## 2.8.0\n281:## 2.7.0\n324:## 2.6.1\n391:## 2.5.0\n457:## 2.4.0\n500:## 2.3.0\n525:## 2.2.0\n552:## 2.1.8\n565:## 2.1.7\n577:## 2.1.4 - 2.1.6\n587:## 2.1.2\n607:## 2.0.0\n{\"pattern\": \"relation\", \"path\": \"corpus/docs/CHANGELOG.md\", \"output_mode\": \"content\", \"-i\": true}\n40:  * [[Tag/data]] block keys can no longer overwrite `ref`, `tag` or `itags`, and relations from data blocks now point at the object they\u2019re written in. A data block named after a built-in tag (` ```#task `) is no longer indexed. Lint flags it.\n208:* Fix: only the first entry of a frontmatter list of wiki links formed a [[Tag/relation|relation]] (e.g. an `authors:` list of `[[...]]` items), so every entry after the first was missing from [[Object Graph]], linked mentions and rename refactoring.\n231:* New [[Tag/relation|relation]] indexed object capturing generalized object-to-object relationships. This is a successor to `link`, which still exists as a virtual collection built on top of `relation`.\n232:* New experimental [[Object Graph]]: an interactive, force-directed graph explorer over the [[Tag/relation|relation]] index. Try it via ${widgets.commandButton(\"Graph: Explore\")} and ${widgets.commandButton(\"Graph: Global Page Map\")}."
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

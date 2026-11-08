@@ -1,0 +1,23 @@
+{
+ "id": "pubA-26",
+ "type": "verbatim",
+ "answer": "The server has been written in Rust since v2.10.0, as stated in ADR/010 Rust Backend.",
+ "tokens": 1371,
+ "seconds": 0.003,
+ "e2e_seconds": 2.1,
+ "source_hits": 1.0,
+ "block": "## From which SilverBullet version has the server been the Rust implementation?\n\n--- [vault:corpus/docs/Development.md] ---\n### Code structure\n\n# Code structure\n* `client/`: The SilverBullet client, implemented with TypeScript\n* `server/`: The SilverBullet server library (Rust): HTTP router, handlers, auth, runtime seam\n* `server-common/`: Shared Rust crate (space primitives, shared types)\n* `server-runtime-chrome/`: Headless-Chrome runtime backend (Rust)\n* `bin/silverbullet/`: The standalone server binary (Rust)\n* `bin/sb/`: The `sb` command-line client (Rust)\n* `plugs`: Set of built-in plugs that are distributed with SilverBullet\n* `libraries`: A set of libraries (space scripts, page templates, slash templates) distributed with SilverBullet\n* `plug-api/`: Useful APIs for use in plugs\n  * `lib/`: Useful libraries to be used in plugs\n  * `syscalls/`: TypeScript wrappers around syscalls\n  * `types/`: Various (client) types that can be references from plugs\n* `bin/plug-compile.ts`: the plug compiler\n* `scripts/`: Useful scripts\n* `docs/`: silverbullet.md website content\n\n--- [vault:corpus/docs/ADR/010 Rust Backend.md] ---\n### Decision\n\n# Decision\nThe server is written in **Rust** (as of v2.10.0). The progression was **Node.js -> Deno -> Go -> Rust**:\n\n* Deno: a modern, secure-by-default TypeScript runtime, a sensible fit while the server still ran [[Plugs|plug]] logic and sandboxing mattered (pre-[[ADR/007 Core Application Logic on the Client|v2]]).\n* Go (2025): once the server was just a file store, it was rewritten in Go: \u201csignificantly less memory and significantly smaller in size.\u201d\n* Rust (2026): the Go server was replaced by an adaptation of the Rust backend used elsewhere in the project, converging the whole codebase on **TypeScript + Rust**.\n\n--- [vault:corpus/docs/ADR/008 Go Backend.md] ---\n### Status update\n\n# Status update\n**Superseded by [[ADR/010 Rust Backend]].** The Go server was replaced by a Rust backend to converge the codebase on TypeScript + Rust and reopen the CRDT path. See [[ADR/010 Rust Backend]] for the current decision.\n\n--- [vault:corpus/docs/ADR/008 Go Backend.md] ---\n### Untitled\n\ntags: adr\nstatus: superseded\ndate: \"2025-09-19\"\ndeciders: \"[[Zef Hemel]]\"\nowner: \"[[Zef Hemel]]\"\ndependsOn:\n  - \"[[ADR/007 Core Application Logic on the Client]]\"\nsupersededBy:\n  - \"[[ADR/010 Rust Backend]]\"\nreferences:\n- server-common/src/space.rs\n- bin/silverbullet/src/server.rs\n\n--- [vault:corpus/docs/Development.md] ---\n### Stack\n\n# Stack\nSilverBullet\u2019s client is written in [TypeScript](https://www.typescriptlang.org/) and built on top of the excellent [CodeMirror 6](https://codemirror.net/) editor component. Additional UI is built using [Preact](https://preactjs.com/). [ES Build](https://esbuild.github.io) is used to build the frontend.\n\n[[Plugs]] are also written in TypeScript.\n\nThe SilverBullet server is written in [Rust](https://www.rust-lang.org/) (a Cargo workspace).",
+ "meta": {
+  "engine_seconds": 0.002762457999997423,
+  "sources": [
+   "vault:corpus/docs/Development.md",
+   "vault:corpus/docs/ADR/010 Rust Backend.md",
+   "vault:corpus/docs/ADR/008 Go Backend.md",
+   "vault:corpus/docs/ADR/008 Go Backend.md",
+   "vault:corpus/docs/Development.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

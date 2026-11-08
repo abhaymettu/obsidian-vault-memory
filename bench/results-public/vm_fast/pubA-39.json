@@ -1,0 +1,20 @@
+{
+ "id": "pubA-39",
+ "type": "multi",
+ "answer": "No, signing with `-- @me` won't put the reply in your Mention Inbox: a signature attributes the text rather than addressing it, so it never becomes a request to yourself. To open the inbox, run `Navigate: Mentions` or click any mention.",
+ "tokens": 1195,
+ "seconds": 0.412,
+ "e2e_seconds": 2.85,
+ "source_hits": 1.0,
+ "block": "Memory for: If I sign my reply with -- @me, will it land in my mention inbox, and how do I open that inbox?\n[1] Guide/Comments, Mentions and Replies.md (Add a comment)\n  Find and answer it: 1. Run `Navigate: Mentions`, or click a mention to open the _Mention Inbox_. / 2. Select the recipient from the dropdown. The inbox normally starts with your own identity and groups entries by page. / 3. Open the request and write the answer underneath. Mention the original writer if the reply should appear in their inbox: / ```markdown / @author This section is ready for review. -- @reviewer / ``` / Use `Mention: Sign` or `/sign` to sign the current block as yourself. Signing alone credits the reply.\n  Resolve a comment or request: Click **Resolve** on a comment to delete the whole comment, including its replies. Copy any decisions you want to keep into the page\u2019s main text first. / To keep the discussion but clear a request from the inbox, choose **Remove mention** on its inbox row to remove its `@name` from the source while keeping the surrounding text. **Delete task/item/paragraph** removes the containing content and asks for confirmation. These actions require write access. If the page changed since indexing, re ...\n[2] Authorship.md (The `-- @name` notation)\n  Signing your own text: Rather than typing the notation by hand, run `Mention: Sign` (or the `/sign` slash command) to append `-- @you` to the end of the current block. This is what lets a person answer a mention without re-queuing the reply in their own inbox: signing a reply attributes it, it does not address it, so it never becomes a fresh request to yourself.\n  What signing does: A signature is not a [[Recipient]] [[At-Mention]]. It does not enter somebody\u2019s Mention Inbox. Instead, it **attributes** the text it signs: every `@mention` in that text is stamped with a `by` value naming who signed it, and the signature emits its own `authored` relation. / \u201cThe block it ends\u201d is usually the enclosing paragraph, list item, task, blockquote, or HTML comment. If a paragraph continues after a signed line, the signature credits the text before it on that line, while the following line remains unsigned. When a signature stands alone on its own line, it applies to the surrounding comment, list item, or blockquote instead of claiming just the empty-looking line it sits on, so the whole exchange above it is credited, not only the last line.\n[3] Recipient.md (The Mention Inbox)\n  The Mention Inbox: The Mention Inbox is a [[View|view]] listing open `@mention`s, grouped by page. It opens in the right sidebar by default, and its dock menu can move it to the left sidebar, bottom panel, or a modal. Open it with `Navigate: Mentions`, or by clicking any mention.\n  A **recipient** is an [[Identity]] you address. When mentioned with `@name`, it is indexed to be queried, and clicking it in the editor will open the \u201cMentions Inbox\u201d. / See [[At-Mention]] for the `@name` syntax, and [[Identity]] for where names come from (accounts, `identity.define`, or simply being mentioned).\nExact facts:\n- [1] To keep the discussion but clear a request from the inbox, choose **Remove mention** on its inbox row to remove its `@name` from the source while keeping the surrounding text. **Delete task/item/paragraph** removes the containing content and asks for confirmation. These actions require write access.",
+ "meta": {
+  "notes": [
+   "Guide/Comments, Mentions and Replies.md",
+   "Authorship.md",
+   "Recipient.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

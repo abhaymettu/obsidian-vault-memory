@@ -1,0 +1,23 @@
+{
+ "id": "pubA-18",
+ "type": "verbatim",
+ "answer": "You must allow unauthenticated access to `/service_worker.js` and `/.client/*`. These are static code files, so exposing them is safe, and without the exclusion PWA functionality may not work and SilverBullet may break in unexpected ways.",
+ "tokens": 1324,
+ "seconds": 0.318,
+ "e2e_seconds": 3.11,
+ "source_hits": 1.0,
+ "block": "Memory for: Behind Authelia or another auth proxy, which URL paths must be allowed without login so the app works?\n[1] Authentication Proxy.md (Authentication Proxy)\n  In case you would like to run SilverBullet behind an authentication proxy (such as Authelia, Authentik or the ones integrated with Cloudflare Zero Trust or Pangolin) there is one key configuration tweak you need to make: / **You must exclude a few paths from authentication**. If you don\u2019t do this a lot of PWA functionality may not work and SilverBullet may break in unexpected ways. Doing this is perfectly safe, it just gives browsers unauthorized access to some client code, not any of your content. / Add **rules to allow unauthenticated access** for the following paths: / * `/service_worker.js` / * `/.client/*` / This is perfectly safe, they are just static (code) files.\n[2] Authentication.md (Accounts)\n  Authentication proxies: Alternatively, or in addition, you can use an [[Authentication Proxy]] to delegate authentication to an external system (like Authelia, Authentik, or a reverse proxy\u2019s built-in auth). This is common in more complex self-hosted setups. In accounts mode, pair a proxy with **public** spaces so the proxy owns identity. In single-space mode, put the proxy in front of an open server. / For all authentication-related configuration options, see [[Install/Configuration#Authentication]].\n[3] Desktop Sync.md (SilverBullet server)\n  Self-Hosted: For this you need to install [[Install|SilverBullet Server]] somewhere. / **Important:** this deployment cannot live behind an auth proxy (other than SilverBullet\u2019s [[Authentication]]), auth proxies are not (yet) supported.\n[4] HTTP API.md (Authentication)\n  Authentication: When authentication is enabled, most endpoints require a valid session cookie (JWT) or a Bearer token. The following paths are excluded from auth: `/service_worker.js`, `/.client/*`, `/.auth`, `/.ping`. / * `GET /.auth`: Serves the login page. Returns 403 if authentication is not enabled. / * `POST /.auth`: Authenticates a user. Expects form fields: `username`, `password`, `rememberMe` (optional), `from` (optional redirect path). Returns JSON `{\"status\":\"ok\",\"redirect\":\"...\"}` on success or `{\"status\":\"error\",\"error\":\"...\"}` on failure. Implements lockout after repeated failed attempts. / * `GET /.logout`: Clears authentication cookies and redirects to `/.auth`. / * **Bearer token**: When [[Install/Configuration#Authentication|SB_AUTH_TOKEN]] is set, requests can authenticate via the `Authorization: Bearer <token>` header instead of cookies.\n[5] TLS.md (LAN HTTP (no TLS))\n  Pangolin, Authelia, Authentik: If you\u2019re _already_ using a proxy like [Pangolin](https://pangolin.net/), [Authelia](https://www.authelia.com/) or [Authentik](https://goauthentik.io/), you are likely already set up with everything you need and can just reverse-proxy a subdomain to SilverBullet. Be sure to check the notes on using a [[Authentication Proxy]] on how to configure this.\nExact facts:\n- [2] Single-space mode.** One folder served as one space, authenticated by a single set of environment-variable credentials \u2014 see [[#Single-space mode]].\n- [2] Single-space mode serves one folder as one space, authenticated the \u201cclassic\u201d way: a single set of credentials set via the `SB_USER` environment variable in `username:password` form.\n- [2] Replace the example password before running the command. This configures one login named `sam`. When authentication is enabled, SilverBullet shows a login page on first access.",
+ "meta": {
+  "notes": [
+   "Authentication Proxy.md",
+   "Authentication.md",
+   "Desktop Sync.md",
+   "HTTP API.md",
+   "TLS.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

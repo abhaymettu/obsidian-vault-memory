@@ -1,0 +1,19 @@
+{
+ "id": "pubA-34",
+ "type": "multi",
+ "answer": "No. The shell endpoint (`/.shell`) runs any command on the server and requires `write` access, so a member with only `read` access can't use it; it is also off by default.",
+ "tokens": 647,
+ "seconds": 0.005,
+ "e2e_seconds": 2.65,
+ "source_hits": 0.5,
+ "block": "## Can a member with read access to a space run server commands through the shell endpoint, and what is that endpoint's path and default state?\n\n--- [vault:corpus/docs/Publishing.md] ---\n### Make a space public\n\n# Make a space public\nIn the [[Dashboard]], open the space\u2019s **Space settings \u2192 Access**. Under **Who has access**, set **Public (not signed in)** to **Read**. Anyone can now read the space without signing in. Page history and [[Revisions]] stay members-only.\n\nVisitors get the full SilverBullet client, including navigation, [[Linked Mention|linked mentions]] and live [[Space Lua/Integrated Query|queries]], but can\u2019t edit anything or reach capability endpoints such as the shell or the [[Runtime API]]. Members with `write` access keep editing as usual, and visitors see changes as soon as they\u2019re saved. See [[Dashboard#Access]] for how public access combines with member roles.\n\nUnder **Space settings \u2192 General**, set **Index page** to choose the page visitors land on (see [[Index Page]]).\n\n--- [vault:corpus/docs/Security.md] ---\n### Capability endpoints\n\n# Capability endpoints\nA few endpoints can reach beyond the space\u2019s own content, and all require `write`:\n\n* **Shell** (`/.shell`) \u2014 runs any command on the server. (Off by default)\n* **HTTP proxy** (`/.proxy`, exposed to Lua as [[API/net#net.proxyFetch(url, options?)|net.proxyFetch]]) \u2014 fetches an external URL through the server, on the server\u2019s network.\n* **Runtime API** (`/.runtime`) \u2014 evaluates Lua and scripts via a headless browser instance, see [[Runtime API]].",
+ "meta": {
+  "engine_seconds": 0.005305833000000007,
+  "sources": [
+   "vault:corpus/docs/Publishing.md",
+   "vault:corpus/docs/Security.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

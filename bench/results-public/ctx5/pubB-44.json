@@ -1,0 +1,23 @@
+{
+ "id": "pubB-44",
+ "type": "verbatim",
+ "answer": "Tagging a page with `#meta/template/slash` turns it into a slash template. The last component of the page name becomes the slash command name.",
+ "tokens": 912,
+ "seconds": 0.004,
+ "e2e_seconds": 1.99,
+ "source_hits": 1.0,
+ "block": "## Which tag turns a page into a slash template?\n\n--- [vault:corpus/docs/Slash Templates.md] ---\n### Creating a slash template > Example\n\ntags: meta/template/slash\ndescription: Insert a standard action items section\n\n--- [vault:corpus/docs/Template.md] ---\n### Slash templates\n\n# Slash templates\n[[Slash Templates]] are pages tagged with `#meta/template/slash`. They define [[Slash Command|slash commands]] that insert templated content at the cursor position. The last component of the page name becomes the slash command name.\n\nSee also: [[API/template]], [[Page Template]], [[Slash Templates]], [[Space Lua]]\n\n--- [vault:corpus/docs/Slash Command.md] ---\n### Slash templates\n\n# Slash templates\nMost slash commands are implemented as [[Slash Templates]] \u2014 pages tagged with `#meta/template/slash` whose content is inserted at the cursor. The standard library includes slash templates for:\n\n* `/query` \u2014 insert a SLIQ query block\n* `/lua-query` \u2014 insert a Lua query expression\n* `/code` \u2014 insert a fenced code block\n* `/data` \u2014 insert a [[Tag/data|data block]], with the cursor where its tag goes\n* `/table` \u2014 insert a Markdown table\n* `/hr` \u2014 insert a horizontal rule\n* `/note-admonition`, `/warning-admonition`, `/success-admonition`, `/danger-admonition` \u2014 insert admonition blocks\n* `/tpl` \u2014 insert a template expression\n* `/func` \u2014 insert a Lua function definition\n* `/lua-command` \u2014 insert a command definition\n* `/lua-slash-command` \u2014 insert a slash command definition\n\n--- [vault:corpus/docs/Slash Templates.md] ---\n### Currently active slash templates\n\n# Currently active slash templates\n${query[[\n  from p = index.pages(\"meta/template/slash\")\n  select templates.fullPageItem(p)\n]]}\n\nSee also: [[Slash Command]], [[Template]], [[Page Template]]\n\n--- [vault:corpus/docs/Slash Templates.md] ---\n### Untitled\n\nSlash templates are a quick way to define [[Slash Command|slash commands]] that insert templated content at the cursor position. They are defined as pages tagged with `#meta/template/slash`. The inserted text is saved in the destination page. Later edits to the template do not change earlier insertions.",
+ "meta": {
+  "engine_seconds": 0.003848542000007001,
+  "sources": [
+   "vault:corpus/docs/Slash Templates.md",
+   "vault:corpus/docs/Template.md",
+   "vault:corpus/docs/Slash Command.md",
+   "vault:corpus/docs/Slash Templates.md",
+   "vault:corpus/docs/Slash Templates.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

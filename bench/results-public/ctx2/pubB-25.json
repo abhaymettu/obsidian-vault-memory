@@ -1,0 +1,19 @@
+{
+ "id": "pubB-25",
+ "type": "multi",
+ "answer": "Not in memory for the file name: the memory doesn't state a conventional one. As for the keys, each pointer needs a `name` and a `uri` attribute, and it is a data object tagged `#meta/library/remote` on a Meta Page tagged `#meta/repository`.",
+ "tokens": 938,
+ "seconds": 0.006,
+ "e2e_seconds": 3.33,
+ "source_hits": 0.5,
+ "block": "## Repositories are pages listing library pointers. If I publish my own, what file name is conventional and which keys does each pointer need?\n\n--- [vault:corpus/docs/Repository.md] ---\n### Untitled\n\nRepositories are a collection of _pointers_ to [[Library|Libraries]] to install. Their purpose is to offer a curated list of libraries to install.\n\nBy default, SilverBullet ships with two repositories: [[^Repositories/Std]] with a curated selection of community libraries, and [[^Repositories/SilverBulletMD]] with optional libraries maintained by the SilverBullet project. More can be installed via the [[Workbench/Libraries|Library Manager]].\n\nThe built-in repositories update like any other: the first update stores a copy in your space, which from then on takes the place of the shipped version. Deleting that copy brings the shipped version back, so built-in repositories can\u2019t be removed.\n\nRepositories are implemented on top of a few SilverBullet mechanisms, specifically they are simply [[Meta Page|Meta Pages]] tagged with `#meta/repository` that contain [[Tag/data|data objects]] tagged with `#meta/library/remote` with a `name` and `uri` attribute. Libraries are kept up to date using the [[Share]] mechanism.\n\n--- [vault:corpus/docs/Library.md] ---\n### Terms\n\n# Terms\nLet\u2019s define terms:\n\nThe [[Library]] is the **unit of distribution**, typically implemented as [[Meta Page]]. Most libraries will be implemented in a single page (e.g. with a big [[Space Lua]] block), but more elaborate libraries may span multiple pages, some may wrap [[Plugs]].\n\nA [[Repository]] is a **discovery and curation mechanism** for libraries. They are collections of _pointers_ of _where_ to find libraries to install. SilverBullet ships with the [[^Repositories/Std]] and [[^Repositories/SilverBulletMD]] repositories, but you can install additional ones.\n\n[[Share]] is the general-purpose mechanism built into SilverBullet to both _push_, _pull_ and _sync_ content in your space with the outside world. In the context of Libraries this mechanism is used (partially under the hood, but you\u2019ll recognize traces of it) both for you to _publish_ your libraries, as well as to _install_ and _update_ other people\u2019s creations.\n\nTo make discovery and installation of libraries easier, SilverBullet includes a [[Workbench/Libraries|Library Manager]].\n\nBy convention, libraries are kept under the `Library/` prefix (folder) in your space.",
+ "meta": {
+  "engine_seconds": 0.005480125000000044,
+  "sources": [
+   "vault:corpus/docs/Repository.md",
+   "vault:corpus/docs/Library.md"
+  ]
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

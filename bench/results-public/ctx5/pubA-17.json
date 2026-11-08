@@ -1,0 +1,23 @@
+{
+ "id": "pubA-17",
+ "type": "verbatim",
+ "answer": "SilverBullet writes a sibling copy named `name.conflicted-<hash>.ext` next to the original, where `<hash>` is a short hash of the losing version's bytes.",
+ "tokens": 1231,
+ "seconds": 0.004,
+ "e2e_seconds": 2.14,
+ "source_hits": 1.0,
+ "block": "## When two versions of an image genuinely conflict, what is the name of the copy SilverBullet writes next to it?\n\n--- [vault:corpus/docs/Install/Docker.md] ---\n### Release channels\n\n# Release channels\nEvery release version of SilverBullet is tagged with its version number, but there are two release channels you can use:\n\n* `:latest` always points to the latest _release_.\n* `:edge` always points to the latest _edge build_ (the last commit to `main`).\n\nThe default image includes Chromium and enables the [[Runtime API]]. For the smaller image without Chromium, use `:edge-slim` instead of `:edge` or legacy `:v2`, `:latest-slim` instead of `:latest`, or append `-slim` to a version such as `:2.11.0-slim`.\n\n--- [vault:corpus/docs/Collaboration.md] ---\n### Conflicts > Binary conflicts\n\n## Binary conflicts\nImages, PDFs and other binaries (and text files over the 1 MB merge limit) can\u2019t be merged, so a genuine conflict instead produces a sibling copy named `name.conflicted-<hash>.ext` next to the original, where `<hash>` is a short hash of the losing version\u2019s bytes.\n\n--- [vault:corpus/docs/ADR/007 Core Application Logic on the Client.md] ---\n### Context\n\n# Context\nSilverBullet\u2019s [[Plugs]] runtime was originally designed so that plugs could run **either on the server or in the client**. Through \u201cv1\u201d this surfaced as two switchable modes:\n\n* **Server mode** \u2014 indexing and plug execution ran on the server, the client delegated a lot of logic to the server.\n* **Sync mode** \u2014 the space is *also* synced to the browser and indexing + plug execution ran client-side as well. You could switch between the two.\n\nThis was flexible and genuinely powerful, but maintaining **two runtime environments** for PlugOS was a persistent burden: every capability had to work and the dual model produced subtle, hard-to-diagnose issues. The goal for v2 was to be genuinely **offline-first** without that complexity.\n\n--- [vault:corpus/docs/Document.md] ---\n### Uploading\n\n# Uploading\nTo upload documents you have a few options:\n\n* Use the `Upload: File` command (especially useful on mobile devices)\n* Drag & drop files or images onto a page\n* Copy & paste files or images onto a page\n\nAll options will prompt you for a file name to use to store the document, and then include the document as an embedded image (if it was an image) or link to the file.\n\nBy default the maximum allowed filesize for an upload is 10MB, you can change that with the `maximumDocumentSize` option.\n```lua\nconfig.set(\"maximumDocumentSize\", 100)\n```\n\n--- [vault:corpus/docs/ADR/002 Sync Engine.md] ---\n### Consequences > Positive\n\n## Positive\n* **Simple.** Whole-file sync with conflict-copies is easy to reason about and hard to corrupt.\n* **Keeps the server dumb.** File-level sync needs only list/read/write/delete, so the server stays a thin file store ([[ADR/010 Rust Backend]]) and the runtime stays swappable.\n * **Offline-friendly.** Edits made offline reconcile on the next poll without a central coordinator.",
+ "meta": {
+  "engine_seconds": 0.00412704200000735,
+  "sources": [
+   "vault:corpus/docs/Install/Docker.md",
+   "vault:corpus/docs/Collaboration.md",
+   "vault:corpus/docs/ADR/007 Core Application Logic on the Client.md",
+   "vault:corpus/docs/Document.md",
+   "vault:corpus/docs/ADR/002 Sync Engine.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,22 @@
+{
+ "id": "pubA-31",
+ "type": "multi",
+ "answer": "Not in memory. The memory says the server moved to Go in 2025 but gives no date for the client toolchain move from Deno to Node, so the order can't be determined.",
+ "tokens": 1256,
+ "seconds": 0.004,
+ "e2e_seconds": 2.45,
+ "source_hits": 0.5,
+ "block": "## Which was decided first: rewriting the server in Go, or moving the client build toolchain off Deno onto Node?\n\n--- [vault:corpus/docs/ADR/009 Client Build Toolchain.md] ---\n### Consequences > Negative / trade-offs\n\n## Negative / trade-offs\n* **More moving parts.** Deno bundled fmt/lint/test out of the box. On Node these are assembled from separate packages (biome, vitest), a slightly larger dependency surface.\n* **Left the \u201cbetter\u201d runtime.** Deno is arguably the nicer JS runtime. The move trades that for familiarity and ecosystem reach.\n\n--- [vault:corpus/docs/ADR/010 Rust Backend.md] ---\n### Context\n\n# Context\nThe server does very little. Since [[ADR/007 Core Application Logic on the Client|all application logic moved to the client]], the server is primarily a file store: it lists, reads, writes and deletes files, handles authentication, serves the static client, and runs shell commands. When the [[Runtime API]] is enabled, it manages a Chrome sub-process and delegates calls to it. This makes the server\u2019s *implementation language* a relatively low-stakes, swappable choice, and over the project\u2019s life it has changed several times.\n\nThe server has been, in turn: Node.js (earliest prototypes), then **Deno** for years, then **Go** (2025), and now **Rust** (2026). (The separate move of the *client* build toolchain from Deno to Node is [[ADR/009 Client Build Toolchain|its own decision]].) This is further discussed in [On Tech Stacks](https://no.silverbullet.md/tech-stacks).\n\n--- [vault:corpus/docs/ADR/009 Client Build Toolchain.md] ---\n### Decision\n\n# Decision\nThe client build toolchain moved from **Deno to Node.js** (npm + ESBuild, with [vitest](https://vitest.dev/) for tests). It was done gradually and completed in the `to-node` migration.\n\n--- [vault:corpus/docs/ADR/009 Client Build Toolchain.md] ---\n### Context\n\n# Context\nSince [[ADR/007 Core Application Logic on the Client|v2]] the client is where all the logic lives, and it is built with TypeScript + ESBuild. For years that toolchain ran on **Deno**, chosen early when Deno\u2019s sandboxed-worker permissions also suited running [[Plugs|plugs]] on the server (see [[ADR/010 Rust Backend]]).\n\nOnce the server became a thin file store, only the client remained to build, and the trade-off shifted: Deno\u2019s distinctive advantages no longer bought SilverBullet much, while its churn \u2014 repeated changes in package management (HTTP imports \u2192 import maps \u2192 JSR \u2192 varying npm support) and the occasional regression \u2014 was a recurring distraction.\n\n--- [vault:corpus/docs/ADR/009 Client Build Toolchain.md] ---\n### Consequences > Positive\n\n## Positive\n* **Lower barrier to contribution.** Far more developers know Node/npm than Deno.\n* **Richer ecosystem.** Unlocked [biome](https://biomejs.dev) for formatting/linting and a [Playwright](https://playwright.dev/) end-to-end test suite.\n* **Off a moving target.** No longer tracking Deno\u2019s shifting package-management story.",
+ "meta": {
+  "engine_seconds": 0.0036865000000107103,
+  "sources": [
+   "vault:corpus/docs/ADR/009 Client Build Toolchain.md",
+   "vault:corpus/docs/ADR/010 Rust Backend.md",
+   "vault:corpus/docs/ADR/009 Client Build Toolchain.md",
+   "vault:corpus/docs/ADR/009 Client Build Toolchain.md",
+   "vault:corpus/docs/ADR/009 Client Build Toolchain.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

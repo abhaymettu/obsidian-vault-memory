@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="13">
+<rect width="900" height="440" fill="#ffffff"/>
+<line x1="70" x2="540" y1="380.0" y2="380.0" stroke="#e5e5e5"/>
+<text x="62" y="384.0" text-anchor="end" fill="#444">0.5</text>
+<line x1="70" x2="540" y1="310.0" y2="310.0" stroke="#e5e5e5"/>
+<text x="62" y="314.0" text-anchor="end" fill="#444">0.6</text>
+<line x1="70" x2="540" y1="240.0" y2="240.0" stroke="#e5e5e5"/>
+<text x="62" y="244.0" text-anchor="end" fill="#444">0.7</text>
+<line x1="70" x2="540" y1="170.0" y2="170.0" stroke="#e5e5e5"/>
+<text x="62" y="174.0" text-anchor="end" fill="#444">0.8</text>
+<line x1="70" x2="540" y1="100.0" y2="100.0" stroke="#e5e5e5"/>
+<text x="62" y="104.0" text-anchor="end" fill="#444">0.9</text>
+<line x1="70" x2="540" y1="30.0" y2="30.0" stroke="#e5e5e5"/>
+<text x="62" y="34.0" text-anchor="end" fill="#444">1.0</text>
+<line x1="70.0" x2="70.0" y1="30" y2="380" stroke="#e5e5e5"/>
+<text x="70.0" y="398" text-anchor="middle" fill="#444">500</text>
+<line x1="211.5" x2="211.5" y1="30" y2="380" stroke="#e5e5e5"/>
+<text x="211.5" y="398" text-anchor="middle" fill="#444">1,000</text>
+<line x1="353.0" x2="353.0" y1="30" y2="380" stroke="#e5e5e5"/>
+<text x="353.0" y="398" text-anchor="middle" fill="#444">2,000</text>
+<line x1="435.7" x2="435.7" y1="30" y2="380" stroke="#e5e5e5"/>
+<text x="435.7" y="398" text-anchor="middle" fill="#444">3,000</text>
+<line x1="540.0" x2="540.0" y1="30" y2="380" stroke="#e5e5e5"/>
+<text x="540.0" y="398" text-anchor="middle" fill="#444">5,000</text>
+<text x="305.0" y="426" text-anchor="middle" fill="#222">tokens into Claude per question (log scale)</text>
+<text transform="translate(18,205.0) rotate(-90)" text-anchor="middle" fill="#222">mean judged score (all 89 questions)</text>
+<circle cx="370.7" cy="45.4" r="7" fill="#000000"/>
+<text x="381.7" y="37.4" font-weight="600" fill="#111" text-anchor="start">G</text>
+<circle cx="570.0" cy="48.0" r="7" fill="#000000"/>
+<text x="586" y="52" fill="#111"><tspan font-weight="600">G</tspan> agent with Grep, Glob and Read</text>
+<text x="586" y="68" fill="#555">0.98 correct, 2,182 tokens, 4.74 s</text>
+<rect x="114.3" y="266.6" width="14" height="14" fill="#F0E442" stroke="#6b5f00" stroke-width="1.5"/>
+<text x="132.3" y="265.6" font-weight="600" fill="#111" text-anchor="start">C2</text>
+<rect x="563.0" y="75.0" width="14" height="14" fill="#F0E442" stroke="#6b5f00" stroke-width="1.5"/>
+<text x="586" y="86" fill="#111"><tspan font-weight="600">C2</tspan> context-mode search, 2 hits</text>
+<text x="586" y="102" fill="#555">0.65 correct, 643 tokens, 0.005 s</text>
+<rect x="286.7" y="180.5" width="14" height="14" fill="#F0E442" stroke="#6b5f00" stroke-width="1.5"/>
+<text x="304.7" y="207.5" font-weight="600" fill="#111" text-anchor="start">C5</text>
+<rect x="563.0" y="109.0" width="14" height="14" fill="#F0E442" stroke="#6b5f00" stroke-width="1.5"/>
+<text x="586" y="120" fill="#111"><tspan font-weight="600">C5</tspan> context-mode search, 5 hits</text>
+<text x="586" y="136" fill="#555">0.78 correct, 1,496 tokens, 0.004 s</text>
+<polygon points="264.56588672158887,193.9 273.56588672158887,202.9 264.56588672158887,211.9 255.56588672158887,202.9" fill="#ffffff" stroke="#E69F00" stroke-width="2.5"/>
+<text x="251.6" y="220.9" font-weight="600" fill="#111" text-anchor="end">F</text>
+<polygon points="570,141 579,150 570,159 561,150" fill="#ffffff" stroke="#E69F00" stroke-width="2.5"/>
+<text x="586" y="154" fill="#111"><tspan font-weight="600">F</tspan> vault-memory fast, no cards</text>
+<text x="586" y="170" fill="#555">0.75 correct, 1,297 tokens, 0.38 s</text>
+<polygon points="263.9354046558564,174.29999999999998 272.9354046558564,183.29999999999998 263.9354046558564,192.29999999999998 254.93540465585642,183.29999999999998" fill="#E69F00"/>
+<text x="274.9" y="175.3" font-weight="600" fill="#111" text-anchor="start">F+</text>
+<polygon points="570,175 579,184 570,193 561,184" fill="#E69F00"/>
+<text x="586" y="188" fill="#111"><tspan font-weight="600">F+</tspan> vault-memory fast, with cards</text>
+<text x="586" y="204" fill="#555">0.78 correct, 1,293 tokens, 0.45 s</text>
+<polygon points="310.1,55.7 307.5,62.2 300.6,62.6 305.9,67.0 304.2,73.8 310.1,70.0 316.0,73.8 314.2,67.0 319.6,62.6 312.6,62.2" fill="#0072B2"/>
+<text x="297.1" y="57.7" font-weight="600" fill="#111" text-anchor="end">A+</text>
+<polygon points="570.0,208.0 567.4,214.5 560.5,214.9 565.9,219.3 564.1,226.1 570.0,222.3 575.9,226.1 574.1,219.3 579.5,214.9 572.6,214.5" fill="#0072B2"/>
+<text x="586" y="222" fill="#111"><tspan font-weight="600">A+</tspan> vault-memory agent, with cards</text>
+<text x="586" y="238" fill="#555">0.95 correct, 1,621 tokens, 4.54 s</text>
+<text x="562" y="258" fill="#555">Hollow: without memory cards. Filled: with them.</text>
+</svg>

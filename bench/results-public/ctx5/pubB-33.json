@@ -1,0 +1,23 @@
+{
+ "id": "pubB-33",
+ "type": "verbatim",
+ "answer": "Append `?resetClient=1` to the space URL. After confirmation, it clears browser storage, unregisters the service worker and reloads the client to sync again (unsynchronized edits will be lost).",
+ "tokens": 1065,
+ "seconds": 0.004,
+ "e2e_seconds": 2.01,
+ "source_hits": 1.0,
+ "block": "## What do I append to the space URL to get a full browser client reset?\n\n--- [vault:corpus/docs/Troubleshooting.md] ---\n### Server > Reset a browser client\n\n## Reset a browser client\nIf the problem is in the browser\u2019s local cache, adding `?resetClient=1` to the space URL offers a full client reset. After confirmation, it clears browser storage, unregisters the service worker and reloads the client to synchronize again.\n\n> **warning** Unsynchronized edits will be lost\n> Check that the Server is accessible and preserve any edits that have not reached it before resetting the browser. This clears the browser\u2019s copy, not the Server\u2019s files.\n\n--- [vault:corpus/docs/Space Lua/JavaScript Interop.md] ---\n### Accessing browser APIs\n\n# Accessing browser APIs\nUse `js.window` to access the browser\u2019s `window` object:\n\n```lua\n-- Get the current URL\nlocal url = js.window.location.href\n\n-- Set a timeout\njs.window.setTimeout(function()\n  editor.flashNotification(\"Timer fired!\")\nend, 3000)\n```\n\n--- [vault:corpus/docs/Troubleshooting.md] ---\n### Server > Disable client features\n\n## Disable client features\nTemporarily disable a feature by appending one of these options to the space URL, for example `http://localhost:3000/?disableSpaceLua=1`:\n\n* `?disableSync=1` disables browser offline synchronization with the Server.\n* `?disableSpaceLua=1` disables loading [[Space Lua]] scripts.\n* `?disableSpaceStyle=1` disables loading [[Space Style]].\n* `?disablePlugs=1` disables loading non-built-in [[Plugs]].\n\nCombine options with `&`, for example `?disableSpaceLua=1&disableSpaceStyle=1`. Remove the options when you finish diagnosing the problem.\n\n--- [vault:corpus/docs/MCP.md] ---\n### Setup\n\n# Setup\nClients sign in with standard OAuth: you add the server URL, your browser opens a SilverBullet page where you log in, choose the spaces and press Allow, and the client keeps the connection.\n\n--- [vault:corpus/docs/ADR/001 Offline-First PWA.md] ---\n### Consequences > Negative / trade-offs\n\n## Negative / trade-offs\n* **Full local copy + per-client index.** Every browser/device syncs the space and builds its own IndexedDB index \u2014 storage plus a cold-start (re)index cost (see [[ADR/007 Core Application Logic on the Client]]). Occasionally a storage-schema change forces a full resync + reindex on all devices.\n* **Service workers are fiddly.** Lifecycle/activation bugs, cross-tab IndexedDB deadlocks, and browser quirks are an ongoing maintenance cost.",
+ "meta": {
+  "engine_seconds": 0.004365665999997873,
+  "sources": [
+   "vault:corpus/docs/Troubleshooting.md",
+   "vault:corpus/docs/Space Lua/JavaScript Interop.md",
+   "vault:corpus/docs/Troubleshooting.md",
+   "vault:corpus/docs/MCP.md",
+   "vault:corpus/docs/ADR/001 Offline-First PWA.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,20 @@
+{
+ "id": "pubB-43",
+ "type": "verbatim",
+ "answer": "Use the `System: Wipe Client` command to wipe your local content.",
+ "tokens": 578,
+ "seconds": 0.003,
+ "e2e_seconds": 2.69,
+ "source_hits": 1.0,
+ "block": "## v2 has no online mode. Which command wipes the content synced into my browser?\n\n--- [vault:corpus/docs/Migrate from v1.md] ---\n### Removed features\n\n# Removed features\nCertain features have been removed:\n\n* Online mode: v2 is sync mode only, meaning all your content will be synced into your browser. A simpler Online mode may be added back later. If you like to wipe your local content at any time, use the `System: Wipe Client` command.\n* [Federation](https://v1.silverbullet.md/Federation)\n* [Share](https://v1.silverbullet.md/Plugs/Share) replaced by [[^Library/Std/Infrastructure/Export]]\n* Space Script: replaced by [[Space Lua]]\n* Space Config: replaced by the [[API/config]] APIs.\n* Command link syntax (`{[...]})`) replaced by the `${widgets.commandButton(...)}` API.\n\n--- [vault:corpus/docs/PWA.md] ---\n### What the PWA gives you\n\n# What the PWA gives you\n* **Offline access**: After an online load and completed sync, cached pages are available without a network connection. Edits are stored locally and reconciled when you reconnect. Documents are fetched on demand unless you enable document caching in [[Sync#Configuration]].\n* **App-like experience**: Install SilverBullet as a standalone app on your device \u2014 it gets its own window, icon, and feels like a native application.\n* **Instant loading**: Since your content is synced to your browser\u2019s local storage, cached pages can load without fetching their content from the Server.",
+ "meta": {
+  "engine_seconds": 0.00287920900000006,
+  "sources": [
+   "vault:corpus/docs/Migrate from v1.md",
+   "vault:corpus/docs/PWA.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

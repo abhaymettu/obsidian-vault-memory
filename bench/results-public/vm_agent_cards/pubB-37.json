@@ -1,0 +1,22 @@
+{
+ "id": "pubB-37",
+ "type": "verbatim",
+ "answer": "Set `SB_OIDC_CA_FILE` to the path of a PEM certificate for your private CA. SilverBullet then trusts that CA for provider connections, and certificate verification stays enabled. This is from the Single Sign-On note (`Single Sign-On.md`).",
+ "tokens": 1367,
+ "seconds": 3.645,
+ "e2e_seconds": 3.65,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3765,
+  "final_context": 5119,
+  "billed_input": 8884,
+  "turns": 2,
+  "cost_usd": 0.0093815,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"My OIDC provider uses a certificate from a private CA. Which environment variable points SilverBullet at it?\\\"\"}\nMemory for: My OIDC provider uses a certificate from a private CA. Which environment variable points SilverBullet at it?\n[1] Single Sign-On.md (Single Sign-On)\n  - A private certificate authority can be supplied to SilverBullet with SB_OIDC_CA_FILE, pointing to a PEM certificate trusted for provider connections; certificate verification remains enabled.\n  OpenID Connect providers: The server must reach the issuer\u2019s discovery, authorization metadata, token and key endpoints. A private certificate authority can be supplied with `SB_OIDC_CA_FILE`, pointing to a PEM certificate trusted for provider connections. Certificate verification remains enabled.\n  OpenID Connect providers: Create a confidential OIDC client, register the displayed callback and enable Authorization Code with PKCE. Use the provider\u2019s issuer URL and client credentials. The provider must supply a stable subject and a verified email, using the `openid`, `email` and `profile` scopes. / SilverBullet\u2019s provider integration tests use [Pocket ID](https://pocket-id.org/docs/), but the same generic configuration is intended for standards-compliant providers such as [Authentik](https://docs.goauthentik.io/add-secure-apps/providers/oauth2/), [Authelia](https://www.authelia.com/integration/openid-connect/introduction/), [Keycloak](https://www.keycloak.org/securing-apps/oidc-layers), and [ZITADEL](https://zitadel.com/docs/guides/integrate/login/oidc). Provider defaults vary, so verify the required scopes, PKCE support, client authentication method, and `email_verified` claim with the sign-in test before enabling SSO. ID tokens with additional audiences (such as a ZITADEL project ID) are accepted when their `azp` claim equals the client ID. The user\u2019s email must be verified at the provider.\n  - A reference and setup guide for signing in to SilverBullet in multi-space mode with single sign-on via OpenID Connect, covering provider configuration, Google Workspace, required provider settings, and adding SSO users. Names: SilverBullet, OpenID Connect, Google Workspace, Google Cloud, Pocket ID, Authentik, Authelia, Keycloak, ZITADEL, SB_OIDC_CA_FILE.\n  - The callback URL displayed by SilverBullet must be copied into the provider's client configuration, and its path is /.auth/central/oidc/callback.\n[2] Install/Docker.md (Release channels)\n  - The PUID and PGID environment variables override the UID and GID that SilverBullet uses for its server process.\n[3] Install/Configuration.md (Network)\n  - Configuring SilverBullet in single-space server mode with environment variables is a legacy feature and is deprecated.\n  Metrics: SilverBullet offers a few basic Prometheus metrics, these can be configured with the following environment variables: / * `SB_METRICS_PORT`: HTTP port to expose metrics (under the default `/metrics` endpoint) on\n  Legacy \u201csingle-space\u201d mode options: > **warning** Warning / > Configuring SilverBullet in a single-space server setup with environment variables is now considered a **legacy** feature and **deprecated**. / > / The environmen ...\nExact facts:\n- [1] SilverBullet (in multi-space mode) supports SSO via OpenID Connect (OIDC). Administrators provision accounts individually and assign them to spaces. Local username/password accounts remain available alongside SSO accounts.\n- [1] 4. Copy the displayed callback URL into the provider\u2019s client configuration. The path is `/.auth/central/oidc/callback`. Each space does not need a separate provider callback."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,23 @@
+{
+ "id": "pubA-17",
+ "type": "verbatim",
+ "answer": "SilverBullet writes a sibling copy named `name.conflicted-<hash>.ext` next to the original, where `<hash>` is a short hash of the losing version's bytes.",
+ "tokens": 1293,
+ "seconds": 0.365,
+ "e2e_seconds": 2.7,
+ "source_hits": 1.0,
+ "block": "Memory for: When two versions of an image genuinely conflict, what is the name of the copy SilverBullet writes next to it?\n[1] Collaboration.md (Auto-merging concurrent edits)\n  Binary conflicts: Images, PDFs and other binaries (and text files over the 1 MB merge limit) can\u2019t be merged, so a genuine conflict instead produces a sibling copy named `name.conflicted-<hash>.ext` next to the original, where `<hash>` is a short hash of the losing version\u2019s bytes.\n[2] Install/Docker.md (Release channels)\n  Release channels: Every release version of SilverBullet is tagged with its version number, but there are two release channels you can use: / * `:latest` always points to the latest _release_. / * `:edge` always points to the latest _edge build_ (the last commit to `main`). / The default image includes Chromium and enables the [[Runtime API]]. For the smaller image without Chromium, use `:edge-slim` instead of `:edge` or legacy `:v2`, `:latest-slim` instead of `:latest`, or append `-slim` to a version such as `:2.11.0-slim`.\n[3] Workbench/Overview.md (Overview)\n  * **Edits by person:** who made the edits of the last month, with a count for each. It only shows when more than one person edits the space. / * **Git sync:** the state of Git sync, when it is enabled: \u201cSync failed\u201d, \u201cPaused\u201d, \u201cSyncing\u2026\u201d or the number of conflicted files when sync isn\u2019t idle, otherwise the number of pending changes or \u201cUp to date\u201d. / * **Runtime:** the SilverBullet version, and how many scripts and styles are loaded. Scripts and styles link to their tabs.\n[4] Link.md (Internal links)\n  Link write format: The `linkWriteFormat` option in your [[CONFIG]] controls how SilverBullet writes wiki links _it_ generates (through auto complete, and the backlink rewriting that happens when you rename a page). It has no effect on [[#Link resolution|resolution]]: all formats resolve identically, so a space mixing them works fine. / Options: / * `full-path` (the default): always write the full path. / * `shortest`: write the bare page name when that name is unique in the space, and the full path when it is not. / * `shortest-suffix`: like `shortest`, but when the name collides, write the shortest path suffix that still uniquely identifies the page (`api/Auth` rather than `docs/api/Auth`) \u2014 so even disambiguated links stay independent of where the space root sits. / ```lua / config.set(\"linkWriteFormat\", \"shortest\") / ```\n[5] Guide/Git Sync.md (Syncing with a remote)\n  Conflicts: When changes cannot merge automatically, **Review conflicts** lists the affected files. For editable Markdown conflicts, the page presents **This space** and **Remote repository**, with choices to keep either side, keep both, or edit manually. / If you edit manually, remove the conflict markers and let the page save. SilverBullet checks the saved text and resolves eligible text conflicts automatically. There is no mandatory Mark resolved step. Partly removed markers keep the conflict open. Resolved files leave the list, and sync resumes when every file has been resolv ...\nExact facts:\n- [2] Conveniently, SilverBullet is published as a [docker image on GHCR](https://github.com/silverbulletmd/silverbullet/pkgs/container/silverbullet). The image supports a few architectures:\n- [2] > The same docker images are both available from [GHCR](https://github.com/silverbulletmd/silverbullet/pkgs/container/silverbullet) and [Docker Hub](https://hub.docker.com/r/zefhemel/silverbullet), use whichever you prefer.",
+ "meta": {
+  "notes": [
+   "Collaboration.md",
+   "Install/Docker.md",
+   "Workbench/Overview.md",
+   "Link.md",
+   "Guide/Git Sync.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

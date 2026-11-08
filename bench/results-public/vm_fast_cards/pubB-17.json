@@ -1,0 +1,22 @@
+{
+ "id": "pubB-17",
+ "type": "multi",
+ "answer": "A non-Docker server listens on `127.0.0.1` by default (`SB_HOSTNAME`) and on port `3000` (`SB_PORT`), so it is reached at `http://localhost:3000`.",
+ "tokens": 1294,
+ "seconds": 0.476,
+ "e2e_seconds": 2.58,
+ "source_hits": 1.0,
+ "block": "Memory for: The troubleshooting page tells me to verify the server's listening address and port. If I set nothing, what address and port does a non-Docker server listen on?\n[1] Troubleshooting.md (Desktop)\n  Server: If the Server cannot be reached, check that its process is running, then inspect its logs and any reverse-proxy logs. See [[Log]]. Verify the listening address and port in [[Install/Configuration]] and the setup in [[Install/Network and Internet]]. If the Server responds but access is denied, check the account and space access settings in the [[Dashboard]]. / For errors after the editor opens, inspect [[Workbench/Console]] and the browser\u2019s JavaScript console. The following browser options help isolate scripts, styles, plugs and offline-cache problems.\n  - The listening address and port of the Server are verified in Install/Configuration, and the network setup is verified in Install/Network and Internet.\n[2] Install/Configuration.md (Network)\n  - SB_PORT sets the port SilverBullet listens on, for example SB_PORT=1234, and its default is 3000.\n  Network: * `SB_HOSTNAME`: Set to the hostname to bind to (defaults to `127.0.0.1`, set to `0.0.0.0` to accept outside connections for the local setup, defaults to `0.0.0.0` for docker) / * `SB_PORT`: Sets the port to listen to, e.g. `SB_PORT=1234`, default is `3000`\n[3] TLS.md (LAN HTTP (no TLS))\n  LAN HTTP (no TLS): Open your server using its LAN address, for example `http://192.168.1.20:3000`. The server must listen on an address reachable from your LAN. Editing, indexing, queries, Space Lua, plugs, attachments, and local password login remain available. / The limitations are: / * The server must remain reachable. Offline startup, cached file access, and offline synchronization are unavailable. If saving fails, keep the editor open until it can save. / * Local data encryption and OIDC/SSO sign-in are disabled. Use a local account with a password. The local index is stored unencrypted in the browser. / * Browser-based CLI authorization still requires HTTPS or loopback. / * Text copy buttons use the browser\u2019s legacy copying support. Normal keyboard copy/paste remains available. Programmatic image/binary copying requires HTTPS or localhost.\n[4] Guide/Server Setup.md (Install and create a space)\n  Configure the Server: Manage spaces and accounts through the [[Dashboard]]. Use [[Install/Configuration]] for process settings such as the listening address and port. [[Install/Server Modes]] distinguishes current multi-space setup from legacy single-space deployments. / Editor preferences and space behavior are configured separately through [[Workbench/Configuration]]. Server administrators should also understand [[Security]] before granting write access or enabling capabilities for a space.\n  Recovery and troubleshooting: Back up your space files and test restoration. For a full Server restore, preserve configuration and authentication state as well as pa ...\n[5] Install/Server Binary.md (Steps)\n  - The server listens on http://localhost:3000 by default.\nExact facts:\n- [1] Start with the section for the application you use. If you ask the [community for help](https://community.silverbullet.md/), include whether you use Desktop or a browser connected to Server, the version, what you expected and what happened.\n- [1] `?disableSync=1` disables browser offline synchronization with the Server.\n- [1] `SB_LOG_PUSH`: ask clients to push their logs to the Server.\n- [2] `PUID`: Runs the server process with the specified UID (default: whatever user owns the `/data` mapped folder)",
+ "meta": {
+  "notes": [
+   "Troubleshooting.md",
+   "Install/Configuration.md",
+   "TLS.md",
+   "Guide/Server Setup.md",
+   "Install/Server Binary.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

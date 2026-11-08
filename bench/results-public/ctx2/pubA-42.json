@@ -1,0 +1,19 @@
+{
+ "id": "pubA-42",
+ "type": "multi",
+ "answer": "Not in memory. The memory names **Journal: Today** as a command you can bind, but it gives no default shortcut for it. It also lists the reserved prefixes (`Mod-.`, `Ctrl-q`, `Ctrl-g`), so there is no shortcut to check against them.",
+ "tokens": 688,
+ "seconds": 0.005,
+ "e2e_seconds": 2.6,
+ "source_hits": 0.5,
+ "block": "## What is the shortcut for opening today's journal page, and is its first key a prefix SilverBullet reserves for something?\n\n--- [vault:corpus/docs/Guide/Make it your own.md] ---\n### Choose a shortcut\n\n# Choose a shortcut\nIn Configuration, select **Key bindings** and use the filter to find a command you use often. **Journal: Today** is one option if you keep a journal.\n\n1. Click **+** beside the command to add an alternate shortcut.\n2. Press the keys you want to use, then press **Enter** to keep them.\n3. If SilverBullet reports a conflict, choose another combination.\n4. Click **Save and apply**, return to the editor and try your shortcut.\n\nThe command\u2019s \u22ef menu offers **Reset** if you want its default bindings back. Save again to apply that reset. See [[Keyboard Shortcuts]] for reserved keys and shortcuts made of several keystrokes.\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Combos\n\n# Combos\nGenerally keyboard shortcuts are single stroke, however it possible to configure them as \u201ccombos\u201d (multiple shortcuts entered in sequence). Out of the box, SilverBullet reserves two prefix keys for this \u201ccombo\u201d use:\n\n* `Mod-.` (so \u201ccommand dot\u201d or Mac and \u201cCtrl dot\u201d on Linux/Windows), used for various [[Outlines]] related commands\n* `Ctrl-q` used and reserved for [[Page Template]] use cases\n  * `Ctrl-q q` creates a [[^Library/Std/Page Templates/Quick Note]]\n  * `Ctrl-q t` runs the `Page: From Template` command\n* `Ctrl-g` reserved for navigational commands:\n  * `Ctrl-g h` navigates to the index (home) page",
+ "meta": {
+  "engine_seconds": 0.004821124999999995,
+  "sources": [
+   "vault:corpus/docs/Guide/Make it your own.md",
+   "vault:corpus/docs/Keyboard Shortcuts.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

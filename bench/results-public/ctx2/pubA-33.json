@@ -1,0 +1,19 @@
+{
+ "id": "pubA-33",
+ "type": "multi",
+ "answer": "SilverBullet defaults to `full-path`, which always writes the full path. You can change this with `config.set(\"linkWriteFormat\", ...)` to `shortest` or `shortest-suffix`.",
+ "tokens": 978,
+ "seconds": 0.005,
+ "e2e_seconds": 2.29,
+ "source_hits": 1.0,
+ "block": "## Since the change to resolve links by name, which link writing format does SilverBullet use if I never set one?\n\n--- [vault:corpus/docs/Link.md] ---\n### Link write format\n\n# Link write format\nThe `linkWriteFormat` option in your [[CONFIG]] controls how SilverBullet writes wiki links _it_ generates (through auto complete, and the backlink rewriting that happens when you rename a page). It has no effect on [[#Link resolution|resolution]]: all formats resolve identically, so a space mixing them works fine.\n\nOptions:\n\n* `full-path` (the default): always write the full path.\n* `shortest`: write the bare page name when that name is unique in the space, and the full path when it is not.\n* `shortest-suffix`: like `shortest`, but when the name collides, write the shortest path suffix that still uniquely identifies the page (`api/Auth` rather than `docs/api/Auth`) \u2014 so even disambiguated links stay independent of where the space root sits.\n\n```lua\nconfig.set(\"linkWriteFormat\", \"shortest\")\n```\n\n--- [vault:corpus/docs/ADR/011 Link Resolution by Name.md] ---\n### Decision\n\n# Decision\nWhile alternatives like having a \u201cresolution-mode\u201d were considered (e.g. an \u201cobsidian mode\u201d), this would just lead to a lot of complication and weird behavior when switching mode. Instead, we\u2019re updating the current link resolving algorithm to (ideally) support both schemes simultaneously and the only configuration to be set is the preferred link writing format.\n\nThe rules:\n1. **Exact path match wins.** Every link that resolved before resolves to the same file. That is: if a link is an absolute one, and that path exists \u2014 done.\n2. **Bare names** (so without a path segment) resolve space-wide by name, case-insensitively, exact-case preferred.\n3. **Qualified paths** (with a path segment, but not necessarily a full one) with no exact match are looked up by unique **path suffix** (`[[api/Auth]]` finds `docs/api/Auth`). This matches Obsidian\u2019s partial paths and making qualified links survive a root change too. Example: [[1/ambiguous link]] (note that the `1/` prefix make it ambiguous, but it\u2019s still not a full path).\n4. **Several matches** mean the link is **ambiguous**: it still resolves, but is highlighted, indexed as an [[Tag/ambiguous-link]] object, and following it (click, command or shortcut) opens a picker over the candidates. The link text is left alone: following a link is reading, and reading does not edit the document, example: [[1/ambiguous link]]\n\nThe scope is wiki links only, including documents (`![[image.png]]`) and [[Transclusions]]. The `[[^` meta-page",
+ "meta": {
+  "engine_seconds": 0.004686624999999992,
+  "sources": [
+   "vault:corpus/docs/Link.md",
+   "vault:corpus/docs/ADR/011 Link Resolution by Name.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

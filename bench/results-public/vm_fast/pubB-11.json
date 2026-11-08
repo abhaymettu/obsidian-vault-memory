@@ -1,0 +1,21 @@
+{
+ "id": "pubB-11",
+ "type": "single",
+ "answer": "It never runs by itself because `space.lint` reads every page, runs every lint rule and renders its `${\u2026}` expressions and Lua widgets, which can take a while on a large space. So you press **Run space-wide lint** when you want it.",
+ "tokens": 1302,
+ "seconds": 0.377,
+ "e2e_seconds": 3.93,
+ "source_hits": 1.0,
+ "block": "Memory for: Why does the Workbench's whole-space lint check never run on its own?\n[1] Workbench/Maintenance.md (Space-wide lint)\n  Space-wide lint: The space-wide lint runs [[API/space#space.lint]] over every page. This reads each page, runs every lint rule and renders its `${\u2026}` expressions and Lua widgets, so on a large space it can take a while. That\u2019s why it never runs by itself: press **Run space-wide lint** when you want it.\n  The Maintenance tab lists (potential) problems in your space in one place. / ${widgets.commandButton(\"Workbench: Maintenance\")} opens this tab in the [[Workbench]]. / The checks below are instant, and refresh as your space changes: / * **Broken links:** links to pages that don\u2019t exist yet ([[Tag/aspiring-page|aspiring pages]]). / * **Ambiguous links:** links that could mean more than one page (see [[Link#Ambiguous links]]). / * **Scripts and styles:** scripts that failed to load or are quarantined, and styles that hold CSS the browser parsed no rules from. / * **Merge conflicts:** unresolved merges that need your decision.\n[2] Workbench/Libraries.md (Checking for updates)\n  The Libraries tab manages the [[Library|libraries]] in your space. In a read-only space it only shows what\u2019s there: installing, updating, removing and checking for updates are hidden, with a note saying why (a read-only server doesn\u2019t reach other servers, so there is nothing to check against). It reloads every time you show the tab, so what you see matches your space. / ${widgets.commandButton(\"Workbench: Libraries\")} opens this tab in the [[Workbench]]. / The toolbar has: / * **Filter libraries**: narrows installed libraries by name and available ones by name, description and page. / * **Install\u2026**: asks for a library or plug URI (`https://\u2026` or `github:\u2026`) and installs it. For a plug (a URI ending in `.plug.js`) it also asks where to save it.\n[3] Workbench.md (Workbench)\n  * [[Workbench/Libraries|Libraries]]: install, update and remove [[Library|libraries]] and [[Repository|repositories]], and check what has an update. / * [[Workbench/Maintenance|Maintenance]]: problems in your space, such as broken links, failed scripts, merge conflicts and (on demand) lint errors. / * [[Workbench/Console|Console]]: everything your space logs, plus a [[Space Lua]] REPL.\n[4] CLI.md (Installation)\n  Space Lua and Space Style pages: A `write` or `edit` of a Markdown page that has, or had, `space-lua` or `space-style` blocks makes the space reload its scripts and styles, so the change takes effect at once, then reports that page\u2019s load errors and lint problems (the same check as [[API/space#space.lint]]) on stderr. With `--json` they are in the result\u2019s `reload` field: `status` (`clean`, `problems`, `failed` or `no_runtime`), `loadErrors` and `lint`. A write that reports problems still happened: stderr says so, and the command exits with code 9 so a script notices. Fix the page and write it again. The reload is skipped, and the exit code stays 0, with `--no-reload`, with `edit --dry-run`, when the space has no runti ...\nExact facts:\n- [3] [[Workbench/Overview|Overview]]: your space at a glance: page, task and link counts, top tags, activity and runtime state.\n- [4] Single-file spaces opened in Desktop are hidden from the list. Add `--all` to show them. A folder space cannot be moved or removed while SilverBullet Desktop has it open. `mv` renames the folder, so the new folder must not exist and must be on the same disk. For another disk, copy the folder yoursel",
+ "meta": {
+  "notes": [
+   "Workbench/Maintenance.md",
+   "Workbench/Libraries.md",
+   "Workbench.md",
+   "CLI.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

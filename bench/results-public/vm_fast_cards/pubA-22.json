@@ -1,0 +1,24 @@
+{
+ "id": "pubA-22",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 1356,
+ "seconds": 0.464,
+ "e2e_seconds": 3.95,
+ "source_hits": 1.0,
+ "block": "Memory for: With the standalone server binary, what command moves me onto builds that track the main branch?\n[1] Development.md (Stack)\n  - The bin/silverbullet/ directory is the standalone server binary written in Rust.\n  Code structure: * `client/`: The SilverBullet client, implemented with TypeScript / * `server/`: The SilverBullet server library (Rust): HTTP router, handlers, auth, runtime seam / * `server-common/`: Shared Rust crate (space primitives, shared types) / * `server-runtime-chrome/`: Headless-Chrome runtime backend (Rust) / * `bin/silverbullet/`: The standalone server binary (Rust) / * `bin/sb/`: The `sb` command-line client (Rust) / * `plugs`: Set of built-in plugs that are distributed with SilverBullet / * `libraries`: A set of libraries (space scripts, page templates, slash templates) distributed with SilverBullet / * `plug-api/`: Useful APIs for use in plugs / * `lib/`: Useful libraries to be used in plugs / * `syscalls/`: TypeScript wrappers around syscalls / * `types/`: Various (client) types that can be references from plugs / * `bin/plug-compile.ts`: the plug compiler / * `scripts/`: Useful scripts / * `docs/`: silverbullet.md website content\n[2] Install.md (Desktop)\n  - Server can be installed with Docker or with the standalone binary.\n  Server: Run Server when you want browser access, a shared team space or a synchronization point for Desktop installations. Install it with [[Install/Docker|Docker]] or the [[Install/Server Binary|standalone binary]]. You can start on this computer and make it reachable from other devices when needed. / [[Guide/Server Setup]] covers setup and administration. [[Install/Server]] describes deployment choices and filesystem requirements.\n[3] CLI.md (Installation)\n  - The command sb upgrade upgrades sb to the latest stable release, and sb upgrade-edge upgrades it to the latest edge (main branch) build.\n  - The sb command is not the server; the actual SilverBullet server binary is silverbullet, documented at Install/Server Binary.\n[4] Install/Server Binary.md (Steps)\n  Download and run the standalone SilverBullet Server binary.\n  - An install guide on downloading, running, configuring and upgrading the standalone SilverBullet Server binary. Names: SilverBullet, silverbullet, sb, darwin, Raspberry Pi, FreeBSD, GitHub, Client: Version.\n[5] Library/Development.md (Decorate your library with frontmatter)\n  - Running the Share: Page command and selecting \"Github file\" asks for the repo name as user/repo, the branch name (default main), the file name, and a commit message.\n[6] Guide/Server Setup.md (Install and create a space)\n  - To install SilverBullet Server, choose Docker or the standalone binary, start with an empty data folder, and open the Server's address in a browser.\n  Install and create a space: Choose [[Install/Docker|Docker]] or the [[Install/Server Binary|standalone binary]]. Start with an empty data folder and open the Server\u2019s address in a browser. The setup wizard creates your first administrator account and space. [[Dashboard]] exp ...\nExact facts:\n- [1] The **server** (Rust: `server/`, `server-common/`, `server-runtime-chrome/`, `bin/silverbullet/`) is a compiled binary.\n- [1] The **client** (TypeScript: `client/`) is built by ESBuild into `client_bundle/`, which the server serves.\n- [1] Run the server in development with `cargo run`. A **debug** build serves the client bundle **live from `client_bundle/` on disk** (a release build embeds it). Use `SB_DISABLE_SERVICE_WORKER=1` so the service worker doesn\u2019t cache stale assets:",
+ "meta": {
+  "notes": [
+   "Development.md",
+   "Install.md",
+   "CLI.md",
+   "Install/Server Binary.md",
+   "Library/Development.md",
+   "Guide/Server Setup.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

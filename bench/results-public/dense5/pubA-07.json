@@ -1,0 +1,13 @@
+{
+ "id": "pubA-07",
+ "type": "single",
+ "answer": "Setting `done` on a custom task state (e.g. `done = true`) only affects whether the `Task: Remove Completed` command treats that state as \"done.\" It doesn't change any attribute on the containing page, since a page's status is separate from task completion.",
+ "tokens": 718,
+ "seconds": 0.003,
+ "e2e_seconds": 2.3,
+ "source_hits": 1.0,
+ "block": "--- API/taskState.md ---\nAPI | API > taskState.define(def)\nDefines a custom task state. Options:\n* `name`: name of the state\n* `done`: whether or not the state should be considered \u201cdone\u201d or not, used by the `Task: Remove Completed` command\n\nPrimarily used to offer code completion for custom task states for now.\n\n--- Guide/Task Management.md ---\nWrite tasks where they belong | Write tasks where they belong\nAdd a task to the page where its context is described. Type `* [ ]` followed by the task text, or use `/task` on a line. Click its checkbox to complete it. [[Task]] explains task states and editing commands.\n\nA page\u2019s status is separate from task completion. Completing every task does not automatically change an attribute on the containing page.\n\n--- Markdown/Basics.md ---\nBasic markup | Lists and tasks\nWhen you click the checkbox, it will toggle its state and replace the ` ` inside the box with `x`. SilverBullet also supports custom task statuses by putting text in between `[` and `]`. When you click on such custom task states, it cycles through the states configured in your space using [[API/taskState]]. See [[Task#Custom states]]:\n\n* [IN PROGRESS] This task is in progress\n* [DONE] This task is done\n* [TO DO] This task is still to be done\n\n--- Task.md ---\nCustom states\nThe task notation syntax is a [[Markdown]] extension to write down tasks.\n\nIts most basic form is:\n\n    * [ ] This is my first task\n\nwhich renders as follows:\n\n* [ ] This is my first task\n\nIn a writable space, click a checkbox to change whether the task is complete. Checkboxes in these read-only docs cannot be changed.\n\n--- API/taskState.md ---\nAPI | API > Example\nInstall these definitions in a `space-lua` block in your own space and reload them:\n```lua\ntaskState.define {\n  name = \"TO DO\"\n}\n\ntaskState.define {\n  name = \"IN PROGRESS\"\n}\n\ntaskState.define {\n  name = \"DONE\",\n  done = true\n}\n```\nUse:\n* [TO DO] Still to do\n* [DONE] Task already completed",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT"
+}

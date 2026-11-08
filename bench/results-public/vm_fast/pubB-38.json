@@ -1,0 +1,22 @@
+{
+ "id": "pubB-38",
+ "type": "verbatim",
+ "answer": "`_CTX.sourcePage` gives the page the expression's text comes from (`{ name = \u2026 }`): inside a transclusion it's the transcluded page, otherwise the current page. By contrast, `_CTX.currentPage` is the currently open page.",
+ "tokens": 1224,
+ "seconds": 0.394,
+ "e2e_seconds": 2.52,
+ "source_hits": 1.0,
+ "block": "Memory for: Inside a transclusion, which context value gives me the page the expression's text actually comes from rather than the open page?\n[1] Space Lua/Thread Locals.md (Thread Locals)\n  There is \u201cmagic\u201d `_CTX` global variable available from which you can access some context-specific values. Currently the following keys are available: / * `_CTX.currentPage` providing access to the currently open page (PageMeta object) / * `_CTX.sourcePage` the page the expression\u2019s text comes from (`{ name = \u2026 }`): the transcluded page inside a transclusion, otherwise the current page\n[2] API/pageVars.md (API)\n  APIs to read and set [[Space Lua/Page Lua|page variables]]: the values a page defines with `${name = \u2026}` and `page-lua` blocks. / Each function takes an optional page name as its last argument. Without it they use the page the running code is on: the page a `${\u2026}`, code widget or button belongs to (for a button inside a transclusion, the transcluded page), or else the open page. / Copy this complete Markdown example into a writable page. The button saves the incremented value back to that page. It is shown as source here because the published documentation is read-only. / ```markdown / Example: ${counter = 1} / Counter * pi: ${math.pi * counter} / ${widgets.button(\"Add one\", function() / pageVars.set(\"counter\", counter + 1) / end)} / ``` / Initially the counter is 1. After one click it is 2, and the multiplication result updates.\n[3] API/share.md (API)\n  share:target:<uri>: * `link(l)`: returns the text that replaces a wiki link or transclusion that points inside the share. `l` has `page` and `anchor` (the target, the anchor without `#`), `alias`, `text` (the alias, or the page name), `transclusion` (true for `![[...]]`), `fromUri` (the URI of the page being shared) and `toUri` (the URI of the target page, or nil for a link within the page itself).\n  share.transform(text, ctx): * `bake`: runs the page\u2019s [[Baked Sections|live content]] and keeps the result as plain text, without the markers (text after a marker on its line stays). / * `links`: [[Link|wiki links]] and transclusions to a page in the share (or the page itself) are rewritten by the target\u2019s `link` function. A link to any other page becomes its text (its alias, or the page name), and a transclusion of anything outside the share is removed. Wiki link syntax inside code is left alone. / * `comments`: removes HTML comments (`<!-- ... -->`), both whole blocks and inline, except the markers of baked sections. A removed block leaves its neighbours as separate blocks. / After the built-in steps the `share:transform` services run (see below) when `extensions` is set.\n[4] Space Lua/Page Lua.md (Defining values)\n  How evaluation works: * Values are recalculated when the page is saved (SilverBullet saves automatically shortly after you stop typing), and when anything a definition read changes, such as the results of a query or another page\u2019s variables (see [[API/widget#When expressions update]]). / * A transcluded page is evaluated in its own scope. S ...\nExact facts:\n- [2] Returns one of a page\u2019s variables. A name the page doesn\u2019t define is an error. A variable holding `nil` returns `nil`.\n- [2] Sets a variable by rewriting its `${name = \u2026}` in the page text, so the page shows and saves the new value and everything that uses it updates.\n- [2] pageVars.set(\"rate\", 0.2)\n- [2] pageVars.set(\"salary\", 600, \"Budget\")",
+ "meta": {
+  "notes": [
+   "Space Lua/Thread Locals.md",
+   "API/pageVars.md",
+   "API/share.md",
+   "Space Lua/Page Lua.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

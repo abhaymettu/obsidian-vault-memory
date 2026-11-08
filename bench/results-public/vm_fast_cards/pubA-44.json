@@ -1,0 +1,20 @@
+{
+ "id": "pubA-44",
+ "type": "multi",
+ "answer": "Not in memory.",
+ "tokens": 1299,
+ "seconds": 0.494,
+ "e2e_seconds": 2.36,
+ "source_hits": 0.0,
+ "block": "Memory for: Running the Docker image, I want Space Lua to call a command-line tool that isn't installed. How do I get it into the container, and which function runs it?\n[1] CLI.md (Installation)\n  Exploring your space: These calls inspect the connected space itself, so results reflect its own tags, Space Lua functions, and commands, including those added by its libraries. `sb --help` lists the same calls. / Tags and their fields: / ```bash / sb query 'from t = index.tags() select t.name' / sb lua 'index.tagSchema(\"page\")' / ``` / Lua API: / ```bash / sb lua 'table.keys(_G)'                                 # global names, namespaces included / sb lua 'spacelua.listFunctions()'                       # documented global functions / sb lua 'spacelua.listFunctions(\"editor\")'               # functions in a namespace / sb lua 'spacelua.describe(\"editor.getText\")'            # one function's signature and docs / sb lua 'spacelua.renderApiDocumentation(\"index\")' --text  # Markdown, printed as is / sb lua 'system.reboot()'                                 # after changing files outside sb / ``` / Checking pages: / ```bash / sb lua 'space.lint(\"Page\")'                             # problems on a page (YAML, Lua, failing widgets); space.lint() for all / ``` / Commands: / ```bash / sb lua 'system.listCommands()' / ``` / Query syntax: / ```bash / sb fs read 'Library/Std/Docs/SLIQ Reference.md' / ```\n  `lua [code]`: Before running, the space catches its index up with recent file changes, so a query sees pages written a moment ago. When that could not be confirmed, a note on stderr says so, for example when the catch-up took longer than 5 seconds. Console output logged during the call (`print`, `console.log`) goes to stderr as well, so stdout holds only the result, also with `--json`. / ```bash / sb lua \"1 + 1\"\n[2] Library/silverbullet-diagram/Mermaid.md (Installation)\n  Configuration: Everything works out of the box, but you can override the defaults via Space Lua config: / ```lua / config.set(\"mermaid\", { / -- ESM URL imported when no local bundle is installed (default: esm.sh). / -- Also the URL the \"Download bundle for offline use\" command fetches from: / cdnUrl = \"https://esm.sh/mermaid@11.4.0?bundle\", / -- Space path the offline bundle is written to / loaded from: / bundlePath = \"Library/silverbullet-diagram/mermaid.bundle.js\", / }) / ``` / All keys are optional. By default diagrams load from `cdnUrl`. Once a bundle exists at `bundlePath` (e.g. after running **`Mermaid: Download bundle for offline use`**), the local copy is used automatically.\n[3] Search.md (Segments)\n  Space Lua and the command line: The same search is available from [[Space Lua]] as `search.status()` and `search.find()`. See [[API/search]]. / From the command line, run it with `sb lua` (see [[CLI]]): / ```bash / sb lua 'search.find(\"garden plan\")' / sb lua 'search.find(\"flat tire\", {mode = \"phrase\", limit = 10})' / ``` / The result is JSON with `items` (each with `page`, `line`, `excerpt` and more) and `total`.\nExact facts:\n- [1] > `sb` is the optional **CLI client**, it talks to an already-running SilverBullet instance over HTTP. If you\u2019re looking for the actual server binary, that\u2019s [[Install/Server Binary]] (`silverbullet`), not this. You do not need `sb` to use SilverBullet.",
+ "meta": {
+  "notes": [
+   "CLI.md",
+   "Library/silverbullet-diagram/Mermaid.md",
+   "Search.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

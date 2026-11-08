@@ -1,0 +1,19 @@
+{
+ "id": "pubB-15",
+ "type": "single",
+ "answer": "No, that's expected. An ambiguous link still resolves, but which page it means depends on where it is written, so different pages can resolve `[[Config]]` to different targets (see [[Link#Ambiguous links]] for the ranking). Each occurrence is indexed as an `ambiguous-link` record so you can find and disambiguate it by qualifying the link or renaming one of the colliding pages.",
+ "tokens": 678,
+ "seconds": 0.005,
+ "e2e_seconds": 2.45,
+ "source_hits": 1.0,
+ "block": "## Two pages both link [[Config]] and an index record of that ambiguous link shows different resolved pages for each. Is that a bug?\n\n--- [vault:corpus/docs/Tag.md] ---\n### Index tags\n\n# Index tags\nRecords the [[Object Index]] keeps about the space itself. They are computed, with no Markdown of their own.\n\n* [[Tag/ambiguous-link|ambiguous-link]]: Links whose name matches more than one page.\n* [[Tag/anchor|anchor]]: Named anchors, each pointing at the object it is attached to.\n* [[Tag/aspiring-page|aspiring-page]]: Pages that are linked to but do not exist yet.\n* [[Tag/identity|identity]]: The `@name` mentions across the space.\n* [[Tag/tag|tag]]: Every tag used in the space, with the root tag it is used on.\n\n--- [vault:corpus/docs/Tag/ambiguous-link.md] ---\n### Untitled\n\nAn `ambiguous-link` object records a [[Link|link]] whose name lookup matches more than one page in the space \u2014 a bare name carried by several pages, or a path-qualified link that is the suffix of several paths \u2014 with no exact match among them. The link still resolves \u2014 see [[Link#Ambiguous links]] for the ranking that picks the winner \u2014 but which page it means depends on where it is written, so each occurrence is indexed for you to find and disambiguate. A link that matches a page exactly is never recorded here: its text is already that page\u2019s full path.\n\nLike [[Tag/aspiring-page|aspiring pages]], these records are produced by the relation indexer and are recomputed whenever the page is re-indexed, so an ambiguity disappears from the index as soon as it is fixed (by qualifying the link, or by renaming one of the colliding pages).",
+ "meta": {
+  "engine_seconds": 0.005420916999999975,
+  "sources": [
+   "vault:corpus/docs/Tag.md",
+   "vault:corpus/docs/Tag/ambiguous-link.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

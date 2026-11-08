@@ -1,0 +1,22 @@
+{
+ "id": "pubA-12",
+ "type": "single",
+ "answer": "Not in memory. The memory says multi-space mode supports local or SSO accounts managed through the Dashboard, and that administrators provision accounts, but it doesn't say whether members can reset their own passwords.",
+ "tokens": 1089,
+ "seconds": 0.003,
+ "e2e_seconds": 2.21,
+ "source_hits": 0.0,
+ "block": "## A member forgot their password on a multi-space server. Can they reset it themselves?\n\n--- [vault:corpus/docs/Authentication.md] ---\n### Single-space mode > Enabling authentication\n\n## Enabling authentication\nSet `SB_USER` when starting the server. For the [[Install/Server Binary]]:\n\n```shell\nSB_USER='sam:replace-with-a-long-password' ./silverbullet my-space\n```\n\nFor [[Install/Docker]]:\n\n```shell\ndocker run -e SB_USER='sam:replace-with-a-long-password' ...\n```\n\nReplace the example password before running the command. This configures one login named `sam`. When authentication is enabled, SilverBullet shows a login page on first access.\n\n--- [vault:corpus/docs/Install/Server Modes.md] ---\n### Multi-space mode\n\n# Multi-space mode\nThe default mode supports multiple spaces, local or SSO accounts, public access settings, per-member read/write roles and managed [[Revisions]] with optional Git sync. Manage these through the [[Dashboard]]. A single space with one account is also a valid configuration.\n\n--- [vault:corpus/docs/CLI.md] ---\n### Authentication\n\n# Authentication\nThe CLI supports three authentication methods, configured per-space during `space add`:\n\n* **Token** \u2014 sends an `Authorization: Bearer <token>` header. Use this with `SB_AUTH_TOKEN` on a [[Install/Server Modes#Single-space mode|single-space]] server, or with a per-account [[Authentication#API|API token]] on an accounts-based server.\n* **Password** \u2014 authenticates via `POST /.auth` (username/password), then uses the returned session cookie. Use this with `SB_USER` on a single-space server, or with an account username/password on a space you\u2019re a member of.\n* **None** \u2014 no authentication (for local or trusted-network setups, or public spaces).\n\nCredentials are encrypted at rest using AES-256-GCM with PBKDF2 key derivation.\n\n--- [vault:corpus/docs/Single Sign-On.md] ---\n### Untitled\n\nSilverBullet (in multi-space mode) supports SSO via OpenID Connect (OIDC). Administrators provision accounts individually and assign them to spaces. Local username/password accounts remain available alongside SSO accounts.\n\n--- [vault:corpus/docs/Troubleshooting.md] ---\n### Server > Reset a browser client\n\n## Reset a browser client\nIf the problem is in the browser\u2019s local cache, adding `?resetClient=1` to the space URL offers a full client reset. After confirmation, it clears browser storage, unregisters the service worker and reloads the client to synchronize again.\n\n> **warning** Unsynchronized edits will be lost\n> Check that the Server is accessible and preserve any edits that have not reached it before resetting the browser. This clears the browser\u2019s copy, not the Server\u2019s files.",
+ "meta": {
+  "engine_seconds": 0.002970291999998153,
+  "sources": [
+   "vault:corpus/docs/Authentication.md",
+   "vault:corpus/docs/Install/Server Modes.md",
+   "vault:corpus/docs/CLI.md",
+   "vault:corpus/docs/Single Sign-On.md",
+   "vault:corpus/docs/Troubleshooting.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

@@ -1,0 +1,22 @@
+{
+ "id": "pubA-23",
+ "type": "verbatim",
+ "answer": "`Ctrl-q q` creates a Quick Note (type `Ctrl-q` first, then `q`). As of 2.5.0 it is also bound to `Ctrl-q Ctrl-q`, which means hitting `Ctrl-q` twice.",
+ "tokens": 1485,
+ "seconds": 0.345,
+ "e2e_seconds": 3.22,
+ "source_hits": 1.0,
+ "block": "Memory for: What key combo creates a quick note?\n[1] Keyboard Shortcuts.md (Modifier keys)\n  Combos: Generally keyboard shortcuts are single stroke, however it possible to configure them as \u201ccombos\u201d (multiple shortcuts entered in sequence). Out of the box, SilverBullet reserves two prefix keys for this \u201ccombo\u201d use: / * `Mod-.` (so \u201ccommand dot\u201d or Mac and \u201cCtrl dot\u201d on Linux/Windows), used for various [[Outlines]] related commands / * `Ctrl-q` used and reserved for [[Page Template]] use cases / * `Ctrl-q q` creates a [[^Library/Std/Page Templates/Quick Note]] / * `Ctrl-q t` runs the `Page: From Template` command / * `Ctrl-g` reserved for navigational commands: / * `Ctrl-g h` navigates to the index (home) page\n[2] Page Template.md (Creating a page template)\n  Example: overriding the Quick Note template: ~~~ / --- / command: Quick Note / key: \"Ctrl-q q\" / suggestedName: \"Quick notes/${os.date('%Y-%m-%d/%H-%M-%S')}\" / confirmName: false / tags: meta/template/page / --- / This is my quick note version / ~~~\n  Overriding page templates: If you would like to override an existing page template (for instance the Quick Note) template with your own, you can take advantage of the load order determined by the `priority` frontmatter. Built in page templates will have a priority set that is higher than the default. Therefore,  ...\n[3] CHANGELOG.md (CHANGELOG)\n  2.5.0: * Changed keyboard bindings (sorry!). CodeMirror no longer directly allows `Alt-<letter>` and `Alt-<special-character>` [[Keyboard Shortcuts]], meaning I had to **remap a few key bindings**. It\u2019s basically a mission impossible to pick great ones, but here are the new defaults: / * `Quick note` is now bound to both `Ctrl-q q` (type `Ctrl-q` first, then hit `q` again) and `Ctrl-q Ctrl-q` (hit `Ctrl-q` twice) / * `Navigate: Home` is now bound to `Ctrl-g h` / * `Text: Marker` is now bound to `Ctrl-Alt-m` / * [[Outlines]] commands generally now use a `Mod-.` (`Cmd-.` on mac, `Ctrl-.` on Linux/Windows) prefix: / * `Outline: Move Right`: `Mod-. l` / * `Outline: Move Left`: `Mod-. h` / * `Outline: Move Up`: `Alt-ArrowUp` still works, but now also adds `Mod-. k` for consistency / * `Outline: Move Down`: `Alt-ArrowDow` still works, but now also adds `Mod-. j` for consistency\n[4] Page Picker.md (Result ordering)\n  Use the page picker to find a note by name or create one in a writable space. For searching inside notes, use [[Search]]. The published documentation is read-only: use your own space for the creation steps below. / The page picker has two main functions: / 1. Enables quick navigation between [[Page]] / 2. Enables creation of new pages / * Based on the entered name / * Based on [[Link|linked]] to, but not yet created page names / The page picker can be invoked by clicking the \ud83d\udcd4 icon in the top bar, or by pressing `Cmd-k` on Mac, or `Ctrl-k` on Windows/Linux. / The main input is the **filter phrase** and can be used to narrow down the list of page results. / If the filter phrase contains `#tags` the results will be filtered based on matching those tags.\nExact facts:\n- [1] SilverBullet uses [CodeMirror](https://codemirror.net) under the hood, which does the majority of the keyboard handling. In addition, it allows to for customization of (most) keys on a per-command basis. When you open the [[Command Palette]], you will see the currently assigned keyboard shortcut(s).\n- [1] It is by far the easiest to configure your keyboard shortcuts in the Key bindings section of [[Workbench/Configuration]].\n- [1] `Cmd`: Command key (Mac only)\n- [1] `Meta`: usually the \u201cWindows\u201d key",
+ "meta": {
+  "notes": [
+   "Keyboard Shortcuts.md",
+   "Page Template.md",
+   "CHANGELOG.md",
+   "Page Picker.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

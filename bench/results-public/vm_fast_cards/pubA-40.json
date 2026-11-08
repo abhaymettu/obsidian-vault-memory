@@ -1,0 +1,22 @@
+{
+ "id": "pubA-40",
+ "type": "multi",
+ "answer": "@pete.smith is one mention: names may contain dots, so dotted usernames carry whole. Mentioning him does not grant access to the space; a mention only means the text is for the mentioned recipient (the memory says nothing about access being given).",
+ "tokens": 1346,
+ "seconds": 0.442,
+ "e2e_seconds": 2.73,
+ "source_hits": 0.5,
+ "block": "Memory for: If I mention @pete.smith, is that one mention or does it stop at the dot, and does mentioning him give him access to the space?\n[1] At-Mention.md (`@name` syntax)\n  - A name in an at-mention may contain dots, so @pete.smith and @sam.rivera are each one mention.\n  `@name` syntax: Type `@` followed by a name with no spaces, e.g. @jo. While typing, autocomplete offers every known identity. / A name may contain dots, so dotted usernames carry whole: @pete.smith and @sam.rivera are each one mention. / **Any name is a valid mention.** Nothing needs declaring up front: mentioning @sales makes `sales` a known identity. See [[Identity]] for more info. / For a complete request, reply and resolution workflow, see [[Guide/Comments, Mentions and Replies]].\n[2] Recipient.md (The Mention Inbox)\n  - A reference note on recipients and the @name mention syntax, describing the Mention Inbox view, the recipients attribute and frontmatter, and how mentions are indexed and queried. Names: Mention Inbox, identity.define, @sam.rivera, pete, sales.\n  The Mention Inbox: The Mention Inbox is a [[View|view]] listing open `@mention`s, grouped by page. It opens in the right sidebar by default, and its dock menu can move it to the left sidebar, bottom panel, or a modal. Open it with `Navigate: Mentions`, or by clicking any mention.\n  The `recipients` attribute: Every mention also sets a `recipients` attribute onto the object that hosts it, holding the `@name` identifier of each name mentioned. / * a mention inside a task or list item stamps that task or item. / * a mention in a plain paragraph or header stamps the **page** object instead. / Pages can also declare recipients declaratively in frontmatter \u2014 useful when a whole page is \u201cfor\u201d someone without inline mentions: / ```yaml / --- / recipients: [\"pete\", \"sales\"] / --- / ``` / Like `tags`, the value can also be written as a plain string, cut on whitespace: / ```yaml / --- / recipients: pete sales / --- / ```\n  - The Mention Inbox is a view listing open @mentions, grouped by page.\n  - The Mention Inbox is opened with Navigate: Mentions, or by clicking any mention.\n  - A mention only means that the text is for the mentioned recipient.\n[3] Guide/Comments, Mentions and Replies.md (Add a comment)\n  - Running Navigate: Mentions, or clicking a mention, opens the Mention Inbox.\n[4] Tag/identity.md (identity)\n  Every `@name` [[At-Mention|mention]] in your space produces an `identity` record for that [[Identity]] on the page where it is mentioned. Identities are names, not pages: there is never a page behind one, and an at-mention is recorded as a [[Tag/relation|relation]] with `kind: \"at-mention\"` and `toTag: \"identity\"`.\n  - Every @name mention in the space produces an identity record for that Identity on the page where it is mentioned.\n[5] Tag.md (Root tags)\n  - The identity index tag covers the @name mentions across the space.\nExact facts:\n- [1] An **at-mention** is the `@name` span you type in text. It refers to an [[Identity]], and it has two directions: written plainly it *addresses* that identity, making it a [[Recipient]], or when used as a signature it *credits* that identity instead, see [[Authorship]].\n- [2] A **recipient** is an [[Identity]] you address. When mentioned with `@name`, it is indexed to be queried, and clicking it in the editor will open the \u201cMentions Inbox\u201d.\n- [2] See [[At-Mention]] for the `@name` syntax, and [[Identity]] for where names come from (accounts, `identity.define`, or simply being mentioned).",
+ "meta": {
+  "notes": [
+   "At-Mention.md",
+   "Recipient.md",
+   "Guide/Comments, Mentions and Replies.md",
+   "Tag/identity.md",
+   "Tag.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

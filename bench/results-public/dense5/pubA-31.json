@@ -1,0 +1,13 @@
+{
+ "id": "pubA-31",
+ "type": "multi",
+ "answer": "The Go rewrite was decided first. It is ADR 008 (2025), and ADR 009 says the move from Deno to Node came once the server had become a thin file store, which was after the Go rewrite.",
+ "tokens": 886,
+ "seconds": 0.004,
+ "e2e_seconds": 3.01,
+ "source_hits": 1.0,
+ "block": "--- ADR/010 Rust Backend.md ---\nContext | Decision\nThe server is written in **Rust** (as of v2.10.0). The progression was **Node.js -> Deno -> Go -> Rust**:\n\n* Deno: a modern, secure-by-default TypeScript runtime, a sensible fit while the server still ran [[Plugs|plug]] logic and sandboxing mattered (pre-[[ADR/007 Core Application Logic on the Client|v2]]).\n* Go (2025): once the server was just a file store, it was rewritten in Go: \u201csignificantly less memory and significantly smaller in size.\u201d\n* Rust (2026): the Go server was replaced by an adaptation of the Rust backend used elsewhere in the project, converging the whole codebase on **TypeScript + Rust**.\n\n--- ADR/008 Go Backend.md ---\nContext | Decision\nRewrite the server in **Go**. Being just a file store, the whole backend was ported becoming significantly less memory and significantly smaller in size than the Deno build.\n\n--- ADR/009 Client Build Toolchain.md ---\nContext | Context\nSince [[ADR/007 Core Application Logic on the Client|v2]] the client is where all the logic lives, and it is built with TypeScript + ESBuild. For years that toolchain ran on **Deno**, chosen early when Deno\u2019s sandboxed-worker permissions also suited running [[Plugs|plugs]] on the server (see [[ADR/010 Rust Backend]]).\n\nOnce the server became a thin file store, only the client remained to build, and the trade-off shifted: Deno\u2019s distinctive advantages no longer bought SilverBullet much, while its churn \u2014 repeated changes in package management (HTTP imports \u2192 import maps \u2192 JSR \u2192 varying npm support) and the occasional regression \u2014 was a recurring distraction.\n\n--- ADR/009 Client Build Toolchain.md ---\nContext | Decision\nThe client build toolchain moved from **Deno to Node.js** (npm + ESBuild, with [vitest](https://vitest.dev/) for tests). It was done gradually and completed in the `to-node` migration.\n\n--- ADR/010 Rust Backend.md ---\nContext | Alternatives considered\n* **Revert the server to TypeScript (Deno or Node).** Rejected: a JS runtime buys little for a process that just serves files and it is resource heavy.\n* **Stay on Go.** Rejected: Go meant maintaining a backend separate from the project\u2019s Rust code, and its ecosystem made the desired CRDT direction impractical.",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT"
+}

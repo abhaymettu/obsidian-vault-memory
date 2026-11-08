@@ -1,0 +1,19 @@
+{
+ "id": "pubB-14",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 743,
+ "seconds": 0.006,
+ "e2e_seconds": 2.1,
+ "source_hits": 1.0,
+ "block": "## On Desktop with a shared underlay space, if my own space and the shared one both have a page with the same name, which copy do I see?\n\n--- [vault:corpus/docs/Troubleshooting.md] ---\n### Desktop\n\n# Desktop\nFor an error inside an open space, inspect the log in [[Workbench/Console]]. If it started after adding a script, style or library, review that change through the relevant Workbench tab.\n\nIf the local page is correct but another device has an older version, check the space\u2019s **Sync** settings in the Desktop dashboard and confirm that the external Server is reachable. [[Desktop Sync]] explains the connection setup. If you do not use an external Server, there is no Desktop\u2013Server sync to diagnose.\n\nCheck the dashboard\u2019s **Updates** tab for an available update. For Flatpak installations, check through Flatpak instead. Before changing or replacing files to recover a space, preserve a copy. Desktop stores the space in a local folder. The browser cache reset below does not repair those files.\n\n--- [vault:corpus/docs/Meta Space.md] ---\n### Untitled\n\n#desktop\n\nA Meta Space is one of your [[Local Space|local spaces]] that SilverBullet Desktop underlays into all the others, so its configuration, libraries and templates are available everywhere.\n\nSilverBullet Desktop supports unlimited spaces. That\u2019s great for keeping contexts separate. The downside: anything you want available _everywhere_ \u2014 a shared snippet of `CONFIG.md`, a [[Space Lua]] library you wrote once and want to reuse \u2014 has to be copied into every space, and kept in sync. Not great.\n\nThe **Meta Space** is the way out. It\u2019s a SilverBullet+ feature available with [Desktop Pro](https://silverbullet.md/pricing) that lets you nominate one of your spaces as a shared underlay for all the others. Anything you put in your meta space (config, libraries, custom commands, templates) automatically becomes available in every other space. The dashboard currently labels it a beta feature.",
+ "meta": {
+  "engine_seconds": 0.005589125000000024,
+  "sources": [
+   "vault:corpus/docs/Troubleshooting.md",
+   "vault:corpus/docs/Meta Space.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

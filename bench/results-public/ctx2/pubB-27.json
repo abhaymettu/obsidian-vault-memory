@@ -1,0 +1,19 @@
+{
+ "id": "pubB-27",
+ "type": "multi",
+ "answer": "You can address any identity with `@name`, written with no spaces, and the name may contain dots, so @pete.smith and @sam.rivera are each a single mention. Nothing needs to be declared first: mentioning a name like @sales makes `sales` a known identity, and its mentions appear in the Mention Inbox.",
+ "tokens": 478,
+ "seconds": 0.004,
+ "e2e_seconds": 2.41,
+ "source_hits": 1.0,
+ "block": "## Who can I address with @name for the Mention Inbox: can the name contain dots, and do I need to declare it first?\n\n--- [vault:corpus/docs/At-Mention.md] ---\n### `@name` syntax\n\n# `@name` syntax\nType `@` followed by a name with no spaces, e.g. @jo. While typing, autocomplete offers every known identity.\n\nA name may contain dots, so dotted usernames carry whole: @pete.smith and @sam.rivera are each one mention.\n\n**Any name is a valid mention.** Nothing needs declaring up front: mentioning @sales makes `sales` a known identity. See [[Identity]] for more info.\n\nFor a complete request, reply and resolution workflow, see [[Guide/Comments, Mentions and Replies]].\n\n--- [vault:corpus/docs/Recipient.md] ---\n### Untitled\n\ndescription: \"An identity addressed with @name, whose mentions appear in the Mention Inbox.\"\ntags: glossary maturity/experimental\nreferences:\n- plugs/index/relation.ts\n- plugs/index/indexer.ts\n- plugs/editor/navigate.ts\n- libraries/Library/Std/Editor/Mention Inbox.md",
+ "meta": {
+  "engine_seconds": 0.0038340419999999538,
+  "sources": [
+   "vault:corpus/docs/At-Mention.md",
+   "vault:corpus/docs/Recipient.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

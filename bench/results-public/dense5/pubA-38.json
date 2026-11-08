@@ -1,0 +1,13 @@
+{
+ "id": "pubA-38",
+ "type": "multi",
+ "answer": "Not in memory.",
+ "tokens": 756,
+ "seconds": 0.003,
+ "e2e_seconds": 2.39,
+ "source_hits": 0.5,
+ "block": "--- Sync.md ---\nSync | description\nOffline synchronization between the client and SilverBullet Server.\n\n--- Desktop Sync.md ---\nSilverBullet server\n#desktop\n\nSilverBullet [[Desktop]] keeps your space on your computer, and can sync it with a SilverBullet Server so you can reach it from other devices and browsers.\n\nAn external Server connection is optional. Without one, Desktop reads and writes the local space folder directly. Configure sync when you want another Desktop installation or a browser on another device to reach the same content.\n\nChoose a Server you control or a hosted instance, then connect the local space below.\n\n--- Desktop Sync.md ---\nSilverBullet server | SilverBullet server > Setup\n* In your SilverBullet Desktop dashboard, hover over the space you want to set up for sync and click the gear icon.\n* Scroll down to the \u201cSync\u201d section. Enter the external space\u2019s URL and choose username/password or token authentication. Use an account or token permitted to write that space, then inspect the connection status before relying on another device.\n\n--- SilverBullet.md ---\nThe premise | Choose your setup\n* [[Desktop|SilverBullet Desktop]] keeps a space in a folder on your computer. An external Server connection is optional.\n* [[Install|SilverBullet Server]] is a self-hosted web app you use from a browser. Start with [[Install/Docker]] or [[Install/Server Binary]].\n* For hosted options, see [[Install#Cloud]].\n\n--- Desktop.md ---\nIn this section\n#desktop\n\nSilverBullet Desktop is the native SilverBullet app for macOS, Windows and Linux: it keeps each space in a folder on your computer and can sync it with a SilverBullet Server.\n\nDesktop runs the shared editor and extension system from [[Install|SilverBullet Server]]. Writing, navigation, queries and Space Lua work the same way. Installation, authentication and device connections depend on where the space is hosted. Desktop does not need an external Server or browser-style synchronization with its embedded server. Downloads and pricing are on the [SilverBullet Desktop page](https://silverbullet.md/desktop).",
+ "meta": {},
+ "score": 0.0,
+ "judge": "WRONG"
+}

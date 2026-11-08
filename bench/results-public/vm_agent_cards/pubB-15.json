@@ -1,0 +1,21 @@
+{
+ "id": "pubB-15",
+ "type": "single",
+ "answer": "No, that isn't a bug. Ranking for an `ambiguous-link` record is relative to the page the link appears on. Two pages that link `[[Config]]` can therefore have different `resolvesTo` values for the same `name` (source: Tag/ambiguous-link.md). To make the link resolve the same way everywhere, qualify it with a path or rename one of the colliding pages.",
+ "tokens": 1347,
+ "seconds": 4.164,
+ "e2e_seconds": 4.16,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3774,
+  "final_context": 5099,
+  "billed_input": 8873,
+  "turns": 2,
+  "cost_usd": 0.0097331,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"Two pages both link [[Config]] and an index record of that ambiguous link shows different resolved pages for each. Is that a bug?\\\"\"}\nMemory for: Two pages both link [[Config]] and an index record of that ambiguous link shows different resolved pages for each. Is that a bug?\n[1] Tag/ambiguous-link.md (ambiguous-link)\n  - Ranking for an `ambiguous-link` object is relative to the page the link appears on, so two pages linking [[Config]] can have different `resolvesTo` values for the same name.\n  Attributes: * `name`: the link target as written, which turned out not to identify a unique page. / * `resolvesTo`: the page the link currently resolves to, which is the first entry of `candidates`. / * `candidates`: every page sharing the name, in ranked order. / * `page`: the page the link appears on. / * `pos`: byte offset of the link within `page`. / * `range`: `[start, end]` byte offsets of the link syntax within `page`. / Ranking is relative to `page`, so two pages linking `[[Config]]` can legitimately have different `resolvesTo` values for the same `name`.\n  An `ambiguous-link` object records a [[Link|link]] whose name lookup matches more than one page in the space \u2014 a bare name carried by several pages, or a path-qualified link that is the suffix of several paths \u2014 with no exact match among them. The link still resolves \u2014 see [[Link#Ambiguous links]] for the ranking that picks the winner \u2014 but which page it means depends on where it is written, so each occurrence is indexed for you to find and disambiguate. A link that matches a page exactly is never recorded here: its text is already that page\u2019s full path.\n  - A reference note describing the `ambiguous-link` index record, which marks links whose name matches more than one page. Names: ambiguous-link, relation indexer.\n  - An ambiguity disappears from the index once it is fixed, either by qualifying the link or by renaming one of the colliding pages.\n  - `ambiguous-link` records are produced by the relation indexer and are recomputed whenever the page is re-indexed.\n[2] Tag.md (Root tags)\n  Index tags: Records the [[Object Index]] keeps about the space itself. They are computed, with no Markdown of their own. / * [[Tag/ambiguous-link|ambiguous-link]]: Links whose name matches more than one page. / * [[Tag/anchor|anchor]]: Named anchors, each pointing at the object it is attached to. / * [[Tag/aspiring-page|aspiring-page]]: Pages that are linked to but do not exist yet. / * [[Tag/identity|identity]]: The `@name` mentions across the space. / * [[Tag/tag|tag]]: Every tag used in the space, with the root tag it is used on.\n  - The ambiguous-link index tag covers links whose name matches more than one page.\n[3] API/index.md (index)\n  - index.ambiguousLinks() returns links whose page name matches more than one page, as a query collection.\n  index.ambiguousLinks: `index.ambiguousLinks()` / Returns links whose page name matches more than one page as a query collection.\n[4] Link.md (Internal links)\n  Ambiguous links: Every ambiguous link to a page is indexed as an [[Tag/ambiguous-link|ambiguous-link]] object.\nExact facts:\n- [1] Like [[Tag/aspiring-page|aspiring pages]], these records are produced by the relation indexer and are recomputed whenever the page is re-indexed, so an ambiguity disappears from the index as soon as it is fixed (by qualifying the link, or by renaming one of the colliding pages).\n- [2] [[#Edge tags]]: specically: [[Tag/relation]] whose objects are automatically derived from links that appear in a page."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

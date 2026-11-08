@@ -1,0 +1,19 @@
+{
+ "id": "pubB-09",
+ "type": "single",
+ "answer": "Space Lua is missing coroutines (not planned), `_ENV` (planned), and hexadecimal numeric constants with a fractional part or binary exponents (JavaScript's number parser doesn't support them either).",
+ "tokens": 413,
+ "seconds": 0.006,
+ "e2e_seconds": 2.22,
+ "source_hits": 1.0,
+ "block": "## Which parts of standard Lua 5.4 can't I rely on in SilverBullet scripts?\n\n--- [vault:corpus/docs/Space Lua/Quirks.md] ---\n### Lua implementation notes\n\n# Lua implementation notes\nSpace Lua is intended to be a more or less complete implementation of [Lua 5.4](https://www.lua.org/manual/5.4/). However, a few features are (still) missing:\n\n* coroutines (not planned, not useful in the SilverBullet context)\n* _ENV (planned)\n* Hexadecimal numeric constants with a fractional part, or binary exponents (not supported by JavaScript number parser either)\n\n--- [vault:corpus/docs/Architecture/Space Lua.md] ---\n### Untitled\n\n[[Space Lua]] is SilverBullet\u2019s embedded Lua dialect and runtime for extensions. It implements most of the Lua 5.4 standard library plus Space Lua-specific [[API]]s, and can reach all [[Architecture/Syscalls]].",
+ "meta": {
+  "engine_seconds": 0.00475079199999999,
+  "sources": [
+   "vault:corpus/docs/Space Lua/Quirks.md",
+   "vault:corpus/docs/Architecture/Space Lua.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

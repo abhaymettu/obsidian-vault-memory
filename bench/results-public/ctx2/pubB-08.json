@@ -1,0 +1,19 @@
+{
+ "id": "pubB-08",
+ "type": "single",
+ "answer": "Pending changes survive closing the Workbench, but not reloading the browser page. They stay pending until you click **Save and apply** (or press `Cmd-s`/`Ctrl-s`), and **Discard** drops them.",
+ "tokens": 617,
+ "seconds": 0.005,
+ "e2e_seconds": 2.43,
+ "source_hits": 1.0,
+ "block": "## I changed a few options in the settings tab of the Workbench but haven't saved. Do those changes survive if I close the Workbench or reload the browser?\n\n--- [vault:corpus/docs/Workbench/Configuration.md] ---\n### Saving\n\n# Saving\nChanges stay pending until you click **Save and apply**, or press `Cmd-s`/`Ctrl-s` while the tab has focus. **Discard** drops them. While anything is pending, the tab\u2019s label shows a `\u2022`. Pending changes survive switching tabs and closing the Workbench, but not reloading the page.\n\nSaving writes only what you changed into a managed `space-lua` block in [[CONFIG]], then reloads your configuration. Everything outside that block is left alone, and so are values in it that you didn\u2019t touch here, such as those [[Share]] remembers. Simple hand edits to the managed block survive a round trip through this tab. If the block isn\u2019t valid Lua, the tab shows the error and refuses to save until you fix it in CONFIG.\n\nThe footer counts the options or commands, how many you changed, and how many changes are unsaved, and links to CONFIG.\n\nIn a read-only space the tab shows the configuration but can\u2019t change it.\n\n--- [vault:corpus/docs/Guide/Make it your own.md] ---\n### Where your changes live\n\n# Where your changes live\nConfiguration saves your settings and shortcuts in a page called [[CONFIG]]. They belong to the space, so in a shared space they also affect other people using it.\n\nWorkbench writes the configuration as [[Space Lua]] for you. You can inspect CONFIG when you\u2019re curious.",
+ "meta": {
+  "engine_seconds": 0.00495233300000001,
+  "sources": [
+   "vault:corpus/docs/Workbench/Configuration.md",
+   "vault:corpus/docs/Guide/Make it your own.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

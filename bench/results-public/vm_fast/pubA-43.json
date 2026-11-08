@@ -1,0 +1,22 @@
+{
+ "id": "pubA-43",
+ "type": "multi",
+ "answer": "The graph explorer (Object Graph) draws from the [[Tag/relation|relation]] index, which was introduced in version 2.9.0 per the CHANGELOG. The related commit \"Introduce 'relation' indexer, demote 'link' to virtual view\" is dated 2026-05-21.",
+ "tokens": 1297,
+ "seconds": 0.374,
+ "e2e_seconds": 2.98,
+ "source_hits": 0.5,
+ "block": "Memory for: Which index does the graph explorer draw from, and when did that index get introduced?\n[1] CHANGELOG.md (CHANGELOG)\n  2.9.0: * New [[Tag/relation|relation]] indexed object capturing generalized object-to-object relationships. This is a successor to `link`, which still exists as a virtual collection built on top of `relation`. / * New experimental [[Object Graph]]: an interactive, force-directed graph explorer over the [[Tag/relation|relation]] index. Try it via ${widgets.commandButton(\"Graph: Explore\")} and ${widgets.commandButton(\"Graph: Global Page Map\")}. / * Picker fuzzy search: replaced Fuse.js with a custom scorer that supports multi-token queries, path-aware ranking, and some typo tolerance. / * UX: a _lot_ of little visual tweaks and usability fixes all over the place that hopefully will trigger less of your OCD, including: / * On narrow viewports (<800px) header `#` markers no longer get pushed off-screen when the cursor enters a heading / * Positioning of the page title is now (more) left-aligned with editor text.\n[2] ADR/003 Indexed Object Graph.md (Context)\n  References: * [[Object]] \u00b7 [[Object Index]] \u00b7 [[Tag/relation]] \u00b7 [[Graph View]]. / * Generalized relation: [commit 91349448](https://github.com/silverbulletmd/silverbullet/commit/91349448) (2026-05-21) \u2014 \u201cIntroduce \u2018relation\u2019 indexer, demote \u2018link\u2019 to virtual view\u201d\n  Decision: Continuously maintain an **[[Object Index]]**: a structured, queryable graph automatically extracted from the markdown. Every meaningful element \u2014 [[Tag/page|pages]], headers, [[Tag/task|tasks]], list items, [[Tag|tags]], links \u2014 becomes an **[[Object|object]]** (a \u201crow\u201d) with attributes, typed by one or more tags (\u201ctables\u201d), queried via [[Space Lua/Integrated Query]] and the [[API/index]] API. / Two principles hold it together: / * **Markdown is the source of truth.** Every indexed object has a representation in the markdown. The index is derived, can be flushed, and rebuilt from the files at any time (`Space: Reindex`). It is a cache, not the canonical store. / * **The index lives in the client.** It is built into IndexedDB in the browser ([[ADR/007 Core Application Logic on the Client]], [[ADR/001 Offline-First PWA]]) and maintained incrementally.\n[3] Object Index.md (Indexing)\n  The Object Index stores [[Object|Objects]] found in your [[Space]]. / The [[Page Picker]], [[Meta Picker]] and [[Linked Mention|Linked Mentions]] use this index. Explore its records in [[Workbench/Data]], or read them through [[API/index]].\n[4] X-Ray.md (Activation)\n  X-Ray is an editor lens that shows you the structure SilverBullet\u2019s indexer sees in your document. When switched on, every text range the indexer extracts as an [[Object]] is underlined. When you hover your mouse over it, it will show you all the attributes extracted as [[YAML]]. / You may also be interested in the [[Graph View]].\n[5] API/index.md (index)\n  index.tables: `index.tables(tagName?)` / Returns indexed table rows, optionally filtered by a user tag, as a query collection.\nExact facts:\n- [1] Full text & semantic [[Search]] is here: `Space: Search` (Cmd-Shift-f/Ctrl-Shift-f) searches every page through a full-text index and optionally a semantic search index (needs to be enabled explicitly, see [[Search#Semantic search]]).",
+ "meta": {
+  "notes": [
+   "CHANGELOG.md",
+   "ADR/003 Indexed Object Graph.md",
+   "Object Index.md",
+   "X-Ray.md",
+   "API/index.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

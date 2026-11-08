@@ -1,0 +1,14 @@
+{
+ "id": "pubA-30",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 810,
+ "seconds": 0.003,
+ "e2e_seconds": 2.19,
+ "source_hits": 0.0,
+ "block": "--- Guide/When Results Update.md ---\nAfter editing a page | Choose the relevant refresh\n* **A paragraph, task, tag or frontmatter value:** Allow saving and indexing to finish. Queries consume indexed page data.\n* **A query\u2019s filters, columns or rendering:** Use **Update page** in its builder, or finish editing the expression. The page contains the query instructions.\n* **A reusable `space-lua` definition:** Run `System: Reload`, then inspect Workbench\u2019s **Scripts** and **Console** tabs. Space-wide definitions need to be loaded again.\n* **A tag transform that changes indexed objects:** Put the definition in `CONFIG`, reload it and run `Space: Reindex`. Existing records must be rebuilt under the new transform.\n* **A baked section\u2019s input data:** Use its **Update** menu or `Baked Sections: Update`. Baking writes a stored Markdown snapshot.\n* **An external source used by a custom widget or script:** Follow that feature\u2019s refresh contract. External changes may not be tracked as index dependencies.\n\n--- Page Picker.md ---\nResult ordering\nTherefore, if you _intend to create a new page_, simply type the name of the new page and hit `Shift-Enter`.\n\n--- Guide/When Results Update.md ---\nAfter editing a page\nLive results follow changes to their data. Definitions, transforms and baked output have different refresh rules.\n\n--- Guide/Aggregator Pages.md ---\nChoose what to collect | Keep a portable copy\nLive queries render in SilverBullet. Use [[Baked Sections]] if you also need stored Markdown that other tools can display. Update the baked section when you want to refresh that snapshot.\n\n[[Workbench/Data]] documents the builder controls. [[Object Index]] explains the available query sources.\n\n--- Workbench/Data.md ---\nThe tag list | Objects > Using the query\nThe bar at the bottom shows the query (at least part of it).\n\n* **Insert at cursor** puts the `${query[[\u2026]]}` in the page you\u2019re editing, or where you typed `/Query\u2026`. For a query you opened from a page, it\u2019s **Update page**, which replaces that query, and keeps doing so as you change it further.\n* **Copy** copies it.\n* **Run in Console** runs it in the [[Workbench/Console|Console]], where you can look at its result as Lua values.",
+ "meta": {},
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

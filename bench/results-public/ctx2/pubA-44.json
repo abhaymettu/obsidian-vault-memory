@@ -1,0 +1,19 @@
+{
+ "id": "pubA-44",
+ "type": "multi",
+ "answer": "Not in memory.",
+ "tokens": 680,
+ "seconds": 0.006,
+ "e2e_seconds": 2.13,
+ "source_hits": 0.5,
+ "block": "## Running the Docker image, I want Space Lua to call a command-line tool that isn't installed. How do I get it into the container, and which function runs it?\n\n--- [vault:corpus/docs/Install/Docker.md] ---\n### Docker Compose\n\n# Docker Compose\n[Docker compose](https://docs.docker.com/compose/) is a simple tool to manage running of multiple containers on a server you control, it is distributed with (modern) versions of docker. It is the recommended way to manage SilverBullet.\n\nBelow is a basic `compose.yml` that runs SilverBullet, check [[Install/Configuration]] for additional configuration options.\n\nInstructions:\n* This volume uses the `./data` directory (will be auto-created if it doesn\u2019t already exist) in the same directory as the `compose.yml` file as the place where SB will keep its data. \n```yaml\nservices:\n  silverbullet:\n    image: ghcr.io/silverbulletmd/silverbullet:latest\n    restart: unless-stopped\n    volumes:\n      - ./data:/data\n    ports:\n      - 3000:3000\n```\n\nBoot this up via:\n\n```shell\ndocker compose up -d\n```\n\nAnd watch for logs with:\n\n```shell\ndocker compose logs -f\n```\n\n--- [vault:corpus/docs/Install/Docker.md] ---\n### Plain Docker\n\n# Plain Docker\nIf you don\u2019t want to use docker compose, you can run SilverBullet \u201craw\u201d as follows:\n\n```shell\n# Create a local folder \"data\" to keep files in\nmkdir -p data\n# Run the docker container in the background\ndocker run -d --restart unless-stopped \\\n  --name silverbullet \\\n  -p 3000:3000 \\\n  -v ./data:/data \\\n  ghcr.io/silverbulletmd/silverbullet:latest\n```\n\nThere you go!",
+ "meta": {
+  "engine_seconds": 0.005700333999999998,
+  "sources": [
+   "vault:corpus/docs/Install/Docker.md",
+   "vault:corpus/docs/Install/Docker.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

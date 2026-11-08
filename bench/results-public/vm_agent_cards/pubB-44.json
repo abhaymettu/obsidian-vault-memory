@@ -1,0 +1,22 @@
+{
+ "id": "pubB-44",
+ "type": "verbatim",
+ "answer": "The tag is `#meta/template/slash`. A page with that tag defines a slash command, and the last component of the page name becomes the command's name (source: Slash Templates.md).",
+ "tokens": 1327,
+ "seconds": 3.975,
+ "e2e_seconds": 3.98,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3751,
+  "final_context": 5079,
+  "billed_input": 8830,
+  "turns": 2,
+  "cost_usd": 0.0087065,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"Which tag turns a page into a slash template?\\\"\"}\nMemory for: Which tag turns a page into a slash template?\n[1] Slash Templates.md (Creating a slash template)\n  - Slash templates are defined as pages tagged with `#meta/template/slash`.\n  Slash templates are a quick way to define [[Slash Command|slash commands]] that insert templated content at the cursor position. They are defined as pages tagged with `#meta/template/slash`. The inserted text is saved in the destination page. Later edits to the template do not change earlier insertions.\n  - The advanced frontmatter key `onlyContexts` shows the slash command only in certain AST node contexts.\n[2] Template.md (Creating templates)\n  - Slash templates are pages tagged with `#meta/template/slash`, and they define slash commands that insert templated content at the cursor position.\n  Slash templates: [[Slash Templates]] are pages tagged with `#meta/template/slash`. They define [[Slash Command|slash commands]] that insert templated content at the cursor position. The last component of the page name becomes the slash command name. / See also: [[API/template]], [[Page Template]], [[Slash Templates]], [[Space Lua]]\n  A template in SilverBullet is a string that contains `${expression}` placeholders, which get evaluated using [[Space Lua]]. When a template runs, its placeholders are evaluated. Page and slash templates insert the resulting text into a page. That text stays saved until you edit it. A template called from a page expression renders a live result instead. See [[Guide/When Results Update]] for update behavior. / They are often used in [[Slash Templates]] and [[Page Template]].\n[3] Slash Command.md (Built-in slash commands)\n  - Most slash commands are implemented as Slash Templates, which are pages tagged #meta/template/slash whose content is inserted at the cursor.\n  Slash templates: Most slash commands are implemented as [[Slash Templates]] \u2014 pages tagged with `#meta/template/slash` whose content is inserted at the cursor. The standard library includes slash templates for: / * `/query` \u2014 insert a SLIQ query block / * `/lua-query` \u2014 insert a Lua query expression / * `/code` \u2014 insert a fenced code block / * `/data` \u2014 insert a [[Tag/data|data block]], with the cursor where its tag goes / * `/table` \u2014 insert a Markdown table / * `/hr` \u2014 insert a horizontal rule / * `/note-admonition`, `/warning-admonition`, `/success-admonition`, `/danger-admonition` \u2014 insert admonition blocks / * `/tpl` \u2014 insert a template expression / * `/func` \u2014 insert a Lua function definition / * `/lua-command` \u2014 insert a command definition / * `/lua-slash-command` \u2014 insert a slash command definition\n  - The /data slash template inserts a data block with the cursor where its tag goes.\n  Defining your own: There are two ways to create custom slash commands: / 1. **Slash templates** (recommended): Create a page tagged `#meta/template/slash`. See [[Slash Templates]] for details. / 2. **`slashCommand.define`**: For slash commands that need logic beyond simple text insertion. See [[API/slashCommand#slashCommand.define(spec)]].\nExact facts:\n- [1] 1. Run the `Page: From Template` command\n- [1] 2. Select \u201cSlash Template\u201d\n- [1] 3. Pick a name, the last component of the page name (after the `/` if any) will be used as the slash command\u2019s name. For example, a page named `Library/Slash Template/action-items` creates a `/action-items` slash command.\n- [1] 4. Put the template content in the page body. Lua directives (`${...}`) are supported and will be evaluated when the template is inserted.\n- [1] Run the `System: Reload` command to activate the slash template."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

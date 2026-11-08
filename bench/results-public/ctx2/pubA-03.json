@@ -1,0 +1,19 @@
+{
+ "id": "pubA-03",
+ "type": "single",
+ "answer": "Yes, `crypto.sha1(data)` computes the SHA-1 digest of a string or byte buffer (returned as a hex string), which can be used to match git object ids. However, it is documented as \"Not for security,\" so you shouldn't use it for security purposes.",
+ "tokens": 338,
+ "seconds": 0.007,
+ "e2e_seconds": 2.96,
+ "source_hits": 1.0,
+ "block": "## Is there a Space Lua hash function I can use to compute the same ids git uses for objects, and can I use it for security?\n\n--- [vault:corpus/docs/API/crypto.md] ---\n### crypto.sha1\n\n## crypto.sha1\n`crypto.sha1(data)`\n\nComputes the SHA-1 digest of a string or byte buffer, e.g. to match git object ids. Not for security.\n\n**Parameters:**\n\n- `data` (`string|bytes`) \u2014 Data to hash.\n\n**Returns:**\n\n- `string` \u2014 Hexadecimal SHA-1 digest.\n\n--- [vault:corpus/docs/API/crypto.md] ---\n### Untitled\n\nThe `crypto` namespace computes hash digests.\n\n<!--#lua spacelua.renderApiDocumentation(\"crypto\") -->",
+ "meta": {
+  "engine_seconds": 0.007126125000000002,
+  "sources": [
+   "vault:corpus/docs/API/crypto.md",
+   "vault:corpus/docs/API/crypto.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

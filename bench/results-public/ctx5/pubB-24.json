@@ -1,0 +1,22 @@
+{
+ "id": "pubB-24",
+ "type": "multi",
+ "answer": "Use a Meta Space: nominate one of your local spaces as a shared underlay, and its config, libraries, custom commands and templates become available in every other space. It's a SilverBullet+ feature that requires Desktop Pro (currently labelled beta in the dashboard).",
+ "tokens": 883,
+ "seconds": 0.005,
+ "e2e_seconds": 2.33,
+ "source_hits": 1.0,
+ "block": "## On Desktop, how do I make my config and libraries available in every local space without copying them, and what licence does that need?\n\n--- [vault:corpus/docs/Local Space.md] ---\n### Sharing configuration between spaces\n\n# Sharing configuration between spaces\nTo make configuration and libraries available in every local space, use a [[Meta Space]].\n\n--- [vault:corpus/docs/Library.md] ---\n### Can I change libraries locally?\n\n# Can I change libraries locally?\nLibraries you manually installed can be freely changed. Do note that when you attempt to update them, your local changes may be overwritten.\n\nThe [[^Library/Std]] library comes \u201cbaked in\u201d with SilverBullet and is read only. You cannot change it. However, for most things there are ways to override or disable standard behavior, check [[Space Lua#Definition loading]] for some hints.\n\n--- [vault:corpus/docs/Library.md] ---\n### How do I develop my own library?\n\n# How do I develop my own library?\nSee [[Library/Development]]\n\n--- [vault:corpus/docs/ADR/004 Federation.md] ---\n### Context\n\n# Context\nUsers wanted to reference and read pages from *other* spaces, shared libraries, public/published spaces without copying the content into their own.\n\n--- [vault:corpus/docs/Meta Space.md] ---\n### Untitled\n\n#desktop\n\nA Meta Space is one of your [[Local Space|local spaces]] that SilverBullet Desktop underlays into all the others, so its configuration, libraries and templates are available everywhere.\n\nSilverBullet Desktop supports unlimited spaces. That\u2019s great for keeping contexts separate. The downside: anything you want available _everywhere_ \u2014 a shared snippet of `CONFIG.md`, a [[Space Lua]] library you wrote once and want to reuse \u2014 has to be copied into every space, and kept in sync. Not great.\n\nThe **Meta Space** is the way out. It\u2019s a SilverBullet+ feature available with [Desktop Pro](https://silverbullet.md/pricing) that lets you nominate one of your spaces as a shared underlay for all the others. Anything you put in your meta space (config, libraries, custom commands, templates) automatically becomes available in every other space. The dashboard currently labels it a beta feature.",
+ "meta": {
+  "engine_seconds": 0.004488958000001731,
+  "sources": [
+   "vault:corpus/docs/Local Space.md",
+   "vault:corpus/docs/Library.md",
+   "vault:corpus/docs/Library.md",
+   "vault:corpus/docs/ADR/004 Federation.md",
+   "vault:corpus/docs/Meta Space.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

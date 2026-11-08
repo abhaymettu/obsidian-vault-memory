@@ -1,0 +1,22 @@
+{
+ "id": "pubB-12",
+ "type": "single",
+ "answer": "Yes, it still works. When nothing matches exactly, the link falls back to a case-insensitive lookup across the space, so `[[note]]` finds a page called `Note`.",
+ "tokens": 1305,
+ "seconds": 0.374,
+ "e2e_seconds": 2.54,
+ "source_hits": 1.0,
+ "block": "Memory for: If I link [[note]] and the only page is called Note with a capital N, does the link still work?\n[1] Link.md (Internal links)\n  Link resolution: So `[[Note]]` finds `some/folder/Note` when that is the only page named `Note`, `[[note]]` finds `Note` when nothing is spelled `note` exactly, and `[[api/Auth]]` finds `docs/api/Auth` when no other path ends in `api/Auth`. / Suffix matching is what makes links independent of where the space root sits: open a space at the _parent_ of the folder it was authored in, and both its bare links and its path-qualified ones keep resolving, because neither encodes the root. / Because an exact match always wins, a page at the space root beats a page in your own folder: with both `Config` and `docs/api/Config` in the space, a `[[Config]]` written on `docs/api/Auth` resolves to the root-level `Config`. Such a link is *not* flagged as ambiguous \u2014 its text is already the full path of the page it finds, so there is nothing you could write instead.\n[2] Names.md (Rules)\n  Case sensitivity: Names keep the case you give them, and an exactly matching name always wins when a [[Link|link]] is resolved. But a link that matches nothing exactly falls back to a case-insensitive lookup across the space \u2014 by name for a bare link, by path suffix for a qualified one \u2014 so `[[note]]` finds a page called `Note`, and `[[project/notes]]` finds `project/Notes`. See [[Link#Link resolution]].\n[3] Tag/ambiguous-link.md (ambiguous-link)\n  An `ambiguous-link` object records a [[Link|link]] whose name lookup matches more than one page in the space \u2014 a bare name carried by several pages, or a path-qualified link that is the suffix of several paths \u2014 with no exact match among them. The link still resolves \u2014 see [[Link#Ambiguous links]] for the ranking that picks the winner \u2014 but which page it means depends on where it is written, so each occurrence is indexed for you to find and disambiguate. A link that matches a page exactly is never recorded here: its text is already that page\u2019s full path.\n[4] CHANGELOG.md (CHANGELOG)\n  2.11.0: * **[[Link|Wiki links]] now resolve by page name, not just by full path (think: Obsidian compatibility).** A `[[Note]]` link resolves to `some/folder/Note` when that name is unique in the space, matching how Obsidian resolves links, so an Obsidian-authored space works in SilverBullet without rewriting every link. See [[ADR/011 Link Resolution by Name]] for reasoning. The `linkWriteFormat` option decides how SilverBullet writes the links it generates (auto complete, rename backlink rewriting), it defaults to `full-path`, so generated links keep spelling out the whole path. / * Links to [[Virtual Pages]] now appear as valid links and no longer count as aspiring pages when their names match a registered pattern.\n[5] Tag/relation.md (relation)\n  Deprecated: the `link` view: Older spaces query links via `index.links()` or `index.objects(\"link\")`. Both still work: they return a view over relations of kind `mention`, reshaped into the old link format (`toPage`, `toFi ...\nExact facts:\n- [1] _Wiki links_ use the `[[page]]` syntax. An alias can be added like this `[[page|This link points to page]]`. How a wiki link finds its target is described under [[#Link resolution]]\n- [1] _Relative internal links_, using the `[title](<relative specifier><link>)` format. The _relative specifier_ can be used to move up the file tree (or down, if you picture a file tree like this \ud83c\udf33) relative to the page the link is on, similar to POSIX file systems `/../`. The _link_ has to conform to t",
+ "meta": {
+  "notes": [
+   "Link.md",
+   "Names.md",
+   "Tag/ambiguous-link.md",
+   "CHANGELOG.md",
+   "Tag/relation.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

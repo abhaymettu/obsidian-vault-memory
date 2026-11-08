@@ -1,0 +1,13 @@
+{
+ "id": "pubB-19",
+ "type": "multi",
+ "answer": "Use the Meta Picker, which works like the Page Picker but only shows pages tagged with a `meta` tag prefix. The memory doesn't say how to switch to it from inside the page picker (the only in-picker switch it describes is typing `$` for anchors), so that part is not in memory.",
+ "tokens": 711,
+ "seconds": 0.005,
+ "e2e_seconds": 2.57,
+ "source_hits": 1.0,
+ "block": "--- Meta Picker.md ---\nMeta Picker\nThe meta picker is used to navigate between [[Meta Page]]. Functionally it\u2019s equivalent to the [[Page Picker]] except that it only shows pages tagged with a `meta` tag prefix.\n\n--- Page Picker.md ---\nResult ordering\nIf the filter phrase starts with `$`, the picker switches to navigating [[Markdown/Anchor|anchors]] instead of pages: everything after the `$` filters anchor names from across your [[Space]], and each result shows a snippet of the anchored content along with the host page it lives on. Deleting the `$` returns you to the page list. This works from any of the pickers.\n\n> **note** Note\n> Any page tagged with a tag starting with `#meta`, even though technically regular pages, will **not** appear in the page picker. To navigate to them, use the [[Meta Picker]] instead.\n\nPressing the `Enter` key will open/create the selected page.\nPressing `Shift-Enter` will open or create (if it doesn\u2019t already exist) the page _exactly matching_ the filter phrase. In [[Markdown/Anchor|anchor]] and tag mode there is nothing to create, so it does nothing there.\n\n--- Tag Picker.md ---\nTag Picker\nTriggered via ${widgets.commandButton(\"Navigate: Tag Picker\")}, allows you to quickly navigate to [[Tag|tag pages]].\n\n--- Tag Picker.md ---\nTag Picker | description\nFind and open tag pages.\n\n--- Guide/Finding Content.md ---\nChoose the right tool | Choose the right tool\nWhat do you still remember?\n\n* **Part of the page name:** use [[Page Picker]].\n* **A phrase inside the page:** use [[Search]]. \n* **Its folder or filename:** use [[File Tree]]. \n* **A page that links to it:** use [[Link]] and [[Linked Mention]].\n* **A tag:** use [[Tag Picker]] or picker tag filter.",
+ "meta": {},
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

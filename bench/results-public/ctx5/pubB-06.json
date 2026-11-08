@@ -1,0 +1,22 @@
+{
+ "id": "pubB-06",
+ "type": "single",
+ "answer": "Put the `space-lua` block inside a comment. A commented-out `space-lua` block isn't indexed and is skipped by the pages read at boot (like [[CONFIG]] and libraries), so the script stays off. It will still be linted for syntax errors in the open editor.\n\nFor a quick diagnostic instead, you can append `?disableSpaceLua=1` to the space URL, which disables loading all Space Lua scripts.",
+ "tokens": 1273,
+ "seconds": 0.004,
+ "e2e_seconds": 2.65,
+ "source_hits": 1.0,
+ "block": "## What's the cleanest way to switch off a space-lua script temporarily without deleting it?\n\n--- [vault:corpus/docs/Markdown/Comment.md] ---\n### Scripts stay off\n\n# Scripts stay off\nA `space-lua` or `space-style` block inside a comment is _not_ indexed, and the pages read at boot ([[CONFIG]], [[Library|libraries]]) skip it as well, so commenting a script out is how you disable it.\n\nWhat a comment does not switch off is live evaluation in the open editor: `${...}` [[Space Lua#Expressions|expressions]] and Lua-registered [[API/codeWidget|code widgets]] inside a comment still run and render, and a commented-out `space-lua` block is still linted for syntax errors.\n\n--- [vault:corpus/docs/ADR/011 Link Resolution by Name.md] ---\n### Consequences > Negative / trade-offs\n\n## Negative / trade-offs\n* **Semantics change, slightly:** A previously [[Aspiring Pages]] link may now (silently) gain a target.\n* **Renames rewrite backlinks into bare form** in hierarchical spaces: switching `linkWriteFormat` back to `full-path` re-qualifies nothing already written bare.\n* **Resolution is stateful:** A file appearing or disappearing changes what links *elsewhere* mean.\n\n--- [vault:corpus/docs/API/share.md] ---\n### API > share.resolveSteps(name, text, target, override?)\n\n## share.resolveSteps(name, text, target, override?)\nReturns the `steps` table for a page: the `defaults` of the target, switched off for pages that are exempt, and for the steps `override` turns off. `override` is the page\u2019s `share.transform` value: `false` switches every step off, a table such as `{bake = false}` switches the listed steps off. It can only turn steps off, never on. `extensions` is on unless the page is exempt or `override` is `false`.\n\n--- [vault:corpus/docs/Troubleshooting.md] ---\n### Server > Disable client features\n\n## Disable client features\nTemporarily disable a feature by appending one of these options to the space URL, for example `http://localhost:3000/?disableSpaceLua=1`:\n\n* `?disableSync=1` disables browser offline synchronization with the Server.\n* `?disableSpaceLua=1` disables loading [[Space Lua]] scripts.\n* `?disableSpaceStyle=1` disables loading [[Space Style]].\n* `?disablePlugs=1` disables loading non-built-in [[Plugs]].\n\nCombine options with `&`, for example `?disableSpaceLua=1&disableSpaceStyle=1`. Remove the options when you finish diagnosing the problem.\n\n--- [vault:corpus/docs/Runtime API.md] ---\n### How it works > Profiles\n\n## Profiles\nEach user of a space has one Chrome profile, holding the client's index and browser storage. It is kept when the runtime stops (whether idle, by an administrator's **Stop**, or at server shutdown) and reused next time.\n\nA profile is deleted on **Reset**, when the user loses Write or runtime access or their credentials change, when the Runtime API is switched off, and when the space is deleted.\n\nProfiles live under `.chrome-data` in the server's data folder, or under `SB_CHROME_DATA_DIR` when set. Their directory names are hashes of the server folder, space and user.",
+ "meta": {
+  "engine_seconds": 0.003820999999996275,
+  "sources": [
+   "vault:corpus/docs/Markdown/Comment.md",
+   "vault:corpus/docs/ADR/011 Link Resolution by Name.md",
+   "vault:corpus/docs/API/share.md",
+   "vault:corpus/docs/Troubleshooting.md",
+   "vault:corpus/docs/Runtime API.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

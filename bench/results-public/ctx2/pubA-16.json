@@ -1,0 +1,20 @@
+{
+ "id": "pubA-16",
+ "type": "verbatim",
+ "answer": "The error message starts with `cancelled:`, which `oauth.deviceFlow` raises when the user closes the code dialog.",
+ "tokens": 890,
+ "seconds": 0.004,
+ "e2e_seconds": 2.26,
+ "source_hits": 1.0,
+ "block": "## When the device-code sign-in fails because the user shut the code dialog, what prefix does the error message start with?\n\n--- [vault:corpus/docs/API/oauth.md] ---\n### Errors\n\n## Errors\n`oauth.deviceFlow` raises an error whose message starts with one of these prefixes, so callers can tell the outcomes apart:\n\n* `cancelled:` the user closed the code dialog.\n* `expired:` the device code expired before it was approved.\n* `denied:` the user (or the server) denied the request.\n* `failed:` anything else, such as a network error or an unexpected response. The text after the prefix is the underlying message. An OAuth error code from the server (for example `unauthorized_client`) appears in it.\n\n```lua\nlocal ok, err = pcall(oauth.deviceFlow, opts)\nif not ok and tostring(err):find(\"cancelled:\", 1, true) then\n  return nil\nend\n```\n\n<!--#lua spacelua.renderApiDocumentation(\"oauth\") -->\n\n--- [vault:corpus/docs/Runtime API.md] ---\n### Error handling\n\n# Error handling\nAll error responses are JSON with `Content-Type: application/json` and an `error` key. Runtime execution failures also include a stable machine-readable `code`.\n\nStatus codes used across the Runtime API:\n\n* **403** \u2014 The caller lacks Write or Runtime API permission.\n* **400** \u2014 Empty request body: `{\"error\": \"Request body is required\"}`. Invalid screenshot selector syntax: `{\"error\": \"...\", \"code\": \"invalid_selector\"}`.\n* **404** \u2014 No visible element matches the screenshot selector: `{\"error\": \"...\", \"code\": \"selector_not_found\"}`.\n* **500** \u2014 Lua/JS execution error (the evaluated code threw, e.g. a Lua error): `{\"error\": \"<error message>\", \"code\": \"script_error\"}`. The message is the concise client error (e.g. `attempt to call a nil value`). The full stack is available in the runtime console log.\n* **503** \u2014 Runtime API not enabled: `{\"error\": \"Runtime API is not enabled\"}`. This also holds when it is switched off for the running server (by an administrator or `SB_RUNTIME_API=0`), Chrome is missing, or the runtime pool failed to start. A headless browser that is not ready yet answers `{\"error\": \"...\", \"code\": \"bridge_unavailable\"}`; retry shortly.\n* **504** \u2014 Timeout exceeded: `{\"error\": \"...\", \"code\": \"timeout\"}`.",
+ "meta": {
+  "engine_seconds": 0.0038493330000000017,
+  "sources": [
+   "vault:corpus/docs/API/oauth.md",
+   "vault:corpus/docs/Runtime API.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

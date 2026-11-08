@@ -1,0 +1,21 @@
+{
+ "id": "pubB-04",
+ "type": "single",
+ "answer": "Alt-click (Option-click on Mac) the rendered link to reveal its underlying markdown source, then select and copy it. The source stays visible while your selection touches it, and it renders again once you move entirely outside it. This doesn't give you edit access.",
+ "tokens": 1318,
+ "seconds": 0.464,
+ "e2e_seconds": 2.91,
+ "source_hits": 1.0,
+ "block": "Memory for: On a read-only page links stay rendered when I move the cursor. How do I get at the underlying markdown so I can copy it?\n[1] Live Preview.md (Revealing the source)\n  Revealing the source: On an editable page, moving the cursor inside a formatted element reveals its source. **Alt-click** (or **Option-click** on Mac) explicitly reveals source in both editable and read-only pages. / In a read-only page, ordinary keyboard navigation keeps links and widgets rendered. Alt/Option-click to reveal source, then select and copy it. The source stays visible while the selection touches its range. Moving entirely outside it hides the source again. Read-only access does not allow you to change the page.\n[2] Guide/Reading These Docs.md (Read a page and reveal its source)\n  Read a page and reveal its source: SilverBullet uses [[Live Preview]] to show formatted Markdown. Hold **Alt** (called **Option** on macOS) and click rendered content to reveal its underlying source. In read-only docs you can inspect, select and copy that source. This does not grant editing access. Clicking a different part of the page lets the revealed content render again. / ![Read-only Photo Walk with the source Reading List revealed and selected.](../Screenshots/read-docs-source-selected-source.png) / For example, this block shows the Markdown for a heading and a checkbox: / ```markdown\n[3] Guide/My First Markdown Page.md (Creating a page)\n  [[Live Preview]] in action: As you\u2019ll notice as you type, the markdown codes disappear when you move out your cursor, and the text renders as intended. / ![Photo Walk with formatted headings, three task checkboxes and a Woodland Hike link.](../Screenshots/markdown-basics-preview.png) / A blank line separates paragraphs. `# Plan` becomes a heading, `*` starts a bullet, and `* [ ]` becomes an unchecked task. `[x]` is a completed task. `[[Woodland Hike]]` is a link to a page named `Woodland Hike`. The destination does not have to exist yet: follow the link and write content there whenever you\u2019re ready to create it.\n  [[Live Preview]] in action: #protip While you can type all this markdown by hand, you don\u2019t have to. Try a [[Slash Command]]. Type `/today` to insert today\u2019s date, or `/task` to turn the current line into a task. Or `/h1` to cre ...\n[4] Frontmatter.md (Start with the visual editor)\n  The source format: Choose **Edit source** from the form\u2019s \u22ef menu to see what it stores. Frontmatter is a [[YAML]] block at the beginning of the file, between two lines containing `---`. The page body follows the closing line: / ```markdown / --- / status: planned / tags: outing / date: \"2026-06-14\" / --- / Notes for the photo walk. / ``` / Move the cursor outside the block to return to its form. Many other Markdown tools recognize this [[Markdown/Extensions|extension]], so these attributes stay with your file. / For convenience, you may use the `attribute.subAttribute` notation, which internally will expand: / ```yaml / attribute.subAttribute: 10 / ``` / to / ```yaml / attribute: / subAttribute: 10 / ```\nExact facts:\n- [1] If you prefer to see the raw markdown at all times, run the ${widgets.commandButton(\"Editor: Toggle Markdown Syntax Rendering\")} command. This switches between live preview mode and raw markdown mode.\n- [1] [[Space Lua#Expressions]] (`${...}`) are rendered inline in place. The underlying code follows the source-reveal rules above. Queries, templates and widgets display their results within the document. An expression re-runs when something it read changes. See [[API/widget#When expressions update]]. Us",
+ "meta": {
+  "notes": [
+   "Live Preview.md",
+   "Guide/Reading These Docs.md",
+   "Guide/My First Markdown Page.md",
+   "Frontmatter.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

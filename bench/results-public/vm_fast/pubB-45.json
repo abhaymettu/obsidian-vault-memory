@@ -1,0 +1,22 @@
+{
+ "id": "pubB-45",
+ "type": "verbatim",
+ "answer": "The data objects are tagged `#meta/library/remote`, written as the language of the fenced data block. The repository page itself is tagged `meta/repository`.",
+ "tokens": 1302,
+ "seconds": 0.352,
+ "e2e_seconds": 1.98,
+ "source_hits": 1.0,
+ "block": "Memory for: Which tag marks the data objects inside a repository page that point at installable libraries?\n[1] Library/Development.md (Decorate your library with frontmatter)\n  Create a repository: If you develop a few libraries, it may be good to make them more discoverable. To do so, you can group them in a [[Repository|Repository]]. / For this, create another page in your space, this time under `Repository/`, e.g. `Repository/myuser` and tag it with `#meta/repository`. / In the page body, put a list of all your libraries, encoded as [[Tag/data|data objects]] as follows: / --- / tags: meta/repository / --- / This is my curated list of awesome libraries! / ```#meta/library/remote / name: Library1 / description: This is my first awesome library / website: http://url.com/to/docs / uri: https://github.com/myuser/silverbullet-libraries/blob/main/Library1.md / --- / name: Library2 / description: This is my second awesome library / uri: https://github.com/myuser/silverbullet-libraries/blob/main/Library2.md / ``` / Required keys are: / * `name`: a descriptive name of your library. / **Note**: this name is _not_ used as an installation location, the installation location is determined by the `name` key in the library itself.\n[2] API/share.md (API)\n  share.isManaged(name, text): Returns true for pages tagged `meta/library` or `meta/repository` (installed libraries and repositories), whose remote is the source of truth: a `pull` of such a page overwrites local changes without asking when the page has no `share.hash` (when it has one, a page changed since asks first).\n[3] Tag.md (Root tags)\n  Root tags: A root tag maps an object to a Markdown element or a file. Every root tag also accepts user tags. / * [[Tag/data|data]]: Objects defined in fenced YAML data blocks. / * [[Tag/document|document]]: Every non-Markdown file in your space: images, PDFs, attachments. / * [[Tag/header|header]]: Markdown headings. / * [[Tag/item|item]]: Bullet and numbered list items. / * [[Tag/page|page]]: Every page in your space. / * [[Tag/paragraph|paragraph]]: Top-level paragraphs that carry a hashtag or anchor. / * [[Tag/table|table]]: Rows of Markdown tables. / * [[Tag/task|task]]: Checkbox list items, including their completion state. / You can also define root tags of your own, using a fenced [[Tag/data|data block]] with a hashtag as its language: / ~~~ / ```#contact / name: Sam Rivera / ``` / ~~~\n[4] Repository.md (Repository)\n  Repositories are a collection of _pointers_ to [[Library|Libraries]] to install. Their purpose is to offer a curated list of libraries to install. / By default, SilverBullet ships with two repositories: [[^Repositories/Std]] with a curated selection of community libraries, and [[^Repositories/SilverBulletMD]] with optional libraries maintained by the SilverBullet project. More can be installed via the [[Workbench/Libraries|Library Manager]]. / The built-in repositories update like any other: the first update stores a copy in your space, which from then on takes the place of the shipped version. De ...\nExact facts:\n- [1] Put all functionality you like in a [[Meta Page|Meta Page]] somewhere under `Library/`. For name spacing purposes it\u2019s good form to put your (Github) username in the path as well, so create, for instance `Library/myuser/My Library`.\n- [1] tags: meta/library\n- [1] > The `name` key _has_ to match your page\u2019s full (path) name. Otherwise a validation error will appear on the frontmatter. When another user installs your library, they will install it to the location specified here.",
+ "meta": {
+  "notes": [
+   "Library/Development.md",
+   "API/share.md",
+   "Tag.md",
+   "Repository.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "PARTIAL",
+ "exact": 1.0
+}

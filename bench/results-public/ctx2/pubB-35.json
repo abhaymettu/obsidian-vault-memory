@@ -1,0 +1,20 @@
+{
+ "id": "pubB-35",
+ "type": "verbatim",
+ "answer": "A SilverBullet Desktop Pro license key looks like `SBPLS-XXXXX-XXXXX-XXXXX-XXXXX`.",
+ "tokens": 366,
+ "seconds": 0.004,
+ "e2e_seconds": 2.46,
+ "source_hits": 1.0,
+ "block": "## What does a SilverBullet Desktop Pro license key look like?\n\n--- [vault:corpus/docs/Licensing.md] ---\n### Activating a license\n\n# Activating a license\nOpen the Desktop dashboard, go to the **Pro** tab, paste your license key (it looks like `SBPLS-XXXXX-XXXXX-XXXXX-XXXXX`) and click **Activate**. A Pro license belongs to one user, who can activate it on as many of their own devices as they like.\n\nTo stop using a key on a device, click **Remove key** on the same tab.\n\n--- [vault:corpus/docs/Licensing.md] ---\n### Untitled\n\nSilverBullet Desktop is free for personal and education use. Using it at work requires a Pro license. Tiers, prices and seats are explained on the [pricing page](https://silverbullet.md/pricing) and in the [FAQ](https://silverbullet.md/faq).",
+ "meta": {
+  "engine_seconds": 0.0034708329999999705,
+  "sources": [
+   "vault:corpus/docs/Licensing.md",
+   "vault:corpus/docs/Licensing.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "PARTIAL",
+ "exact": 1.0
+}

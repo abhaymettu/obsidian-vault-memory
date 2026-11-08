@@ -1,0 +1,21 @@
+{
+ "id": "pubA-34",
+ "type": "multi",
+ "answer": "No. A member with `read` access can't reach any capability endpoint, including the shell, which requires `write`. The shell endpoint is at `/.shell` and is off by default.",
+ "tokens": 1238,
+ "seconds": 0.47,
+ "e2e_seconds": 3.71,
+ "source_hits": 1.0,
+ "block": "Memory for: Can a member with read access to a space run server commands through the shell endpoint, and what is that endpoint's path and default state?\n[1] Dashboard.md (Setup wizard)\n  Access: Access to a space can be configured to one of three levels: / * **`none`:** Not visible, no access. / * **`read`:** May read content. May not modify anything, and may not reach any capability endpoint (shell, proxy, runtime API). / * **`write`:** Full access to the space\u2019s content and capabilities. / `write` carries real trust \u2014 see [[Security#What `write` really means]]. / The effective level for a request is the **maximum** of three independent sources: / * **`access` \u2014 what a visitor with no session gets:** `none` (default), `read`, `write`. / * **`username.role` \u2014 what one account gets:** absent (no access), `read`, `write`. / * **admin:** always `write` on every space.\n[2] Publishing.md (Make a space public)\n  Make a space public: In the [[Dashboard]], open the space\u2019s **Space settings \u2192 Access**. Under **Who has access**, set **Public (not signed in)** to **Read**. Anyone can now read the space without signing in. Page history and [[Revisions]] stay members-only. / Visitors get the full SilverBullet client, including navigation, [[Linked Mention|linked mentions]] and live [[Space Lua/Integrated Query|queries]], but can\u2019t edit anything or reach capability endpoints such as the shell or the [[Runtime API]]. Members with `write` access keep editing as usual, and visitors see changes as soon as they\u2019re saved. See [[Dashboard#Access]] for how public access combines with member roles. / Under **Space settings \u2192 General**, set **Index page** to choose the page visitors land on (see [[Index Page]]).\n[3] Security.md (Access levels)\n  Capability endpoints: A few endpoints can reach beyond the space\u2019s own content, and all require `write`: / * **Shell** (`/.shell`) \u2014 runs any command on the server. (Off by default) / * **HTTP proxy** (`/.proxy`, exposed to Lua as [[API/net#net.proxyFetch(url, options?)|net.proxyFetch]]) \u2014 fetches an external URL through the server, on the server\u2019s network. / * **Runtime API** (`/.runtime`) \u2014 evaluates Lua and scripts via a headless browser instance, see [[Runtime API]].\n  Access levels: Each space resolves to one of three [[Dashboard#Access|access levels]] for a given visitor, plus a separate admin flag: / * **`none`:** Not visible. Requests ar ...\n[4] Authentication.md (Accounts)\n  Accounts: When the server runs in the default [[Dashboard|multi-space]] mode, authentication is account-based: / * Each member has an [[Account]], provisioned by an administrator with local credentials or [[Single Sign-On]]. / * Each [[Space]] has an [[Dashboard#Access|access level]] \u2014 `none`, `read`, or `write` \u2014 for visitors with no account, plus per-member `read`/`write` roles. Admins can reach every space and the admin UI. / * Accounts, spaces, and access are all managed in the [[Dashboard]], which every account can open. / * Every space has a login page, including one that permits anonymous access.\nExact facts:\n- [1] Each space has a public address composed from a hostname and a path (which can be `/`).\n- [1] The setup wizard, **Create space**, and **Space settings \u2192 General** use the same address editor. Choose the primary host, a previously configured custom hostname or `hostname:port`, or **New hostname**, then choose a path.",
+ "meta": {
+  "notes": [
+   "Dashboard.md",
+   "Publishing.md",
+   "Security.md",
+   "Authentication.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

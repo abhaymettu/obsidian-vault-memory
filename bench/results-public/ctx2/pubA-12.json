@@ -1,0 +1,19 @@
+{
+ "id": "pubA-12",
+ "type": "single",
+ "answer": "Not in memory. The memory describes multi-space mode and CLI authentication methods, but says nothing about members resetting a forgotten password themselves.",
+ "tokens": 515,
+ "seconds": 0.003,
+ "e2e_seconds": 2.45,
+ "source_hits": 0.0,
+ "block": "## A member forgot their password on a multi-space server. Can they reset it themselves?\n\n--- [vault:corpus/docs/Install/Server Modes.md] ---\n### Multi-space mode\n\n# Multi-space mode\nThe default mode supports multiple spaces, local or SSO accounts, public access settings, per-member read/write roles and managed [[Revisions]] with optional Git sync. Manage these through the [[Dashboard]]. A single space with one account is also a valid configuration.\n\n--- [vault:corpus/docs/CLI.md] ---\n### Authentication\n\n# Authentication\nThe CLI supports three authentication methods, configured per-space during `space add`:\n\n* **Token** \u2014 sends an `Authorization: Bearer <token>` header. Use this with `SB_AUTH_TOKEN` on a [[Install/Server Modes#Single-space mode|single-space]] server, or with a per-account [[Authentication#API|API token]] on an accounts-based server.\n* **Password** \u2014 authenticates via `POST /.auth` (username/password), then uses the returned session cookie. Use this with `SB_USER` on a single-space server, or with an account username/password on a space you\u2019re a member of.\n* **None** \u2014 no authentication (for local or trusted-network setups, or public spaces).\n\nCredentials are encrypted at rest using AES-256-GCM with PBKDF2 key derivation.",
+ "meta": {
+  "engine_seconds": 0.0034069159999999955,
+  "sources": [
+   "vault:corpus/docs/Install/Server Modes.md",
+   "vault:corpus/docs/CLI.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

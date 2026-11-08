@@ -1,0 +1,22 @@
+{
+ "id": "pubA-38",
+ "type": "multi",
+ "answer": "Not in memory.",
+ "tokens": 1418,
+ "seconds": 0.003,
+ "e2e_seconds": 2.91,
+ "source_hits": 1.0,
+ "block": "## My server sits behind Cloudflare Zero Trust. Can SilverBullet Desktop sync with it?\n\n--- [vault:corpus/docs/Reference/SilverBullet Features.md] ---\n### Server and Desktop\n\n# Server and Desktop\n* [[Meta Space]] \u2014 shared configuration and libraries across Desktop spaces.\n* [[Zero Tracking]] \u2014 Server\u2019s telemetry policy.\n* [[Dashboard]] \u2014 spaces, accounts and access settings.\n* [[Desktop]], [[Install/Server Modes]] and [[Install/Configuration]] \u2014 product and runtime configuration.\n* [[Account]], [[Authentication]], [[Authentication Proxy]], [[Single Sign-On]] and [[Authelia]] \u2014 accounts and sign-in.\n* [[Security]], [[Security Profiles]], [[TLS]] and [[Client Encryption]] \u2014 trust, transport and encryption.\n* [[Licensing]] \u2014 usage and licensing terms.\n\n--- [vault:corpus/docs/Desktop Sync.md] ---\n### SilverBullet server > Hosted\n\n## Hosted\nA hosting provider can run SilverBullet Server for you, see [Hosted SilverBullet](https://silverbullet.md/hosting). This gives you a fully functional SilverBullet Server you can access in a desktop or mobile browser, and it can act as a sync point for SilverBullet Desktop.\n\n--- [vault:corpus/docs/TLS.md] ---\n### TLS (https) > Community guides\n\n## Community guides\nFor end-to-end walkthroughs of specific setups, the community has written several [guides](https://community.silverbullet.md/c/guides/6):\n\n* [Cloudflare Zero Trust](https://community.silverbullet.md/t/use-silverbullet-with-cloudflare-zero-trust/3618): requires a (free) Cloudflare account and domain name, covers TLS and tunneling.\n* [Tailscale](https://community.silverbullet.md/t/install-silverbullet-on-a-64-bit-debian-ubuntu-raspianos-internet-accessible-via-tailscale/48): requires a (free) Tailscale account, covers TLS and tunneling and VPN access.\n* [Caddy and self-signed certificates](https://community.silverbullet.md/t/level-1-local-https-with-caddy-and-self-signed-certificates/3531): no accounts required, but requires manually accepting certificates.\n* [Twingate](https://community.silverbullet.md/t/level-1-access-your-silverbullet-from-outside-your-home-network-using-twingate/3541): requires a Twingate account, covers TLS and tunneling.\n\n--- [vault:corpus/docs/Authentication Proxy.md] ---\n### Untitled\n\nIn case you would like to run SilverBullet behind an authentication proxy (such as Authelia, Authentik or the ones integrated with Cloudflare Zero Trust or Pangolin) there is one key configuration tweak you need to make:\n\n**You must exclude a few paths from authentication**. If you don\u2019t do this a lot of PWA functionality may not work and SilverBullet may break in unexpected ways. Doing this is perfectly safe, it just gives browsers unauthorized access to some client code, not any of your content.\n\nAdd **rules to allow unauthenticated access** for the following paths:\n\n* `/service_worker.js`\n* `/.client/*`\n\nThis is perfectly safe, they are just static (code) files.\n\n--- [vault:corpus/docs/Zef Hemel.md] ---\n### Untitled\n\n[Zef Hemel](https://github.com/zefhemel/) created SilverBullet in February 2022, and maintains SilverBullet Server and SilverBullet Desktop. See [About](https://silverbullet.md/about) for the story behind the project.",
+ "meta": {
+  "engine_seconds": 0.003337457999994513,
+  "sources": [
+   "vault:corpus/docs/Reference/SilverBullet Features.md",
+   "vault:corpus/docs/Desktop Sync.md",
+   "vault:corpus/docs/TLS.md",
+   "vault:corpus/docs/Authentication Proxy.md",
+   "vault:corpus/docs/Zef Hemel.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

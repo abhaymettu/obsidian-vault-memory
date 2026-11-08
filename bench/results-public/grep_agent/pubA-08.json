@@ -1,0 +1,21 @@
+{
+ "id": "pubA-08",
+ "type": "single",
+ "answer": "No. If GitHub rejects the `github.token` personal access token, SilverBullet won't ask you to sign in instead. You have to fix or remove the token (documented in `API/github.md`).",
+ "tokens": 1287,
+ "seconds": 3.622,
+ "e2e_seconds": 3.62,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3706,
+  "final_context": 4962,
+  "billed_input": 8668,
+  "turns": 2,
+  "cost_usd": 0.0084461,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"personal access token\", \"-i\": true, \"output_mode\": \"content\", \"-C\": 3}\nAPI/auth.md-19-* `headers(cred)` _(required)_: returns a table of HTTP headers for a credential.\nAPI/auth.md-20-* `refresh(cred)`: returns a renewed credential. Without it, an expired credential means signing in again.\nAPI/auth.md-21-* `expired(cred)`: returns true when the credential must be renewed. Defaults to `cred.expires_at` (milliseconds) being within a minute of now.\nAPI/auth.md:22:* `configured(target)`: returns a credential from configuration, such as a personal access token, or nil. It is used when no credential is stored, is never stored itself, and while it returns one nothing signs in.\nAPI/auth.md-23-\nAPI/auth.md-24-```lua\nAPI/auth.md-25-auth.defineProvider {\n--\nAPI/github.md-8-Signing in uses the `github` provider of [[API/auth|auth]], which runs the device flow of [[API/oauth|oauth.deviceFlow]]. The token is stored on the device only.\nAPI/github.md-9-\nAPI/github.md-10-# Configuration\nAPI/github.md:11:* `github.token`: a personal access token with repo and gist permissions. Used when set and there is no stored credential from signing in. It is not copied into the credential store, and when Github rejects it you are not asked to sign in instead: fix or remove the token.\nAPI/github.md-12-* `github.clientId`: client ID of your own Github OAuth app (device flow enabled), used instead of the default one for signing in.\nAPI/github.md-13-* `github.name` and `github.email`: author of commits made when sharing to repositories.\nAPI/github.md-14-\n--\nCHANGELOG.md-24-  * [[Share/Collection|Collections]]: publish a _set_ of pages.\nCHANGELOG.md-25-  * Sharing no longer changes the source page or stores `share.hash` in its frontmatter.\nCHANGELOG.md-26-  * Support for publishing to other SilverBullet spaces (see [[^Library/Std/Infrastructure/SilverBullet Share]])\nCHANGELOG.md:27:  * Sign in to GitHub with a device code instead of configuring a personal access token. Credentials stay on the current device and are never synced. `Credentials: List` and `Credentials: Clear` let you inspect and remove them. Sharing individual pages with another SilverBullet space now supports push, pull and sync with device-code sign-in. See [[API/auth]] and [[API/github]].\nCHANGELOG.md-28-* [[CLI]] unification. There is now a single `sb` CLI (installation instructions in [[CLI#Installation]]) that can be used both remotely with Server, and locally with [[Desktop]].\nCHANGELOG.md-29-  * New `sb help` lists your spaces, the space's skills and an outline of it, and `sb help <topic>` prints a skill. The seven built-in skills are embedded in `sb`, and a reachable space's own copy wins. See [[CLI#`help [topic]`]].\nCHANGELOG.md-30-  * `sb lua` runs a Lua expression or script (`sb eval` and `sb script` still work as aliases). Like `sb query` and the new `sb screenshot --page <name>`, it first lets the index catch up with recent file changes and prints a note on stderr when it could not, and console output goes to stderr so stdout holds only the result."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

@@ -1,0 +1,20 @@
+{
+ "id": "pubB-18",
+ "type": "multi",
+ "answer": "Local changes are pushed after an automatic commit, and the revisions **Commit frequency** setting controls that timing. The memory doesn't state a default duration, so the roughly-how-long part is Not in memory.",
+ "tokens": 1234,
+ "seconds": 0.404,
+ "e2e_seconds": 2.76,
+ "source_hits": 1.0,
+ "block": "Memory for: With a managed space connected to a Git remote, when do my local edits get pushed, and roughly how long after I stop editing is that by default?\n[1] Guide/Git Sync.md (Syncing with a remote)\n  - Git sync keeps a managed space's revision repository connected to a Git remote, and it fetches, merges and pushes committed history.\n  #guide / Use Git sync to keep a managed space\u2019s revision repository connected to a Git remote. It fetches, merges and pushes committed history. For access from a phone or another Desktop installation, start with [[Guide/Devices and Publishing]] instead. / You need permission to manage the space\u2019s repository connection and credentials for the destination. Use a disposable repository when trying this workflow. Enabling sync shares existing committed history as well as new changes.\n  - A guide explaining how to connect a managed space's revision repository to a Git remote with Git sync, including setup, changes, progress, conflicts and scope. Names: SilverBullet, Git, SSH, HTTPS, Git sync, Connect repository, Manage Git sync, Deploy key for this space, Use server credentials, Choose a remote branch, Check connection, Enable sync, Edit connection, Apply changes, Cancel, Pause sync, Resume sync, Commit frequency, Check remote changes, Only when this space changes, Git: View status, Git: Review conflicts, Git: Sync now, Space History, Review conflicts, This space, Remote repository, main, master.\n  Progress and timing: The connection overview shows live status and the last successful sync. Members can use **Git: View status** and **Git: Review conflicts**. Writers can request **Git: Sync now**. Space History also shows Git sync status. Unknown or unavailable status is not the same as being up to date. / Local changes are pushed after an automatic commit. The revisions **Commit frequency** setting controls that timing. **Check remote changes** controls how often SilverBullet checks for other people\u2019s commits. **Only when this space changes** disables periodic remote checks, but a sync triggered by your changes still fetches and merges before pushing. It is not a push-only mode. / Pulled changes reach open editors through the normal file-change mechanism. Network failures show an error and retry with backoff. Authentication or configuration problems require repairing the connection.\n[2] Git.md (Git)\n  - Managed spaces can optionally fetch, merge and push to a remote through Guide/Git Sync.\n  Git is a [free and open source version control system](https://git-scm.com/) originally developed by Linus Torvalds (of Linux fame) and the de-facto standard in the industry. / SilverBullet uses Git for [[Revisions]]. Managed spaces can optionally fetch, merge and push to a remote through [[Guide/Git Sync]]. For ac ...\n[3] Revisions.md (Browsing history)\n  Syncing with a remote: A managed space can fetch, merge and push its revision repository. Follow [[Guide/Git Sync]] for setup, timing and recovery. This is primarily for history and backup. Use a shared Server space for collaboration.\nExact facts:\n- [1] 2. Choose **Deploy key for this space** or **Use server credentials**. The latter means that you manage the server\u2019s Git authentication yourself.\n- [1] 4. To choose a specific **Remote branch** for the space\u2019s current local branch, check **Choose a remote branch** and enter its name. Otherwise, the connection check uses an existing upstream mapping or detects the remote\u2019s default branch. You can use `main`, `master`, or any valid Git branch name. I",
+ "meta": {
+  "notes": [
+   "Guide/Git Sync.md",
+   "Git.md",
+   "Revisions.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

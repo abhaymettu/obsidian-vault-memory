@@ -1,0 +1,22 @@
+{
+ "id": "pubA-25",
+ "type": "verbatim",
+ "answer": "The key is `fonts.editorSize` (set via `config.set(\"fonts.editorSize\", 20)`). It's in pixels, defaulting to 18, with an allowed range of 10 to 48.",
+ "tokens": 1372,
+ "seconds": 0.424,
+ "e2e_seconds": 3.49,
+ "source_hits": 1.0,
+ "block": "Memory for: What config key sets the size of page text in the editor, and what are its default and allowed range?\n[1] Fonts.md (Editor font size)\n  Editor font size: **Editor font size**, also under **Appearance**, sets the size of page text in the editor, in pixels: 18 by default, from 10 to 48. Headings, code and list indents scale with it. A proportional font often looks smaller than a monospace one at the same size, so you may want to raise it after switching. In [[CONFIG]]: / ```lua / config.set(\"fonts.editorSize\", 20) / ```\n  SilverBullet uses three fonts, each picked separately in [[Workbench/Configuration]] under **Appearance**: / * **Interface font**: menus, panels, the page title and the [[Workbench]]. / * **Editor font**: the text of your pages. / * **Code font**: anything code-like: inline code, [[Markdown/Fenced Code Block|code blocks]], frontmatter and tables while you edit them, and `${...}` expressions while the cursor is in them. It should be a monospace font. / Instead of using the [[Workbench/Configuration]] options, you can also set them in [[CONFIG]]: / ```lua / config.set(\"fonts.editor\", \"inter\") / config.set(\"fonts.ui\", \"system-sans\") / config.set(\"fonts.code\", \"ia-writer-mono\") / ```\n[2] CONFIG.md (Site configuration)\n  View defaults: ```space-lua / config.set(\"view.defaults\", { / -- The curated Navigate tree (see [[^Library/Website]]) is this site's navigation / [\"docs.navigate\"] = { open = true, width = 360 }, / }) / ``` / ```space-lua / -- managed-by: configuration-manager / config.set(\"fonts.ui\", \"inter\") / config.set(\"fonts.editor\", \"inter\") / config.set(\"workbench.pinnedTags\", { / \"page\", / \"task\", / }) / ``` / ```space-lua / -- managed-by: workbench-schemas / -- priority: -10 / tag.define { / name = \"api/lua\", / schema = { / type = \"object\", / properties = {references = schema.array \"string\"}, / required = {\"references\"}, / }, / } / tag.define { / name = \"component\", / schema = { / type = \"object\", / properties = { / connectsTo = {anyOf = { / schema.array \"string\", / schema.ref(), / }}, / partOf = schema.ref(), / consumes = schema.ref(), / }, / }, / } / ```\n[3] API/config.md (config)\n  config.define: `config.define(key, schema)` / Defines a JSON schema for a configuration key. / **Parameters:** / - `key` (`string`) \u2014 Configuration key. / - `schema` (`table`) \u2014 JSON Schema definition. `default` supplies missing values, and `ui` annotations expose the field in Workbench\u2019s Configuration tab. / **Example:** / ```lua / config.define(\"shortWikiLinks\", { / description = \"Render short wiki link labels\", / type = \"boolean\", / default = true, / ui = {category = \"Editor\", label = \"Short wiki links\", priority = 1}, / }) / ```\n[4] CHANGELOG.md (CHANGELOG)\n  2.1.2: * More configuration options for what to index (see [[^Library/Std/Config]] under the `index` section) for the purpose of reducing local storage size and needless CPU waste. Some useful ones: / * `config.set(\"index.search.enabled\", false)` to disable [[Full Text Search]] entirely (saves on processing and storage if you ...\nExact facts:\n- [1] The editor's text size is the `--editor-font-size` variable** (18px in the theme), no longer a fixed `font-size` on `#sb-main .cm-editor`.\n- [1] A `space-style` that sets `--editor-font`, `--ui-font`, `--editor-monospace-font` or `--editor-font-size` wins over the Configuration setting**, whether it sets them on `html` or `:root`. Remove it from your style to pick fonts in Configuration instead.",
+ "meta": {
+  "notes": [
+   "Fonts.md",
+   "CONFIG.md",
+   "API/config.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

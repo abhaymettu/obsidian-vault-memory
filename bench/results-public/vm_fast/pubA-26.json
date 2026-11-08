@@ -1,0 +1,21 @@
+{
+ "id": "pubA-26",
+ "type": "verbatim",
+ "answer": "The server has been the Rust implementation since SilverBullet 2.9.0, when the legacy Go server and `sb` CLI were removed, leaving the Rust `silverbullet` server and Rust `sb` CLI as the only implementations.",
+ "tokens": 1505,
+ "seconds": 0.357,
+ "e2e_seconds": 2.62,
+ "source_hits": 0.0,
+ "block": "Memory for: From which SilverBullet version has the server been the Rust implementation?\n[1] Development.md (Stack)\n  Code structure: * `client/`: The SilverBullet client, implemented with TypeScript / * `server/`: The SilverBullet server library (Rust): HTTP router, handlers, auth, runtime seam / * `server-common/`: Shared Rust crate (space primitives, shared types) / * `server-runtime-chrome/`: Headless-Chrome runtime backend (Rust) / * `bin/silverbullet/`: The standalone server binary (Rust) / * `bin/sb/`: The `sb` command-line client (Rust) / * `plugs`: Set of built-in plugs that are distributed with SilverBullet / * `libraries`: A set of libraries (space scripts, page templates, slash templates) distributed with SilverBullet / * `plug-api/`: Useful APIs for use in plugs / * `lib/`: Useful libraries to be used in plugs / * `syscalls/`: TypeScript wrappers around syscalls / * `types/`: Various (client) types that can be references from plugs / * `bin/plug-compile.ts`: the plug compiler / * `scripts/`: Useful scripts / * `docs/`: silverbullet.md website content\n  Server vs. client: SilverBullet has two halves you rebuild **independently** \u2014 knowing which one you changed saves time: / * The **server** (Rust: `server/`, `server-common/`, `server-runtime-chrome/`, `bin/silverbullet/`) is a compiled binary. / * The **client** (TypeScript: `client/`) is built by ESBuild into `client_bundle/`, which the server serves. / Run the server in development with `cargo run`. A **debug** build serves the client bundle **live from `client_bundle/` on disk** (a release build embeds it). Use `SB_DISABLE_SERVICE_WORKER=1` so the service worker doesn\u2019t cache stale assets: / ```shell / SB_DISABLE_SERVICE_WORKER=1 cargo run -p silverbullet -- <PATH-TO-YOUR-DATA-FOLDER> / ``` / To pass arguments like `-p` or `-L`, put them after `--`: / ```shell / SB_DISABLE_SERVICE_WORKER=1 cargo run -p silverbullet -- -L 0.0.0.0 <PATH-TO-YOUR-DATA-FOLDER> / ``` / **When you change the server** (any Rust code): rebuild **and restart** it \u2014 stop the process and re-run `cargo run` (it recompiles). A running server does *not* pick up source changes.\n[2] CHANGELOG.md (CHANGELOG)\n  2.9.0: * Fix: Ctrl/Cmd-clicking a link inside rendered widgets (query/template results) now navigates in a new window via the normal navigation path / * Fix: tag autocomplete no longer triggers while typing markdown header prefixes (`##`, `###`, etc.) / * Internal: the legacy Go server and `sb` CLI have been removed. The Rust server (`silverbullet`) and Rust `sb` CLI are now the only implementations. No user-facing behavior change is expected.\n[3] ADR/008 Go Backend.md (Context)\n  References: * Go backend: [PR 1555](https://github.com/silverbulletmd/silverbullet/pull/1555). / * Superseded by the Rust rewrite: [PR 2010](https://github.com/silverbulletmd/silverbullet/pull/2010).\n  Negative / trade-offs: * Since the development of [SilverBullet+](https://silverbullet.plus/) which required adding Rust to the stack, this resulted in 3 tech stacks (TypeScript, Go and ...\nExact facts:\n- [1] SilverBullet\u2019s client is written in [TypeScript](https://www.typescriptlang.org/) and built on top of the excellent [CodeMirror 6](https://codemirror.net/) editor component. Additional UI is built using [Preact](https://preactjs.com/). [ES Build](https://esbuild.github.io) is used to build the front\n- [1] The SilverBullet server is written in [Rust](https://www.rust-lang.org/) (a Cargo workspace).\n- [1] [Rust](https://www.rust-lang.org/tools/install) (stable, via `rustup`)",
+ "meta": {
+  "notes": [
+   "Development.md",
+   "CHANGELOG.md",
+   "ADR/008 Go Backend.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

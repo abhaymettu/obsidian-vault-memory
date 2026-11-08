@@ -1,0 +1,20 @@
+{
+ "id": "pubB-40",
+ "type": "verbatim",
+ "answer": "Run the **Editor: Vim: Load Vim Config** command to manually reload the `vim` section of your CONFIG.",
+ "tokens": 760,
+ "seconds": 0.003,
+ "e2e_seconds": 1.97,
+ "source_hits": 1.0,
+ "block": "## After editing the vim section of CONFIG, which command reloads it by hand?\n\n--- [vault:corpus/docs/Reference/SilverBullet Features.md] ---\n### Navigation and editing\n\n# Navigation and editing\n* [[Command Palette]] \u2014 finding and running commands.\n* [[Editor]], [[Top Bar]], [[Page Namer]] and [[Live Preview]] \u2014 the editing surface.\n* [[Page Picker]], [[Meta Picker]], [[Anything Picker]], [[Tag Picker]] and [[File Tree]] \u2014 finding and opening content.\n* [[Search]], [[Graph View]] and [[X-Ray]] \u2014 searching and exploring connections.\n* [[Linked Mention]] and [[Linked Tasks]] \u2014 incoming references and tasks linked to a page.\n* [[Slash Command]] \u2014 inserting content through slash commands.\n* [[Outlines]], [[Completion]], [[Vim]] and [[Keyboard Shortcuts]] \u2014 editing and keyboard behavior.\n\n--- [vault:corpus/docs/Vim.md] ---\n### Untitled\n\nSilverBullet has a basic Vim mode. You can toggle it using the ${widgets.commandButton(\"Editor: Toggle Vim Mode\")} command.\n\nIn addition, it supports various ex commands that you can run as you would expect, for instance: `:imap jj <Esc>`.\n\nThe [[CONFIG]] file can also be used to define and extend these commands. It supports the following:\n\n- **Key unmapping** - disable existing keybindings\n- **Custom mappings** - using `map` and `noremap`\n- **Ex command definitions** - map custom ex commands to built-in or custom SilverBullet commands\n\nSilverBullet [[Command]] bindings take precedence over Vim bindings, you may wish to update or disable some [[Keyboard Shortcuts]] or remap the desired functionality in Vim as shown below.\n\nTo manually reload the `vim` section of your [[CONFIG]], use the ${widgets.commandButton(\"Editor: Vim: Load Vim Config\")} command.",
+ "meta": {
+  "engine_seconds": 0.0033444170000000214,
+  "sources": [
+   "vault:corpus/docs/Reference/SilverBullet Features.md",
+   "vault:corpus/docs/Vim.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

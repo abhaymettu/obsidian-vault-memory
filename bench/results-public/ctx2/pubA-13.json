@@ -1,0 +1,19 @@
+{
+ "id": "pubA-13",
+ "type": "single",
+ "answer": "No. The frozen copy (a baked section) is a snapshot, so you have to update the baked section yourself when you want to refresh it; only live queries render current data in SilverBullet.",
+ "tokens": 412,
+ "seconds": 0.005,
+ "e2e_seconds": 2.34,
+ "source_hits": 0.0,
+ "block": "## If the data behind a query I froze into the page as plain Markdown changes, does the frozen copy update on its own?\n\n--- [vault:corpus/docs/Guide/Aggregator Pages.md] ---\n### Keep a portable copy\n\n# Keep a portable copy\nLive queries render in SilverBullet. Use [[Baked Sections]] if you also need stored Markdown that other tools can display. Update the baked section when you want to refresh that snapshot.\n\n[[Workbench/Data]] documents the builder controls. [[Object Index]] explains the available query sources.\n\n--- [vault:corpus/docs/ADR/003 Indexed Object Graph.md] ---\n### Context\n\n# Context\nSilverBullet\u2019s power features \u2014 [[Space Lua/Integrated Query]], [[Linked Mention]], the [[Linked Tasks]], [[Graph View]] \u2014 all need *structured, queryable* data. But the source of truth is plain markdown files. Something needs to turn that prose into queryable data without making the markdown any less plain.",
+ "meta": {
+  "engine_seconds": 0.005347791999999998,
+  "sources": [
+   "vault:corpus/docs/Guide/Aggregator Pages.md",
+   "vault:corpus/docs/ADR/003 Indexed Object Graph.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

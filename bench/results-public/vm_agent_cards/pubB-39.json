@@ -1,0 +1,22 @@
+{
+ "id": "pubB-39",
+ "type": "verbatim",
+ "answer": "`--tone-danger-soft` is the CSS variable for the soft danger background in Space Style. Each tone has a `-soft` variant meant for backgrounds. The note is `Space Style.md`.",
+ "tokens": 1537,
+ "seconds": 4.521,
+ "e2e_seconds": 4.52,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3759,
+  "final_context": 5289,
+  "billed_input": 9048,
+  "turns": 2,
+  "cost_usd": 0.009463599999999999,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"Which CSS variable gives the soft background shade for the danger tone in Space Style?\\\"\"}\nMemory for: Which CSS variable gives the soft background shade for the danger tone in Space Style?\n[1] Space Style.md (Load order)\n  Tone colours: SilverBullet defines six tones as CSS variables, with values for the light and the dark theme: `--tone-success`, `--tone-warning`, `--tone-danger`, `--tone-info`, `--tone-neutral` and `--tone-accent`. Each has a `-soft` variant for backgrounds (for example `--tone-danger-soft`). Your own styles can use them to stay readable in both themes: / ```css / .overdue { / color: var(--tone-danger); / background: var(--tone-danger-soft); / } / ```\n  - Reference note explaining Space Style, the space-style code block for custom CSS in SilverBullet, including load order, tone variables, and tag styling. Names: SilverBullet, Space Style, Space Lua, space-style, Fonts, Configuration, System: Reload, theme.scss, --modal-backdrop-color, --tone-success, --tone-warning, --tone-danger, --tone-info, --tone-neutral, --tone-accent, --tone-danger-soft, data-tag-name, sb-hashtag.\n  - Each tone has a -soft variant for backgrounds, for example --tone-danger-soft.\n  - SilverBullet defines six tones as CSS variables with values for the light and dark theme: --tone-success, --tone-warning, --tone-danger, --tone-info, --tone-neutral and --tone-accent.\n  - The CSS load order of Space Style can be tweaked by including a /* priority: number */ comment.\n[2] Markdown/Admonition.md (Admonition)\n  Silverbullet supports [admonitions](https://github.com/community/community/discussions/16925) using GitHub syntax (`note` and `warning`). / > **note** This is a / > note admonition / > **warning** This is a / > warning admonition / > **danger** This is a / > danger admonition / > **success** This is a / > success admonition / Custom admonitions can be added in a [[Space Style]] using the following format: / ```css / /* Replace the keyword with a word or phrase of your choice */ / .sb-admonition[admonition=\"keyword\" i] { / .sb-admonition-type * { display: none; } / .sb-admonition-type::before { / width: var(--admonition-width) !important; / } / /* The icon can be a link or an embedded image like shown here */ / --admonition-icon: url('data:image/svg+xml,<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"><path d=\"M19.5 12L14.5 17M19.5 12L14.5 7M19.5 12L9.5 12C7.83333 12 4.5 11 4.5 7\" stroke=\"%231C274C\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g></svg>'); / /* The accent color */ / --admonition-color: green; / } / ```\n  - Custom admonitions can be added in a Space Style using the given CSS format.\n[3] Tag/space-style.md (space-style)\n  - The style attribute of a space-style block holds the CSS text of that block.\n  Space Style CSS blocks, applied to the client.\nExact facts:\n- [1] Space Style is [[Space Lua]]\u2019s stylish sibling. It enables you to add your own styling to SilverBullet with `space-style` [[Markdown/Fenced Code Block]].\n- [1] Many styles can be set with [variables](https://github.com/silverbulletmd/silverbullet/blob/main/client/styles/theme.scss) but not everything is covered. You\u2019ll have to reverse-engineer those parts, unfortunately.\n- [1] ```space-style\n- [1] You can tweak the CSS load order style by including a `/* priority: number */` comment:\n- [1] ```space-style\n- [1] The following [[Space Lua/Integrated Query]] is used to determine the order in which Space Style is loaded:"
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

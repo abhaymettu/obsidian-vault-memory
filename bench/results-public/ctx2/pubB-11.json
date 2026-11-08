@@ -1,0 +1,19 @@
+{
+ "id": "pubB-11",
+ "type": "single",
+ "answer": "It never runs by itself because it runs `space.lint` over every page, reading each page, running every lint rule, and rendering its `${\u2026}` expressions and Lua widgets. On a large space that can take a while, so you have to press **Run space-wide lint** when you want it.",
+ "tokens": 390,
+ "seconds": 0.003,
+ "e2e_seconds": 2.29,
+ "source_hits": 1.0,
+ "block": "## Why does the Workbench's whole-space lint check never run on its own?\n\n--- [vault:corpus/docs/Workbench/Maintenance.md] ---\n### Space-wide lint\n\n# Space-wide lint\nThe space-wide lint runs [[API/space#space.lint]] over every page. This reads each page, runs every lint rule and renders its `${\u2026}` expressions and Lua widgets, so on a large space it can take a while. That\u2019s why it never runs by itself: press **Run space-wide lint** when you want it.\n\n--- [vault:corpus/docs/Linked Mention.md] ---\n### Why?\n\n# Why?\nIn a traditional notes app, links are one-directional: page _A_ links to page _B_, but page _B_ has no idea. With linked mentions, every link becomes bi-directional. This means:\n\n* You can give a person, project, or concept its own page, and the linked mentions section will automatically collect every reference to it\n* You discover unexpected connections between ideas\n* Your knowledge graph builds itself as you write",
+ "meta": {
+  "engine_seconds": 0.0029026250000000003,
+  "sources": [
+   "vault:corpus/docs/Workbench/Maintenance.md",
+   "vault:corpus/docs/Linked Mention.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

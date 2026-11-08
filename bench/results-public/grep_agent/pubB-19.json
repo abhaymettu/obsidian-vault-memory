@@ -1,0 +1,21 @@
+{
+ "id": "pubB-19",
+ "type": "multi",
+ "answer": "Use the **Meta Picker**. Pages tagged with a tag starting with `#meta` are hidden from the page picker. To switch from inside the page picker, type `^` when the filter phrase is empty. You can also step through the segments with `Tab` and `Shift-Tab`.",
+ "tokens": 859,
+ "seconds": 3.785,
+ "e2e_seconds": 3.79,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3706,
+  "final_context": 4534,
+  "billed_input": 8240,
+  "turns": 2,
+  "cost_usd": 0.007762799999999999,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"Meta Picker|meta tag\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 30}\nReference/SilverBullet Features.md:9:* [[Page Picker]], [[Meta Picker]], [[Anything Picker]], [[Tag Picker]] and [[File Tree]] \u2014 finding and opening content.\nPage Picker.md:26:> Any page tagged with a tag starting with `#meta`, even though technically regular pages, will **not** appear in the page picker. To navigate to them, use the [[Meta Picker]] instead.\nPage Picker.md:51:* Typing `^` when the filter phrase is empty switches to the **Meta** segment ([[Meta Picker]]). `Tab`/`Shift-Tab` step through all four segments\nPage.md:15:* **[[Meta Page|Meta pages]]:** these are pages that contain implementation details _about_ your space (they are \u201cmeta\u201d). A lot of these will be part of [[Library]]. You navigate between these using the [[Meta Picker]].\nMeta Page.md:14:Meta pages at a technical level are [[Page]] like any other, the only technical difference is that they are tagged with any tag _starting_ with `#meta`. This is picked up by the [[Page Picker]] and [[Meta Picker]].\nMeta Picker.md:5:The meta picker is used to navigate between [[Meta Page]]. Functionally it\u2019s equivalent to the [[Page Picker]] except that it only shows pages tagged with a `meta` tag prefix.\nCHANGELOG.md:372:* Fix: only `#meta` and `#meta/` prefixed tags are now considered meta tags, not e.g. `#metabase`.\nCHANGELOG.md:473:* Page/document/meta picker tweaks:\nCHANGELOG.md:475:  * Meta picker now more consistent with page picker\nObject Index.md:11:The [[Page Picker]], [[Meta Picker]] and [[Linked Mention|Linked Mentions]] use this index. Explore its records in [[Workbench/Data]], or read them through [[API/index]].\nLibrary/Website.md:141:        { ref = \"Meta Picker\" },"
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "pubA-04",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 1411,
+ "seconds": 0.605,
+ "e2e_seconds": 2.75,
+ "source_hits": 0.0,
+ "block": "Memory for: What does the Space Lua percent-decoding helper return if I hand it a broken escape sequence?\n[1] API/string.md (string)\n  - Standard Lua does not require escaping a magic character when it is not contextually magic, so patterns such as %d-- can behave differently in Space Lua.\n  - In Space Lua, the magic characters ^$()%.[]*+-? must be escaped to represent literal characters.\n  - In Space Lua, string.match(\"2024-03-14\", \"%d+-(%d+)-%d+\") reports an invalid regular expression because the hyphens are not escaped, whereas standard Lua prints \"03\".\n  - In Space Lua, print(string.match(\"1234\", \"(%d)+\")) prints \"4\" because repetition applies to the capture, whereas standard Lua returns nil.\n  Lua pattern matching: Lua patterns are not regular expressions. Space Lua translates Lua patterns to JavaScript regular expressions and has a few compatibility differences: / 1. Magic characters `^$()%.[]*+-?` must be escaped to represent literal characters. Standard Lua does not require escaping a magic character when it is not contextually magic, so patterns such as `%d--` can behave differently in Space Lua. / 2. Space Lua allows repetition characters (`?`, `*`, `+`, and `-`) to apply to captures. Standard Lua does not. / 3. The *n*th captured string (`%n`), balanced match (`%bxy`), and frontier pattern (`%f[set]`) forms from the [Lua 5.4 pattern manual](https://www.lua.org/manual/5.4/manual.html#6.4.1) may not be supported. / The `string.matchRegex` and `string.matchRegexAll` extensions use JavaScript regular expressions instead of Lua patterns. / Examples of patterns that differ: / ```lua / print(string.match(\"1234\", \"(%d)+\")) / -- Space Lua prints \"4\" because repetition applies to the capture. / -- Standard Lua returns nil. / print(string.match(\"*\", \"*\"))\n[2] CHANGELOG.md (CHANGELOG)\n  2.10.0: * Fix: Space Lua now correctly truncates a parenthesized expression to a single value (Lua 5.4 semantics). Previously `(string.gsub(...))` and other parenthesized multi-return calls leaked their extra return values into `return`, call-argument, and assignment positions (e.g. `table.insert(t, (string.gsub(...)))` inserted two elements). Parentheses now yield exactly one value. / * Fix: Lua pattern matching lost capture groups, because `ipairs` dropped `nil` values from the result table (by [henrikx](https://github.com/henrikx)). / * Fix: `lintObjects` threw when a page\u2019s `pageMeta` was undefined (by [josh-j](https://github.com/josh-j)). / * Fix: `mq.poll` materialized the entire queue on every poll (by [josh-j](https://github.com/josh-j)).\n[3] API/lua.md (lua)\n  - The lua.parseBlock(code) function parses a Space Lua chunk and returns its AST.\n[4] Space Lua/Quirks.md (Lua implementation notes)\n  - In Space Lua, tonumber('-0xFf ') returns -255.\n  - In Space Lua, tonumber(s) returns nil when the string s cannot be parsed.\n  - In Space Lua, tonumber('0x1.8p1') returns 3.0.\nExact facts:\n- [1] The `string` module contains Lua string operations and Space Lua extensions.\n- [1] <!--#lua spacelua.renderApiDocumentation(\"string\") -->\n- [1] Returns captures from the first Lua-pattern match, or `nil` when none is found.\n- [1] Returns the byte size of a fixed-length Lua 5.4 packing format.\n- [2] [[Space Lua/Page Lua]]: turns a page into a small spreadsheet. Define values inline with `${name = expression}` or with `page-lua` code blocks, use them in any `${...}` on the page.",
+ "meta": {
+  "notes": [
+   "API/string.md",
+   "CHANGELOG.md",
+   "API/lua.md",
+   "Space Lua/Quirks.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

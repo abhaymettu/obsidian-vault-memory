@@ -1,0 +1,13 @@
+{
+ "id": "pubA-06",
+ "type": "single",
+ "answer": "`sync.isEnabled()` returns false when `SB_DISABLE_SERVICE_WORKER` is set or when the browser has no service worker (i.e., when the service worker is off).",
+ "tokens": 790,
+ "seconds": 0.003,
+ "e2e_seconds": 2.07,
+ "source_hits": 1.0,
+ "block": "--- API/sync.md ---\nsync | sync.areFilesReadyToIndex > sync.isEnabled\n`sync.isEnabled()`\n\nWhether client Sync is enabled. False when the service worker is off.\n\n**Returns:**\n\n- `boolean` \u2014 False when SB_DISABLE_SERVICE_WORKER is set or the browser has no service worker.\n\n--- Guide/Git Sync.md ---\nSyncing with a remote | Syncing with a remote > Progress and timing\nThe connection overview shows live status and the last successful sync. Members can use **Git: View status** and **Git: Review conflicts**. Writers can request **Git: Sync now**. Space History also shows Git sync status. Unknown or unavailable status is not the same as being up to date.\n\nLocal changes are pushed after an automatic commit. The revisions **Commit frequency** setting controls that timing. **Check remote changes** controls how often SilverBullet checks for other people\u2019s commits. **Only when this space changes** disables periodic remote checks, but a sync triggered by your changes still fetches and merges before pushing. It is not a push-only mode.\n\nPulled changes reach open editors through the normal file-change mechanism. Network failures show an error and retry with backoff. Authentication or configuration problems require repairing the connection.\n\n--- Sync.md ---\nSync | description\nOffline synchronization between the client and SilverBullet Server.\n\n--- API/sync.md ---\nsync | sync.areFilesReadyToIndex > sync.performFileSync\n`sync.performFileSync(path, remoteLastModified?, remoteRevisionHash?)`\n\nPrioritizes a file for immediate synchronization and waits for completion.\n\n**Parameters:**\n\n- `path` (`string`) \u2014 Space-relative file path.\n- `remoteLastModified?` (`number`) \u2014 lastModified of the remote change event, used for echo suppression.\n- `remoteRevisionHash?` (`string`) \u2014 Content revision the remote change event reported, which tells a same-millisecond change from an echo.\n\n**Example:**\n\n```lua\nsync.performFileSync(\"notes/important.md\")\n```\n\n--- API/sync.md ---\nsync\nThe Sync API provides functions for interacting with the sync engine when the client runs in Sync mode.\n\n<!--#lua spacelua.renderApiDocumentation(\"sync\") -->",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT"
+}

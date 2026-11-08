@@ -1,0 +1,21 @@
+{
+ "id": "pubB-24",
+ "type": "multi",
+ "answer": "Use a Meta Space: create a space (e.g. `META`), set up your config and libraries in it, then in the Desktop dashboard's **Pro** tab pick it under **Meta space**, and it becomes available in all your other spaces. This needs Desktop Pro (a SilverBullet+ feature, currently labelled beta).",
+ "tokens": 1212,
+ "seconds": 0.464,
+ "e2e_seconds": 2.8,
+ "source_hits": 1.0,
+ "block": "Memory for: On Desktop, how do I make my config and libraries available in every local space without copying them, and what licence does that need?\n[1] Meta Space.md (How it works)\n  #desktop / A Meta Space is one of your [[Local Space|local spaces]] that SilverBullet Desktop underlays into all the others, so its configuration, libraries and templates are available everywhere. / SilverBullet Desktop supports unlimited spaces. That\u2019s great for keeping contexts separate. The downside: anything you want available _everywhere_ \u2014 a shared snippet of `CONFIG.md`, a [[Space Lua]] library you wrote once and want to reuse \u2014 has to be copied into every space, and kept in sync. Not great. / The **Meta Space** is the way out. It\u2019s a SilverBullet+ feature available with [Desktop Pro](https://silverbullet.md/pricing) that lets you nominate one of your spaces as a shared underlay for all the others. Anything you put in your meta space (config, libraries, custom commands, templates) automatically becomes available in every other space. The dashboard currently labels it a beta feature.\n  Setting it up: 1. Create a new space, for example one called `META`. / 2. Open it and set it up like any other space: tweak your configuration via the [[Workbench/Configuration|Configuration tab]] or by editing a `CONFIG.md` manually. Install libraries as you see fit as well. / 3. Open the SilverBullet Desktop dashboard and go to the **Pro** tab. / 4. Under **Meta space**, pick `META` from the dropdown. / All _other_ spaces will now load the meta space as well (you may have to reopen some windows). In each you will see a `METACONFIG.md` and library files appear in the file list. / To switch which space is your meta space, just pick a different one from the dropdown. To turn the feature off, pick `<None>`.\n  - Anything placed in the Meta Space, such as config, libraries, custom commands and templates, automatically becomes available in every other space.\n[2] Local Space.md (Managing spaces)\n  Sharing configuration between spaces: To make configuration and libraries available in every local space, use a [[Meta Space]].\n  - To make configuration and libraries available in every local space, a Meta Space is used.\n[3] Desktop Sync.md (SilverBullet server)\n  #desktop / SilverBullet [[Desktop]] keeps your space on your computer, and can sync it with a SilverBullet Server so you can reach it from other devices and browsers. / An external Server connection is optional. Without one, Desktop reads and writes the local space folder directly. Configure sync when you want another Desktop installation or a browser on another device to reach the same content. / Choose a Server you control or a hosted instance, then connect the local space below.\n[4] Workbench/Configuration.md (Saving)\n  The Configuration tab edits your space\u2019s configuration without hand-editing [[Space Lua]] in [[CONFIG]]. `Configuration: Open` (`Cmd-,` or `Ctrl-,`) opens the [[Workbench]] on this tab, and `Configuration: Keyboard Shortcuts` opens it on its Key bindings section. ...\nExact facts:\n- [1] The meta space contains an ordinary `CONFIG` page and any other page. When the meta space is underlaid into another space, the space files are merged (where the meta space\u2019s `CONFIG` page is renamed to `METACONFIG` to avoid clashes with local `CONFIG` changes). Since SilverBullet will load `space-lu",
+ "meta": {
+  "notes": [
+   "Meta Space.md",
+   "Local Space.md",
+   "Desktop Sync.md",
+   "Workbench/Configuration.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

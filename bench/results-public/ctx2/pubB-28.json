@@ -1,0 +1,19 @@
+{
+ "id": "pubB-28",
+ "type": "multi",
+ "answer": "The replacement is **Freeze this space**, found under **Space settings \u2192 Access** in the Dashboard. It makes the published space read-only for everyone, including members and admins, and member permissions are kept for when you unfreeze it.",
+ "tokens": 457,
+ "seconds": 0.003,
+ "e2e_seconds": 2.35,
+ "source_hits": 1.0,
+ "block": "## SB_READ_ONLY is legacy now. What's the per-space replacement that stops all writes, including by admins, and what happens to member permissions?\n\n--- [vault:corpus/docs/Install/Configuration.md] ---\n### Legacy \u201csingle-space\u201d mode options > Run mode\n\n## Run mode\n* `SB_READ_ONLY` *(legacy)*: If you want to run the SilverBullet client and server in read-only mode (you get the full SilverBullet client, but all edit functionality and commands are disabled), you can do this by setting this environment variable to a non-empty value. Upon the server start a full space index will happen, after which all write operations will be disabled. Prefer the per-space settings in the [[Dashboard]]: give the public read access to publish a space (see [[Publishing]]), or **Freeze this space** to stop all writes.\n\n--- [vault:corpus/docs/Publishing.md] ---\n### Freeze a space\n\n# Freeze a space\nTo make a published space read-only for everyone, including members and admins, check **Freeze this space** under **Space settings \u2192 Access**. Member permissions are kept for when you unfreeze it.",
+ "meta": {
+  "engine_seconds": 0.0032454999999999927,
+  "sources": [
+   "vault:corpus/docs/Install/Configuration.md",
+   "vault:corpus/docs/Publishing.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

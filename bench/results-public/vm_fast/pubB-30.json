@@ -1,0 +1,22 @@
+{
+ "id": "pubB-30",
+ "type": "multi",
+ "answer": "An aspiring-page record carries `name` (the unresolved page name), `page` (the source page containing the link), `pos` (the start of the unresolved link), and `ref` (the reference identifying that occurrence). X-Ray does not underline it, because `aspiring-page` is a `range`-less object type that the lens doesn't show.",
+ "tokens": 1316,
+ "seconds": 0.344,
+ "e2e_seconds": 2.94,
+ "source_hits": 1.0,
+ "block": "Memory for: Which attributes does an aspiring-page record carry, and will the X-Ray lens underline it in the editor?\n[1] X-Ray.md (Activation)\n  Limitations: * `range`-less objects (`page`, `tag`, `aspiring-page`, `anchor`) aren\u2019t shown \u2014 except a tag that occurs only inside a comment, which the indexer gives a range, so X-Ray underlines it (and its card won\u2019t show `inComment`, since `xrayInfo` calls the indexers directly, skipping the comment-marking pass). / * Constructs that the editor renders as a widget may not always show the underline. Hover still works, the tooltip will appear.\n  X-Ray is an editor lens that shows you the structure SilverBullet\u2019s indexer sees in your document. When switched on, every text range the indexer extracts as an [[Object]] is underlined. When you hover your mouse over it, it will show you all the attributes extracted as [[YAML]]. / You may also be interested in the [[Graph View]].\n[2] Tag/aspiring-page.md (aspiring-page)\n  Attributes: * `name`: unresolved page name. / * `page`: source page containing the link. / * `pos`: start of the unresolved link. / * `ref`: reference identifying that occurrence. / Records are rebuilt when the source page is indexed. Creating the target page removes its aspiring-page entries.\n[3] CHANGELOG.md (CHANGELOG)\n  2.8.0: * [[X-Ray]]: an editor lens (run `Editor: Toggle X-Ray`) to inspect indexed objects inline. / * New built-in [[Guide/Journal|Journal]] library. / * Runtime API: Expose objects (with filter) `/.runtime/objects/*` for external integrations and the [[CLI]], see [[Runtime API]]. / * New `SB_DISABLE_SERVICE_WORKER` : server-side switch to disable the client service worker for all clients, this will disable sync (all loads and saves will go directly to the server) and disable any offline support. / * UX: now showing spinners instead of underlying (Lua) code in states where widgets aren\u2019t ready to render yet (e.g. before an initial index hasn\u2019t completed) / * Fix: indexed `range` for `data` blocks (and `#tag` data blocks) now points at the YAML content instead of the surrounding fence markers. Multi-document blocks now compute per-doc ranges correctly.\n[4] Tag/ambiguous-link.md (ambiguous-link)\n  Like [[Tag/aspiring-page|aspiring pages]], these records are produced by the relation indexer and are recomputed whenever the page is re-indexed, so an ambiguity disappears from the index as soon as it is fixed (by qualifying the link, or by renaming one of the colliding pages).\n[5] Guide/Add Structure and Query.md (Tag it)\n  Under the hood: These page attributes are called [[Frontmatter|frontmatter]]. To inspect their source, choose **Edit source** from the form\u2019s \u22ef menu (or **Alt-click** on the form). The form stores a block like this at the very beginning of `Photo Walk`: / ```markdown / --- / tags: outing / status: planned / date: \"2026-06-14\" / --- / ``` / The two `---` lines mark the block\u2019s boundaries. Inside, [[YAML]] writes each attribute as `name: value`. Your original notes follow the closing `---`. Move the cursor out o ...\nExact facts:\n- [1] Run ${widgets.commandButton \"Editor: Toggle X-Ray\"}. The setting is sticky, it persists across page navigations and reloads until you run the command again.\n- [3] Fix: YAML data blocks split only on standalone `---` lines. X-Ray includes attributes added during indexing.",
+ "meta": {
+  "notes": [
+   "X-Ray.md",
+   "Tag/aspiring-page.md",
+   "CHANGELOG.md",
+   "Tag/ambiguous-link.md",
+   "Guide/Add Structure and Query.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

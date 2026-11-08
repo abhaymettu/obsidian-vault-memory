@@ -1,0 +1,19 @@
+{
+ "id": "pubB-30",
+ "type": "multi",
+ "answer": "Not in memory for which attributes an aspiring-page record carries, since the memory doesn't list them. It does say that `aspiring-page` objects are `range`-less, so X-Ray doesn't show or underline them.",
+ "tokens": 444,
+ "seconds": 0.003,
+ "e2e_seconds": 2.98,
+ "source_hits": 0.5,
+ "block": "## Which attributes does an aspiring-page record carry, and will the X-Ray lens underline it in the editor?\n\n--- [vault:corpus/docs/X-Ray.md] ---\n### Untitled\n\nX-Ray is an editor lens that shows you the structure SilverBullet\u2019s indexer sees in your document. When switched on, every text range the indexer extracts as an [[Object]] is underlined. When you hover your mouse over it, it will show you all the attributes extracted as [[YAML]].\n\nYou may also be interested in the [[Graph View]].\n\n--- [vault:corpus/docs/X-Ray.md] ---\n### Limitations\n\n# Limitations\n* `range`-less objects (`page`, `tag`, `aspiring-page`, `anchor`) aren\u2019t shown \u2014 except a tag that occurs only inside a comment, which the indexer gives a range, so X-Ray underlines it (and its card won\u2019t show `inComment`, since `xrayInfo` calls the indexers directly, skipping the comment-marking pass).\n* Constructs that the editor renders as a widget may not always show the underline. Hover still works, the tooltip will appear.",
+ "meta": {
+  "engine_seconds": 0.002908083999999974,
+  "sources": [
+   "vault:corpus/docs/X-Ray.md",
+   "vault:corpus/docs/X-Ray.md"
+  ]
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

@@ -1,0 +1,22 @@
+{
+ "id": "pubA-40",
+ "type": "multi",
+ "answer": "@pete.smith is one mention: names can contain dots, so dotted usernames are kept whole rather than stopping at the dot. The memory doesn't say anything about mentioning someone giving them access to the space; it only says any name is a valid mention and that identities are names, not pages, so access isn't covered.",
+ "tokens": 1176,
+ "seconds": 0.004,
+ "e2e_seconds": 2.66,
+ "source_hits": 0.5,
+ "block": "## If I mention @pete.smith, is that one mention or does it stop at the dot, and does mentioning him give him access to the space?\n\n--- [vault:corpus/docs/API/spacelua.md] ---\n### spacelua.listFunctions\n\n## spacelua.listFunctions\n`spacelua.listFunctions(namespace?)`\n\nLists documented functions in the global environment or an API namespace.\n\n**Parameters:**\n\n- `namespace?` (`table|string`) \u2014 Namespace table or dotted name. Omit for globals.\n\n**Returns:**\n\n- `table` \u2014 Function metadata records.\n\n**Example:**\n\n```lua\nfor info in each(spacelua.listFunctions(\"editor\")) do\n  print(info.name, info.description or info.see)\nend\n```\n\n--- [vault:corpus/docs/Recipient.md] ---\n### Querying mentions\n\n# Querying mentions\nAt-mentions are indexed like any other [[Object Index|relation]], with `kind == \"at-mention\"`. `to` is always the `@name` identifier (`toTag == \"identity\"`) and `alias` holds the name as typed. Build your own view over them with SLIQ, for example @sam.rivera:\n\n${query[[\n  from index.relations \"at-mention\"\n  where _.to == \"@sam.rivera\"\n  select { page = _.page, snippet = _.snippet }\n]]}\n\nFrontmatter declarations are relations too, with `kind == \"recipients\"`.\n\nFor a complete request, reply and resolution workflow, see [[Guide/Comments, Mentions and Replies]].\n\n--- [vault:corpus/docs/Linked Tasks.md] ---\n### Untitled\n\nIt is a common SilverBullet pattern to give people, groups of people and places dedicated pages so you can easily reference them. It then becomes very convenient to mention these pages elsewhere in your space, and using [[Linked Mention]] you can easily find what _pages_ link back to that page.\n\nThe equivalent of this idea in the context of [[Task]] is Linked Tasks. These are tasks that _mention_ a particular page.\n\n--- [vault:corpus/docs/Tag/identity.md] ---\n### Untitled\n\nEvery `@name` [[At-Mention|mention]] in your space produces an `identity` record for that [[Identity]] on the page where it is mentioned. Identities are names, not pages: there is never a page behind one, and an at-mention is recorded as a [[Tag/relation|relation]] with `kind: \"at-mention\"` and `toTag: \"identity\"`.\n\n--- [vault:corpus/docs/At-Mention.md] ---\n### `@name` syntax\n\n# `@name` syntax\nType `@` followed by a name with no spaces, e.g. @jo. While typing, autocomplete offers every known identity.\n\nA name may contain dots, so dotted usernames carry whole: @pete.smith and @sam.rivera are each one mention.\n\n**Any name is a valid mention.** Nothing needs declaring up front: mentioning @sales makes `sales` a known identity. See [[Identity]] for more info.\n\nFor a complete request, reply and resolution workflow, see [[Guide/Comments, Mentions and Replies]].",
+ "meta": {
+  "engine_seconds": 0.0036176249999989524,
+  "sources": [
+   "vault:corpus/docs/API/spacelua.md",
+   "vault:corpus/docs/Recipient.md",
+   "vault:corpus/docs/Linked Tasks.md",
+   "vault:corpus/docs/Tag/identity.md",
+   "vault:corpus/docs/At-Mention.md"
+  ]
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

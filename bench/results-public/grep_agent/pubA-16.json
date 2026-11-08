@@ -1,0 +1,22 @@
+{
+ "id": "pubA-16",
+ "type": "verbatim",
+ "answer": "The error message starts with `cancelled:`. This comes from `API/oauth.md`, which says `oauth.deviceFlow` raises an error beginning with that prefix when the user closed the code dialog.",
+ "tokens": 1332,
+ "seconds": 4.976,
+ "e2e_seconds": 4.98,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3694,
+  "final_context": 5007,
+  "billed_input": 13037,
+  "turns": 3,
+  "cost_usd": 0.010090700000000001,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"device.?code\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 40}\nAPI/auth.md:29:      deviceCodeUrl = target .. \"/device/code\",\nAPI/oauth.md:13:* `expired:` the device code expired before it was approved.\nAPI/oauth.md:32:- `opts` (`table`) \u2014 Table with `deviceCodeUrl`, `tokenUrl`, `clientId`, and optionally `scope` and `deviceName`.\nAPI/oauth.md:42:  deviceCodeUrl = \"https://github.com/login/device/code\",\nShare.md:78:* [[^Library/Std/Infrastructure/Github]] (`https://github.com/*` for repository files and `https://gist.github.com/*` URLs): both in _Pull_ mode, and _Push_ mode after signing in to Github through a device code (or with a personal token configured instead). Technically _Sync_ should work except that Github aggressively caches files, making this impractical.\nShare.md:79:* [[^Library/Std/Infrastructure/SilverBullet Share|SilverBullet space]]: pages in another SilverBullet space, in _Push_, _Pull_ and _Sync_ mode, signing in with a device code.\nCHANGELOG.md:27:  * Sign in to GitHub with a device code instead of configuring a personal access token. Credentials stay on the current device and are never synced. `Credentials: List` and `Credentials: Clear` let you inspect and remove them. Sharing individual pages with another SilverBullet space now supports push, pull and sync with device-code sign-in. See [[API/auth]] and [[API/github]].\n{\"file_path\": \"corpus/docs/API/oauth.md\", \"limit\": 30}\n1\t---\n2\ttags: api/syscall\n3\treferences:\n4\t- client/plugos/syscalls/oauth.ts\n5\t- client/auth/device_flow.ts\n6\t---\n7\tThe `oauth` namespace runs OAuth 2.0 sign-in flows. It is what [[API/auth|auth]] providers typically call from their `connect` function.\n8\t\n9\t## Errors\n10\t`oauth.deviceFlow` raises an error whose message starts with one of these prefixes, so callers can tell the outcomes apart:\n11\t\n12\t* `cancelled:` the user closed the code dialog.\n13\t* `expired:` the device code expired before it was approved.\n14\t* `denied:` the user (or the server) denied the request.\n15\t* `failed:` anything else, such as a network error or an unexpected response. The text after the prefix is the underlying message. An OAuth error code from the server (for example `unauthorized_client`) appears in it.\n16\t\n17\t```lua\n18\tlocal ok, err = pcall(oauth.deviceFlow, opts)\n19\tif not ok and tostring(err):find(\"cancelled:\", 1, true) then\n20\t  return nil\n21\tend\n22\t```\n23\t\n24\t<!--#lua spacelua.renderApiDocumentation(\"oauth\") -->\n25\t## oauth.deviceFlow\n26\t`oauth.deviceFlow(opts)`\n27\t\n28\tRuns an OAuth 2.0 device authorization flow (RFC 8628). Shows a modal with a code for the user to enter, polls until approved, and returns the raw token response. Errors start with one of `cancelled:`, `expired:`, `denied:` or `failed:`.\n29\t\n30\t**Parameters:**"
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

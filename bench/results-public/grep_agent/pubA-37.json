@@ -1,0 +1,21 @@
+{
+ "id": "pubA-37",
+ "type": "multi",
+ "answer": "No. Client Encryption is only available with SilverBullet's built-in Authentication system. An Authelia-fronted open server doesn't use it, so the browser's IndexedDB copy stays unencrypted (Client Encryption.md, CHANGELOG.md).",
+ "tokens": 1417,
+ "seconds": 4.147,
+ "e2e_seconds": 4.15,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3700,
+  "final_context": 5092,
+  "billed_input": 8792,
+  "turns": 2,
+  "cost_usd": 0.0094097,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"Authelia|encrypt.*(IndexedDB|browser)|SB_AUTH_DISABLED|client encryption\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 40}\nReference/SilverBullet Features.md:43:* [[Account]], [[Authentication]], [[Authentication Proxy]], [[Single Sign-On]] and [[Authelia]] \u2014 accounts and sign-in.\nReference/SilverBullet Features.md:44:* [[Security]], [[Security Profiles]], [[TLS]] and [[Client Encryption]] \u2014 trust, transport and encryption.\nClient Encryption.md:8:By default SilverBullet keeps a copy of all your files as well as the index, unencrypted in your browser\u2019s IndexedDB. As long as you control your device and other people do not have access to it, this should be perfectly safe. Browsers do not allow access to these databases from other websites and domains.\nClient Encryption.md:13:> Client encryption right now is only available for users of SilverBullet\u2019s native [[Authentication]] system.\nClient Encryption.md:15:[Omitted long matching line]\nClient Encryption.md:20:2. **Convenience:** the client-side encryption key (derived from your username and password) will only ever be kept in memory, which means that if you close all your SilverBullet browser tabs and windows, the key will be flushed and you will have to login again.\nClient Encryption.md:23:Some technical details on how client encryption works.\nClient Encryption.md:27:[Omitted long matching line]\nAPI/auth.md:9:Credentials live in the client-side store of the current device. They are never synced to the server or to other devices, and are stored encrypted when client encryption is enabled.\nSingle Sign-On.md:19:[Omitted long matching line]\nCHANGELOG.md:494:* Should now **deal better with authentication layers** (Cloudflare Zero Trust, Authelia, Pangolin)\nCHANGELOG.md:528:* [[Client Encryption]]: when using a untrusted device (e.g. a public computer), enable this option when logging in (only supported with built-in [[Authentication]]) to encrypt all locally stored data (at a performance penalty).\nAuthelia.md:1:How to set up SilverBullet with Authelia\nAuthelia.md:10:These files can be whitelisted by adjusting your Authelia configuration to something like this:\nTLS.md:13:* Local data encryption and OIDC/SSO sign-in are disabled. Use a local account with a password. The local index is stored unencrypted in the browser.\nTLS.md:29:## Pangolin, Authelia, Authentik\nTLS.md:30:If you\u2019re _already_ using a proxy like [Pangolin](https://pangolin.net/), [Authelia](https://www.authelia.com/) or [Authentik](https://goauthentik.io/), you are likely already set up with everything you need and can just reverse-proxy a subdomain to SilverBullet. Be sure to check the notes on using a [[Authentication Proxy]] on how to configure this.\nLibrary/Website.md:204:        { ref = \"Authelia\" },\nLibrary/Website.md:209:        { ref = \"Client Encryption\" },\nAuthentication Proxy.md:4:In case you would like to run SilverBullet behind an authentication proxy (such as Authelia, Authentik or the ones integrated with Cloudflare Zero Trust or Pangolin) there is one key configuration tweak you need to make:\nAuthentication.md:52:Alternatively, or in addition, you can use an [[Authentication Proxy]] to delegate authentication to an external system (like Authelia, Authentik, or a reverse proxy\u2019s built-in auth). This is common in more complex self-hosted setups. In accounts mode, pair a proxy with **public** spaces so the proxy owns identity. In single-space mode, put the proxy in front of an open server."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

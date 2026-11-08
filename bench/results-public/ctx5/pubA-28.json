@@ -1,0 +1,23 @@
+{
+ "id": "pubA-28",
+ "type": "verbatim",
+ "answer": "Lua was first integrated into SilverBullet in commit 3cf7b72e, in 2024-10.",
+ "tokens": 1331,
+ "seconds": 0.003,
+ "e2e_seconds": 2.06,
+ "source_hits": 1.0,
+ "block": "## Which commit first brought Lua into SilverBullet, and when?\n\n--- [vault:corpus/docs/Revisions.md] ---\n### Automatic commits\n\n# Automatic commits\nIn _Managed_ mode, changes are committed a short while after things go quiet \u2014 about 30 seconds by default, and at least every 5 minutes during a long editing session. You can change this per space, under **Commit frequency**: **Responsive** (the default), **Balanced**, or **Relaxed**. A slower setting means fewer, larger commits.\n\nCommits are attributed to whoever made the change:\n\n* If known, the acting account\u2019s **Full name** and **Email**.\n* **SilverBullet**, for a change made through SilverBullet with no account attached \u2014 a single-user server without authentication.\n* **External**, for a change SilverBullet detected, but did not make: e.g. another editor, a script, or coding agent.\n\n`Revision: Create snapshot` can be used with write access to commit everything outstanding immediately rather than waiting.\n\n--- [vault:corpus/docs/ADR/005 Space Lua.md] ---\n### References\n\n# References\n* First Lua integration: [commit 3cf7b72e](https://github.com/silverbulletmd/silverbullet/commit/3cf7b72e) (2024-10).\n* [[Space Lua]] \u00b7 [[Space Lua/Integrated Query]] \u00b7 [[Migrate from v1]] \u2014 what changed from directives / Handlebars / Space Script.\n\n--- [vault:corpus/docs/API/share.md] ---\n### Services > share:writeBatch:<root>\n\n## share:writeBatch:<root>\nWrites and deletes everything of one collection publish in a single call, for example as one commit. `share.publishCollection` invokes the best service matching `share:writeBatch:<root>` with `{root, writes, deletes}`: `writes` lists `{uri, content}`, `deletes` lists URIs. An error marks every write and delete of the call as failed. GitHub registers one that makes a single commit, asking for the commit message first. A service the user cancels returns `{cancelled = true}` (GitHub\u2019s does when the commit message is dismissed or empty): the publish then writes nothing and reports `cancelled`. Without such a service, `net.writeURI` and `net.deleteURI` are called per file, which applies to gists and SilverBullet spaces (GitHub has no `net.deleteURI`).\n\n--- [vault:corpus/docs/API/space.md] ---\n### space.getActivity\n\n## space.getActivity\n`space.getActivity(since?, filesSince?, top?)`\n\nSummarizes revision activity. Returns `{commits, topFiles, authors}`: `commits` is a list of commit timestamps (unix seconds) since `since`, `topFiles` lists the most frequently changed files since `filesSince` as `{path, count}`, and `authors` lists the commit count per author name since `filesSince` as `{name, count}`, most active first. All arguments are optional unix times in seconds (and `top` a count). Omitted ones use the server defaults. Fails if revisions are not enabled for the space.\n\nExample:\n\n```lua\nlocal activity = space.getActivity(os.time() - 7 * 86400, nil, 5)\nfor _, f in ipairs(activity.topFiles) do\n  print(f.path .. \": \" .. f.count)\nend\n```\n\n--- [vault:corpus/docs/API/space.md] ---\n### space.createRevisionSnapshot\n\n## space.createRevisionSnapshot\n`space.createRevisionSnapshot()`\n\nCommits everything outstanding as a revision now, rather than waiting for the automatic commit. False if there was nothing to commit.",
+ "meta": {
+  "engine_seconds": 0.002988915999987512,
+  "sources": [
+   "vault:corpus/docs/Revisions.md",
+   "vault:corpus/docs/ADR/005 Space Lua.md",
+   "vault:corpus/docs/API/share.md",
+   "vault:corpus/docs/API/space.md",
+   "vault:corpus/docs/API/space.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,21 @@
+{
+ "id": "pubB-18",
+ "type": "multi",
+ "answer": "Your local edits are pushed after an automatic commit, and the revisions **Commit frequency** setting controls that timing. The memory doesn't state the default value for that setting, so I can't say roughly how long after you stop editing it happens by default.",
+ "tokens": 1182,
+ "seconds": 0.364,
+ "e2e_seconds": 2.99,
+ "source_hits": 1.0,
+ "block": "Memory for: With a managed space connected to a Git remote, when do my local edits get pushed, and roughly how long after I stop editing is that by default?\n[1] Guide/Git Sync.md (Syncing with a remote)\n  #guide / Use Git sync to keep a managed space\u2019s revision repository connected to a Git remote. It fetches, merges and pushes committed history. For access from a phone or another Desktop installation, start with [[Guide/Devices and Publishing]] instead. / You need permission to manage the space\u2019s repository connection and credentials for the destination. Use a disposable repository when trying this workflow. Enabling sync shares existing committed history as well as new changes.\n  Progress and timing: The connection overview shows live status and the last successful sync. Members can use **Git: View status** and **Git: Review conflicts**. Writers can request **Git: Sync now**. Space History also shows Git sync status. Unknown or unavailable status is not the same as being up to date. / Local changes are pushed after an automatic commit. The revisions **Commit frequency** setting controls that timing. **Check remote changes** controls how often SilverBullet checks for other people\u2019s commits. **Only when this space changes** disables periodic remote checks, but a sync triggered by your changes still fetches and merges before pushing. It is not a push-only mode. / Pulled changes reach open editors through the normal file-change mechanism. Network failures show an error and retry with backoff. Authentication or configuration problems require repairing the connection.\n[2] Revisions.md (Browsing history)\n  Syncing with a remote: A managed space can fetch, merge and push its revision repository. Follow [[Guide/Git Sync]] for setup, timing and recovery. This is primarily for history and backup. Use a shared Server space for collaboration.\n[3] Git.md (Git)\n  Git is a [free and open source version control system](https://git-scm.com/) originally developed by Linus Torvalds (of Linux fame) and the de-facto standard in the industry. / SilverBullet uses Git for [[Revisions]]. Managed spaces can optionally fetch, merge and push to a remote through [[Guide/Git Sync]]. For access from another device, compare the alternatives in [[Guide/Devices and Publishing]].\n[4] CHANGELOG.md (CHANGELOG)\n  2.12.0: * Git sync connections can target a chosen remote branch, including when it differs from the space\u2019s local branch. The connection overview shows both branches, and unrelated-history errors offer a recovery action to check and combine both histories. Automatic commits during the connection check no longer invalidate it, and a checked merge tolerates new commits on either side before its first sync. / * Fix: rendered Markdown preserves application links such as `message:` and custom protocols, including URLs without `//`. / * Fix: text you type right after another user\u2019s newly added line (for example a comment at the end of a task they just wrote) is no longer highlighted as their change in your own editor.\nExact facts:\n- [1] 2. Choose **Deploy key for this space** or **Use server credentials**. The latter means that you manage the server\u2019s Git authentication yourself.\n- [1] 4. To choose a specific **Remote branch** for the space\u2019s current local branch, check **Choose a remote branch** and enter its name. Otherwise, the connection check uses an existing upstream mapping or detects the remote\u2019s default branch. You can use `main`, `master`, or any valid Git branch name. I",
+ "meta": {
+  "notes": [
+   "Guide/Git Sync.md",
+   "Revisions.md",
+   "Git.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

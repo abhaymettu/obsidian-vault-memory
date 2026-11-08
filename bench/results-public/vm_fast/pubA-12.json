@@ -1,0 +1,21 @@
+{
+ "id": "pubA-12",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 1267,
+ "seconds": 0.339,
+ "e2e_seconds": 2.26,
+ "source_hits": 0.0,
+ "block": "Memory for: A member forgot their password on a multi-space server. Can they reset it themselves?\n[1] Authentication.md (Accounts)\n  Accounts: When the server runs in the default [[Dashboard|multi-space]] mode, authentication is account-based: / * Each member has an [[Account]], provisioned by an administrator with local credentials or [[Single Sign-On]]. / * Each [[Space]] has an [[Dashboard#Access|access level]] \u2014 `none`, `read`, or `write` \u2014 for visitors with no account, plus per-member `read`/`write` roles. Admins can reach every space and the admin UI. / * Accounts, spaces, and access are all managed in the [[Dashboard]], which every account can open. / * Every space has a login page, including one that permits anonymous access.\n[2] Install/Configuration.md (Network)\n  Authentication: * `SB_USER` (single-space only): Sets single-user credentials, in `username:password` form. Use a long password and protect the process configuration. / * `SB_AUTH_TOKEN` (single-space only): Enables `Authorization: Bearer <token>` style authentication on the [[HTTP API]]. In multi-space mode this is replaced by per-account [[Authentication#API|API tokens]]. / * `SB_LOCKOUT_LIMIT`: Specifies the number of failed login attempt before locking the user out (for a `SB_LOCKOUT_TIME` specified amount of seconds), defaults to `10` / * `SB_LOCKOUT_TIME`: Specifies the amount of time (in seconds) a client will be blocked until attempting to log back in, defaults to `60`. / * `SB_REMEMBER_ME_HOURS`: Sets the session duration in hours when \u201cRemember me\u201d is checked during login, defaults to 7 days. Sessions where \u201cRemember me\u201d was left unchecked always last one week.\n[3] Install/Server Modes.md (Single-space mode)\n  Single-space mode: Single-space mode serves one folder with one optional login configured through `SB_USER`. / * It has no multiple-account management or per-member space roles. / * [[Revisions]] has limited configuration, including remote Git setup. / * [[Single Sign-On]] is unavailable. / * Mentions still support ad-hoc and API-defined identities. Account-based completion is unavailable. / Use [[Install/Configuration]] for legacy environment variables. Without authentication, anyone who can reach the server can access the space. Migrate to multi-space mode for account-managed sharing.\n[4] Client Encryption.md (Details)\n  Details: A strong 256-bit cryptographic key is derived (using _PBKDF2_) on the client from your username/password combo entered upon login. This key is kept in the service worker for SilverBullet clients to obtain so that the user is not required to constant log in when refreshing a tab, or opening new SilverBullet tabs and windows. / On an account-managed multi-space server, every prefix uses the server\u2019s shared encryption salt. Prefixes have separate service-worker scopes, so a newly opened space asks the server\u2019s other same-origin SilverBullet workers for the in-memory key. As long as another unlocked space remains open, moving between spaces does not require entering the password again. O ...\nExact facts:\n- [1] Single-space mode serves one folder as one space, authenticated the \u201cclassic\u201d way: a single set of credentials set via the `SB_USER` environment variable in `username:password` form.\n- [2] `SB_FOLDER`: The data folder to serve, e.g. `SB_FOLDER=/home/user/silverbullet`. In single-space mode this folder is your space, in multi-space mode it holds the server configuration and (by default) the spaces, see [[Dashboard]].",
+ "meta": {
+  "notes": [
+   "Authentication.md",
+   "Install/Configuration.md",
+   "Install/Server Modes.md",
+   "Client Encryption.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

@@ -1,0 +1,20 @@
+{
+ "id": "pubA-24",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 416,
+ "seconds": 0.005,
+ "e2e_seconds": 1.93,
+ "source_hits": 0.0,
+ "block": "## Uploads over a certain size are refused. What is the default limit and the config option to raise it?\n\n--- [vault:corpus/docs/Fonts.md] ---\n### Editor font size\n\n# Editor font size\n**Editor font size**, also under **Appearance**, sets the size of page text in the editor, in pixels: 18 by default, from 10 to 48. Headings, code and list indents scale with it. A proportional font often looks smaller than a monospace one at the same size, so you may want to raise it after switching. In [[CONFIG]]:\n\n```lua\nconfig.set(\"fonts.editorSize\", 20)\n```\n\n--- [vault:corpus/docs/Search.md] ---\n### Semantic search > Space size\n\n## Space size\nOnce a model is configured, spaces with up to 5,000 Markdown pages are eligible for semantic search by default. Larger spaces require explicit opt-in. A space that grows past this threshold keeps its existing semantic search and shows a warning about relevance. 5,000 is a default policy threshold, not a hard page limit. Full-text search remains available.",
+ "meta": {
+  "engine_seconds": 0.004478250000000003,
+  "sources": [
+   "vault:corpus/docs/Fonts.md",
+   "vault:corpus/docs/Search.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

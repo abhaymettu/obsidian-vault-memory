@@ -1,0 +1,18 @@
+{
+  "kind": "project",
+  "title": "vault-memory",
+  "gist": "A memory layer for Claude over an Obsidian vault: each note is encoded once, and a question gets back one small block of memory instead of a grep session. I measured it against grep and search on questions checked against the notes.",
+  "summary": "Gives a Claude session the answer from your notes in one small block, with the note each line came from.",
+  "repo": "https://github.com/abhaymettu/obsidian-vault-memory",
+  "hero_image": {"light": "docs/benchmark-public.png", "alt": "Mean judged score against tokens into Claude on the SilverBullet docs: the recall agent sits just below the grep agent with fewer tokens, and single recall calls sit level with keyword search."},
+  "headline_numbers": [
+    {"label": "judged score on the public docs, recall agent against grep agent (89 questions)", "value": "0.949 vs 0.978", "command": "sh bench/public.sh"},
+    {"label": "judged score on the public docs, one recall call against context-mode search at 5 hits", "value": "0.781 vs 0.775", "command": "sh bench/public.sh"}
+  ],
+  "site": {
+    "eyebrow": "Agent memory · Obsidian · 89 public questions · MIT",
+    "blurb": "Claude Code remembers by preloading an index and grepping a notes folder. vault-memory encodes each note once and answers a question with one small block. It beats search and comes within four questions of grep on the public docs with 26% fewer tokens, and the gap that is left is superseded facts.",
+    "group": "ml",
+    "field": "agentic"
+  }
+}

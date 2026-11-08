@@ -1,0 +1,20 @@
+{
+ "id": "pubB-33",
+ "type": "verbatim",
+ "answer": "Append `?resetClient=1` to the space URL. After confirmation, it clears browser storage, unregisters the service worker and reloads the client to synchronize again (unsynchronized edits will be lost).",
+ "tokens": 534,
+ "seconds": 0.004,
+ "e2e_seconds": 2.11,
+ "source_hits": 1.0,
+ "block": "## What do I append to the space URL to get a full browser client reset?\n\n--- [vault:corpus/docs/Troubleshooting.md] ---\n### Server > Reset a browser client\n\n## Reset a browser client\nIf the problem is in the browser\u2019s local cache, adding `?resetClient=1` to the space URL offers a full client reset. After confirmation, it clears browser storage, unregisters the service worker and reloads the client to synchronize again.\n\n> **warning** Unsynchronized edits will be lost\n> Check that the Server is accessible and preserve any edits that have not reached it before resetting the browser. This clears the browser\u2019s copy, not the Server\u2019s files.\n\n--- [vault:corpus/docs/Troubleshooting.md] ---\n### Server > Disable client features\n\n## Disable client features\nTemporarily disable a feature by appending one of these options to the space URL, for example `http://localhost:3000/?disableSpaceLua=1`:\n\n* `?disableSync=1` disables browser offline synchronization with the Server.\n* `?disableSpaceLua=1` disables loading [[Space Lua]] scripts.\n* `?disableSpaceStyle=1` disables loading [[Space Style]].\n* `?disablePlugs=1` disables loading non-built-in [[Plugs]].\n\nCombine options with `&`, for example `?disableSpaceLua=1&disableSpaceStyle=1`. Remove the options when you finish diagnosing the problem.",
+ "meta": {
+  "engine_seconds": 0.0043826250000000185,
+  "sources": [
+   "vault:corpus/docs/Troubleshooting.md",
+   "vault:corpus/docs/Troubleshooting.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,22 @@
+{
+ "id": "pubB-44",
+ "type": "verbatim",
+ "answer": "The tag is `#meta/template/slash`. A page tagged with it becomes a slash template, and its content is inserted at the cursor when you run the slash command. The command name is the last component of the page name. This is described in `Slash Templates.md`.",
+ "tokens": 1156,
+ "seconds": 4.003,
+ "e2e_seconds": 4.0,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3674,
+  "final_context": 4831,
+  "billed_input": 8505,
+  "turns": 2,
+  "cost_usd": 0.0082799,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"slash template\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 20}\nReference/Concepts.md:15:* [[Page Template]] and [[Slash Templates]] \u2014 reusable starting content.\nDevelopment.md:27:* `libraries`: A set of libraries (space scripts, page templates, slash templates) distributed with SilverBullet\nSlash Command.md:11:[[^Library/Std#Slash templates]] provides many useful ones out of the box.\nSlash Command.md:24:# Slash templates\nSlash Command.md:25:Most slash commands are implemented as [[Slash Templates]] \u2014 pages tagged with `#meta/template/slash` whose content is inserted at the cursor. The standard library includes slash templates for:\nSlash Command.md:42:1. **Slash templates** (recommended): Create a page tagged `#meta/template/slash`. See [[Slash Templates]] for details.\nTemplate.md:8:A template in SilverBullet is a string that contains `${expression}` placeholders, which get evaluated using [[Space Lua]]. When a template runs, its placeholders are evaluated. Page and slash templates insert the resulting text into a page. That text stays saved until you edit it. A template called from a page expression renders a live result instead. See [[Guide/When Results Update]] for update behavior.\nTemplate.md:10:They are often used in [[Slash Templates]] and [[Page Template]].\nTemplate.md:56:# Slash templates\nTemplate.md:57:[[Slash Templates]] are pages tagged with `#meta/template/slash`. They define [[Slash Command|slash commands]] that insert templated content at the cursor position. The last component of the page name becomes the slash command name.\nTemplate.md:59:See also: [[API/template]], [[Page Template]], [[Slash Templates]], [[Space Lua]]\nPage Template.md:8:Page templates create pages from a reusable blueprint. Expressions in the template run when the page is created. To insert a section into an existing page instead, use [[Slash Templates]].\nSlash Templates.md:5:- libraries/Library/Std/Infrastructure/Slash Templates.md\nSlash Templates.md:6:- libraries/Library/Std/Slash Templates/tpl.md\nSlash Templates.md:8:Slash templates are a quick way to define [[Slash Command|slash commands]] that insert templated content at the cursor position. They are defined as pages tagged with `#meta/template/slash`. The inserted text is saved in the destination page. Later edits to the template do not change earlier insertions. \nSlash Templates.md:10:# Creating a slash template\nSlash Templates.md:12:2. Select \u201cSlash Template\u201d\nSlash Templates.md:13:3. Pick a name, the last component of the page name (after the `/` if any) will be used as the slash command\u2019s name. For example, a page named `Library/Slash Template/action-items` creates a `/action-items` slash command.\nSlash Templates.md:16:Run the `System: Reload` command to activate the slash template.\nSlash Templates.md:19:A minimal page named `Library/Slash Template/action-items` with this content:\n\n[Showing results with pagination = limit: 20]"
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

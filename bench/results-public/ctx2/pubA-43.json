@@ -1,0 +1,19 @@
+{
+ "id": "pubA-43",
+ "type": "multi",
+ "answer": "Not in memory.",
+ "tokens": 781,
+ "seconds": 0.003,
+ "e2e_seconds": 2.1,
+ "source_hits": 0.5,
+ "block": "## Which index does the graph explorer draw from, and when did that index get introduced?\n\n--- [vault:corpus/docs/Library/silverbullet-diagram/Mermaid.md] ---\n### API > Views > mermaid.relationGraph(spec)\n\n### mermaid.relationGraph(spec)\nA flowchart. Node labels use the page\u2019s last path segment. Clicking still navigates to the full page.\n\nSpec keys:\n * `pages` \u2014 the page list to graph, e.g. `query[[from index.pages(\"adr\")]]`.\n * `relations` *(optional)* \u2014 frontmatter fields holding `[[page]]` links to draw as edges, e.g. `{\"dependsOn\", \"related\"}`. A `supersededBy` relation is drawn dotted. **When omitted, all relations are auto-detected** \u2014 every frontmatter field whose value(s) are `[[links]]` to other pages in the set becomes an edge (labeled by the field name, excluding `groupBy`, which drives subgraph nesting). Pass an explicit `relations` list to restrict edges to specific fields.\n * `groupBy` *(optional)* \u2014 a frontmatter field naming a **container** page. Members nest inside that container\u2019s **subgraph**. (The `Architecture` page uses `groupBy = \"partOf\"` to draw the Client / Service Worker / Server layers.)\n * `direction` *(optional)* \u2014 `\"LR\"` (default), `\"TD\"`, etc.\n * `color` *(optional)* \u2014 a frontmatter field whose value becomes a Mermaid CSS class on each node (e.g. `\"status\"`). Supply matching `classDef`s to style them. Without them the nodes render unstyled. *Auto-`classDef` from observed values is a planned enhancement.)*\n * `max` *(optional, default 60)* \u2014 node cap. A \u201cshowing N of M\u201d note is added when exceeded.\n\n--- [vault:corpus/docs/Graph View.md] ---\n### Untitled\n\nAn interactive object-graph explorer visualizes [[Object|objects]] (pages, items, blocks) and the typed [[Tag/relation|relations]] between them \u2014 letting you navigate your space by structure rather than by name.",
+ "meta": {
+  "engine_seconds": 0.0026992500000000063,
+  "sources": [
+   "vault:corpus/docs/Library/silverbullet-diagram/Mermaid.md",
+   "vault:corpus/docs/Graph View.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

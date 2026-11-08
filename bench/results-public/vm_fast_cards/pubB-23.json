@@ -1,0 +1,23 @@
+{
+ "id": "pubB-23",
+ "type": "multi",
+ "answer": "The docs say to start with [[Workbench/Console]], which is the combined Lua, JavaScript, plug and service-worker log. The memory doesn't say how much history that place keeps, so that part is not in memory.",
+ "tokens": 1238,
+ "seconds": 0.457,
+ "e2e_seconds": 2.86,
+ "source_hits": 0.5,
+ "block": "Memory for: Where do the docs say to look first for SilverBullet logs, and how much history does that place keep?\n[1] Log.md (Log)\n  To better understand what SilverBullet is doing, especially when [[Troubleshooting]], it is good to know where and how to look at SilverBullet logs. / Start with [[Workbench/Console]] for the combined Lua, JavaScript, plug and service-worker log. For lower-level diagnostics, open your browser\u2019s JavaScript console. / * Client logs: Check your browser\u2019s JavaScript console. Usually these are part of \u201c(Web) Developer Tools\u201d buried somewhere in a Tools or Developer menu. / * Service worker logs (especially useful when debugging [[Sync]] issues): / * In Chromium-based browsers these logs are mixed with the regular JavaScript console. / * In Firefox start at `about:debugging#/runtime/this-firefox` then find it under the Service Worker section and click \u201cInspect\u201d. / * In Safari they can be accessed via `Developer > Service workers`. / * Server logs: Server logs are written to the standard output of the server process.\n  - Knowing where and how to look at SilverBullet logs helps to understand what SilverBullet is doing, especially when troubleshooting.\n  - A reference guide on where and how to find SilverBullet logs for client, service worker, server, and reverse proxy diagnostics. Names: SilverBullet, Lua, JavaScript, Chromium, Firefox, Safari.\n[2] Revisions.md (Browsing history)\n  - SilverBullet can automatically keep a full revision history of a Space backed by a Git repository.\n  SilverBullet can automatically keep a full revision history of your [[Space]] backed by a [Git](https://git-scm.com/) repository.\n  - In Unmanaged mode, SilverBullet reads the history of an existing repository and never commits to it.\n  - In Managed mode, SilverBullet creates a git repository in the space folder if there isn't one, and commits changes for the user.\n[3] Getting Started.md (What\u2019s next?)\n  - Getting Started navigation page of the SilverBullet docs that points to introductory and practical guides and the reference. Names: SilverBullet Desktop, SilverBullet Server, SilverBullet, Workbench, Graph View.\n[4] SilverBullet.md (The premise)\n  - The SilverBullet docs run inside a read-only instance of SilverBullet, which aims to be a good-practice use of Docs as Code.\n  - The introductory owner's manual page for SilverBullet, describing what it is, how the docs are organized, the setup options, and the community channels. Names: SilverBullet, SilverBullet Desktop, SilverBullet Server, Workbench, No SilverBullet, Docs as Code.\n[5] Manual.md (Manual)\n  - A reference index page (documentation home) for the SilverBullet docs, describing which section to use for which kind of information. Names: SilverBullet.\n[6] Document.md (Uploading)\n  - If no exact path exists for a wiki link to a document, SilverBullet looks for a matching name elsewhere in the space, just as it does for page links.\nExact facts:\n- [2] ${widgets.commandButton(\"Revision: Page History\")} lists the current page\u2019s revisions, newest first. Selecting one opens a preview showing the change as a colour-coded diff, switch to **Content** to read the whole page as it was at that point. **Restore** puts that version back into the editor as a \n- [4] SilverBullet is _indie software_. If you use it, please help us [keep the project financially sustainable](https://silverbullet.md/funding).",
+ "meta": {
+  "notes": [
+   "Log.md",
+   "Revisions.md",
+   "Getting Started.md",
+   "SilverBullet.md",
+   "Manual.md",
+   "Document.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

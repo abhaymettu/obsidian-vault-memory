@@ -1,0 +1,19 @@
+{
+ "id": "pubA-45",
+ "type": "multi",
+ "answer": "In CONFIG, the code font is set with `config.set(\"fonts.code\", \"ia-writer-mono\")`, so code uses **ia-writer-mono**.",
+ "tokens": 538,
+ "seconds": 0.004,
+ "e2e_seconds": 2.32,
+ "source_hits": 0.5,
+ "block": "## In this documentation space's CONFIG, which font does code use?\n\n--- [vault:corpus/docs/Fonts.md] ---\n### Editor font size\n\n# Editor font size\n**Editor font size**, also under **Appearance**, sets the size of page text in the editor, in pixels: 18 by default, from 10 to 48. Headings, code and list indents scale with it. A proportional font often looks smaller than a monospace one at the same size, so you may want to raise it after switching. In [[CONFIG]]:\n\n```lua\nconfig.set(\"fonts.editorSize\", 20)\n```\n\n--- [vault:corpus/docs/Fonts.md] ---\n### Untitled\n\nSilverBullet uses three fonts, each picked separately in [[Workbench/Configuration]] under **Appearance**:\n\n* **Interface font**: menus, panels, the page title and the [[Workbench]].\n* **Editor font**: the text of your pages.\n* **Code font**: anything code-like: inline code, [[Markdown/Fenced Code Block|code blocks]], frontmatter and tables while you edit them, and `${...}` expressions while the cursor is in them. It should be a monospace font.\n\nInstead of using the [[Workbench/Configuration]] options, you can also set them in [[CONFIG]]:\n\n```lua\nconfig.set(\"fonts.editor\", \"inter\")\nconfig.set(\"fonts.ui\", \"system-sans\")\nconfig.set(\"fonts.code\", \"ia-writer-mono\")\n```",
+ "meta": {
+  "engine_seconds": 0.0035760419999999724,
+  "sources": [
+   "vault:corpus/docs/Fonts.md",
+   "vault:corpus/docs/Fonts.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

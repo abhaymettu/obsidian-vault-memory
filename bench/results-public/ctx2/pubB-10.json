@@ -1,0 +1,19 @@
+{
+ "id": "pubB-10",
+ "type": "single",
+ "answer": "Yes, that's expected: the current dispatcher passes only the first captured value to `run`. The workaround is to capture the whole suffix with a single group (e.g. `pattern = \"lookup:(.+)\"`) and parse it inside the callback, such as `suffix:match(\"([^:]+):(.+)\")` to get `kind` and `id`.",
+ "tokens": 636,
+ "seconds": 0.005,
+ "e2e_seconds": 2.49,
+ "source_hits": 1.0,
+ "block": "## My virtual page pattern has two capture groups but my run function only seems to get one value. Is that expected, and what's the workaround?\n\n--- [vault:corpus/docs/Virtual Pages.md] ---\n### Multiple capture groups\n\n# Multiple capture groups\nThe current dispatcher passes only the first match value to `run`. If you need several values, capture the complete suffix and parse it inside the callback:\n\n```lua\nvirtualPage.define {\n  pattern = \"lookup:(.+)\",\n  run = function(suffix)\n    local kind, id = suffix:match(\"([^:]+):(.+)\")\n    if not kind then return \"Use lookup:kind:id\" end\n    return \"# \" .. kind .. \"\\nLooking up: \" .. id\n  end\n}\n```\n\n--- [vault:corpus/docs/Virtual Pages.md] ---\n### How it works\n\n# How it works\nYou define a virtual page by calling `virtualPage.define` with a Lua pattern and a function. When someone navigates to a page name matching the pattern, SilverBullet calls your function instead of loading a file from disk.\n\nThe current standard-library dispatcher passes the first captured value from the pattern to the function. The function returns the Markdown content to display. Put definitions in a `space-lua` block in your own space, then run `System: Reload`.\n\n```lua\nvirtualPage.define {\n  pattern = \"greeting:(.+)\",\n  run = function(name)\n    return \"# Hello, \" .. name .. \"!\\nWelcome to this virtual page.\"\n  end\n}\n```\n\nNavigating to `greeting:World` renders a page with the heading \u201cHello, World!\u201d \u2014 but no file is created.\n\nVirtual pages are always **read-only**. The editor disables editing controls automatically.",
+ "meta": {
+  "engine_seconds": 0.005246749999999963,
+  "sources": [
+   "vault:corpus/docs/Virtual Pages.md",
+   "vault:corpus/docs/Virtual Pages.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

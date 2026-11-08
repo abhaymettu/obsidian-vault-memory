@@ -1,0 +1,21 @@
+{
+ "id": "pubA-24",
+ "type": "verbatim",
+ "answer": "The default maximum upload size is 10MB. You can raise it with the `maximumDocumentSize` option, for example `config.set(\"maximumDocumentSize\", 100)`.",
+ "tokens": 1320,
+ "seconds": 0.507,
+ "e2e_seconds": 2.97,
+ "source_hits": 1.0,
+ "block": "Memory for: Uploads over a certain size are refused. What is the default limit and the config option to raise it?\n[1] Document.md (Uploading)\n  - The maximumDocumentSize option changes the maximum allowed upload filesize, for example with config.set(\"maximumDocumentSize\", 100).\n  - By default the maximum allowed filesize for an upload is 10MB.\n  Uploading: To upload documents you have a few options: / * Use the `Upload: File` command (especially useful on mobile devices) / * Drag & drop files or images onto a page / * Copy & paste files or images onto a page / All options will prompt you for a file name to use to store the document, and then include the document as an embedded image (if it was an image) or link to the file. / By default the maximum allowed filesize for an upload is 10MB, you can change that with the `maximumDocumentSize` option. / ```lua / config.set(\"maximumDocumentSize\", 100) / ```\n  - Specifying only a width preserves the image's proportions, while specifying both dimensions can stretch the image.\n[2] Fonts.md (Editor font size)\n  Editor font size: **Editor font size**, also under **Appearance**, sets the size of page text in the editor, in pixels: 18 by default, from 10 to 48. Headings, code and list indents scale with it. A proportional font often looks smaller than a monospace one at the same size, so you may want to raise it after switching. In [[CONFIG]]: / ```lua / config.set(\"fonts.editorSize\", 20) / ```\n[3] CHANGELOG.md (CHANGELOG)\n  2.1.2: * More configuration options for what to index (see [[^Library/Std/Config]] under the `index` section) for the purpose of reducing local storage size and needless CPU waste. Some useful ones: / * `config.set(\"index.search.enabled\", false)` to disable [[Full Text Search]] entirely (saves on processing and storage if you don\u2019t use it) / * `config.set(\"index.paragraph.all\", false)` to disable indexing all (untagged) paragraphs. This is also somewhat wasteful if you don\u2019t query these. / * Disable ability to rename pages in read-only mode (by [Jelenkee](https://github.com/silverbulletmd/silverbullet/pull/1509)) / * Improved docker build + health check (by [Zef](https://github.com/silverbulletmd/silverbullet/issues/1515)) / * Added `templates.tagItem` template (by [Andy Costanza](https://github.com/silverbulletmd/silverbullet/commit/6d4f964a6e2a4f7dae04aa7558defcaa9f1f1a86)) / * Support links in table queryable objects (by [Alex Dobin](https://github.com/silverbulletmd/silverbullet/commit/f5aef74a87bc92c133968a37f992fe0c2b25ccf4)) / * Refactor of document editors (by [MrMugame](https://github.com/silverbulletmd/silverbullet/commit/4706be29e6a155bdd4c3aa7508a0383496d77369)) / * Command to toggle markdown syntax rendering (by [aphymi](https://github.com/silverbulletmd/silverbullet/commit/6914d4bc319781b4dc2b0d657bee77db405af2bf)) / * Fix transclusions not being indexed as links (by [MrMugame](https://github.com/silverbulletmd/silverbullet/pull/1539))\nExact facts:\n- [2] Instead of using the [[Workbench/Configuration]] options, you can also set them in [[CONFIG]]:\n- [2] A `space-style` that sets `--editor-font`, `--ui-font`, `--editor-monospace-font` or `--editor-font-size` wins over the Configuration setting**, whether it sets them on `html` or `:root`. Remove it from your style to pick fonts in Configuration instead.",
+ "meta": {
+  "notes": [
+   "Document.md",
+   "Fonts.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

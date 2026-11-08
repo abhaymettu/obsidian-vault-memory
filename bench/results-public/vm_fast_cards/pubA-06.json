@@ -1,0 +1,21 @@
+{
+ "id": "pubA-06",
+ "type": "single",
+ "answer": "`sync.isEnabled()` returns false when `SB_DISABLE_SERVICE_WORKER` is set or when the browser has no service worker (i.e., when the service worker is off).",
+ "tokens": 1346,
+ "seconds": 0.38,
+ "e2e_seconds": 3.05,
+ "source_hits": 1.0,
+ "block": "Memory for: Under what conditions does the Lua check for whether client sync is on come back false?\n[1] API/sync.md (sync)\n  - sync.isEnabled() returns whether client Sync is enabled, and returns false when the service worker is off.\n  sync.isEnabled: `sync.isEnabled()` / Whether client Sync is enabled. False when the service worker is off. / **Returns:** / - `boolean` \u2014 False when SB_DISABLE_SERVICE_WORKER is set or the browser has no service worker.\n  sync.hasInitialSyncCompleted: `sync.hasInitialSyncCompleted()` / Checks whether the initial client synchronization has completed. / **Returns:** / - `boolean` \u2014 Whether initial sync is complete.\n  - sync.hasInitialSyncCompleted() returns whether the initial client synchronization has completed.\n  - sync.isEnabled() returns false when SB_DISABLE_SERVICE_WORKER is set or the browser has no service worker.\n[2] API/editor.md (editor)\n  editor.openNavigator: `editor.openNavigator(name, opts?)` / Opens a view, returning whether it opened. False means the view isn\u2019t there to open -- typically because it\u2019s defined in Space Lua that hasn\u2019t been indexed yet -- so a caller can fall back to something else. / **Parameters:** / - `name` (`string`) \u2014 The view\u2019s name. / - `opts?` (`table`) \u2014 Optional `segment` (segment label), `phrase`, `dropdown` (dropdown value to select), and `focus` (`false` opens without taking focus). See [[API/view#view.open(name, opts?)]] for the full option semantics. / **Returns:** / - `boolean` \u2014 Whether a view opened.\n[3] Guide/Desktop Setup.md (Install and open a space)\n  Protect and troubleshoot your space: Back up your local folder and test a restore into a separate folder. Sync can copy an unwanted edit or deletion to another device, so it does not replace a backup. / If another device is missing an edit, first check the Server sync status in the space\u2019s settings and whether the Server is reachable. If the issue is inside the shared editor, start with [[Log]] and [[Troubleshooting]]. The browser cache reset instructions on that page apply to browser clients, not Desktop\u2019s local files. / For shared configuration and libraries across Desktop spaces, see [[Meta Space]].\n[4] CHANGELOG.md (CHANGELOG)\n  2.5.0: * Sync snapshots are now persisted after every file sync, reducing (and hopefully eliminating) edge cases where the sync engine is killed mid-sync (for whatever reason) and the snapshot becomes of sync with \u201creality\u201d. / * The index status progress indicator (blue circle) should now be more reliably reflect the actual indexing status. / * HTTP status codes >= 500 are now treated as offline (better offline detection). / * [[Space Lua/Integrated Query]] improvements (courtesy of [Matou\u0161 Jan Fialka](https://github.com/mjf)): / * [[Space Lua/Integrated Query/Grouping|group by]] and `having` clauses with [[Space Lua/Integrated Query/Aggregating|aggregator]] support / * `filter(where <cond>)` clause for per-row aggregate filtering / * `nulls first`/`nulls last` in `order by` / * Null/missing query cells now render as empty / * [[Space Lu ...\nExact facts:\n- [1] <!--#lua spacelua.renderApiDocumentation(\"sync\") -->\n- [2] Returns the file extensions claimed by explicitly registered document editors. Extensions carry no leading dot. Built-in text and media fallbacks are not included. Use `editor.getDocumentCapabilities` to determine whether the client can open particular documents.\n- [4] Near real-time sync**: changes made to pages are now synced (and will appear in other clients) within ~2-3s.",
+ "meta": {
+  "notes": [
+   "API/sync.md",
+   "API/editor.md",
+   "Guide/Desktop Setup.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

@@ -1,0 +1,22 @@
+{
+ "id": "pubA-03",
+ "type": "single",
+ "answer": "Yes, `crypto.sha1(data)` returns the hexadecimal SHA-1 digest of a string or byte buffer, which you can use to match git object ids. It is not for security, so for security purposes use `crypto.sha256(data)` instead.",
+ "tokens": 1100,
+ "seconds": 0.007,
+ "e2e_seconds": 2.41,
+ "source_hits": 1.0,
+ "block": "## Is there a Space Lua hash function I can use to compute the same ids git uses for objects, and can I use it for security?\n\n--- [vault:corpus/docs/API/crypto.md] ---\n### crypto.sha1\n\n## crypto.sha1\n`crypto.sha1(data)`\n\nComputes the SHA-1 digest of a string or byte buffer, e.g. to match git object ids. Not for security.\n\n**Parameters:**\n\n- `data` (`string|bytes`) \u2014 Data to hash.\n\n**Returns:**\n\n- `string` \u2014 Hexadecimal SHA-1 digest.\n\n--- [vault:corpus/docs/API/crypto.md] ---\n### Untitled\n\nThe `crypto` namespace computes hash digests.\n\n<!--#lua spacelua.renderApiDocumentation(\"crypto\") -->\n\n--- [vault:corpus/docs/API/crypto.md] ---\n### crypto.sha256\n\n## crypto.sha256\n`crypto.sha256(data)`\n\nComputes the SHA-256 digest of a string or byte buffer.\n\n**Parameters:**\n\n- `data` (`string|bytes`) \u2014 Data to hash.\n\n**Returns:**\n\n- `string` \u2014 Hexadecimal SHA-256 digest.\n<!--/lua-->\n\n--- [vault:corpus/docs/MCP.md] ---\n### Security\n\n# Security\nA connection carries the authority of the account that approved it, limited to the spaces chosen on the consent page. Page content read through MCP reaches the assistant (and its provider), and `lua` can do anything a user can script, so only connect assistants you trust with the spaces involved. Pages in shared spaces can be written by other people, and a page can contain text meant to steer the assistant, so be careful with spaces others can edit. Desktop's endpoint has no sign-in or consent page: while it is on, any program on your computer can use every registered space through it.\n\nConnected apps are listed under **Connected apps** in your Profile (admins see everyone\u2019s under APIs in the Dashboard), each with a Revoke button. Changing your password, choosing \u201csign out everywhere\u201d or having your account disabled disconnects all your apps and removes them from the list.\n\n--- [vault:corpus/docs/API/widgets.md] ---\n### Untitled\n\nReady-made buttons and sub-page lists. Use them in a [[Space Lua#Expressions|`${...}` expression]] or return them from a [[API/widget#Content functions|widget's `content` function]]. They are built with the [[API/dom|DOM builder]] and implemented in [[^Library/Std/Widgets/Widgets]].\n\nFor chips, bars, number cards and responsive grids, install the [Dashboard library](https://github.com/silverbulletmd/silverbullet-libraries/blob/main/Library/silverbulletmd/Dashboard.md) through [[Workbench/Libraries|Workbench \u2192 Libraries]]. These helpers are distributed separately from core.",
+ "meta": {
+  "engine_seconds": 0.007167167000006885,
+  "sources": [
+   "vault:corpus/docs/API/crypto.md",
+   "vault:corpus/docs/API/crypto.md",
+   "vault:corpus/docs/API/crypto.md",
+   "vault:corpus/docs/MCP.md",
+   "vault:corpus/docs/API/widgets.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

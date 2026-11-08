@@ -1,0 +1,20 @@
+{
+ "id": "pubA-45",
+ "type": "multi",
+ "answer": "Not in memory.",
+ "tokens": 1403,
+ "seconds": 0.454,
+ "e2e_seconds": 3.49,
+ "source_hits": 1.0,
+ "block": "Memory for: In this documentation space's CONFIG, which font does code use?\n[1] CONFIG.md (Site configuration)\n  View defaults: ```space-lua / config.set(\"view.defaults\", { / -- The curated Navigate tree (see [[^Library/Website]]) is this site's navigation / [\"docs.navigate\"] = { open = true, width = 360 }, / }) / ``` / ```space-lua / -- managed-by: configuration-manager / config.set(\"fonts.ui\", \"inter\") / config.set(\"fonts.editor\", \"inter\") / config.set(\"workbench.pinnedTags\", { / \"page\", / \"task\", / }) / ``` / ```space-lua / -- managed-by: workbench-schemas / -- priority: -10 / tag.define { / name = \"api/lua\", / schema = { / type = \"object\", / properties = {references = schema.array \"string\"}, / required = {\"references\"}, / }, / } / tag.define { / name = \"component\", / schema = { / type = \"object\", / properties = { / connectsTo = {anyOf = { / schema.array \"string\", / schema.ref(), / }}, / partOf = schema.ref(), / consumes = schema.ref(), / }, / }, / } / ```\n[2] Fonts.md (Editor font size)\n  SilverBullet uses three fonts, each picked separately in [[Workbench/Configuration]] under **Appearance**: / * **Interface font**: menus, panels, the page title and the [[Workbench]]. / * **Editor font**: the text of your pages. / * **Code font**: anything code-like: inline code, [[Markdown/Fenced Code Block|code blocks]], frontmatter and tables while you edit them, and `${...}` expressions while the cursor is in them. It should be a monospace font. / Instead of using the [[Workbench/Configuration]] options, you can also set them in [[CONFIG]]: / ```lua / config.set(\"fonts.editor\", \"inter\") / config.set(\"fonts.ui\", \"system-sans\") / config.set(\"fonts.code\", \"ia-writer-mono\") / ```\n  Notes for theme authors: If your [[Space Style]] sets fonts, a few things changed with this feature: / * **Code no longer follows `--editor-font`.** It uses `--editor-monospace-font`. A theme that set `--editor-font` to a monospace font, and expected code to follow, should set `--editor-monospace-font` too. / * **The editor's text size is the `--editor-font-size` variable** (18px in the theme), no longer a fixed `font-size` on `#sb-main .cm-editor`. / * **A `space-style` that sets `--editor-font`, `--ui-font`, `--editor-monospace-font` or `--editor-font-size` wins over the Configuration setting**, whether it sets them on `html` or `:root`. Remove it from your style to pick fonts in Configuration instead. / * **Numbered lists right-align their numbers** to the widest number in the list, so items `9.` and `10.` start their text in the same place.\n[3] CHANGELOG.md (CHANGELOG)\n  Edge: * Related Pages and [[Linked Mention|Linked Mentions]] show compact, formatted excerpts with clickable links. Space Lua widgets can use the same renderer through `widget.markdownSummary` (see [[API/widget]]). / * [[Live Object Edit]]: form-based editing for [[Frontmatter]] and [[Tag/data]] objects. / * [[Fonts]]: pick the interface, editor and code fonts in [[Workbench/Configuration]] (Appearance), **including proportional** ones, and the editor's text si ...\nExact facts:\n- [1] This is where you configure SilverBullet to your liking. See [[^Library/Std/Config]] for a full list of configuration options.\n- [2] Editor font size**, also under **Appearance**, sets the size of page text in the editor, in pixels: 18 by default, from 10 to 48. Headings, code and list indents scale with it. A proportional font often looks smaller than a monospace one at the same size, so you may want to raise it after switching.\n- [2] config.set(\"fonts.editorSize\", 20)",
+ "meta": {
+  "notes": [
+   "CONFIG.md",
+   "Fonts.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

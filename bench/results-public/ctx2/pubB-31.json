@@ -1,0 +1,20 @@
+{
+ "id": "pubB-31",
+ "type": "verbatim",
+ "answer": "Add `http2 on;` to the `server` block (nginx 1.25.1 and later). On older versions you'd use `listen 443 ssl http2;` instead.",
+ "tokens": 1004,
+ "seconds": 0.004,
+ "e2e_seconds": 2.57,
+ "source_hits": 1.0,
+ "block": "## What line do I add to an nginx server block (1.25.1 or later) so it serves SilverBullet over HTTP/2?\n\n--- [vault:corpus/docs/TLS.md] ---\n### TLS (https) > Don\u2019t buffer the event stream\n\n## Don\u2019t buffer the event stream\nSilverBullet keeps a server-sent events stream open at `/.events` for live updates. The server sends a ping on it every 30 seconds. If your reverse proxy buffers or compresses this stream, those pings never reach the browser. Live updates then fall back to polling, and stale streams can pile up in the browser and hold connections open.\n\n* **Caddy** passes event streams through unbuffered, so the configuration above needs no changes. If you added an `encode` directive, make sure it doesn\u2019t apply to `text/event-stream`.\n* **nginx**: add a location for `/.events` next to your existing one, with buffering and compression turned off:\n\n  ```\n  location /.events {\n      proxy_pass http://localhost:3000;\n      proxy_http_version 1.1;\n      proxy_set_header Connection \"\";\n      proxy_set_header Host $host;\n      proxy_buffering off;\n      proxy_cache off;\n      gzip off;\n      proxy_read_timeout 1h;\n  }\n  ```\n\n* **Nginx Proxy Manager**: edit the proxy host, open the _Advanced_ tab and paste the same block, with `proxy_pass $forward_scheme://$server:$port;` so it uses the host\u2019s forward settings.\n\n--- [vault:corpus/docs/TLS.md] ---\n### TLS (https) > Enable HTTP/2 on your reverse proxy\n\n## Enable HTTP/2 on your reverse proxy\nWhichever reverse proxy you use, make sure it serves SilverBullet over HTTP/2. Over HTTP/1.1, browsers allow only six simultaneous connections per host, and SilverBullet\u2019s service worker and sync engine can use all of them. When that happens, every request stalls: the client reports \u201cCould not reach remote server, we\u2019re offline or the server is down\u201d, requests to `/.ping` time out, and pages load slowly from the local copy, even though the server itself is up.\n\n* **Caddy** enables HTTP/2 by default, so the configuration above needs no changes.\n* **nginx**: add `http2 on;` to the `server` block (nginx 1.25.1 and later), or use `listen 443 ssl http2;` on older versions.\n* **Nginx Proxy Manager**: edit the proxy host, open the _SSL_ tab and enable _HTTP/2 Support_.\n\nTo check, run the following, which should print `2`:\n\n```shell\ncurl -s -o /dev/null -w '%{http_version}\\n' https://silverbullet.mydomain.com/.ping\n```",
+ "meta": {
+  "engine_seconds": 0.004214666999999963,
+  "sources": [
+   "vault:corpus/docs/TLS.md",
+   "vault:corpus/docs/TLS.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

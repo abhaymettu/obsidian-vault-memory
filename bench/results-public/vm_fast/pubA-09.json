@@ -1,0 +1,21 @@
+{
+ "id": "pubA-09",
+ "type": "single",
+ "answer": "No. Frontmatter `authors:` credits the whole page, but it does not cascade down to unsigned blocks, so an `@mention` elsewhere on the page without its own `-- @name` signature stays unattributed. Crediting a specific block still needs an inline signature on that block.",
+ "tokens": 1331,
+ "seconds": 0.323,
+ "e2e_seconds": 2.76,
+ "source_hits": 1.0,
+ "block": "Memory for: If a page lists authors in its frontmatter, are @mentions further down the page credited to them?\n[1] Authorship.md (The `-- @name` notation)\n  `authors:` frontmatter: Declaring `authors:` in a page\u2019s frontmatter credits the whole page, the same way `recipients:` addresses the whole page: / ```yaml / --- / authors: [\"jo\", \"sam\"] / --- / ``` / A wiki-link value in `authors:`, like `[[Jo]]`, is not a name and is silently ignored \u2014 unlike `recipients:`, which keeps a wiki link as an ordinary page link. / This does **not** cascade down to unsigned blocks in the page body: an `@mention` written elsewhere on the page without its own `-- @name` stays unattributed. Frontmatter `authors:` is page-level credit only \u2014 crediting a specific block still needs an inline signature on that block.\n[2] Tag/relation.md (relation)\n  Kinds: * `mention`: a plain wikilink or markdown link (to a page, file, anchor, or external URL \u2014 see `toTag`). / * `at-mention`: an [[At-Mention|`@name` mention]] of an [[Identity]]. `to` is always the name\u2019s `@name` identifier (`toTag: \"identity\"`). An identity is a name, so there is never a page behind it. / * `authored`: a block-ending signature or an `authors:` frontmatter declaration credits an identity. Signatures carry a source `range`. Page-level declarations do not. / * `co-mention`: two refs co-occurring in the same item (with its nested children) or paragraph. Emitted in both directions and dedup\u2019d at the innermost shared scope. / * *user predicates*: any other `kind` value is a typed attribute edge whose label is the key (e.g. `spouse`). `from`/`fromTag` indicate whether it came from frontmatter, an inline attribute, or a data block.\n[3] Reference/Indexing Internals.md (Indexing process)\n  Indexing process: [[Authorship|Signatures]] add a second relation kind alongside `at-mention`: `authored`. A block-ending `-- @name` signature emits one `authored` edge per name it credits, carrying a `range` into the signature text. An `authors:` frontmatter declaration emits the same kind with no `range`, crediting the whole page \u2014 the same shape a declared `recipients:` entry has. A signature also stamps `by` \u2014 the identity ids it credits \u2014 onto every `at-mention` relation inside the block it claims, so a query can join \u201cwho wrote this\u201d onto \u201cwho it was addressed to\u201d without a second pass.\n[4] Guide/Comments, Mentions and Replies.md (Add a comment)\n  Find and answer it: 1. Run `Navigate: Mentions`, or click a mention to open the _Mention Inbox_. / 2. Select the recipient from the dropdown. The inbox normally starts with your own identity and groups entries by page. / 3. Open the request and write the answer underneath. Mention the original writer if the reply should appear in their inbox: / ```markdown / @author This section is ready for review. -- @reviewer / ``` / Use `Mention: Sign` or `/sign` to sign the current block as yourself. Signing alone credits the reply.\nExact facts:\n- [1] An **author** is an [[Identity]] you credit. A signature is an [[At-Mention]] used the other way around: an `@mention` **addresses** someone, while a signature **credits** someone. The same identities serve both \u2014 anyone you can mention, you can also sign as, including yourself.\n- [1] A signature is not a [[Recipient]] [[At-Mention]]. It does not enter somebody\u2019s Mention Inbox. Instead, it **attributes** the text it signs: every `@mention` in that text is stamped with a `by` value naming who signed it, and the signature emits its own `authored` relation.\n- [1] # `authors:` frontmatter",
+ "meta": {
+  "notes": [
+   "Authorship.md",
+   "Tag/relation.md",
+   "Reference/Indexing Internals.md",
+   "Guide/Comments, Mentions and Replies.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

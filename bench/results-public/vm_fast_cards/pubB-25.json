@@ -1,0 +1,20 @@
+{
+ "id": "pubB-25",
+ "type": "multi",
+ "answer": "The memory doesn't give a conventional file name for a repository page. It only says the page is a Meta Page tagged `#meta/repository`, and that each pointer is a data object tagged `#meta/library/remote` with a `name` and a `uri` attribute.",
+ "tokens": 1236,
+ "seconds": 0.429,
+ "e2e_seconds": 3.72,
+ "source_hits": 0.5,
+ "block": "Memory for: Repositories are pages listing library pointers. If I publish my own, what file name is conventional and which keys does each pointer need?\n[1] Repository.md (Repository)\n  Repositories are a collection of _pointers_ to [[Library|Libraries]] to install. Their purpose is to offer a curated list of libraries to install. / By default, SilverBullet ships with two repositories: [[^Repositories/Std]] with a curated selection of community libraries, and [[^Repositories/SilverBulletMD]] with optional libraries maintained by the SilverBullet project. More can be installed via the [[Workbench/Libraries|Library Manager]]. / The built-in repositories update like any other: the first update stores a copy in your space, which from then on takes the place of the shipped version. Deleting that copy brings the shipped version back, so built-in repositories can\u2019t be removed. / Repositories are implemented on top of a few SilverBullet mechanisms, specifically they are simply [[Meta Page|Meta Pages]] tagged with `#meta/repository` that contain [[Tag/data|data objects]] tagged with `#meta/library/remote` with a `name` and `uri` attribute. Libraries are kept up to date using the [[Share]] mechanism.\n  - Repositories are a collection of pointers to Libraries to install.\n[2] Library.md (Terms)\n  Terms: Let\u2019s define terms: / The [[Library]] is the **unit of distribution**, typically implemented as [[Meta Page]]. Most libraries will be implemented in a single page (e.g. with a big [[Space Lua]] block), but more elaborate libraries may span multiple pages, some may wrap [[Plugs]]. / A [[Repository]] is a **discovery and curation mechanism** for libraries. They are collections of _pointers_ of _where_ to find libraries to install. SilverBullet ships with the [[^Repositories/Std]] and [[^Repositories/SilverBulletMD]] repositories, but you can install additional ones. / [[Share]] is the general-purpose mechanism built into SilverBullet to both _push_, _pull_ and _sync_ content in your space with the outside world. In the context of Libraries this mechanism is used (partially under the hood, but you\u2019ll recognize traces of it) both for you to _publish_ your libraries, as well as to _install_ and _update_ other people\u2019s creations.\n[3] Shared Pages.md (Status)\n  The Shared Pages view lists every page in your space that is [[Share|shared]], in four groups: / * **Pages**: pages you push, pull or sync. / * **Collections**: your [[Share/Collection|collections]], each with its number of pages and its target (in a narrow sidebar the target may not fit), and its member pages under it. When a collection\u2019s `pages` function fails, the error is shown under it instead. / * **Libraries**: installed [[Library|libraries]]. / * **Repositories**: installed library repositories. / Open it with ${widgets.commandButton(\"Navigate: Shared Pages\")}. It opens in the right sidebar. From its dock menu you can move it to the left sidebar, the bottom panel or a modal. Each row shows the page\u2019s status. Clicking a row opens the page.\nExact facts:\n- [2] A big part of the fun of SilverBullet is building your own extensions, big or small. Libraries are the way to [[Share]] those extensions. Both for you to [[Library/Development|publish your own]] libraries, and to pull in other people\u2019s creations.\n- [2] By convention, libraries are kept under the `Library/` prefix (folder) in your space.",
+ "meta": {
+  "notes": [
+   "Repository.md",
+   "Library.md",
+   "Shared Pages.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

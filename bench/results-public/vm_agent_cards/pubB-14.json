@@ -1,0 +1,21 @@
+{
+ "id": "pubB-14",
+ "type": "single",
+ "answer": "You see your own copy. With a Meta Space (the shared underlay on SilverBullet Desktop), your own space's version wins when a file has the same name (source: Meta Space.md).",
+ "tokens": 1289,
+ "seconds": 3.788,
+ "e2e_seconds": 3.79,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3773,
+  "final_context": 5041,
+  "billed_input": 8814,
+  "turns": 2,
+  "cost_usd": 0.0089702,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"On Desktop with a shared underlay space, if my own space and the shared one both have a page with the same name, which copy do I see?\\\"\"}\nMemory for: On Desktop with a shared underlay space, if my own space and the shared one both have a page with the same name, which copy do I see?\n[1] API/sbShare.md (Configuration)\n  sbShare.resolve(uri): Returns the space URL and page name a share URI points to, choosing the longest matching known space (one in `share.silverbullet.spaces` or with a stored credential on this device), or nil. The space\u2019s own URL (with or without a trailing slash) gives the page name `\"\"`: it can be a collection root, but isn\u2019t a page to read or write, and isn\u2019t listed (a collection rooted at a whole space is published member by member, with nothing offered for removal).\n  Helpers behind sharing pages to another SilverBullet space. See [[^Library/Std/Infrastructure/SilverBullet Share]] and [[API/share]]. / A shared page is addressed by a URI of the form `<space url>/<page name>`, for example `https://example.com/notes/Shared/Page`. Reads and writes use the other space\u2019s `.fs` API with a token obtained through the device flow, kept under the credential key `sb:<space url>` (see [[API/auth]]). / One `net.readURI:` / `net.writeURI:` service pair handles every space. Its `match` resolves the URI when it is dispatched, so it claims URIs of any space known at that moment (from `share.silverbullet.spaces` or a stored credential), including spaces configured after this page loaded. Its priority is above the generic `https:` reader.\n[2] Meta Space.md (How it works)\n  #desktop / A Meta Space is one of your [[Local Space|local spaces]] that SilverBullet Desktop underlays into all the others, so its configuration, libraries and templates are available everywhere. / SilverBullet Desktop supports unlimited spaces. That\u2019s great for keeping contexts separate. The downside: anything you want available _everywhere_ \u2014 a shared snippet of `CONFIG.md`, a [[Space Lua]] library you wrote once and want to reuse \u2014 has to be copied into every space, and kept in sync. Not great. / The **Meta Space** is the way out. It\u2019s a SilverBullet+ feature available with [Desktop Pro](https://silverbullet.md/pricing) that lets you nominate one of your spaces as a shared underlay for all the others. Anything you put in your meta space (config, libraries, custom commands, templates) automatically becomes available in every other space. The dashboard currently labels it a beta feature.\n  - If a file in the user's own space has the same name as a Meta Space file, the user's own version wins.\n[3] Shared Pages.md (Status)\n  The Shared Pages view lists every page in your space that is [[Share|shared]], in four groups: / * **Pages**: pages you push, pull or sync. / * **Collections**: your [[Share/Collection|collections]], each with its number of pages and its target (in a narrow sidebar the target may not fit), and its member pages under it. When a collection\u2019s `pages` function fails, the error is shown under it instead. / * **Libraries**: installed [[Library|libraries]]. / * **Repositories**: installed library repositories. / Open it with ${widgets.commandButton ...\nExact facts:\n- [1] Requests go through [[API/auth|auth.fetch]]. Reads never sign in: they send the stored credential if there is one and read anonymously otherwise. A read rejected with 401 drops the credential and is tried once more anonymously. When that is rejected too, it fails with `Not connected to <space>: shar"
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

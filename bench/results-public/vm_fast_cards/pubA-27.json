@@ -1,0 +1,21 @@
+{
+ "id": "pubA-27",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 1349,
+ "seconds": 0.476,
+ "e2e_seconds": 2.31,
+ "source_hits": 1.0,
+ "block": "Memory for: What date is recorded on the decision to resolve wiki links by name, Obsidian style?\n[1] ADR/011 Link Resolution by Name.md (Context)\n  - An architecture decision record describing how SilverBullet resolves wiki links by name, path suffix and ambiguity, so that Obsidian-style links work, along with the Link write format configuration option. Names: SilverBullet, Obsidian, linkWriteFormat, Link write format, shortest, shortest-suffix, full-path, absolute, docs/api/Auth, api/Auth, image.png, https://community.silverbullet.md/t/smart-filename-path-resolve/2453.\n  Context: SilverBullet from day 1 has resolved `[[wiki links]]` as absolute, case-sensitive paths from the space root. Other tools, notably Obsidian, works differently: Obsidian resolves a bare `[[Note]]` by case-insensitive name lookup across the whole vault (Obsidian speak for Space), and its default link format *writes* bare names wherever they are unique. Two problems followed: / 1. **Obsidian interop:** An Obsidian-authored vault is full of links SilverBullet could not resolve, blocking a docs-as-code use case where one team mixes both tools on the same repo. The incompatibility was one-directional: SilverBullet\u2019s absolute links resolve fine in Obsidian. / 2. **Root dependence:** A full path link encodes where the space root is. Open the same folder one level higher (not that uncommon in the docs-as-code use case) and every link breaks. / This has been discussed in the community various time, e.g. [here](https://community.silverbullet.md/t/smart-filename-path-resolve/2453).\n  - Obsidian resolves a bare [[Note]] link by case-insensitive name lookup across the whole vault.\n  Decision: 3. **Qualified paths** (with a path segment, but not necessarily a full one) with no exact match are looked up by unique **path suffix** (`[[api/Auth]]` finds `docs/api/Auth`). This matches Obsidian\u2019s partial paths  ...\n[2] CHANGELOG.md (CHANGELOG)\n  2.11.0: * **[[Link|Wiki links]] now resolve by page name, not just by full path (think: Obsidian compatibility).** A `[[Note]]` link resolves to `some/folder/Note` when that name is unique in the space, matching how Obsidian resolves links, so an Obsidian-authored space works in SilverBullet without rewriting every link. See [[ADR/011 Link Resolution by Name]] for reasoning. The `linkWriteFormat` option decides how SilverBullet writes the links it generates (auto complete, rename backlink rewriting), it defaults to `full-path`, so generated links keep spelling out the whole path. / * Links to [[Virtual Pages]] now appear as valid links and no longer count as aspiring pages when their names match a registered pattern.\n  - Version 2.11.0 makes wiki links resolve by page name, so a `[[Note]]` link resolves to `some/folder/Note` when that name is unique in the space, as Obsidian does, and the `linkWriteFormat` option defaults to `full-path`.\n[3] Examples/1/ambiguous link.md (ambiguous link)\n  - An example note written to illustrate a link to the ADR/011 Link Resolution by Name decision record. Names: ADR/011.\nExact facts:\n- [1] 2. **Bare names** (so without a path segment) resolve space-wide by name, case-insensitively, exact-case preferred.\n- [1] 3. **Qualified paths** (with a path segment, but not necessarily a full one) with no exact match are looked up by unique **path suffix** (`[[api/Auth]]` finds `docs/api/Auth`). This matches Obsidian\u2019s partial paths and making qualified links survive a root change too. Example: [[1/ambiguous link]] (",
+ "meta": {
+  "notes": [
+   "ADR/011 Link Resolution by Name.md",
+   "CHANGELOG.md",
+   "Examples/1/ambiguous link.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

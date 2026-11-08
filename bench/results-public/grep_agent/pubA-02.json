@@ -1,0 +1,21 @@
+{
+ "id": "pubA-02",
+ "type": "single",
+ "answer": "No. Federation, which synced a remote space's pages read-only into yours through a federated URL prefix, was deprecated and removed in 2025, and nothing replaces it directly (see `ADR/004 Federation.md`). The ADR suggests using [[Library]], copying, or publishing to share content instead.",
+ "tokens": 761,
+ "seconds": 4.285,
+ "e2e_seconds": 4.28,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3689,
+  "final_context": 4436,
+  "billed_input": 8125,
+  "turns": 2,
+  "cost_usd": 0.0074264,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"(?i)federat|mount.*remote|remote space\", \"output_mode\": \"content\", \"head_limit\": 40}\nADR.md:20:* [[ADR/004 Federation|004 Federation]] \u2014 deprecated, 2023-07-04, Owner: [[Zef Hemel]]\nCLI.md:72:Folder spaces are served by SilverBullet Desktop. Without it installed, file commands (`fs`), runtime commands, and creating, adding, renaming, moving or relocating a folder space all fail with an error saying Desktop is required. `sb space list` and `sb space remove` still work, so entries left by an uninstalled Desktop can be cleaned up. Remote spaces don\u2019t need Desktop.\nCLI.md:115:List, read, create, edit, and delete files in a remote space using its existing HTTP filesystem API. Select a connection with the usual `--space`, `--url`, and `--token` flags. Paths are space-relative filenames, including `.md`. Quote paths containing spaces and use `/` between directories. Patch input, recursive deletion, copy, and move are not supported. To search page content, use [[#`search <text>`|`sb search`]].\nMigrate from v1.md:53:* [Federation](https://v1.silverbullet.md/Federation)\nADR/004 Federation.md:15:Add **federation**: a space can link to a remote space via a federated URL prefix, and SilverBullet would sync that external content read-only into the local client, so it could be browsed and queried alongside local pages.\nADR/004 Federation.md:25:**Deprecated and removed (2025).** Federation was taken out: the maintenance cost outweighed its limited use, and shared content is better served by other mechanisms ([[Library]], copying, or publishing). It has no direct replacement.\nADR/004 Federation.md:28:* Federation removed: [commit dbfc5995](https://github.com/silverbulletmd/silverbullet/commit/dbfc5995) \u2014 \u201cMore thorough removal of federation\u201d."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

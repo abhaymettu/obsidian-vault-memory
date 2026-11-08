@@ -1,0 +1,22 @@
+{
+ "id": "pubB-37",
+ "type": "verbatim",
+ "answer": "Set `SB_OIDC_CA_FILE` to a PEM certificate file for your private CA. SilverBullet then trusts that CA for provider connections, and certificate verification stays enabled. This is documented in `Single Sign-On.md`.",
+ "tokens": 668,
+ "seconds": 4.164,
+ "e2e_seconds": 4.16,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3691,
+  "final_context": 4343,
+  "billed_input": 8034,
+  "turns": 2,
+  "cost_usd": 0.0073752,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"OIDC|NODE_EXTRA_CA_CERTS|SSL_CERT\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 40}\nSingle Sign-On.md:1:SilverBullet (in multi-space mode) supports SSO via OpenID Connect (OIDC). Administrators provision accounts individually and assign them to spaces. Local username/password accounts remain available alongside SSO accounts.\nSingle Sign-On.md:7:4. Copy the displayed callback URL into the provider\u2019s client configuration. The path is `/.auth/central/oidc/callback`. Each space does not need a separate provider callback.\nSingle Sign-On.md:17:Create a confidential OIDC client, register the displayed callback and enable Authorization Code with PKCE. Use the provider\u2019s issuer URL and client credentials. The provider must supply a stable subject and a verified email, using the `openid`, `email` and `profile` scopes.\nSingle Sign-On.md:19:[Omitted long matching line]\nSingle Sign-On.md:21:The server must reach the issuer\u2019s discovery, authorization metadata, token and key endpoints. A private certificate authority can be supplied with `SB_OIDC_CA_FILE`, pointing to a PEM certificate trusted for provider connections. Certificate verification remains enabled.\nCHANGELOG.md:131:    * [[Single Sign-On]] (Google Workspace Auth, Pocket ID, other OIDC provider support) support\nTLS.md:13:* Local data encryption and OIDC/SSO sign-in are disabled. Use a local account with a password. The local index is stored unencrypted in the browser."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

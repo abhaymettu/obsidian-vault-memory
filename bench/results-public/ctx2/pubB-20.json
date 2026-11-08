@@ -1,0 +1,19 @@
+{
+ "id": "pubB-20",
+ "type": "multi",
+ "answer": "Not in memory. The memory says the Maintenance tab's broken-links check lists links to pages that don't exist yet (aspiring pages), but it doesn't name the index object type that feeds it or say what makes an entry drop off the list.",
+ "tokens": 468,
+ "seconds": 0.004,
+ "e2e_seconds": 2.26,
+ "source_hits": 0.5,
+ "block": "## Which index object type feeds the broken-links check in the Workbench, and what makes an entry drop off that list?\n\n--- [vault:corpus/docs/API/index.md] ---\n### index.clearFileIndex\n\n## index.clearFileIndex\n`index.clearFileIndex(path)`\n\nDrops every indexed object belonging to a file, so a re-index replaces them rather than merging on top.\n\n--- [vault:corpus/docs/Workbench/Maintenance.md] ---\n### Untitled\n\nThe Maintenance tab lists (potential) problems in your space in one place.\n\n${widgets.commandButton(\"Workbench: Maintenance\")} opens this tab in the [[Workbench]].\n\nThe checks below are instant, and refresh as your space changes:\n* **Broken links:** links to pages that don\u2019t exist yet ([[Tag/aspiring-page|aspiring pages]]).\n* **Ambiguous links:** links that could mean more than one page (see [[Link#Ambiguous links]]).\n* **Scripts and styles:** scripts that failed to load or are quarantined, and styles that hold CSS the browser parsed no rules from.\n* **Merge conflicts:** unresolved merges that need your decision.",
+ "meta": {
+  "engine_seconds": 0.004158124999999984,
+  "sources": [
+   "vault:corpus/docs/API/index.md",
+   "vault:corpus/docs/Workbench/Maintenance.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

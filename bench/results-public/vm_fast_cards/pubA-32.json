@@ -1,0 +1,21 @@
+{
+ "id": "pubA-32",
+ "type": "multi",
+ "answer": "The switch is `SB_DISABLE_SERVICE_WORKER`, which gives online-only mode (no service worker). That mode has no offline support and needs a network round-trip on every operation, so it requires a live connection to the server. The memory doesn't say anything specific about how it affects sync.",
+ "tokens": 1271,
+ "seconds": 0.499,
+ "e2e_seconds": 3.61,
+ "source_hits": 0.5,
+ "block": "Memory for: The offline-first decision says an online-only mode is still deliberately available. What switch enables it, and what does it do to sync and offline use?\n[1] ADR/001 Offline-First PWA.md (Context)\n  Alternatives considered: * **Online-only (no service worker).** Rejected: no offline support and a network round-trip on every operation \u2014 defeats the offline-first goal. (Still available deliberately via `SB_DISABLE_SERVICE_WORKER`.) / * **Bundle a native runtime for offline.** Rejected: heavier and platform-specific. A PWA delivers offline on every platform from one codebase.\n  - Online-only mode is still available deliberately via SB_DISABLE_SERVICE_WORKER.\n  Context: SilverBullet aims to be **offline-first**: it should keep working with no network and feel instant. While we may reach a point in the state of the world some day where Internet connectivity is always available, we\u2019re not there yet. You should be able to access your notes even when you\u2019re in the middle of a dessert, top of a mountain, or 10km deep in the sea. For that, the client keeps a full local copy of your [[Space]] files and keeps working when the server is unreachable. (This offline-first stance later drove the v2 decision to run *all* application logic in the client \u2014 see [[ADR/007 Core Application Logic on the Client]].)\n  - The offline-first stance later drove the v2 decision to run all application logic in the client (see ADR/007 Core Application Logic on the Client).\n[2] ADR/007 Core Application Logic on the Client.md (Context)\n  - The alternative of making server mode the only mode (a thin client) was rejected, because it defeats offline-first and the run-anywhere goal.\n  Alternatives considered: * **Keep the dual-mode (server + sync) architecture.** Rejected: maintaining two PlugOS runtimes in parity was the core pain \u2014 an ongoing maintenance burden and a source of subtle bugs. It was also confusing for plug developers. / * **Make *server mode* the only mode** (thin client, the server does everything). Rejected: defeats offline-first and the run-anywhere goal, and keeps the product tied to an always-available, more capable backend.\n[3] TLS.md (LAN HTTP (no TLS))\n  - silverBullet works over plain HTTP on a LAN IP or hostname in online-only mode, while HTTPS enables the full feature set, including offline use and local encryption.\n[4] Install/Network and Internet.md (Network and Internet)\n  #getting-started / To access SilverBullet from another device, make the server reachable on your network. / On a local network, you can use plain HTTP in online-only mode. This requires a live connection to the server and leaves your traffic unencrypted. See [[TLS#LAN HTTP (no TLS)]] for the full list of limitations. / For access over the Internet, use [[TLS]] so your connection is encrypted and SilverBullet\u2019s offline features work. / To set this up: / 1. Run the server following the [[Install]] instructions and make it reachable from the devices you want to use. / 2. Enable [[Authentication]]. / 3. Set up [[TLS]] for the ful ...\nExact facts:\n- [2] SilverBullet\u2019s [[Plugs]] runtime was originally designed so that plugs could run **either on the server or in the client**. Through \u201cv1\u201d this surfaced as two switchable modes:\n- [2] This was flexible and genuinely powerful, but maintaining **two runtime environments** for PlugOS was a persistent burden: every capability had to work and the dual model produced subtle, hard-to-diagnose issues. The goal for v2 was to be genuinely **offline-first** without that complexity.",
+ "meta": {
+  "notes": [
+   "ADR/001 Offline-First PWA.md",
+   "ADR/007 Core Application Logic on the Client.md",
+   "TLS.md",
+   "Install/Network and Internet.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

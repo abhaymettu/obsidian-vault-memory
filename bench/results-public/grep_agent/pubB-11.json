@@ -1,0 +1,21 @@
+{
+ "id": "pubB-11",
+ "type": "single",
+ "answer": "The whole-space lint never runs on its own because it's expensive. It runs `space.lint` over every page, reads each page, runs every lint rule and renders its `${\u2026}` expressions and Lua widgets. On a large space that can take a while, so you start it yourself by pressing **Run space-wide lint**. The source is `Workbench/Maintenance.md`.",
+ "tokens": 1407,
+ "seconds": 7.337,
+ "e2e_seconds": 7.34,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3685,
+  "final_context": 5082,
+  "billed_input": 17130,
+  "turns": 4,
+  "cost_usd": 0.012059900000000002,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"Workbench\", \"-i\": true, \"output_mode\": \"files_with_matches\"}\nFound 58 files\nWorkbench/Overview.md\nWorkbench/Maintenance.md\nWorkbench/Libraries.md\nWorkbench/Data.md\nWorkbench/Console.md\nWorkbench/Configuration.md\nWorkbench/Code/Styles.md\nWorkbench/Code/Scripts.md\nWorkbench/Code.md\nWorkbench.md\nTroubleshooting.md\nTask.md\nTag/data.md\nTag/aspiring-page.md\nSpace Lua.md\nSilverBullet.md\nShared Pages.md\nShare.md\nRepository.md\nReference/SilverBullet Features.md\nQueries and Data.md\nPlugs/Development/Distribution and Testing.md\nPlugs.md\nObject.md\nObject Index.md\nMigrate from v1.md\nMeta Space.md\nLog.md\nLive Object Edit.md\nLibrary/Website.md\nLibrary/Development.md\nLibrary.md\nKeyboard Shortcuts.md\nGuide/When Results Update.md\nGuide/Task Management.md\nGuide/Server Setup.md\nGuide/Reading These Docs.md\nGuide/Make it your own.md\nGuide/Knowledge Base.md\nGuide/Journal.md\nGuide/Best Practices.md\nGuide/Aggregator Pages.md\nGuide/Add Structure and Query.md\nGetting Started.md\nFonts.md\nExtensions.md\nDocument Editor.md\nConfiguration Manager.md\nCommand.md\nCommand Palette.md\nCONFIG.md\nCHANGELOG.md\nAPI/widgets.md\nAPI/tag.md\nAPI/share.md\nAPI/service.md\nAPI/config.md\nADR/011 Link Resolution by Name.md\n{\"pattern\": \"lint\", \"-i\": true, \"output_mode\": \"files_with_matches\"}\nFound 18 files\nWorkbench/Maintenance.md\nWorkbench.md\nTag/data.md\nTag/anchor.md\nSchema.md\nPlugs/Development/Reference.md\nMarkdown/Comment.md\nMarkdown/Anchor.md\nMCP.md\nEvent.md\nDevelopment.md\nCLI.md\nCHANGELOG.md\nAPI/tag.md\nAPI/space.md\nAPI/mq.md\nAPI/editor.md\nADR/009 Client Build Toolchain.md\n{\"pattern\": \"lint\", \"-i\": true, \"path\": \"Workbench/Maintenance.md\", \"output_mode\": \"content\", \"-C\": 3}\n1----\n2:description: \"Find broken links, script failures, merge conflicts and space-wide lint errors.\"\n3-references:\n4-- client/workbench/maintenance/**\n5----\n--\n13-* **Scripts and styles:** scripts that failed to load or are quarantined, and styles that hold CSS the browser parsed no rules from.\n14-* **Merge conflicts:** unresolved merges that need your decision.\n15-\n16:# Space-wide lint\n17:The space-wide lint runs [[API/space#space.lint]] over every page. This reads each page, runs every lint rule and renders its `${\u2026}` expressions and Lua widgets, so on a large space it can take a while. That\u2019s why it never runs by itself: press **Run space-wide lint** when you want it."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

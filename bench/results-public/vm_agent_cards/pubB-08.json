@@ -1,0 +1,21 @@
+{
+ "id": "pubB-08",
+ "type": "single",
+ "answer": "They survive closing the Workbench, but not a browser reload. Pending changes also survive switching tabs, and they stay pending until you click **Save and apply** or press `Cmd-s`/`Ctrl-s`. This is from `Workbench/Configuration.md`.",
+ "tokens": 1350,
+ "seconds": 5.381,
+ "e2e_seconds": 5.38,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3779,
+  "final_context": 5102,
+  "billed_input": 8881,
+  "turns": 2,
+  "cost_usd": 0.0093196,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"Do unsaved changes in the settings tab of the Workbench survive closing the Workbench or reloading the browser?\\\"\"}\nMemory for: Do unsaved changes in the settings tab of the Workbench survive closing the Workbench or reloading the browser?\n[1] Workbench/Configuration.md (Saving)\n  - Pending changes survive switching tabs and closing the Workbench, but not reloading the page.\n  Saving: Changes stay pending until you click **Save and apply**, or press `Cmd-s`/`Ctrl-s` while the tab has focus. **Discard** drops them. While anything is pending, the tab\u2019s label shows a `\u2022`. Pending changes survive switching tabs and closing the Workbench, but not reloading the page. / Saving writes only what you changed into a managed `space-lua` block in [[CONFIG]], then reloads your configuration. Everything outside that block is left alone, and so are values in it that you didn\u2019t touch here, such as those [[Share]] remembers. Simple hand edits to the managed block survive a round trip through this tab. If the block isn\u2019t valid Lua, the tab shows the error and refuses to save until you fix it in CONFIG. / The footer counts the options or commands, how many you changed, and how many changes are unsaved, and links to CONFIG.\n[2] Workbench/Maintenance.md (Space-wide lint)\n  The Maintenance tab lists (potential) problems in your space in one place. / ${widgets.commandButton(\"Workbench: Maintenance\")} opens this tab in the [[Workbench]]. / The checks below are instant, and refresh as your space changes: / * **Broken links:** links to pages that don\u2019t exist yet ([[Tag/aspiring-page|aspiring pages]]). / * **Ambiguous links:** links that could mean more than one page (see [[Link#Ambiguous links]]). / * **Scripts and styles:** scripts that failed to load or are quarantined, and styles that hold CSS the browser parsed no rules from. / * **Merge conflicts:** unresolved merges that need your decision.\n[3] Workbench.md (Workbench)\n  - The Maintenance tab of the workbench shows problems in your space, such as broken links, failed scripts, merge conflicts and, on demand, lint errors.\n  - The Code tab of the workbench lists every space-lua block in your space and how loading it went, and every space-style block and whether the browser could make sense of it.\n[4] Troubleshooting.md (Desktop)\n  Desktop: For an error inside an open space, inspect the log in [[Workbench/Console]]. If it started after adding a script, style or library, review that change through the relevant Workbench tab. / If the local page is correct but another device has an older version, check the space\u2019s **Sync** settings in the Desktop dashboard and confirm that the external Server is reachable. [[Desktop Sync]] explains the connection setup. If you do not use an external Server, there is no Desktop\u2013Server sync to diagnose. / Check the dashboard\u2019s **Updates** tab for an available update. For Flatpak installations, check through Flatpak instead. Before changing or replacing files to recover a space, preserve a copy. Desktop stores the space in a local folder. The browser cache reset below does not repair those files.\nExact facts:\n- [1] The Configuration tab edits your space\u2019s configuration without hand-editing [[Space Lua]] in [[CONFIG]]. `Configuration: Open` (`Cmd-,` or `Ctrl-,`) opens the [[Workbench]] on this tab, and `Configuration: Keyboard Shortcuts` opens it on its Key bindings section. On Desktop, *Settings\u2026* in the app m\n- [1] ${widgets.commandButton(\"Workbench: Configuration\")} opens this tab in the [[Workbench]]."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

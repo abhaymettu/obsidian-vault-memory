@@ -1,0 +1,21 @@
+{
+ "id": "pubB-31",
+ "type": "verbatim",
+ "answer": "Add `http2 on;` to the `server` block (nginx 1.25.1 and later). On older versions, use `listen 443 ssl http2;` instead.",
+ "tokens": 1345,
+ "seconds": 0.385,
+ "e2e_seconds": 3.0,
+ "source_hits": 1.0,
+ "block": "Memory for: What line do I add to an nginx server block (1.25.1 or later) so it serves SilverBullet over HTTP/2?\n[1] TLS.md (LAN HTTP (no TLS))\n  Enable HTTP/2 on your reverse proxy: Whichever reverse proxy you use, make sure it serves SilverBullet over HTTP/2. Over HTTP/1.1, browsers allow only six simultaneous connections per host, and SilverBullet\u2019s service worker and sync engine can use all of them. When that happens, every request stalls: the client reports \u201cCould not reach remote server, we\u2019re offline or the server is down\u201d, requests to `/.ping` time out, and pages load slowly from the local copy, even though the server itself is up. / * **Caddy** enables HTTP/2 by default, so the configuration above needs no changes. / * **nginx**: add `http2 on;` to the `server` block (nginx 1.25.1 and later), or use `listen 443 ssl http2;` on older versions. / * **Nginx Proxy Manager**: edit the proxy host, open the _SSL_ tab and enable _HTTP/2 Support_. / To check, run the following, which should print `2`: / ```shell\n  Don\u2019t buffer the event stream: SilverBullet keeps a server-sent events stream open at `/.events` for live updates. The server sends a ping on it every 30 seconds. If your reverse proxy buffers or compresses this stream, those pings never reach the browser. Live updates then fall back to polling, and stale streams can pile up in the browser and hold connections open. / * **Caddy** passes event streams through unbuffered, so the configuration above needs no changes. If you added an `encode` directive, make sure it doesn\u2019t apply t ...\n[2] CHANGELOG.md (CHANGELOG)\n  Edge: * [[MCP]]: SilverBullet Server can now serve an MCP endpoint at `/.mcp`, so AI assistants can directly read, write, search and query your spaces. Clients sign in with OAuth and act as the account that approved them, on the spaces chosen on a consent page. MCP is off by default: an admin turns it on in the APIs tab. / * **Potentially breaking:** the legacy `/.auth/authorize` and `/.auth/token` endpoints now only accept SilverBullet\u2019s own clients (`silverbullet-app`, `silverbullet-cli` and `silverbullet-share`); other `client_id`s are refused. / * Fix: slow filesystem watcher registration no longer delays space startup. Polling tracks changes while native notifications start, and a resync reconciles changes made during registration.\n[3] CLI.md (Installation)\n  > **note** This is **not** the server / > `sb` is the optional **CLI client**, it talks to an already-running SilverBullet instance over HTTP. If you\u2019re looking for the actual server binary, that\u2019s [[Install/Server Binary]] (`silverbullet`), not this. You do not need `sb` to use SilverBullet. / The SilverBullet CLI is a companion command-line tool for interacting with a running SilverBullet instance from your terminal. It communicates with the server over HTTP. File commands use the [[HTTP API]] directly. Lua, queries, screenshots and logs use the [[Runtime API]]. `sb help` gives an AI assistant or a person the space\u2019s skills and a map of the space (see [[#`help [topic]`]]).\nExact facts:\n- [1] Open your server using its LAN address, for example `http://192.168.1.20:3000`. The server must listen on an address reachable from your LAN. Editing, indexing, queries, Space Lua, plugs, attachments, and local password login remain available.\n- [1] If you run SilverBullet _locally_ on your machine, this is the easiest option. Everything runs fine as long as the browser sees `localhost` or `127.0.0.1` appear in the URL, even with `http://`.",
+ "meta": {
+  "notes": [
+   "TLS.md",
+   "CHANGELOG.md",
+   "CLI.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

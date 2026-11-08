@@ -1,0 +1,21 @@
+{
+ "id": "pubA-44",
+ "type": "multi",
+ "answer": "Create a page named `CONTAINER_BOOT` in your space. The container runs its contents as a bash script on boot, so put `apk add <package>` commands there to install Alpine packages (see `Install/Docker.md`). Space Lua then calls the tool with `shell.run(command, arguments, stdin?)`, for example `shell.run(\"ls\", {\"-l\"})` (see `API/shell.md`).",
+ "tokens": 1342,
+ "seconds": 6.795,
+ "e2e_seconds": 6.8,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3707,
+  "final_context": 5017,
+  "billed_input": 17384,
+  "turns": 4,
+  "cost_usd": 0.0120397,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"shell\\\\.run|apt-get|apk add|Dockerfile\", \"output_mode\": \"content\", \"-n\": true, \"head_limit\": 40}\nAPI/shell.md:10:## shell.run\nAPI/shell.md:11:`shell.run(command, arguments, stdin?)`\nAPI/shell.md:28:local result = shell.run(\"ls\", {\"-l\"})\nAPI/shell.md:33:local result = shell.run(\"cat\", {}, \"hello\")\nPublishing.md:14:This documentation is a SilverBullet space published for public reading, built from `Dockerfile.website` in the [SilverBullet repository](https://github.com/silverbulletmd/silverbullet). Visitors can use the built-in [[Search]], and its navigation and section pages are plain [[Space Lua]] in [[^Library/Website]].\nCHANGELOG.md:298:* Docker: removed `VOLUME` declaration from the Dockerfile (it gave a false sense of persistence `/space` must be explicitly mounted, as documented). This also fixed the silverbullet-website repo.\nCHANGELOG.md:369:* [[API/shell#shell.run(cmd, args, stdin?)]]: `shell.run` now accepts an optional `stdin` parameter (by [Brett Anthoine](https://github.com/banthoine)).\nInstall/Docker.md:4:- Dockerfile\nInstall/Docker.md:106:In practice, you\u2019ll likely want to put `apk add` commands install the (Alpine) packages you would like to install.\nCONTAINER_BOOT.md:4:#apk add pandoc\n{\"file_path\": \"corpus/docs/Install/Docker.md\", \"offset\": 85, \"limit\": 35}\n85\t  ghcr.io/silverbulletmd/silverbullet:latest\n86\t```\n87\t\n88\tThere you go!\n89\t\n90\t## Upgrades\n91\tTo upgrade your version of SilverBullet, first pull the new image:\n92\t\n93\t```shell\n94\tdocker pull ghcr.io/silverbulletmd/silverbullet:latest\n95\t# Then stop the current container\n96\tdocker stop silverbullet\n97\t# Remove the existing container\n98\tdocker rm silverbullet\n99\t```\n100\t\n101\tThen start the container again as before.\n102\t\n103\t# Installing additional packages\n104\tIf you would like to install additional packages into your docker container (e.g. to call via [[API/shell]]), you can do so by creating a [[CONTAINER_BOOT]] page in your space. Whatever you put in this page, will be run as a bash script upon container boot (hence its name).\n105\t\n106\tIn practice, you\u2019ll likely want to put `apk add` commands install the (Alpine) packages you would like to install.\n107\t\n108\t# Next\n109\tAfter your container is running, head over to `http://localhost:3000` (or whatever port you have configured) to setup your server.\n110\t\n{\"file_path\": \"corpus/docs/CONTAINER_BOOT.md\"}\n1\t#meta\n2\t\n3\t## Uncomment the following line to install pandoc:\n4\t#apk add pandoc\n5\t"
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

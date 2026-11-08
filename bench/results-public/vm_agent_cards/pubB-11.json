@@ -1,0 +1,21 @@
+{
+ "id": "pubB-11",
+ "type": "single",
+ "answer": "The Workbench's whole-space lint never runs on its own because it's expensive. It runs `space.lint` over every page. That reads each page, runs every lint rule, and renders its `${\u2026}` expressions and Lua widgets, so it can take a while on a large space. You start it yourself by pressing **Run space-wide lint** in the Maintenance tab.",
+ "tokens": 1230,
+ "seconds": 4.237,
+ "e2e_seconds": 4.24,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3753,
+  "final_context": 4982,
+  "billed_input": 8735,
+  "turns": 2,
+  "cost_usd": 0.009124,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"Why does the Workbench's whole-space lint check never run on its own?\\\"\"}\nMemory for: Why does the Workbench's whole-space lint check never run on its own?\n[1] Workbench/Maintenance.md (Space-wide lint)\n  - The space-wide lint never runs by itself, and the user presses Run space-wide lint when they want it.\n  Space-wide lint: The space-wide lint runs [[API/space#space.lint]] over every page. This reads each page, runs every lint rule and renders its `${\u2026}` expressions and Lua widgets, so on a large space it can take a while. That\u2019s why it never runs by itself: press **Run space-wide lint** when you want it.\n  - A reference note describing the Maintenance tab in the Workbench, which lists space problems with instant checks, and the on-demand space-wide lint. Names: Workbench, Maintenance, API/space#space.lint, Run space-wide lint.\n  The Maintenance tab lists (potential) problems in your space in one place. / ${widgets.commandButton(\"Workbench: Maintenance\")} opens this tab in the [[Workbench]]. / The checks below are instant, and refresh as your space changes: / * **Broken links:** links to pages that don\u2019t exist yet ([[Tag/aspiring-page|aspiring pages]]). / * **Ambiguous links:** links that could mean more than one page (see [[Link#Ambiguous links]]). / * **Scripts and styles:** scripts that failed to load or are quarantined, and styles that hold CSS the browser parsed no rules from. / * **Merge conflicts:** unresolved merges that need your decision.\n  - The Maintenance tab's checks are instant and refresh as the space changes.\n  - The command button widget ${widgets.commandButton(\"Workbench: Maintenance\")} opens the Maintenance tab in the Workbench.\n[2] Workbench.md (Workbench)\n  - The Maintenance tab of the workbench shows problems in your space, such as broken links, failed scripts, merge conflicts and, on demand, lint errors.\n  * [[Workbench/Libraries|Libraries]]: install, update and remove [[Library|libraries]] and [[Repository|repositories]], and check what has an update. / * [[Workbench/Maintenance|Maintenance]]: problems in your space, such as broken links, failed scripts, merge conflicts and (on demand) lint errors. / * [[Workbench/Console|Console]]: everything your space logs, plus a [[Space Lua]] REPL.\n[3] Workbench/Libraries.md (Checking for updates)\n  The Libraries tab manages the [[Library|libraries]] in your space. In a read-only space it only shows what\u2019s there: installing, updating, removing and checking for updates are hidden, with a note saying why (a read-only server doesn\u2019t reach other servers, so there is nothing to check against). It reloads every time you show the tab, so what you see matches your space. / ${widgets.commandButton(\"Workbench: Libraries\")} opens this tab in the [[Workbench]]. / The toolbar has: / * **Filter libraries**: narrows installed libraries by name and available ones by name, description and page. / * **Install\u2026**: asks for a library or plug URI (`https://\u2026` or `github:\u2026`) and installs it. For a plug (a URI ending in `.plug.js`) it also asks where to save it.\nExact facts:\n- [2] [[Workbench/Overview|Overview]]: your space at a glance: page, task and link counts, top tags, activity and runtime state."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

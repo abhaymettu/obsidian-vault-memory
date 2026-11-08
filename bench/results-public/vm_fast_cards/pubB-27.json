@@ -1,0 +1,20 @@
+{
+ "id": "pubB-27",
+ "type": "multi",
+ "answer": "You can address any name with `@name`, and it can contain dots (e.g. @pete.smith and @sam.rivera are each one mention). Nothing needs declaring first, because mentioning a name like @sales makes `sales` a known identity.",
+ "tokens": 1291,
+ "seconds": 0.425,
+ "e2e_seconds": 2.69,
+ "source_hits": 1.0,
+ "block": "Memory for: Who can I address with @name for the Mention Inbox: can the name contain dots, and do I need to declare it first?\n[1] At-Mention.md (`@name` syntax)\n  - A name in an at-mention may contain dots, so @pete.smith and @sam.rivera are each one mention.\n  `@name` syntax: Type `@` followed by a name with no spaces, e.g. @jo. While typing, autocomplete offers every known identity. / A name may contain dots, so dotted usernames carry whole: @pete.smith and @sam.rivera are each one mention. / **Any name is a valid mention.** Nothing needs declaring up front: mentioning @sales makes `sales` a known identity. See [[Identity]] for more info. / For a complete request, reply and resolution workflow, see [[Guide/Comments, Mentions and Replies]].\n[2] Recipient.md (The Mention Inbox)\n  A **recipient** is an [[Identity]] you address. When mentioned with `@name`, it is indexed to be queried, and clicking it in the editor will open the \u201cMentions Inbox\u201d. / See [[At-Mention]] for the `@name` syntax, and [[Identity]] for where names come from (accounts, `identity.define`, or simply being mentioned).\n  - For an at-mention relation, to is always the @name identifier, with toTag == \"identity\".\n  The `recipients` attribute: Every mention also sets a `recipients` attribute onto the object that hosts it, holding the `@name` identifier of each name mentioned. / * a mention inside a task or list item stamps that task or item. / * a mention in a plain paragraph or header stamps the **page** object instead. / Pages can also declare recipients declaratively in frontmatter \u2014 useful when a whole page is \u201cfor\u201d someone without inline mentions: / ```yaml / --- / recipients: [\"pete\", \"sales\"] / --- / ``` / Like `tags`, the value can also be written as a plain string, cut on whitespace: / ```yaml / --- / recipients: pete sales / --- / ```\n  - Every mention sets a recipients attribute onto the object that hosts it, holding the @name identifier of each name mentioned.\n  - When a recipient is mentioned with @name, it is indexed to be queried.\n  - A page can declare recipients in frontmatter, for example recipients: [\"pete\", \"sales\"].\n[3] CHANGELOG.md (CHANGELOG)\n  2.11.0: * **At-mentions and Identities** ([[At-Mention]], [[Identity]]): mention people, teams, or anything else with `@name`. Each name resolves to an [[Identity]] \u2014 an account, something registered with `identity.define`, or simply a name you\u2019ve mentioned \u2014 addressed by the `@<name:lower>` id, so `@Ada` and `@ada` converge on the same identity. `identity.own()` returns the identity the current user is. An identity is addressed as a [[Recipient]] (\u2192 Mention Inbox) or credited as an author (see [[Authorship]]). (Note: upgrading triggers a full space reindex, since mention identifiers moved to the `@name` form.) / * **[[Authorship]]**: a trailing `-- @name` (also `\u2014 @name`/`\u2013 @name`) signs a block instead of addressing it, crediting who wrote it without putting them in anyone\u2019s Mention Inbox. `authors:` frontmatter does the page-level equivalent of `recipients:`. Sign th ...\nExact facts:\n- [1] An **at-mention** is the `@name` span you type in text. It refers to an [[Identity]], and it has two directions: written plainly it *addresses* that identity, making it a [[Recipient]], or when used as a signature it *credits* that identity instead, see [[Authorship]].\n- [1] # `@name` syntax",
+ "meta": {
+  "notes": [
+   "At-Mention.md",
+   "Recipient.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

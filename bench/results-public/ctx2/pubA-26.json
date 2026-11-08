@@ -1,0 +1,20 @@
+{
+ "id": "pubA-26",
+ "type": "verbatim",
+ "answer": "The server has been the Rust implementation since SilverBullet v2.10.0, per ADR 010 \"Rust Backend\".",
+ "tokens": 785,
+ "seconds": 0.003,
+ "e2e_seconds": 2.62,
+ "source_hits": 1.0,
+ "block": "## From which SilverBullet version has the server been the Rust implementation?\n\n--- [vault:corpus/docs/Development.md] ---\n### Code structure\n\n# Code structure\n* `client/`: The SilverBullet client, implemented with TypeScript\n* `server/`: The SilverBullet server library (Rust): HTTP router, handlers, auth, runtime seam\n* `server-common/`: Shared Rust crate (space primitives, shared types)\n* `server-runtime-chrome/`: Headless-Chrome runtime backend (Rust)\n* `bin/silverbullet/`: The standalone server binary (Rust)\n* `bin/sb/`: The `sb` command-line client (Rust)\n* `plugs`: Set of built-in plugs that are distributed with SilverBullet\n* `libraries`: A set of libraries (space scripts, page templates, slash templates) distributed with SilverBullet\n* `plug-api/`: Useful APIs for use in plugs\n  * `lib/`: Useful libraries to be used in plugs\n  * `syscalls/`: TypeScript wrappers around syscalls\n  * `types/`: Various (client) types that can be references from plugs\n* `bin/plug-compile.ts`: the plug compiler\n* `scripts/`: Useful scripts\n* `docs/`: silverbullet.md website content\n\n--- [vault:corpus/docs/ADR/010 Rust Backend.md] ---\n### Decision\n\n# Decision\nThe server is written in **Rust** (as of v2.10.0). The progression was **Node.js -> Deno -> Go -> Rust**:\n\n* Deno: a modern, secure-by-default TypeScript runtime, a sensible fit while the server still ran [[Plugs|plug]] logic and sandboxing mattered (pre-[[ADR/007 Core Application Logic on the Client|v2]]).\n* Go (2025): once the server was just a file store, it was rewritten in Go: \u201csignificantly less memory and significantly smaller in size.\u201d\n* Rust (2026): the Go server was replaced by an adaptation of the Rust backend used elsewhere in the project, converging the whole codebase on **TypeScript + Rust**.",
+ "meta": {
+  "engine_seconds": 0.0032664580000000003,
+  "sources": [
+   "vault:corpus/docs/Development.md",
+   "vault:corpus/docs/ADR/010 Rust Backend.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

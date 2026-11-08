@@ -1,0 +1,22 @@
+{
+ "id": "pubA-20",
+ "type": "verbatim",
+ "answer": "The command is **Editor: Toggle Keyboard Bar**. It turns the keyboard bar off or on, and the choice is remembered per device.",
+ "tokens": 1324,
+ "seconds": 0.46,
+ "e2e_seconds": 2.9,
+ "source_hits": 1.0,
+ "block": "Memory for: What command turns the on-screen editing shortcut strip above a phone keyboard off and on?\n[1] API/keyboardBar.md (API)\n  APIs to add buttons to the keyboard bar. / On phones and tablets, the keyboard bar shows editing shortcuts above the on-screen keyboard (or along the bottom of the screen with a hardware keyboard). Its buttons come from the `keyboardBar` option in [[^Library/Std/Config]]: replace the whole list with `config.set`, or add to it with `keyboardBar.define`. Buttons can be limited to where the cursor is, so e.g. the indent and outdent buttons only appear inside outlines. / The bar is on by default. **Editor: Toggle Keyboard Bar** turns it off or on again. The choice is remembered per device. Setting `keyboardBar` to an empty list hides it everywhere. / > **success** Success / > Put your `keyboardBar.define` calls in your [[CONFIG]] page.\n  - The command **Editor: Toggle Keyboard Bar** turns the keyboard bar off or on again.\n  - On phones and tablets, the keyboard bar shows editing shortcuts above the on-screen keyboard, or along the bottom of the screen when a hardware keyboard is used.\n[2] CHANGELOG.md (CHANGELOG)\n  2.11.0: * A batch of mobile (iOS) fixes: / * Pickers no longer show keyboard shortcuts on touch devices, where they cannot be pressed and only crowd out the page names. / * Filter boxes no longer autocapitalize or autocorrect: command and page names are identifiers, and the phone\u2019s corrections only fought the fuzzy match. / * Fix: the hamburger menu on a narrow screen stayed grey when the rest of the top bar turned yellow to signal a lost connection. / * Fix: on iOS 27, a home-screen install drew its page title and top-bar buttons underneath the system\u2019s new blurred top edge, leaving them smeared. The top bar now leaves that band clear.\n[3] Keyboard Shortcuts.md (Modifier keys)\n  Disabling keyboard shortcuts: You can use the [[^Library/Std/APIs/Command#command.update(commandDef)]] API to disable keyboard shortcuts of existing commands by setting them to an empty string, for example: / ```lua / command.update { / name = \"Task: Cycle State\", / key = \"\", / mac = \"\" / } / ```\n[4] Workbench/Configuration.md (Saving)\n  The Configuration tab edits your space\u2019s configuration without hand-editing [[Space Lua]] in [[CONFIG]]. `Configuration: Open` (`Cmd-,` or `Ctrl-,`) opens the [[Workbench]] on this tab, and `Configuration: Keyboard Shortcuts` opens it on its Key bindings section. On Desktop, *Settings\u2026* in the app menu does the same. / ${widgets.commandButton(\"Workbench: Configuration\")} opens this tab in the [[Workbench]]. / A sidebar on the left lists two sections. In a narrow panel it becomes a drop-down above the list. / * **Configuration**: every option registered with [[API/config#config.define(key, schema)]] that has a `ui` annotation, grouped by category. The categories are listed under the section in the sidebar. Click one to jump to it. Each option shows its label, description and a control that fits its schema: a checkbox, a drop-down, a text, password or ...\nExact facts:\n- [2] [[MCP]]: SilverBullet Server can now serve an MCP endpoint at `/.mcp`, so AI assistants can directly read, write, search and query your spaces. Clients sign in with OAuth and act as the account that approved them, on the spaces chosen on a consent page. MCP is off by default: an admin turns it on in",
+ "meta": {
+  "notes": [
+   "API/keyboardBar.md",
+   "CHANGELOG.md",
+   "Keyboard Shortcuts.md",
+   "Workbench/Configuration.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

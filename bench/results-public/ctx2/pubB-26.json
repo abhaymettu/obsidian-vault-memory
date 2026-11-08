@@ -1,0 +1,19 @@
+{
+ "id": "pubB-26",
+ "type": "multi",
+ "answer": "Besides offline startup, you lose cached file access and offline synchronization, local data encryption (the local index is stored unencrypted in the browser), and OIDC/SSO sign-in (you must use a local password account). Browser-based CLI authorization requires HTTPS or loopback, and programmatic image/binary copying needs HTTPS or localhost, with text copy buttons falling back to legacy browser copying. HTTP also leaves credentials, notes, and application code open to interception or modification.",
+ "tokens": 723,
+ "seconds": 0.004,
+ "e2e_seconds": 2.48,
+ "source_hits": 1.0,
+ "block": "## If I serve the PWA over plain HTTP on my LAN instead of HTTPS, what do I lose besides offline startup?\n\n--- [vault:corpus/docs/TLS.md] ---\n### LAN HTTP (no TLS)\n\n# LAN HTTP (no TLS)\nOpen your server using its LAN address, for example `http://192.168.1.20:3000`. The server must listen on an address reachable from your LAN. Editing, indexing, queries, Space Lua, plugs, attachments, and local password login remain available.\n\nThe limitations are:\n* The server must remain reachable. Offline startup, cached file access, and offline synchronization are unavailable. If saving fails, keep the editor open until it can save.\n* Local data encryption and OIDC/SSO sign-in are disabled. Use a local account with a password. The local index is stored unencrypted in the browser.\n* Browser-based CLI authorization still requires HTTPS or loopback.\n* Text copy buttons use the browser\u2019s legacy copying support. Normal keyboard copy/paste remains available. Programmatic image/binary copying requires HTTPS or localhost.\n\nAnd obviously, HTTP does not encrypt or authenticate network traffic: credentials, notes, and application code can be intercepted or modified by someone with access to the connection.\n\n--- [vault:corpus/docs/PWA.md] ---\n### Limits\n\n# Limits\nOffline startup requires a secure context (HTTPS or localhost), a working service worker and previously cached application code. Plain LAN HTTP runs online-only. See [[TLS#LAN HTTP (no TLS)]]. Installing the PWA does not change these requirements.\n\nServer-backed [[Search]], shell execution, remote sharing and external network APIs require a connection. Local page navigation, editing and queries over the client Object Index can work with cached data. Let the initial sync finish and test the pages and attachments you need before relying on offline access. Browser storage is not a backup.",
+ "meta": {
+  "engine_seconds": 0.004357250000000022,
+  "sources": [
+   "vault:corpus/docs/TLS.md",
+   "vault:corpus/docs/PWA.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

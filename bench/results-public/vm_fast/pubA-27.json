@@ -1,0 +1,21 @@
+{
+ "id": "pubA-27",
+ "type": "verbatim",
+ "answer": "The decision, ADR 011 \"Link Resolution by Name\", is recorded as accepted on 2026-08-24 (Owner: Zef Hemel).",
+ "tokens": 1394,
+ "seconds": 0.427,
+ "e2e_seconds": 2.75,
+ "source_hits": 1.0,
+ "block": "Memory for: What date is recorded on the decision to resolve wiki links by name, Obsidian style?\n[1] CHANGELOG.md (CHANGELOG)\n  2.11.0: * **[[Link|Wiki links]] now resolve by page name, not just by full path (think: Obsidian compatibility).** A `[[Note]]` link resolves to `some/folder/Note` when that name is unique in the space, matching how Obsidian resolves links, so an Obsidian-authored space works in SilverBullet without rewriting every link. See [[ADR/011 Link Resolution by Name]] for reasoning. The `linkWriteFormat` option decides how SilverBullet writes the links it generates (auto complete, rename backlink rewriting), it defaults to `full-path`, so generated links keep spelling out the whole path. / * Links to [[Virtual Pages]] now appear as valid links and no longer count as aspiring pages when their names match a registered pattern.\n[2] ADR/011 Link Resolution by Name.md (Context)\n  Context: SilverBullet from day 1 has resolved `[[wiki links]]` as absolute, case-sensitive paths from the space root. Other tools, notably Obsidian, works differently: Obsidian resolves a bare `[[Note]]` by case-insensitive name lookup across the whole vault (Obsidian speak for Space), and its default link format *writes* bare names wherever they are unique. Two problems followed: / 1. **Obsidian interop:** An Obsidian-authored vault is full of links SilverBullet could not resolve, blocking a docs-as-code use case where one team mixes both tools on the same repo. The incompatibility was one-directional: SilverBullet\u2019s absolute links resolve fine in Obsidian. / 2. **Root dependence:** A full path link encodes where the space root is. Open the same folder one level higher (not that uncommon in the docs-as-code use case) and every link breaks. / This has been discussed in the community various time, e.g. [here](https://community.silverbullet.md/t/smart-filename-path-resolve/2453).\n  Decision: 3. **Qualified paths** (with a path segment, but not necessarily a full one) with no exact match are looked up by unique **path suffix** (`[[api/Auth]]` finds `docs/api/Auth`). This matches Obsidian\u2019s partial paths and making qualified links survive a root change too. Example: [[1/ambiguous link]] (note that the `1/` prefix make it ambiguous, but it\u2019s still not a full path). / 4. **Several matches** mean the link is **ambiguous**: it still resolves, but is highlighted, indexed as an [[Tag/ambiguous-link]] object, and following it (click, command or shortcut) opens a picker over the candidates. The link text is left alone: following a link is reading, and reading does not edit the document, example: [[1/ambiguous link]]\n[3] ADR.md (Stats)\n  Active decisions: * [[ADR/011 Link Resolution by Name|011 Link Resolution by Name]] \u2014 accepted, 2026-08-24, Owner: [[Zef Hemel]] / * [[ADR/010 Rust Backend|010 Rust Backend]] \u2014 accepted, 2026-06-16, Owner: [[Zef Hemel]] / * [[ADR/009 Client Build Toolchain|009 Client Build Toolchain]] \u2014 accepted, 2026-03-10, Owner: [[Zef Hemel]] / * [[ADR/007 Core Application Logic on the Client|007 Core  ...\nExact facts:\n- [1] `${...}` expressions and widgets now **compose everywhere** and **live update**: buttons and other widgets work inside table cells, inside Markdown returned by other widgets, in transcluded pages, and in query results and templates. There were a lot of weird restrictions here before, hopefully these\n- [1] New [[Shared Pages]] view (`Navigate: Shared Pages`): lists your shared pages, libraries and repositories with their status, checks their remotes, and shares, opens, copies links to or updates them.",
+ "meta": {
+  "notes": [
+   "CHANGELOG.md",
+   "ADR/011 Link Resolution by Name.md",
+   "ADR.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

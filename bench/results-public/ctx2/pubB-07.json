@@ -1,0 +1,19 @@
+{
+ "id": "pubB-07",
+ "type": "single",
+ "answer": "The page gets the icon from the first tag in its `tags` list that sets one, since the first tag wins when several tags set the same field. If the page has its own `pageDecoration` (from its frontmatter or a `transform`), that wins over any tag's icon.",
+ "tokens": 889,
+ "seconds": 0.007,
+ "e2e_seconds": 2.32,
+ "source_hits": 1.0,
+ "block": "## A page carries several tags that each define a page icon through tag.define. Which icon does it end up with, and what if the page sets its own?\n\n--- [vault:corpus/docs/Page Decorations.md] ---\n### Apply to every page with a tag\n\n# Apply to every page with a tag\nTo decorate every page with a tag, give the tag a `pageDecoration` in [[API/tag|tag.define]] in your [[CONFIG]]:\n\n```lua\ntag.define {\n  name = \"person\",\n  pageDecoration = { icon = \"user\", cssClasses = { \"person-page\" } },\n}\n```\n\nA page\u2019s own `pageDecoration` (from its frontmatter, or a `transform`) wins over the tag\u2019s. When several of a page\u2019s tags set the same field, the first tag in its `tags` wins. `cssClasses` from all of them are combined. Changing a tag\u2019s decoration re-indexes the pages with that tag, so there is no need to run `Space: Reindex`.\n\n--- [vault:corpus/docs/API/icon.md] ---\n### icon.resolveFeather\n\n## icon.resolveFeather\n`icon.resolveFeather(names)`\n\nRenders a batch of Feather icons to SVG markup in one round trip, so panels can show icons without bundling the icon set themselves. Unknown names are omitted from the result. The markup carries no color of its own (`currentColor`) and a default 24x24 size, both of which CSS at the injection site can override.\n\n**Parameters:**\n\n- `names` (`table`) \u2014 Feather icon names, e.g. `trash-2`.\n\n**Returns:**\n\n- `table` \u2014 Map of icon name to SVG markup.\n<!--/lua-->\n\nUse `icon.feather` for a single name in hand right away \u2014 widget HTML, a custom panel\u2019s content. `icon.resolveFeather` batches several names in one round trip, which is what [[API/view|view]] icons use internally \u2014 don\u2019t call either for those, though: name them in the view instead (`icon = \"lock\"`, or `icon = \"feather:lock\"`) and the view resolves them, lazily and in one batch per view refresh. See [[API/widget#Presentation]].\n\n[Feathericons.com](https://feathericons.com) lists the available names. The namespace is the point, not the implementation: `icon.feather`/`icon.resolveFeather` are the first of what could eventually be more than one icon set, each reached the same way (`icon.<set>...`) if and when a second one arrives \u2014 `icon.lucide`, say.",
+ "meta": {
+  "engine_seconds": 0.006718457999999998,
+  "sources": [
+   "vault:corpus/docs/Page Decorations.md",
+   "vault:corpus/docs/API/icon.md"
+  ]
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

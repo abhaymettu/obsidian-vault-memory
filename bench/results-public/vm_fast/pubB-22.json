@@ -1,0 +1,21 @@
+{
+ "id": "pubB-22",
+ "type": "multi",
+ "answer": "Put the compiled file next to the library page, e.g. `Library/yourname/yourthing.plug.js`, and list it under `files:` in the page's frontmatter (`- yourthing.plug.js`). The memory says `Share: Page` publishes the library page and gives it a public URI, but it doesn't say the command uploads the `.plug.js` itself, so I can't confirm that it does.",
+ "tokens": 1335,
+ "seconds": 0.413,
+ "e2e_seconds": 4.35,
+ "source_hits": 1.0,
+ "block": "Memory for: I'm shipping a compiled plug inside a library published to GitHub with Share: Page. Where does the .plug.js file go, and does Share: Page upload it for me?\n[1] Plugs/Development/Distribution and Testing.md (Distribution: ship your plug in a Library)\n  Distribution: ship your plug in a Library: Plugs are distributed as part of a [[Library]] \u2014 the unit of distribution for all SilverBullet extensions. You don\u2019t publish the `.plug.js` on its own. You publish a library page that carries it. / Follow this recipe in your own writable space. Publishing also requires a configured destination. The recipe mirrors [[Library/Development]]: / 1. Create a [[Meta Page]] under `Library/yourname/Your Thing` with frontmatter that lists the plug file: / ```yaml / --- / name: Library/yourname/Your Thing / tags: meta/library / files: / - yourthing.plug.js / --- / This library adds \u2026 / ``` / 2. Drop the compiled `yourthing.plug.js` next to the library page \u2014 e.g. `Library/yourname/yourthing.plug.js`. The `files:` list tells the library system to ship the plug along with the page when somebody installs it. / 3. Publish the library page with the `Share: Page` command (GitHub file, Gist, etc.), which gives the page a public [[URI]].\n  Distribution: ship your plug in a Library: 4. End users install it with `Library: Install` using that URI, or discover it through a [[Repository]]. / 5. Updates: push new versions of the library page via `Share: Page`. / See [[Library]], [[Library/Development]], [[Share]], [[Repository]], and [[Workbench/Libraries]] for the broader library system.\n[2] Architecture/Plugs.md (Plugs)\n  [[Plugs]] (built on the PlugOS library) extend SilverBullet in TypeScript, compiled to a single `.plug.js` bundle and distributed via a [[Library]]. Each plug runs in its own Web Worker sandbox. A lot of \u201cbuilt-in\u201d functionality is in fact implemented as plugs.\n[3] Plugs/Development/Architecture.md (Runtime model)\n  Plug discovery: Plugs are loaded the same regardless whether they are \u201cbuilt in\u201d (= shipping with SilverBullet itself) or user installed plugs: / On boot, SilverBullet effectively just finds all files ending with `.plug.js` and loads them. Built-in plugs live under `Library/Std/Plugs`, which is part of the standard library file system that is overlaid on top of your space.\n[4] Library/Development.md (Decorate your library with frontmatter)\n  Share the library: At this stage you can put your library file anywhere you like with a URL. However, for convenience, it\u2019s good to use [[Share]] support for publishing. / For the purposes of this example, let\u2019s use Github. Create a [[^Library/Std/Infrastructure/Github]] token and configure it as specified in the [[^Library/Std/Infrastructure/Github#Configuration|instructions]]. / [[^Library/Std/Infrastructure/Github]] share support offers two options: Gists and Github repo files. Let\u2019s use a Github repo. / [Create a new github repo](https://github.com/new), you can name it something like `silverbullet-libraries`. / In your own writable space, open the ...\nExact facts:\n- [1] Copying a `.plug.js` will be picked up by the sync engine fairly quickly. After this happens, a simple `Plugs: Reload` will (re)load the plug. No page refresh is required.\n- [3] This page explains how plugs are loaded, executed, and isolated within SilverBullet. If you just want to build a plug, you can skip ahead to [[Plugs/Development/Reference]] and come back here when you need to understand *why* something behaves the way it does.",
+ "meta": {
+  "notes": [
+   "Plugs/Development/Distribution and Testing.md",
+   "Architecture/Plugs.md",
+   "Plugs/Development/Architecture.md",
+   "Library/Development.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

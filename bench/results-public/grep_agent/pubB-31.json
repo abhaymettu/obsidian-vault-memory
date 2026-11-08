@@ -1,0 +1,22 @@
+{
+ "id": "pubB-31",
+ "type": "verbatim",
+ "answer": "Add `http2 on;` to the `server` block (nginx 1.25.1 and later). On older versions, use `listen 443 ssl http2;` instead. This is from `TLS.md`, line 67.",
+ "tokens": 187,
+ "seconds": 3.628,
+ "e2e_seconds": 3.63,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3698,
+  "final_context": 3862,
+  "billed_input": 7560,
+  "turns": 2,
+  "cost_usd": 0.0056169,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"http2\", \"-i\": true, \"output_mode\": \"content\"}\nTLS.md:67:* **nginx**: add `http2 on;` to the `server` block (nginx 1.25.1 and later), or use `listen 443 ssl http2;` on older versions."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

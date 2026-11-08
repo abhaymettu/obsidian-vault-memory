@@ -1,0 +1,21 @@
+{
+ "id": "pubA-16",
+ "type": "verbatim",
+ "answer": "The error message starts with `cancelled:`. This prefix means the user closed the code dialog during `oauth.deviceFlow`.",
+ "tokens": 1310,
+ "seconds": 0.43,
+ "e2e_seconds": 2.88,
+ "source_hits": 1.0,
+ "block": "Memory for: When the device-code sign-in fails because the user shut the code dialog, what prefix does the error message start with?\n[1] API/oauth.md (oauth)\n  Errors: `oauth.deviceFlow` raises an error whose message starts with one of these prefixes, so callers can tell the outcomes apart: / * `cancelled:` the user closed the code dialog. / * `expired:` the device code expired before it was approved. / * `denied:` the user (or the server) denied the request. / * `failed:` anything else, such as a network error or an unexpected response. The text after the prefix is the underlying message. An OAuth error code from the server (for example `unauthorized_client`) appears in it. / ```lua / local ok, err = pcall(oauth.deviceFlow, opts) / if not ok and tostring(err):find(\"cancelled:\", 1, true) then / return nil / end / ``` / <!--#lua spacelua.renderApiDocumentation(\"oauth\") -->\n  - oauth.deviceFlow raises an error whose message starts with one of the prefixes cancelled:, expired:, denied: or failed:, so callers can tell the outcomes apart.\n  - The cancelled: prefix means the user closed the code dialog.\n  - After the failed: prefix, the text is the underlying message, and an OAuth error code from the server, such as unauthorized_client, appears in it.\n  - The failed: prefix covers anything else, such as a network error or an unexpected response.\n  oauth.deviceFlow: `oauth.deviceFlow(opts)` / Runs an OAuth 2.0 device authorization flow (RFC 8628). Shows a modal with a code for the user to enter, polls until approved, and returns the raw token response. Errors start with one of `cancelled:`, `expired:`, `denied:` or `failed:`. / **Parameters:** / - `opts` (`table`) \u2014 Table with `deviceCodeUrl`, `tokenUrl`, `clientId`, and optionally `scope` and `deviceName`. / **Returns:** / - Value \u2014 The token response as a table. / **Example:** / ```lua / local token = oauth.deviceFlow { / deviceCodeUrl = \"https://github.com/login/device/code\", / tokenUrl = \"https://github.com/login/oauth/access_token\", / clientId = \"my-client-id\", / scope = \"repo gist\", / } / ``` / <!--/lua-->\n[2] API/sbShare.md (Configuration)\n  - Declining the `share:ensure` sign-in fails with `Not connected to <space>` and leaves the page and the remote alone.\n[3] Runtime API.md (Setup)\n  Error handling: * **503** \u2014 Runtime API not enabled: `{\"error\": \"Runtime API is not enabled\"}`. This also holds when it is switched off for the running server (by an administrator or `SB_RUNTIME_API=0`), Chrome is missing, or the runtime pool failed to start. A headless browser that is not ready yet answers `{\"error\": \"...\", \"code\": \"bridge_unavailable\"}`; retry shortly. / * **504** \u2014 Timeout exceeded: `{\"error\": \"...\", \"code\": \"timeout\"}`.\n  Error handling: All error responses are JSON with `Content-Type: application/json` and an `error` key. Runtime execution failures also include a stable machine-readable `code`. / Status codes used across the Runtime API: / * **403** \u2014 The caller lacks Write or Runtime API permission. / * **400** \u2014 Empty request body: `{\"error\" ...\nExact facts:\n- [2] On a new device a space can be known (from `share.silverbullet.spaces`) without a usable credential on that device (none, or an expired one that can\u2019t be refreshed). Before a `push` or `sync` share, the `share:ensure` service then asks `Sign in to <space>?` and runs the device flow, so a private spa",
+ "meta": {
+  "notes": [
+   "API/oauth.md",
+   "API/sbShare.md",
+   "Runtime API.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

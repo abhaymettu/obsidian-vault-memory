@@ -1,0 +1,19 @@
+{
+ "id": "pubA-02",
+ "type": "single",
+ "answer": "Not in memory. It only records ADR 004's decision to add federation, where a space links to a remote space via a federated URL prefix and syncs that content read-only. It doesn't say whether the feature still exists.",
+ "tokens": 442,
+ "seconds": 0.007,
+ "e2e_seconds": 5.06,
+ "source_hits": 1.0,
+ "block": "## Can I still pull read-only pages from someone else's remote space into mine by URL prefix?\n\n--- [vault:corpus/docs/API/share.md] ---\n### Modes > Pull\n\n## Pull\nA pull reads the remote and:\n* The remote equals the page: nothing to do (`share.hash` is set if it doesn\u2019t match).\n* The remote matches `share.hash`: only the page changed, so there is nothing to pull and the local changes stay.\n* The page matches `share.hash`: only the remote changed, and it replaces the page.\n* The page changed since `share.hash`: you are asked whether to overwrite your local changes.\n* No `share.hash`: you are asked whether to overwrite the page with the remote version, except for [[#share.isManaged(name, text)|installed libraries and repositories]], which are overwritten.\n\n--- [vault:corpus/docs/ADR/004 Federation.md] ---\n### Decision\n\n# Decision\nAdd **federation**: a space can link to a remote space via a federated URL prefix, and SilverBullet would sync that external content read-only into the local client, so it could be browsed and queried alongside local pages.",
+ "meta": {
+  "engine_seconds": 0.006921000000000021,
+  "sources": [
+   "vault:corpus/docs/API/share.md",
+   "vault:corpus/docs/ADR/004 Federation.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

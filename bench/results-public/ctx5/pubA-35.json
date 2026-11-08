@@ -1,0 +1,22 @@
+{
+ "id": "pubA-35",
+ "type": "multi",
+ "answer": "It stops firing when the runtime is stopped after receiving no requests for 30 minutes (the idle timeout). While it's stopped, nothing runs in its client, including `cron:secondPassed` listeners, and it resumes when the next request starts the runtime again. The timeout can be changed with `SB_RUNTIME_IDLE_TIMEOUT` (single-space mode) or `runtimeIdleTimeout` in `server.json` (multi-space mode), and `0` keeps runtimes running.",
+ "tokens": 1348,
+ "seconds": 0.006,
+ "e2e_seconds": 2.53,
+ "source_hits": 0.5,
+ "block": "## If a Space Lua listener on the built-in once-per-second event runs inside a Runtime API client, when does it stop firing?\n\n--- [vault:corpus/docs/Runtime API.md] ---\n### How it works > Idle stop\n\n## Idle stop\nA runtime that has received no requests for 30 minutes is stopped: its Chrome exits and it uses no memory or CPU. The next request starts it again on the same profile, so the client picks up where it left off instead of rebuilding its index. That takes about a second, plus the time to index pages that changed in the meantime.\n\nWhile a runtime is stopped, nothing runs in its client, including Space Lua event listeners such as `cron:secondPassed`.\n\nTo change the timeout, in minutes (`0` keeps runtimes running):\n* In single-space mode, set `SB_RUNTIME_IDLE_TIMEOUT`, for example `SB_RUNTIME_IDLE_TIMEOUT=120`.\n* In multi-space mode, use **Stop idle runtimes after** in the administrator's **APIs** tab, stored as `runtimeIdleTimeout` in `server.json`.\n\n--- [vault:corpus/docs/API/event.md] ---\n### event.listen\n\n## event.listen\n`event.listen(listener)`\n\nRegisters a Space Lua listener on the event bus.\n\n**Parameters:**\n\n- `listener` (`table`) \u2014 Listener definition with name and run callback.\n\n**Example:**\n\n```lua\nevent.listen { name = \"my-event\", run = function(e) print(e.data) end }\n```\n<!--/lua-->\n\n--- [vault:corpus/docs/API/event.md] ---\n### event.dispatch\n\n## event.dispatch\n`event.dispatch(eventName, data)`\n\nDispatches an event and collects responses from its listeners.\n\n**Parameters:**\n\n- `eventName` (`string`) \u2014 Event name.\n- `data` \u2014 Event payload.\n\n**Returns:**\n\n- `table` \u2014 Listener responses.\n\n**Example:**\n\n```lua\nlocal responses = event.dispatch(\"data.request\", {id = 123})\n```\n\n--- [vault:corpus/docs/Runtime API.md] ---\n### How it works\n\n# How it works\nAs documented in [[Architecture]], the vast majority of SilverBullet\u2019s power is implemented in the client. However, there are use cases for programmatically accessing your space with all of SilverBullet (client\u2019s) power.\n\nWhen the Runtime API is enabled, the first request to an `/.runtime/` endpoint starts a separate headless Chrome process for that user and space. Each runtime has its own profile, cookies, browser storage, and console log. It loads the full SilverBullet client with the originating user\u2019s identity and permissions. Removing Write or runtime access, disabling the account, or switching runtime off stops the affected browser and invalidates its credentials.\n\nOnce ready, the server communicates with the browser directly via Chrome DevTools Protocol (CDP). Because Lua code runs inside a real SilverBullet client, it has access to the full API surface \u2014 `editor.*`, `space.*`, queries, and everything else available to in-page scripts and widgets. The results reflect live client state.\n\n--- [vault:corpus/docs/Virtual Pages.md] ---\n### How it works under the hood\n\n# How it works under the hood\nVirtual page definitions are stored in the config system under the `virtualPages` key. When a page is being created, SilverBullet fires the `editor:pageCreating` event. The standard library\u2019s event listener checks all registered patterns against the page name. If a match is found, the corresponding `run` function is called, and its return value becomes the page content with read-only permissions.\n\nSee also: [[API/event]], [[API/config]]",
+ "meta": {
+  "engine_seconds": 0.0053480420000123555,
+  "sources": [
+   "vault:corpus/docs/Runtime API.md",
+   "vault:corpus/docs/API/event.md",
+   "vault:corpus/docs/API/event.md",
+   "vault:corpus/docs/Runtime API.md",
+   "vault:corpus/docs/Virtual Pages.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

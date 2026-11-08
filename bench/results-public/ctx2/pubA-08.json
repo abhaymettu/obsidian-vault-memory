@@ -1,0 +1,19 @@
+{
+ "id": "pubA-08",
+ "type": "single",
+ "answer": "No. When GitHub rejects a configured `github.token`, you are not asked to sign in instead; you need to fix or remove the token.",
+ "tokens": 706,
+ "seconds": 0.005,
+ "e2e_seconds": 2.63,
+ "source_hits": 1.0,
+ "block": "## If I configured a GitHub personal access token for sharing and GitHub starts rejecting it, will SilverBullet fall back to the sign-in flow?\n\n--- [vault:corpus/docs/API/github.md] ---\n### Configuration\n\n# Configuration\n* `github.token`: a personal access token with repo and gist permissions. Used when set and there is no stored credential from signing in. It is not copied into the credential store, and when Github rejects it you are not asked to sign in instead: fix or remove the token.\n* `github.clientId`: client ID of your own Github OAuth app (device flow enabled), used instead of the default one for signing in.\n* `github.name` and `github.email`: author of commits made when sharing to repositories.\n\n```lua\nconfig.set(\"github.token\", \"your token\")\nconfig.set(\"github.clientId\", \"your client id\")\n```\n\nThe provider supplies `Authorization`. API requests add `Accept` themselves.\n\n--- [vault:corpus/docs/Share.md] ---\n### Support\n\n# Support\nOut of the box, sharing is supported for:\n\n* Plain `https://` URIs (_Pull_ mode only) (implemented in [[^Library/Std/Infrastructure/URI]]).\n* [[^Library/Std/Infrastructure/Github]] (`https://github.com/*` for repository files and `https://gist.github.com/*` URLs): both in _Pull_ mode, and _Push_ mode after signing in to Github through a device code (or with a personal token configured instead). Technically _Sync_ should work except that Github aggressively caches files, making this impractical.\n* [[^Library/Std/Infrastructure/SilverBullet Share|SilverBullet space]]: pages in another SilverBullet space, in _Push_, _Pull_ and _Sync_ mode, signing in with a device code.\n\nTo implement your own share provider, have a look at the implementations linked to understand how they work.",
+ "meta": {
+  "engine_seconds": 0.00533529200000001,
+  "sources": [
+   "vault:corpus/docs/API/github.md",
+   "vault:corpus/docs/Share.md"
+  ]
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

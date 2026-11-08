@@ -1,0 +1,22 @@
+{
+ "id": "pubA-18",
+ "type": "verbatim",
+ "answer": "Allow these paths without login: `/service_worker.js` and `/.client/*`. They are static code files, so this is safe. Without them, PWA functionality and other parts of SilverBullet may break. (Source: Authentication Proxy.md)",
+ "tokens": 1351,
+ "seconds": 4.449,
+ "e2e_seconds": 4.45,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3765,
+  "final_context": 5103,
+  "billed_input": 8868,
+  "turns": 2,
+  "cost_usd": 0.0091802,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"Behind Authelia or another auth proxy, which URL paths must be allowed without login so the app works?\\\"\"}\nMemory for: Behind Authelia or another auth proxy, which URL paths must be allowed without login so the app works?\n[1] Authentication Proxy.md (Authentication Proxy)\n  - A setup guide for running SilverBullet Server behind an authentication proxy, explaining which paths must be excluded from authentication. Names: SilverBullet Server, SilverBullet, Authelia, Authentik, Cloudflare Zero Trust, Pangolin.\n  In case you would like to run SilverBullet behind an authentication proxy (such as Authelia, Authentik or the ones integrated with Cloudflare Zero Trust or Pangolin) there is one key configuration tweak you need to make: / **You must exclude a few paths from authentication**. If you don\u2019t do this a lot of PWA functionality may not work and SilverBullet may break in unexpected ways. Doing this is perfectly safe, it just gives browsers unauthorized access to some client code, not any of your content. / Add **rules to allow unauthenticated access** for the following paths: / * `/service_worker.js` / * `/.client/*` / This is perfectly safe, they are just static (code) files.\n[2] Desktop Sync.md (SilverBullet server)\n  - A self-hosted SilverBullet Server deployment cannot live behind an auth proxy other than SilverBullet's Authentication, because auth proxies are not (yet) supported.\n  Self-Hosted: For this you need to install [[Install|SilverBullet Server]] somewhere. / **Important:** this deployment cannot live behind an auth proxy (other than SilverBullet\u2019s [[Authentication]]), auth proxies are not (yet) supported.\n[3] Authentication.md (Accounts)\n  - An Authentication Proxy can delegate authentication to an external system such as Authelia, Authentik, or a reverse proxy's built-in auth.\n  Authentication proxies: Alternatively, or in addition, you can use an [[Authentication Proxy]] to delegate authentication to an external system (like Authelia, Authentik, or a reverse proxy\u2019s built-in auth). This is common in more complex self-hosted setups. In accounts mode, pair a proxy with **public** spaces so the proxy owns identity. In single-space mode, put the proxy in front of an open server. / For all authentication-related configuration options, see [[Install/Configuration#Authentication]].\n[4] Authelia.md (Authelia)\n  - The files that must be excluded from authentication are the web manifest, the app icon, and the service worker.\n[5] HTTP API.md (Authentication)\n  Authentication: When authentication is enabled, most endpoints require a valid session cookie (JWT) or a Bearer token. The following paths are excluded from auth: `/service_worker.js`, `/.client/*`, `/.auth`, `/.ping`. / * `GET /.auth`: Serves the login page. Returns 403 if authentication is not enabled. / * `POST /.auth`: Authenticates a user. Expects form fields: `username`, `password`, `rememberMe` (optional), `from` (optional redirect path). Returns JSON `{\"status\":\"ok\",\"redirect\":\"...\"}` on success or `{\"status\":\"error\",\"error\":\"...\"}` on failure. Implements lockout after repeated failed attempts. / * `GET /.logout`: Clears authenticati ...\nExact facts:\n- [2] Scroll down to the \u201cSync\u201d section. Enter the external space\u2019s URL and choose username/password or token authentication. Use an account or token permitted to write that space, then inspect the connection status before relying on another device.\n- [3] Single-space mode.** One folder served as one space, authenticated by a single set of environment-variable credentials \u2014 see [[#Single-space mode]]."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

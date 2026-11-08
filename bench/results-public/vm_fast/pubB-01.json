@@ -1,0 +1,20 @@
+{
+ "id": "pubB-01",
+ "type": "single",
+ "answer": "Set `config.set(\"sync.documents\", true)` in a Space Lua block. Yes, where matters: sync configuration has to be in the [[CONFIG]] page specifically, and it won't be picked up if set elsewhere. Optionally, use `sync.ignore` (gitignore-style patterns) to exclude certain files, such as PDFs and MP4s.",
+ "tokens": 1155,
+ "seconds": 0.355,
+ "e2e_seconds": 2.99,
+ "source_hits": 1.0,
+ "block": "Memory for: I want PDFs and other attachments to be available offline in the browser client too. What do I set, and does it matter where I set it?\n[1] PWA.md (What the PWA gives you)\n  Limits: Offline startup requires a secure context (HTTPS or localhost), a working service worker and previously cached application code. Plain LAN HTTP runs online-only. See [[TLS#LAN HTTP (no TLS)]]. Installing the PWA does not change these requirements. / Server-backed [[Search]], shell execution, remote sharing and external network APIs require a connection. Local page navigation, editing and queries over the client Object Index can work with cached data. Let the initial sync finish and test the pages and attachments you need before relying on offline access. Browser storage is not a backup.\n[2] Sync.md (Sync)\n  Configuration: You can tweak what files are synced locally via a few `config.*` configuration options. / > **note** Note / > Sync related configuration **need** to be done in the [[CONFIG]] page specifically. If they are configured elsewhere they will not be picked up. / By default all your pages are synced, but [[Document]] are not. They are fetched on demand. If you would also like to sync documents (so you can access them when offline), you can do so by setting the following in a Space Lua block in [[CONFIG]]: / config.set(\"sync.documents\", true) / In addition, you can fine-tune what files you do _not_ want to sync using [gitignore](https://git-scm.com/docs/gitignore) pattern syntax assigned to the `sync.ignore` option, which accepts either a single string, or a list of strings. The space folder\u2019s actual `.gitignore` file is not read: / config.set(\"sync.ignore\", { / -- Don't sync PDFs and MP4 files\n  SilverBullet is designed as an [[ADR/001 Offline-First PWA|Offline-First]] mindset \u2014\u00a0that is: your content should be available to you, whether you have an Internet connection or not. / Depending on the edition of SilverBullet that you use, Sync functions slightly differently. When you use the **Server** directly via the browser, your content will be synced to your browser\u2019s local storage (IndexedDB). After an online load and initial sync, cached pages can be read and edited without a connection. Edits reconcile when the Server is reachable again. Documents have separate caching settings below. / [[Desktop]] spaces can _optionall ...\n[3] ADR/001 Offline-First PWA.md (Context)\n  Context: SilverBullet aims to be **offline-first**: it should keep working with no network and feel instant. While we may reach a point in the state of the world some day where Internet connectivity is always available, we\u2019re not there yet. You should be able to access your notes even when you\u2019re in the middle of a dessert, top of a mountain, or 10km deep in the sea. For that, the client keeps a full local copy of your [[Space]] files and keeps working when the server is unreachable. (This offline-first stance later drove the v2 decision to run *all* application logic in the client \u2014 see [[ADR/007 Core Application Logic on the Client]].)\nExact facts:\n- [1] SilverBullet Server\u2019s browser client is a [Progressive Web App](https://web.dev/progressive-web-apps/) (PWA). It can be installed in a standalone window and can read and edit cached content offline. [[Desktop]] is the native application, with files stored in local folders.",
+ "meta": {
+  "notes": [
+   "PWA.md",
+   "Sync.md",
+   "ADR/001 Offline-First PWA.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

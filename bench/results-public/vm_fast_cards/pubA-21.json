@@ -1,0 +1,21 @@
+{
+ "id": "pubA-21",
+ "type": "verbatim",
+ "answer": "Use `:latest-slim`. It points to the latest release without Chromium or the runtime API, and a specific version works too with `-slim` appended, such as `:2.11.0-slim`.",
+ "tokens": 1427,
+ "seconds": 0.453,
+ "e2e_seconds": 2.81,
+ "source_hits": 1.0,
+ "block": "Memory for: Which Docker tag gives me the latest release without the bundled Chromium?\n[1] Development.md (Stack)\n  Docker: Multi-arch (amd64 + arm64 + arm/v7) Docker images are published to Docker Hub and the GitHub Container Registry. The **edge** channel is rebuilt on every push to `main`. **Stable** images come from git tags: / * `zefhemel/silverbullet:edge` (also `:v2`) / `:latest` + `:X.Y.Z` \u2014 the server with Chromium for the server-side Lua runtime (`/.runtime/*`). The old `-runtime-api` tags remain as compatibility aliases. / * `\u2026:edge-slim` / `:latest-slim` + `:X.Y.Z-slim` \u2014 the smaller server image without Chromium or the runtime API. / There is no `:v2-slim` alias. Deployments moving from the legacy `:v2` image to slim should use `:edge-slim`. / Both images are mirrored to `ghcr.io/silverbulletmd/silverbullet` under the same tags. / To run one: / ```shell / docker run -p 3000:3000 -v <PATH-TO-YOUR-DATA-FOLDER>:/data zefhemel/silverbullet:edge / ```\n  - The :edge-slim, :latest-slim, and :X.Y.Z-slim tags are the smaller server image without Chromium or the runtime API.\n  - The zefhemel/silverbullet:edge image (also :v2), :latest, and :X.Y.Z tags contain the server with Chromium for the server-side Lua runtime (/.runtime/*).\n[2] Install/Docker.md (Release channels)\n  - The smaller SilverBullet image without Chromium is selected with :edge-slim instead of :edge or legacy :v2, with :latest-slim instead of :latest, or by appending -slim to a version such as :2.11.0-slim.\n  Release channels: Every release version of SilverBullet is tagged with its version number, but there are two release channels you can use: / * `:latest` always points to the latest _release_. / * `:edge` always points to the latest _edge build_ (the last commit to `main`). / The default image includes Chromium and enables the [[Runtime API]]. For the smaller image without Chromium, use `:edge-slim` instead of `:edge` or legacy `:v2`, `:latest-slim` instead of `:latest`, or append `-slim` to a version such as `:2.11.0-slim`.\n  - To upgrade with Docker Compose, the version in compose.yml is changed unless the tag is :latest, :edge or legacy :v2, and then docker compose pull, docker compose stop and docker compose up -d are run.\n  - The Docker Compose example runs the image ghcr.io/silverbulletmd/silverbullet:latest with the volume ./data:/data, the port mapping 3000:3000 and restart policy unless-stopped.\n[3] CHANGELOG.md (CHANGELOG)\n  2.11.0: * **New [[Page Decorations|page decorations]]:** `icon` gives a page its own (Feather) icon in views, auto complete, page links, and the top bar, `tree.priority` floats a page above its siblings in the otherwise alphabetical space tree, and `tree.hide` keeps a page out of the tree alone. `hide` now also hides a page from the tree, not just from the page picker and completions. / * Docker images: / * Default images (`:latest`, `:edge` now default to have the runtime API enabled, and are larger due to including a Chromium build, use the new `:latest-slim` and `:edge-slim` images for the v ...\nExact facts:\n- [1] Run the server in development with `cargo run`. A **debug** build serves the client bundle **live from `client_bundle/` on disk** (a release build embeds it). Use `SB_DISABLE_SERVICE_WORKER=1` so the service worker doesn\u2019t cache stale assets:\n- [2] docker pull ghcr.io/silverbulletmd/silverbullet:latest\n- [3] _These changes are available from the [edge builds](https://github.com/silverbulletmd/silverbullet/releases/tag/edge)_",
+ "meta": {
+  "notes": [
+   "Development.md",
+   "Install/Docker.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

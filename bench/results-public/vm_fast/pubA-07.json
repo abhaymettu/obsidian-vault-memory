@@ -1,0 +1,22 @@
+{
+ "id": "pubA-07",
+ "type": "single",
+ "answer": "Marking a custom state as finished (via `done = true` in `taskState.define`) only affects whether the `Task: Remove Completed` command treats it as \"done.\" The `done` option is otherwise used mainly for code completion, and completing tasks doesn't automatically change any attribute on the containing page.",
+ "tokens": 1303,
+ "seconds": 0.357,
+ "e2e_seconds": 2.27,
+ "source_hits": 1.0,
+ "block": "Memory for: When I define my own task state like IN PROGRESS, what does marking it as finished actually affect?\n[1] Task.md (Custom states)\n  Custom states: Tasks support the default `x` and ` ` states (done and not done), but custom states as well. Support for this is still basic, however. / Example: / * [NOT STARTED] Choose a photo-walk route / * [IN PROGRESS] Charge camera battery / Restrictions: / * Task states cannot contain `:` to avoid ambiguity with [[Attribute]] syntax. / To define custom states explicitly (and get code completion for them), use the [[API/taskState]] API.\n  The task notation syntax is a [[Markdown]] extension to write down tasks. / Its most basic form is: / * [ ] This is my first task / which renders as follows: / * [ ] This is my first task / In a writable space, click a checkbox to change whether the task is complete. Checkboxes in these read-only docs cannot be changed.\n[2] API/taskState.md (API)\n  taskState.define(def): Defines a custom task state. Options: / * `name`: name of the state / * `done`: whether or not the state should be considered \u201cdone\u201d or not, used by the `Task: Remove Completed` command / Primarily used to offer code completion for custom task states for now.\n  Example: Install these definitions in a `space-lua` block in your own space and reload them: / ```lua / taskState.define { / name = \"TO DO\" / } / taskState.define { / name = \"IN PROGRESS\" / } / taskState.define { / name = \"DONE\", / done = true / } / ``` / Use: / * [TO DO] Still to do / * [DONE] Task already completed\n[3] Markdown/Basics.md (Basic markup)\n  Lists and tasks: When you click the checkbox, it will toggle its state and replace the ` ` inside the box with `x`. SilverBullet also supports custom task statuses by putting text in between `[` and `]`. When you click on such custom task states, it cycles through the states configured in your space using [[API/taskState]]. See [[Task#Custom states]]: / * [IN PROGRESS] This task is in progress / * [DONE] This task is done / * [TO DO] This task is still to be done\n[4] Guide/Task Management.md (Write tasks where they belong)\n  Write tasks where they belong: Add a task to the page where its context is described. Type `* [ ]` followed by the task text, or use `/task` on a line. Click its checkbox to complete it. [[Task]] explains task states and editing commands. / A page\u2019s status is separate from task completion. Completing every task does not automatically change an attribute on the containing page.\n[5] Tag/data.md (data)\n  Defining your own root tags: Use a hashtag as the block\u2019s language, and every object in it gets that name as its [[Tag#Root tags|root tag]]. This is how you define a new kind of object in plain Markdown: / ```#contact / $ref: pete-contact / name: Pete / age: 55 / ``` / These objects can be queried via the `contact` tag: / ${query[[from index.objects(\"contact\")]]} / Built-in tag names are taken: a ` ```#task ` block would look like a real task, so it is not indexed, and lint flags it.\nExact facts:\n- [2] APIs to define [[Task#Custom states]].\n- [3] SilverBullet also supports a variant of the unordered list item to define task. Tasks are defined using the `* [ ] Task name` syntax:\n- [4] Every task already has the built-in `task` tag. Page tags and attributes describe the page. Use task-level fields when the value belongs to an individual action. See [[Attribute]], [[Markdown/Hashtags#Scope rules]] and [[Tag/task]] for syntax and available fields.\n- [4] 2. Filter `done` **is false** to show unfinished tasks.",
+ "meta": {
+  "notes": [
+   "Task.md",
+   "API/taskState.md",
+   "Markdown/Basics.md",
+   "Guide/Task Management.md",
+   "Tag/data.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

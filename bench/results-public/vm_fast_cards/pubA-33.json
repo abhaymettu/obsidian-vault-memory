@@ -1,0 +1,20 @@
+{
+ "id": "pubA-33",
+ "type": "multi",
+ "answer": "SilverBullet defaults to `full-path`, so links it generates (auto complete, rename backlink rewriting) keep spelling out the whole path unless you set `linkWriteFormat` to something else.",
+ "tokens": 1312,
+ "seconds": 0.406,
+ "e2e_seconds": 2.84,
+ "source_hits": 1.0,
+ "block": "Memory for: Since the change to resolve links by name, which link writing format does SilverBullet use if I never set one?\n[1] CHANGELOG.md (CHANGELOG)\n  2.11.0: * **[[Link|Wiki links]] now resolve by page name, not just by full path (think: Obsidian compatibility).** A `[[Note]]` link resolves to `some/folder/Note` when that name is unique in the space, matching how Obsidian resolves links, so an Obsidian-authored space works in SilverBullet without rewriting every link. See [[ADR/011 Link Resolution by Name]] for reasoning. The `linkWriteFormat` option decides how SilverBullet writes the links it generates (auto complete, rename backlink rewriting), it defaults to `full-path`, so generated links keep spelling out the whole path. / * Links to [[Virtual Pages]] now appear as valid links and no longer count as aspiring pages when their names match a registered pattern.\n[2] Link.md (Internal links)\n  Link write format: The `linkWriteFormat` option in your [[CONFIG]] controls how SilverBullet writes wiki links _it_ generates (through auto complete, and the backlink rewriting that happens when you rename a page). It has no effect on [[#Link resolution|resolution]]: all formats resolve identically, so a space mixing them works fine. / Options: / * `full-path` (the default): always write the full path. / * `shortest`: write the bare page name when that name is unique in the space, and the full path when it is not. / * `shortest-suffix`: like `shortest`, but when the name collides, write the shortest path suffix that still uniquely identifies the page (`api/Auth` rather than `docs/api/Auth`) \u2014 so even disambiguated links stay independent of where the space root sits. / ```lua / config.set(\"linkWriteFormat\", \"shortest\") / ```\n[3] ADR/011 Link Resolution by Name.md (Context)\n  - An architecture decision record describing how SilverBullet resolves wiki links by name, path suffix and ambiguity, so that Obsidian-style links work, along with the Link write format configuration option. Names: SilverBullet, Obsidian, linkWriteFormat, Link write format, shortest, shortest-suffix, full-path, absolute, docs/api/Auth, api/Auth, image.png, https://community.silverbullet.md/t/smart-filename-path-resolve/2453.\n  Context: SilverBullet from day 1 has resolved `[[wiki links]]` as absolute, case-sensitive paths from the space root. Other tools, notably Obsidian, works differently: Obsidian resolves a bare `[[Note]]` by case-insensitive name lookup across the whole vault (Obsidian speak for Space), and its default link format *writes* bare names wherever they are unique. Two problems followed: / 1. **Obsidian interop:** An Obsidian-authored vault is full of links SilverBullet could not resolve, blocking a docs-as-code use case where one team mixes both tools on the same repo. The incompatibility was one-directional: SilverBullet\u2019s absolute links resolve fine in Obsidian. / 2. **Root dependence:** A full path link encodes where the space root is. Open the same folder one level higher (not that uncommon in the docs-as-code us ...\nExact facts:\n- [1] _These changes are available from the [edge builds](https://github.com/silverbulletmd/silverbullet/releases/tag/edge)_\n- [1] [[Workbench/Maintenance]]: find broken links, conflicts, and other problems in your space.\n- [1] Related Pages and [[Linked Mention|Linked Mentions]] show compact, formatted excerpts with clickable links. Space Lua widgets can use the same renderer through `widget.markdownSummary` (see [[API/widget]]).",
+ "meta": {
+  "notes": [
+   "CHANGELOG.md",
+   "Link.md",
+   "ADR/011 Link Resolution by Name.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

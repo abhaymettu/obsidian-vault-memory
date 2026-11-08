@@ -1,0 +1,19 @@
+{
+ "id": "pubB-16",
+ "type": "multi",
+ "answer": "Not in memory.",
+ "tokens": 820,
+ "seconds": 0.006,
+ "e2e_seconds": 2.97,
+ "source_hits": 0.5,
+ "block": "## The MCP tool that runs Lua in a live space depends on another server feature. What actually executes that code, and where does a multi-space admin switch it on?\n\n--- [vault:corpus/docs/HTTP API.md] ---\n### Accounts (multi-space mode)\n\n# Accounts (multi-space mode)\nIn [[Dashboard|multi-space mode]] every account carries a profile \u2014 a display name and email, used for attribution \u2014 alongside its login credentials. These live under the `/.dashboard` prefix and require the session cookie described in [[Dashboard#Dashboard access]].\n\n* `GET /.dashboard/api/profile`: The caller\u2019s own profile: `{\"username\", \"admin\", \"fullName\", \"email\"}`. `fullName`/`email` are `null` until set. `401` without a session.\n* `PUT /.dashboard/api/profile`: Sets the caller\u2019s own profile. Body: `{\"fullName\": string, \"email\": string}`. The username always comes from the session \u2014 there is no way to address another account through this endpoint. An empty string clears a field. `400` with `{\"errors\":[{\"field\", \"message\"}]}` if a value contains `<`, `>`, a line break, or (for `email`) whitespace.\n* `POST /.dashboard/api/admin/users` (admin only): Creates an account. Body: `{\"username\", \"password\", \"admin\", \"fullName\", \"email\"}` \u2014 `fullName`/`email` are optional, validated the same way.\n* `PUT /.dashboard/api/admin/users/<name>/profile` (admin only): Sets another account\u2019s profile. Same body and validation as `PUT /.dashboard/api/profile`.\n\n--- [vault:corpus/docs/MCP.md] ---\n### Untitled\n\nSilverBullet can act as an [MCP](https://modelcontextprotocol.io) (Model Context Protocol) server, so AI assistants can read, write, query and pimp up your spaces.\n\nMCP is available in [[Dashboard|multi-space mode]] and in [[Desktop]]. The endpoint is `/.mcp` on your server, for example `https://notes.example.com/.mcp`. A single-space server does not serve it. On a server it is off by default: an admin turns it on in the APIs tab of the [[Dashboard]].",
+ "meta": {
+  "engine_seconds": 0.005982833000000028,
+  "sources": [
+   "vault:corpus/docs/HTTP API.md",
+   "vault:corpus/docs/MCP.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

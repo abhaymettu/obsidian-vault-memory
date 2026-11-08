@@ -1,0 +1,22 @@
+{
+ "id": "pubB-45",
+ "type": "verbatim",
+ "answer": "The data objects are tagged `#meta/library/remote`. Each one has a `name` and a `uri` attribute, and the repository page itself is tagged `#meta/repository`.",
+ "tokens": 1325,
+ "seconds": 0.413,
+ "e2e_seconds": 2.61,
+ "source_hits": 1.0,
+ "block": "Memory for: Which tag marks the data objects inside a repository page that point at installable libraries?\n[1] Repository.md (Repository)\n  - Repositories are implemented as Meta Pages tagged with #meta/repository that contain Tag/data data objects tagged with #meta/library/remote.\n  - The #meta/library/remote data objects have a name attribute and a uri attribute.\n  - Repositories are a collection of pointers to Libraries to install.\n[2] Library/Development.md (Decorate your library with frontmatter)\n  Create a repository: If you develop a few libraries, it may be good to make them more discoverable. To do so, you can group them in a [[Repository|Repository]]. / For this, create another page in your space, this time under `Repository/`, e.g. `Repository/myuser` and tag it with `#meta/repository`. / In the page body, put a list of all your libraries, encoded as [[Tag/data|data objects]] as follows: / --- / tags: meta/repository / --- / This is my curated list of awesome libraries! / ```#meta/library/remote / name: Library1 / description: This is my first awesome library / website: http://url.com/to/docs / uri: https://github.com/myuser/silverbullet-libraries/blob/main/Library1.md / --- / name: Library2 / description: This is my second awesome library / uri: https://github.com/myuser/silverbullet-libraries/blob/main/Library2.md / ``` / Required keys are: / * `name`: a descriptive name of your library. / **Note**: this name is _not_ used as an installation location, the installation location is determined by the `name` key in the library itself.\n  - A repository page is created under Repository/, for example Repository/myuser, and tagged #meta/repository.\n[3] API/share.md (API)\n  share.isManaged(name, text): Returns true for pages tagged `meta/library` or `meta/repository` (installed libraries and repositories), whose remote is the source of truth: a `pull` of such a page overwrites local changes without asking when the page has no `share.hash` (when it has one, a page changed since asks first).\n[4] Tag.md (Root tags)\n  - The data root tag marks objects defined in fenced YAML data blocks.\n  Root tags: A root tag maps an object to a Markdown element or a file. Every root tag also accepts user tags. / * [[Tag/data|data]]: Objects defined in fenced YAML data blocks. / * [[Tag/document|document]]: Every non-Markdown file in your space: images, PDFs, attachments. / * [[Tag/header|header]]: Markdown headings. / * [[Tag/item|item]]: Bullet and numbered list items. / * [[Tag/page|page]]: Every page in your space. / * [[Tag/paragraph|paragraph]]: Top-level paragraphs that carry a hashtag or anchor. / * [[Tag/table|table]]: Rows of Markdown tables. / * [[Tag/task|task]]: Checkbox list items, including their completion state. / You can also define root tags of your own, using a fenced [[Tag/data|data block]] with a hashtag as its language: / ~~~ / ```#contact / name: Sam Rivera / ``` / ~~~\nExact facts:\n- [1] By default, SilverBullet ships with two repositories: [[^Repositories/Std]] with a curated selection of community libraries, and [[^Repositories/SilverBulletMD]] with optional libraries maintained by the SilverBullet project. More can be installed via the [[Workbench/Libraries|Library Manager]].\n- [1] Repositories are implemented on top of a few SilverBullet mechanisms, specifically they are simply [[Meta Page|Meta Pages]] tagged with `#meta/repository` that contain [[Tag/data|data objects]] tagged with `#meta/library/remote` with a `name` and `uri` attribute. Libraries are kept up to date using ",
+ "meta": {
+  "notes": [
+   "Repository.md",
+   "Library/Development.md",
+   "API/share.md",
+   "Tag.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

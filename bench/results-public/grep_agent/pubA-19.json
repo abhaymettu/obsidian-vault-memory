@@ -1,0 +1,22 @@
+{
+ "id": "pubA-19",
+ "type": "verbatim",
+ "answer": "`SB_SEARCH_DIR` is the variable. It points to a writable folder outside the space where the server keeps its full-text search index, so the index isn't rebuilt at every start. If it's unset, the index stays in memory. This is described in `Install/Configuration.md` and `Search.md`.",
+ "tokens": 730,
+ "seconds": 3.603,
+ "e2e_seconds": 3.6,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3698,
+  "final_context": 4405,
+  "billed_input": 8103,
+  "turns": 2,
+  "cost_usd": 0.0077302000000000004,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"SB_[A-Z_]*(INDEX|FTS|SEARCH)[A-Z_]*\", \"output_mode\": \"content\", \"-i\": true, \"head_limit\": 20}\nInstall/Configuration.md:37:* `SB_INDEX_PAGE` *(legacy)*: Sets the default page to load, defaults to `index`. Prefer the per-space **Index page** setting in the [[Dashboard]] (**Space settings \u2192 General**).\nInstall/Configuration.md:39:* `SB_SEARCH_DIR`: A writable folder outside the space where search keeps its full-text index (so it is not rebuilt at every start) and, with `SB_SEARCH_MODEL`, the model and the semantic index. The space folder may stay read-only. Unset (the default), the index is kept in memory. Use one folder per server. See [[Search]].\nInstall/Configuration.md:40:* `SB_SEARCH_MODEL`: Adds semantic search with this model: `granite-embedding-97m-multilingual-r2` (recommended, about 220 MB) or `multilingual-e5-small` (about 488 MB). Requires `SB_SEARCH_DIR`. The model is downloaded on first start. See [[Search]].\nSearch.md:44:* On a single-space server, in memory and rebuilt at every start, or in `SB_SEARCH_DIR` when it is set (see [[#Single-space servers]]).\nSearch.md:65:Set `SB_SEARCH_DIR` to a writable folder outside your space to persist search indexes. Without it, full-text search runs in memory and rebuilds on startup. To enable semantic search, also set `SB_SEARCH_MODEL` to one of the model IDs above. Model files are stored in the search directory. Restart the server after changing these environment variables. See [[Install/Configuration]]."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

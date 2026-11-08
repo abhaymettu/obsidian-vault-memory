@@ -1,0 +1,21 @@
+{
+ "id": "pubA-04",
+ "type": "single",
+ "answer": "`encoding.urlDecode(encoded)` returns the malformed input unchanged if you give it a broken escape sequence. It otherwise behaves like JavaScript's `decodeURIComponent`. This is documented in `API/encoding.md`.",
+ "tokens": 901,
+ "seconds": 3.805,
+ "e2e_seconds": 3.8,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3691,
+  "final_context": 4576,
+  "billed_input": 8267,
+  "turns": 2,
+  "cost_usd": 0.0077973,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"urlDecode|decodeURI|percent\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 30}\nAPI/os.md:26:- `%%`: literal percent sign\nAPI/encoding.md:6:The `encoding` namespace converts between strings, byte buffers, Base64, URL percent-encoding, and UTF-8.\nAPI/encoding.md:35:## encoding.urlDecode\nAPI/encoding.md:36:`encoding.urlDecode(encoded)`\nAPI/encoding.md:38:Decodes a percent-encoded string, like JavaScript\u2019s decodeURIComponent. Malformed input is returned unchanged.\nAPI/encoding.md:51:Percent-encodes a string as UTF-8, like JavaScript\u2019s encodeURIComponent.\nAPI/sbShare.md:23:Builds the share URI of a page in a space: the space URL without trailing slashes, then the page name percent-encoded except for `/`, e.g. `sbShare.pageUri(\"https://h/notes/\", \"Caf\u00e9 Plan\")` is `https://h/notes/Caf%C3%A9%20Plan`.\nAPI/editor.md:846:`editor.showProgress(progressType, progressPercentage?)`\nAPI/editor.md:853:- `progressPercentage?` (`number`) \u2014 Completion percentage, or undefined to hide the indicator.\nSpace Lua/Integrated Query/Aggregating.md:165:Ordered-set aggregates such as `quantile`, `percentile_cont`, and `percentile_disc` require an intra-aggregate `order by` clause to produce correct results, as they depend on the iteration order of input values. Without `order by`, results are undefined.\nDocument.md:44:* Specifying a percentage width: `![Alt text|30%](image.png)` or `![[image.png|30%]]`\nDocument.md:45:* Combining a percentage width with a pixel height: `![Alt text|30%x200](image.png)` or `![[image.png|30%x200]]`\nDocument.md:47:Numeric dimensions are in pixels. Percentage widths are relative to the containing content area and resize with it, rather than being a percentage of the image\u2019s original size. Decimal percentages such as `12.5%` are supported. Specifying only a width preserves the image\u2019s proportions. Specifying both dimensions can stretch it. Height must be in pixels. Percentage heights are not supported."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

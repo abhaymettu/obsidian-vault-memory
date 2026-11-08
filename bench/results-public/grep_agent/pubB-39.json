@@ -1,0 +1,22 @@
+{
+ "id": "pubB-39",
+ "type": "verbatim",
+ "answer": "`--tone-danger-soft` is the CSS variable for the soft danger background in Space Style. The `-soft` variants are meant for backgrounds, and the example in `Space Style.md` uses `background: var(--tone-danger-soft);`.",
+ "tokens": 318,
+ "seconds": 3.729,
+ "e2e_seconds": 3.73,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3686,
+  "final_context": 3993,
+  "billed_input": 7679,
+  "turns": 2,
+  "cost_usd": 0.006357400000000001,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"danger.*(subtle|soft|bg|background)\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 30}\nSpace Style.md:44:SilverBullet defines six tones as CSS variables, with values for the light and the dark theme: `--tone-success`, `--tone-warning`, `--tone-danger`, `--tone-info`, `--tone-neutral` and `--tone-accent`. Each has a `-soft` variant for backgrounds (for example `--tone-danger-soft`). Your own styles can use them to stay readable in both themes:\nSpace Style.md:49:  background: var(--tone-danger-soft);"
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,22 @@
+{
+ "id": "pubB-12",
+ "type": "single",
+ "answer": "Yes. If nothing is spelled `note` exactly, the link falls back to a case-insensitive lookup, so `[[note]]` finds the page called `Note`.",
+ "tokens": 1244,
+ "seconds": 0.424,
+ "e2e_seconds": 2.4,
+ "source_hits": 1.0,
+ "block": "Memory for: If I link [[note]] and the only page is called Note with a capital N, does the link still work?\n[1] Names.md (Rules)\n  - The link [[note]] finds a page called Note, and the link [[project/notes]] finds project/Notes.\n  Case sensitivity: Names keep the case you give them, and an exactly matching name always wins when a [[Link|link]] is resolved. But a link that matches nothing exactly falls back to a case-insensitive lookup across the space \u2014 by name for a bare link, by path suffix for a qualified one \u2014 so `[[note]]` finds a page called `Note`, and `[[project/notes]]` finds `project/Notes`. See [[Link#Link resolution]].\n[2] Link.md (Internal links)\n  Link resolution: So `[[Note]]` finds `some/folder/Note` when that is the only page named `Note`, `[[note]]` finds `Note` when nothing is spelled `note` exactly, and `[[api/Auth]]` finds `docs/api/Auth` when no other path ends in `api/Auth`. / Suffix matching is what makes links independent of where the space root sits: open a space at the _parent_ of the folder it was authored in, and both its bare links and its path-qualified ones keep resolving, because neither encodes the root. / Because an exact match always wins, a page at the space root beats a page in your own folder: with both `Config` and `docs/api/Config` in the space, a `[[Config]]` written on `docs/api/Auth` resolves to the root-level `Config`. Such a link is *not* flagged as ambiguous \u2014 its text is already the full path of the page it finds, so there is nothing you could write instead.\n[3] CHANGELOG.md (CHANGELOG)\n  - Version 2.11.0 makes wiki links resolve by page name, so a `[[Note]]` link resolves to `some/folder/Note` when that name is unique in the space, as Obsidian does, and the `linkWriteFormat` option defaults to `full-path`.\n  2.11.0: * **[[Link|Wiki links]] now resolve by page name, not just by full path (think: Obsidian compatibility).** A `[[Note]]` link resolves to `some/folder/Note` when that name is unique in the space, matching how Obsidian resolves links, so an Obsidian-authored space works in SilverBullet without rewriting every link. See [[ADR/011 Link Resolution by Name]] for reasoning. The `linkWriteFormat` option decides how SilverBullet writes the links it generates (auto com ...\n[4] Tag/relation.md (relation)\n  - The deprecated `index.links()` and `index.objects(\"link\")` still work, but they return a view over relations of kind `mention` in the old link format.\n[5] Tag/ambiguous-link.md (ambiguous-link)\n  An `ambiguous-link` object records a [[Link|link]] whose name lookup matches more than one page in the space \u2014 a bare name carried by several pages, or a path-qualified link that is the suffix of several paths \u2014 with no exact match among them. The link still resolves \u2014 see [[Link#Ambiguous links]] for the ranking that picks the winner \u2014 but which page it means depends on where it is written, so each occurrence is indexed for you to find and disambiguate. A link that matches a page exactly is never recorded here: its text is already that page\u2019s full path.\nExact facts:\n- [1] Certain HTTP reverse proxies may block \u201csuspicious\u201d characters (such as `?`, `#` and `;`) by default, including Traefik, [see this thread](https://community.silverbullet.md/t/traefik-proxied-setups-block-page-names-with-fix/3724/2) on how to work around this.",
+ "meta": {
+  "notes": [
+   "Names.md",
+   "Link.md",
+   "CHANGELOG.md",
+   "Tag/relation.md",
+   "Tag/ambiguous-link.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

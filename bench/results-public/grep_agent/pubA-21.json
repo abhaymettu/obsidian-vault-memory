@@ -1,0 +1,22 @@
+{
+ "id": "pubA-21",
+ "type": "verbatim",
+ "answer": "Use `zefhemel/silverbullet:latest-slim`. It is the latest release without Chromium or the runtime API. For a specific version, append `-slim`, for example `:2.11.0-slim`. For the newest development build, use `:edge-slim`. This is from `Install/Docker.md` and `Development.md`.",
+ "tokens": 1139,
+ "seconds": 4.034,
+ "e2e_seconds": 4.03,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3683,
+  "final_context": 4814,
+  "billed_input": 8497,
+  "turns": 2,
+  "cost_usd": 0.008519800000000001,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"chromium\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 30}\nDevelopment.md:98:* `zefhemel/silverbullet:edge` (also `:v2`) / `:latest` + `:X.Y.Z` \u2014 the server with Chromium for the server-side Lua runtime (`/.runtime/*`). The old `-runtime-api` tags remain as compatibility aliases.\nDevelopment.md:99:* `\u2026:edge-slim` / `:latest-slim` + `:X.Y.Z-slim` \u2014 the smaller server image without Chromium or the runtime API.\nHTTP API.md:91:Enabled when Chrome/Chromium is available and runtime access is permitted. In single-space mode, `SB_RUNTIME_API=0` disables it. In multi-space mode, use the administrator\u2019s APIs controls and per-writer Runtime API permission. See [[Runtime API]] for full documentation, setup instructions, and examples.\nInstall/Docker.md:21:The default image includes Chromium and enables the [[Runtime API]]. For the smaller image without Chromium, use `:edge-slim` instead of `:edge` or legacy `:v2`, `:latest-slim` instead of `:latest`, or append `-slim` to a version such as `:2.11.0-slim`.\nInstall/Configuration.md:19:* `SB_CHROME_PATH`: Optional explicit path to the Chrome, Chromium, or headless-shell binary. Falls back to the `CHROMIUM_PATH` environment variable (pre-set in the default Docker image), then auto-detection, which prefers headless shell on `PATH`.\nInstall/Configuration.md:20:* `SB_CHROME_SHOW`: Set to any non-empty value to run Chrome with a visible window instead of headless (useful for debugging). Requires full Chrome/Chromium. Auto-detection skips headless shell in this mode.\nCHANGELOG.md:154:  * Default images (`:latest`, `:edge` now default to have the runtime API enabled, and are larger due to including a Chromium build, use the new `:latest-slim` and `:edge-slim` images for the version without Chromium)\nCLI.md:100:Runtime commands may take a few seconds on first use while the [[Runtime API]] starts its headless client. `sb help`, `sb fs` (except `fs read --rendered`, and the script reload after a write), `sb search` and `sb related` work without the Runtime API or Chromium.\nPWA.md:16:* **Chrome / Edge / Chromium-based**: Click the install icon in the address bar, or use the browser menu to \u201cInstall SilverBullet\u201d\nLog.md:7:  * In Chromium-based browsers these logs are mixed with the regular JavaScript console.\nRuntime API.md:18:The Runtime API is enabled automatically when Chrome, Chromium, or Chromium headless shell is detected on your system \u2014 no configuration needed. Auto-detection prefers headless shell when it is available on `PATH`.\nRuntime API.md:22:SB_CHROME_PATH=/usr/bin/chromium"
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,21 @@
+{
+ "id": "pubB-20",
+ "type": "multi",
+ "answer": "The broken-links check in the Workbench's Maintenance tab is fed by the `aspiring-page` index object type (pages that are linked to but don't exist yet). An entry drops off the list when you create the target page, since that removes its aspiring-page entries. The records are also rebuilt whenever the source page is re-indexed (source: `Tag/aspiring-page.md`).",
+ "tokens": 1056,
+ "seconds": 4.67,
+ "e2e_seconds": 4.67,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3694,
+  "final_context": 4731,
+  "billed_input": 12691,
+  "turns": 3,
+  "cost_usd": 0.0095333,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"broken.link\", \"-i\": true, \"output_mode\": \"content\"}\nTag/aspiring-page.md:10:Internally SilverBullet uses these in the [[Workbench/Maintenance]] tab (as broken links), page complete and the page picker (to hint at pages to still be created).\nCHANGELOG.md:14:  * [[Workbench/Maintenance]]: find broken links, conflicts, and other problems in your space.\nMarkdown/Anchor.md:59:Anchor names must be **globally unique** within your [[Space]]. Editor-based linting will highlight broken links, and multiple anchors in the same object. The contract is enforced by lint, not by the indexer \u2014 when duplicates briefly exist (for instance, while you are renaming one), both stay indexed and lint surfaces the issue at edit time.\nWorkbench.md:18:* [[Workbench/Maintenance|Maintenance]]: problems in your space, such as broken links, failed scripts, merge conflicts and (on demand) lint errors.\nWorkbench/Maintenance.md:2:description: \"Find broken links, script failures, merge conflicts and space-wide lint errors.\"\nWorkbench/Maintenance.md:11:* **Broken links:** links to pages that don\u2019t exist yet ([[Tag/aspiring-page|aspiring pages]]).\nLibrary.md:30:* Useful pages that help you look after your space. For broken links and other diagnostics, see the [[Workbench/Maintenance]] tab.\n{\"file_path\": \"corpus/docs/Tag/aspiring-page.md\"}\n1\t---\n2\tdescription: \"Pages that are linked to but do not exist yet.\"\n3\ttagKind: index\n4\treferences:\n5\t- plugs/index/relation.ts\n6\t- client/data/object_index.ts\n7\t---\n8\t[[Aspiring Pages]] (codified using the `aspiring-page` tag) are pages that are linked to, but not yet created. [[Like this one]].\n9\t\n10\tInternally SilverBullet uses these in the [[Workbench/Maintenance]] tab (as broken links), page complete and the page picker (to hint at pages to still be created).\n11\t\n12\tExample query (lists all aspiring pages in this space, the results depend on the other unresolved links in your space):\n13\t\n14\t${query[[from index.aspiringPages()]]}\n15\t\n16\t## Attributes\n17\t* `name`: unresolved page name.\n18\t* `page`: source page containing the link.\n19\t* `pos`: start of the unresolved link.\n20\t* `ref`: reference identifying that occurrence.\n21\t\n22\tRecords are rebuilt when the source page is indexed. Creating the target page removes its aspiring-page entries.\n23\t"
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

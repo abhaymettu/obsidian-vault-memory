@@ -1,0 +1,22 @@
+{
+ "id": "pubB-23",
+ "type": "multi",
+ "answer": "The docs say to start with [[Workbench/Console]], which is the combined Lua, JavaScript, plug and service-worker log. The memory doesn't say how much history it keeps, so that part is not in memory.",
+ "tokens": 1217,
+ "seconds": 0.383,
+ "e2e_seconds": 2.63,
+ "source_hits": 0.5,
+ "block": "Memory for: Where do the docs say to look first for SilverBullet logs, and how much history does that place keep?\n[1] Log.md (Log)\n  To better understand what SilverBullet is doing, especially when [[Troubleshooting]], it is good to know where and how to look at SilverBullet logs. / Start with [[Workbench/Console]] for the combined Lua, JavaScript, plug and service-worker log. For lower-level diagnostics, open your browser\u2019s JavaScript console. / * Client logs: Check your browser\u2019s JavaScript console. Usually these are part of \u201c(Web) Developer Tools\u201d buried somewhere in a Tools or Developer menu. / * Service worker logs (especially useful when debugging [[Sync]] issues): / * In Chromium-based browsers these logs are mixed with the regular JavaScript console. / * In Firefox start at `about:debugging#/runtime/this-firefox` then find it under the Service Worker section and click \u201cInspect\u201d. / * In Safari they can be accessed via `Developer > Service workers`. / * Server logs: Server logs are written to the standard output of the server process.\n[2] Revisions.md (Browsing history)\n  SilverBullet can automatically keep a full revision history of your [[Space]] backed by a [Git](https://git-scm.com/) repository.\n[3] ADR/001 Offline-First PWA.md (Context)\n  Context: SilverBullet aims to be **offline-first**: it should keep working with no network and feel instant. While we may reach a point in the state of the world some day where Internet connectivity is always available, we\u2019re not there yet. You should be able to access your notes even when you\u2019re in the middle of a dessert, top of a mountain, or 10km deep in the sea. For that, the client keeps a full local copy of your [[Space]] files and keeps working when the server is unreachable. (This offline-first stance later drove the v2 decision to run *all* application logic in the client \u2014 see [[ADR/007 Core Application Logic on the Client]].)\n[4] Getting Started.md (What\u2019s next?)\n  Choose a guide for what you want to do: write pages, connect information, add attributes, build a query or customize your space. / These guides assume you have a [[Space]] in [[Install/Desktop|SilverBullet Desktop]] or an [[Install|SilverBullet Server]] already. / Start with [[Guide/Reading These Docs|Reading these docs]] \u2014 a basic introduction on how to _read these particular docs_ and the conventions used: / * [[Guide/My First Markdown Page|Your first Markdown page]] \u2014 write a photo-walk plan with headings, bullets and tasks. / * [[Guide/Find and Connect Pages|Find and connect pages]] \u2014 create a linked hiking plan, discover backlinks and explore Graph View. / * [[Guide/Add Structure and Query|Add Structure and Query]] \u2014 tag pages, add attributes and build a live overview in Workbench. / * [[Guide/Make it your own]] \u2014 choose fonts, change shortcuts and discover libraries through Workbench.\n[5] Runtime API.md (Setup)\n  How it works: As documented in [[Architecture]], the vast majority of SilverBullet\u2019s power is implemented in the client. However, there are use cases for program ...\nExact facts:\n- [2] ${widgets.commandButton(\"Revision: Page History\")} lists the current page\u2019s revisions, newest first. Selecting one opens a preview showing the change as a colour-coded diff, switch to **Content** to read the whole page as it was at that point. **Restore** puts that version back into the editor as a ",
+ "meta": {
+  "notes": [
+   "Log.md",
+   "Revisions.md",
+   "ADR/001 Offline-First PWA.md",
+   "Getting Started.md",
+   "Runtime API.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

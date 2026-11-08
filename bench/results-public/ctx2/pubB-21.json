@@ -1,0 +1,19 @@
+{
+ "id": "pubB-21",
+ "type": "multi",
+ "answer": "Install plugs from the Libraries tab of the Workbench (open it with `Libraries: Manager`) using **Install\u2026**, since legacy `plugs:` config entries are ignored. When you give it a plug URI (one ending in `.plug.js`), it also asks where to save it.",
+ "tokens": 808,
+ "seconds": 0.006,
+ "e2e_seconds": 2.49,
+ "source_hits": 1.0,
+ "block": "## Moving from v1, my plugs: config entries no longer do anything. How do I install a plug now, and what extra does the installer ask when I give it a plug URI?\n\n--- [vault:corpus/docs/Migrate from v1.md] ---\n### Plugs\n\n# Plugs\nMany existing plugs _should_ keep working, but some may need updating. Plug installation is now handled in the [[Workbench/Libraries|Libraries]] tab of the Workbench (open with `Libraries: Manager`). Legacy `plugs:` config entries are ignored \u2014 install plugs from the Libraries UI instead.\n\n--- [vault:corpus/docs/Workbench/Libraries.md] ---\n### Untitled\n\nThe Libraries tab manages the [[Library|libraries]] in your space. In a read-only space it only shows what\u2019s there: installing, updating, removing and checking for updates are hidden, with a note saying why (a read-only server doesn\u2019t reach other servers, so there is nothing to check against). It reloads every time you show the tab, so what you see matches your space.\n\n${widgets.commandButton(\"Workbench: Libraries\")} opens this tab in the [[Workbench]].\n\nThe toolbar has:\n\n* **Filter libraries**: narrows installed libraries by name and available ones by name, description and page.\n* **Install\u2026**: asks for a library or plug URI (`https://\u2026` or `github:\u2026`) and installs it. For a plug (a URI ending in `.plug.js`) it also asks where to save it.\n* **Add repository\u2026**: asks for a [[Repository]] URI and the page to put it on, then adds it so its libraries show up under Available.\n* **Check for updates**: compares each installed library and repository with its source, and shows the result beside it (see below).\n* **Update all**: updates every installed library that can be updated, with progress. It only shows when there is something to update.\n\nBelow it are three sections, each with its own error and info banner:\n\n* **Installed**: the libraries you installed, plus plugs that no library brought along. Built-in libraries (on `Library/Std/` pages, or without a share URI) are marked *built-in* and can\u2019t be updated or removed. Libraries in dev mode are marked *dev mode* and are left alone,",
+ "meta": {
+  "engine_seconds": 0.005574332999999967,
+  "sources": [
+   "vault:corpus/docs/Migrate from v1.md",
+   "vault:corpus/docs/Workbench/Libraries.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

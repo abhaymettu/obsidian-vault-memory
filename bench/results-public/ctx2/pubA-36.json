@@ -1,0 +1,19 @@
+{
+ "id": "pubA-36",
+ "type": "multi",
+ "answer": "Not in memory.",
+ "tokens": 462,
+ "seconds": 0.004,
+ "e2e_seconds": 3.46,
+ "source_hits": 0.5,
+ "block": "## To add my own autocomplete suggestions, which event do I hook and which Lua call registers the handler?\n\n--- [vault:corpus/docs/Plugs/Development/Reference.md] ---\n### Hooks > `events`\n\n## `events`\nSubscribes the function to one or more [[Event]] names. Wildcards are supported (e.g. `page:*`). The function receives the event payload.\n\n```yaml\nonPageSaved:\n  path: ./track.ts:onPageSaved\n  events:\n    - editor:pageSaved\n```\n\n```typescript\nimport { editor } from \"@silverbulletmd/silverbullet/syscalls\";\n\nexport async function onPageSaved(pageName: string) {\n  await editor.flashNotification(`Saved ${pageName}`);\n}\n```\n\n--- [vault:corpus/docs/API/event.md] ---\n### event.listen\n\n## event.listen\n`event.listen(listener)`\n\nRegisters a Space Lua listener on the event bus.\n\n**Parameters:**\n\n- `listener` (`table`) \u2014 Listener definition with name and run callback.\n\n**Example:**\n\n```lua\nevent.listen { name = \"my-event\", run = function(e) print(e.data) end }\n```\n<!--/lua-->",
+ "meta": {
+  "engine_seconds": 0.004273292000000027,
+  "sources": [
+   "vault:corpus/docs/Plugs/Development/Reference.md",
+   "vault:corpus/docs/API/event.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

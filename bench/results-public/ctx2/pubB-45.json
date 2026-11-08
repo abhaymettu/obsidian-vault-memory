@@ -1,0 +1,20 @@
+{
+ "id": "pubB-45",
+ "type": "verbatim",
+ "answer": "The data objects are tagged with `#meta/library/remote`. They sit inside a page tagged `#meta/repository` and need a `name` and a `uri` attribute.",
+ "tokens": 1010,
+ "seconds": 0.006,
+ "e2e_seconds": 2.79,
+ "source_hits": 1.0,
+ "block": "## Which tag marks the data objects inside a repository page that point at installable libraries?\n\n--- [vault:corpus/docs/Library/Development.md] ---\n### Create a repository\n\n# Create a repository\nIf you develop a few libraries, it may be good to make them more discoverable. To do so, you can group them in a [[Repository|Repository]].\n\nFor this, create another page in your space, this time under `Repository/`, e.g. `Repository/myuser` and tag it with `#meta/repository`.\n\nIn the page body, put a list of all your libraries, encoded as [[Tag/data|data objects]] as follows:\n\n    ---\n    tags: meta/repository\n    ---\n    This is my curated list of awesome libraries!\n\n    ```#meta/library/remote\n    name: Library1\n    description: This is my first awesome library\n    website: http://url.com/to/docs\n    uri: https://github.com/myuser/silverbullet-libraries/blob/main/Library1.md\n    ---\n    name: Library2\n    description: This is my second awesome library\n    uri: https://github.com/myuser/silverbullet-libraries/blob/main/Library2.md\n    ```\n\nRequired keys are:\n* `name`: a descriptive name of your library.\n  **Note**: this name is _not_ used as an installation location, the installation location is determined by the `name` key in the library itself.\n* `uri`: The URI to install the library from.\n\nAdditional recommended keys are:\n* `description`: a more elaborate description of the library and its functionality\n* `author`: who developed this library\n* `website`: a website URL for more information\n\nNow share this repo page using [[Share]] to the same github repo (or any other, it doesn\u2019t really matter), and call it `REPO.md` (by convention).\n\nThen announce t\n\n--- [vault:corpus/docs/Repository.md] ---\n### Untitled\n\nRepositories are a collection of _pointers_ to [[Library|Libraries]] to install. Their purpose is to offer a curated list of libraries to install.\n\nBy default, SilverBullet ships with two repositories: [[^Repositories/Std]] with a curated selection of community libraries, and [[^Repositories/SilverBulletMD]] with optional libraries maintained by the SilverBullet project. More can be installed via the [[Workbench/Libraries|Library Manager]].\n\nThe built-in repositories update like any other: the first update stores a copy in your space, which from then on takes the place of the shipped version. Deleting that copy brings the shipped version back, so built-in repositories can\u2019t be removed.\n\nRepositories are implemented on top of a few SilverBullet mechanisms, specifically they are simply [[Meta Page|Meta Pages]] tagged with `#meta/repository` that contain [[Tag/data|data objects]] tagged with `#meta/library/remote` with a `name` and `uri` attribute. Libraries are kept up to date using the [[Share]] mechanism.",
+ "meta": {
+  "engine_seconds": 0.005480416999999988,
+  "sources": [
+   "vault:corpus/docs/Library/Development.md",
+   "vault:corpus/docs/Repository.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,24 @@
+{
+ "id": "pubB-20",
+ "type": "multi",
+ "answer": "The broken-links check is fed by `aspiring-page` objects (from `index.aspiringPages()`) in the Object Index, which are pages that are linked to but not yet created. The memory doesn't state an exact drop-off rule, but by definition an entry would no longer be an aspiring page once the target page is created.",
+ "tokens": 1400,
+ "seconds": 0.472,
+ "e2e_seconds": 2.95,
+ "source_hits": 1.0,
+ "block": "Memory for: Which index object type feeds the broken-links check in the Workbench, and what makes an entry drop off that list?\n[1] Object Index.md (Indexing)\n  The Object Index stores [[Object|Objects]] found in your [[Space]]. / The [[Page Picker]], [[Meta Picker]] and [[Linked Mention|Linked Mentions]] use this index. Explore its records in [[Workbench/Data]], or read them through [[API/index]].\n  - Object Index records can be explored in Workbench/Data or read through API/index.\n[2] Workbench/Maintenance.md (Space-wide lint)\n  The Maintenance tab lists (potential) problems in your space in one place. / ${widgets.commandButton(\"Workbench: Maintenance\")} opens this tab in the [[Workbench]]. / The checks below are instant, and refresh as your space changes: / * **Broken links:** links to pages that don\u2019t exist yet ([[Tag/aspiring-page|aspiring pages]]). / * **Ambiguous links:** links that could mean more than one page (see [[Link#Ambiguous links]]). / * **Scripts and styles:** scripts that failed to load or are quarantined, and styles that hold CSS the browser parsed no rules from. / * **Merge conflicts:** unresolved merges that need your decision.\n  - The broken links check lists links to pages that don't exist yet, which are aspiring pages.\n[3] Tag/aspiring-page.md (aspiring-page)\n  [[Aspiring Pages]] (codified using the `aspiring-page` tag) are pages that are linked to, but not yet created. [[Like this one]]. / Internally SilverBullet uses these in the [[Workbench/Maintenance]] tab (as broken links), page complete and the page picker (to hint at pages to still be created). / Example query (lists all aspiring pages in this space, the results depend on the other unresolved links in your space): / ${query[[from index.aspiringPages()]]}\n  - SilverBullet uses aspiring pages in the Workbench/Maintenance tab as broken links, in page complete, and in the page picker to hint at pages still to be created.\n[4] Workbench.md (Workbench)\n  - The Maintenance tab of the workbench shows problems in your space, such as broken links, failed scripts, merge conflicts and, on demand, lint errors.\n[5] API/index.md (index)\n  - index.clearFileIndex(path) drops every indexed object belonging to a file, so a re-index replaces them rather than merging on top.\n[6] Markdown/Anchor.md (Scope rules)\n  - Uniqueness of anchors is enforced by lint rather than by the indexer, and lint highlights broken links and multiple anchors in the same object.\n[7] Aspiring Pages.md (Finding dangling links)\n  Finding dangling links: Every `[[link]]` to a non-existent page produces an [[Tag/aspiring-page]] object in the [[Object Index]], so you can query them to audit broken or forward-references: / ```markdown / ${query[[ / from t = index.aspiringPages() / select { target = t.name, linkedFrom = t.page } / ]]} / ``` / In this query, `t.name` is the link **target** (the page that does not yet exist). `t.page` is **where the link lives** (the source page). Filter on `t.page` to scope results to your own content. / Triage guidance: / - **Real ...\nExact facts:\n- [1] The Object Index is generally queried using [[Space Lua/Integrated Query]].\n- [1] [[API/index#index.objects(tag)]], e.g.: `index.objects(\"page\")` (or the convenience wrappers for each [[Tag#Root tags|root tag]], like `index.pages()`, `index.tasks()` or `index.data()`)\n- [1] `index.aspiringPages()` \u2014 returns all [[Aspiring Pages]] (pages linked to but not yet created). Useful for finding broken or forward-references.\n- [1] `tags.*`: as a convenience\u00a0\u2014 `tags.page` is equivalent to `index.objects(\"page\")`",
+ "meta": {
+  "notes": [
+   "Object Index.md",
+   "Workbench/Maintenance.md",
+   "Tag/aspiring-page.md",
+   "Workbench.md",
+   "API/index.md",
+   "Markdown/Anchor.md",
+   "Aspiring Pages.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

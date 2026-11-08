@@ -1,0 +1,19 @@
+{
+ "id": "pubA-37",
+ "type": "multi",
+ "answer": "Not in memory. The memory says to put the proxy in front of an open server in single-space mode, but it doesn't mention encrypted browser storage or whether it can be enabled with that setup.",
+ "tokens": 617,
+ "seconds": 0.005,
+ "e2e_seconds": 2.3,
+ "source_hits": 0.5,
+ "block": "## If I put Authelia in front of an open single-space server instead of using built-in logins, can I still turn on encrypted browser storage?\n\n--- [vault:corpus/docs/Authentication.md] ---\n### Authentication proxies\n\n# Authentication proxies\nAlternatively, or in addition, you can use an [[Authentication Proxy]] to delegate authentication to an external system (like Authelia, Authentik, or a reverse proxy\u2019s built-in auth). This is common in more complex self-hosted setups. In accounts mode, pair a proxy with **public** spaces so the proxy owns identity. In single-space mode, put the proxy in front of an open server.\n\nFor all authentication-related configuration options, see [[Install/Configuration#Authentication]].\n\n--- [vault:corpus/docs/CLI.md] ---\n### Authentication\n\n# Authentication\nThe CLI supports three authentication methods, configured per-space during `space add`:\n\n* **Token** \u2014 sends an `Authorization: Bearer <token>` header. Use this with `SB_AUTH_TOKEN` on a [[Install/Server Modes#Single-space mode|single-space]] server, or with a per-account [[Authentication#API|API token]] on an accounts-based server.\n* **Password** \u2014 authenticates via `POST /.auth` (username/password), then uses the returned session cookie. Use this with `SB_USER` on a single-space server, or with an account username/password on a space you\u2019re a member of.\n* **None** \u2014 no authentication (for local or trusted-network setups, or public spaces).\n\nCredentials are encrypted at rest using AES-256-GCM with PBKDF2 key derivation.",
+ "meta": {
+  "engine_seconds": 0.0046062920000000535,
+  "sources": [
+   "vault:corpus/docs/Authentication.md",
+   "vault:corpus/docs/CLI.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

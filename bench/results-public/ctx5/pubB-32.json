@@ -1,0 +1,23 @@
+{
+ "id": "pubB-32",
+ "type": "verbatim",
+ "answer": "SilverBullet Desktop's MCP endpoint listens by default at `http://127.0.0.1:3999/.mcp`, a loopback listener. It is off by default, and you can turn it on or change the port under Settings \u2192 Advanced \u2192 MCP.",
+ "tokens": 1318,
+ "seconds": 0.003,
+ "e2e_seconds": 2.11,
+ "source_hits": 1.0,
+ "block": "## What's the default local address of SilverBullet Desktop's MCP endpoint?\n\n--- [vault:corpus/docs/HTTP API.md] ---\n### RPC > MCP\n\n## MCP\nIn [[Dashboard|multi-space mode]], `POST /.mcp` is a stateless [[MCP]] (Model Context Protocol) endpoint that authenticates with an OAuth access token (`Authorization: Bearer <token>`, issued to a connected app); API tokens are refused with `401` and a `WWW-Authenticate` challenge pointing at the resource metadata. These endpoints are served on the main router only in multi-space mode, answer `404` unless an admin has turned MCP on (it is off by default) and when `SB_MCP=0` (except `/.auth/revoke`), and are not served in single-space mode:\n\n* `GET /.well-known/oauth-protected-resource/.mcp` (also at `/.well-known/oauth-protected-resource`): RFC 9728 resource metadata.\n* `GET /.well-known/oauth-authorization-server`: RFC 8414 authorization server metadata.\n* `POST /.auth/register`: RFC 7591 dynamic client registration, answers `201`. Registered clients are public (`token_endpoint_auth_method` `none`).\n* `GET /.auth/mcp/authorize`: authorization endpoint (PKCE). Signed-out requests redirect to the Dashboard login; the consent page lists the spaces to grant.\n* `POST /.auth/mcp/authorize`: the consent form's submission (Allow or Cancel). It re-checks every authorization parameter and the CSRF token bound to the signed-in session, then redirects back to the app with a code or `access_denied`.\n* `POST /.auth/mcp/token`: authorization code and refresh token grants (refresh tokens rotate). Public clients authenticate with PKCE only. A client whose metadata document registers `\n\n--- [vault:corpus/docs/MCP.md] ---\n### Untitled\n\nSilverBullet can act as an [MCP](https://modelcontextprotocol.io) (Model Context Protocol) server, so AI assistants can read, write, query and pimp up your spaces.\n\nMCP is available in [[Dashboard|multi-space mode]] and in [[Desktop]]. The endpoint is `/.mcp` on your server, for example `https://notes.example.com/.mcp`. A single-space server does not serve it. On a server it is off by default: an admin turns it on in the APIs tab of the [[Dashboard]].\n\n--- [vault:corpus/docs/MCP.md] ---\n### Desktop\n\n# Desktop\nSilverBullet Desktop serves MCP too, for the spaces registered in the app, on a loopback listener at `http://127.0.0.1:3999/.mcp`. It is off by default. Turn it on or change the port under **Settings \u2192 Advanced \u2192 MCP**, which also shows the setup commands with your port filled in.\n\n--- [vault:corpus/docs/Reference/Technical Reference.md] ---\n### External interfaces\n\n# External interfaces\n* [[URI]] \u2014 addresses for resources and supported URI schemes.\n* [[CLI]], [[MCP]], [[HTTP API]] and [[Runtime API]] \u2014 command-line, AI assistant and external program interfaces.\n\n--- [vault:corpus/docs/MCP.md] ---\n### Setup > Codex\n\n## Codex\n```shell\ncodex mcp add silverbullet --url https://notes.example.com/.mcp\ncodex mcp login silverbullet\n```",
+ "meta": {
+  "engine_seconds": 0.00338300000000163,
+  "sources": [
+   "vault:corpus/docs/HTTP API.md",
+   "vault:corpus/docs/MCP.md",
+   "vault:corpus/docs/MCP.md",
+   "vault:corpus/docs/Reference/Technical Reference.md",
+   "vault:corpus/docs/MCP.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

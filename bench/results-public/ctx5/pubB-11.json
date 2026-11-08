@@ -1,0 +1,22 @@
+{
+ "id": "pubB-11",
+ "type": "single",
+ "answer": "It never runs by itself because the space-wide lint (`space.lint`) reads every page, runs every lint rule, and renders all `${\u2026}` expressions and Lua widgets, which can take a while on a large space. So you trigger it manually by pressing **Run space-wide lint** when you want it.",
+ "tokens": 1365,
+ "seconds": 0.003,
+ "e2e_seconds": 2.55,
+ "source_hits": 1.0,
+ "block": "## Why does the Workbench's whole-space lint check never run on its own?\n\n--- [vault:corpus/docs/Workbench/Maintenance.md] ---\n### Space-wide lint\n\n# Space-wide lint\nThe space-wide lint runs [[API/space#space.lint]] over every page. This reads each page, runs every lint rule and renders its `${\u2026}` expressions and Lua widgets, so on a large space it can take a while. That\u2019s why it never runs by itself: press **Run space-wide lint** when you want it.\n\n--- [vault:corpus/docs/Linked Mention.md] ---\n### Why?\n\n# Why?\nIn a traditional notes app, links are one-directional: page _A_ links to page _B_, but page _B_ has no idea. With linked mentions, every link becomes bi-directional. This means:\n\n* You can give a person, project, or concept its own page, and the linked mentions section will automatically collect every reference to it\n* You discover unexpected connections between ideas\n* Your knowledge graph builds itself as you write\n\n--- [vault:corpus/docs/Baked Sections.md] ---\n### Why\n\n# Why\nSilverBullet\u2019s most powerful features (`${...}` [[Space Lua]] expressions, [[Space Lua/Integrated Query|queries]], and [[API/widget|widgets]]) are computed live in the editor. That is wonderful inside SilverBullet, but the underlying [[Markdown]] only contains the *source* of the computation. Open such a page on GitHub, in another markdown editor, and instead of a neat table you get to see the raw expressions. This limits your options in further processing markdown (e.g. using some publish tool) or to keep it tool independent.\n\n--- [vault:corpus/docs/CLI.md] ---\n### Commands > `lua [code]`\n\n\u2026t starts with a statement keyword (`return`, `local`, `for`, `if`, `while`, `repeat`, `function`, `do`, `goto`, `break`) runs as a script, and you `return` a value to print it. Anything else is evaluated as an expression first, and runs as a script only when it does not parse as an expression. Code never runs twice: when it runs and fails, that error is reported as is, and when it parses as neither, both errors are shown.\n\nBefore running, the space catches its index up with recent file changes, so a query sees pages written a moment ago. When that could not be confirmed, a note on stderr says so, for example when the catch-up took longer than 5 seconds. Console output logged during the call (`print`, `console.log`) goes to stderr as well, so stdout holds only the result, also with `--json`.\n\n```bash\nsb lua \"1 + 1\"\n# => 2\n\nsb lua \"editor.getCurrentPage()\"\n# => \"index\"\n\nsb lua 'return 40 + 2'\nsb lua --file myscript.lua\n\n# Or pipe from stdin:\necho 'local x = 40; return x + 2' | sb lua\n\nsb lua 'system.reboot()'       # after changing files outside sb (not needed after sb fs write/edit)\nsb lua 'space.lint(\"Page\")'    # problems on a page; space.lint() checks every page\n```\n\nTo check a page without opening it in the editor, call [[API/space#space.lint]]: it runs the editor\u2019s linters (frontmatter and data block YAML, `space-lua` syntax, objects checked against tag schemas, anchors) and renders every `${\u2026}` directive and Lua code widget, returning a list of `{page, line, column, seve\n\n--- [vault:corpus/docs/Development.md] ---\n### Development > Server vs. client > Useful development tasks\n\n### Useful development tasks\n```shell\n# Clean all generated files\nmake clean\n# Typecheck and lint all code\nmake check\n# Format all code\nmake fmt\n# Run all tests\nmake test\n```",
+ "meta": {
+  "engine_seconds": 0.0024887500000040745,
+  "sources": [
+   "vault:corpus/docs/Workbench/Maintenance.md",
+   "vault:corpus/docs/Linked Mention.md",
+   "vault:corpus/docs/Baked Sections.md",
+   "vault:corpus/docs/CLI.md",
+   "vault:corpus/docs/Development.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

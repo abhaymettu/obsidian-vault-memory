@@ -1,0 +1,19 @@
+{
+ "id": "pubB-29",
+ "type": "multi",
+ "answer": "Not in memory. The Top Bar page says only that it shows page navigation, commands and connection status at the top of the editor. It doesn't describe how connection or slow-sync state is displayed.",
+ "tokens": 653,
+ "seconds": 0.004,
+ "e2e_seconds": 2.35,
+ "source_hits": 1.0,
+ "block": "## How can I tell at a glance from the top of the editor whether I'm connected to the server and whether a sync is taking a while?\n\n--- [vault:corpus/docs/Top Bar.md] ---\n### Untitled\n\ndescription: \"Page navigation, commands and connection status at the top of the editor.\"\nreferences:\n- client/components/top_bar.tsx\n- client/editor_ui.tsx\n\n--- [vault:corpus/docs/Sync.md] ---\n### Untitled\n\nSilverBullet is designed as an [[ADR/001 Offline-First PWA|Offline-First]] mindset \u2014\u00a0that is: your content should be available to you, whether you have an Internet connection or not.\n\nDepending on the edition of SilverBullet that you use, Sync functions slightly differently. When you use the **Server** directly via the browser, your content will be synced to your browser\u2019s local storage (IndexedDB). After an online load and initial sync, cached pages can be read and edited without a connection. Edits reconcile when the Server is reachable again. Documents have separate caching settings below.\n\n[[Desktop]] spaces can _optionally_ be configured with [[Desktop Sync]].\n\nRegardless of the client, sync happens in near-real time when connected. Saves are throttled to about 2 seconds, after which the page is saved and synced immediately.\n\nIn the browser, Sync runs in a service worker and therefore only runs when the service worker is active. The service worker is automatically kept active for as long as you have a SilverBullet tab or window open. Some browsers slow web apps down when they are in the background or not in an active tab. This may also affect whether sync happens in the background. Most browsers (including mobile ones), keep service workers running for a little while (perhaps up to a minute), even when e.g. the screen is locked, or another app is activated.",
+ "meta": {
+  "engine_seconds": 0.004149667000000022,
+  "sources": [
+   "vault:corpus/docs/Top Bar.md",
+   "vault:corpus/docs/Sync.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

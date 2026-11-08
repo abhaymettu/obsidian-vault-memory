@@ -1,0 +1,21 @@
+{
+ "id": "pubA-10",
+ "type": "single",
+ "answer": "The encryption key is kept only in memory, so closing all SilverBullet tabs and windows flushes it and you'll have to log in again. Your content stays on the device but can't be viewed without the key derived from your username and password.",
+ "tokens": 1166,
+ "seconds": 0.405,
+ "e2e_seconds": 2.67,
+ "source_hits": 1.0,
+ "block": "Memory for: With encrypted local storage turned on, what happens if I close every SilverBullet tab and come back later?\n[1] Client Encryption.md (Details)\n  2. **Convenience:** the client-side encryption key (derived from your username and password) will only ever be kept in memory, which means that if you close all your SilverBullet browser tabs and windows, the key will be flushed and you will have to login again.\n  This is what SilverBullet\u2019s **client encryption** is for. When you authenticate using SilverBullet\u2019s [[Authentication]] system, you will have a checkbox \u201cEnable client encryption\u201d. When checked, _all_ your content kept on the client will be encrypted (both your synced files and index). Since no encryption keys are written to disk at any stage, closing your browser or even closing all SilverBullet tabs will flush the key. While content remains on the device, it cannot be viewed without the encryption key derived from your username and password, leaving it useless to malicious actors. / This safety does come at a cost: / 1. **Performance:** due to constant encryption and decryption SilverBullet will be slower.\n  - The client-side encryption key is kept only in memory, so closing all SilverBullet browser tabs and windows requires logging in again.\n  - No encryption keys are written to disk at any stage, so closing the browser or all SilverBullet tabs flushes the key.\n[2] Install/Network and Internet.md (Network and Internet)\n  #getting-started / To access SilverBullet from another device, make the server reachable on your network. / On a local network, you can use plain HTTP in online-only mode. This requires a live connection to the server and leaves your traffic unencrypted. See [[TLS#LAN HTTP (no TLS)]] for the full list of limitations. / For access over the Internet, use [[TLS]] so your connection is encrypted and SilverBullet\u2019s offline features work. / To set this up: / 1. Run the server following the [[Install]] instructions and make it reachable from the devices you want to use. / 2. Enable [[Authentication]]. / 3. Set up [[TLS]] for the full feature set, or use LAN HTTP with the limitations above.\n[3] Migrate from v1.md (Queries)\n  Removed features: Certain features have been removed: / * Online mode: v2 is sync mode only, meaning all your content will be synced into your browser. A simpler Online mode may be added back later. If you like to wipe your local content at any time, use the `System: Wipe Client` command. / * [Federation](https://v1.silverbullet.md/Federation) / * [Share](https://v1.silverbullet.md/Plugs/Share) replaced by [[^Library/Std/Infrastructure/Export]] / * Space Script: replaced by [[Space Lua]] / * Space Config: replaced by the [[API/config]] APIs. / * Command link syntax (`{[...]})`) replaced by the `${widgets.commandButton(...)}` API.\n[4] Install/Server.md (Run Server on this computer)\n  - Storing SilverBullet space files on a NAS should be fine, but if saving or sync issues occur, switching to a local file system may resolve them.\nExact facts:\n- [1] However, if you are accessing SilverBullet from an \u201cuntrusted\u201d device, such as a public computer, this is not a great option, because even after closing your browser all content remains stored on the device unencrypted. You can use commands like `Client: Wipe` and `Client: Logout` to remove data loc",
+ "meta": {
+  "notes": [
+   "Client Encryption.md",
+   "Install/Network and Internet.md",
+   "Migrate from v1.md",
+   "Install/Server.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

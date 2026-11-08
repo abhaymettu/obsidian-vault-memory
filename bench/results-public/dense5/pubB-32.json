@@ -1,0 +1,14 @@
+{
+ "id": "pubB-32",
+ "type": "verbatim",
+ "answer": "SilverBullet Desktop's MCP endpoint listens by default on `http://127.0.0.1:3999/.mcp`, a loopback address. It is off by default, and you can enable it or change the port under Settings \u2192 Advanced \u2192 MCP.",
+ "tokens": 819,
+ "seconds": 0.004,
+ "e2e_seconds": 2.09,
+ "source_hits": 1.0,
+ "block": "--- MCP.md ---\nTools | Desktop\nSilverBullet Desktop serves MCP too, for the spaces registered in the app, on a loopback listener at `http://127.0.0.1:3999/.mcp`. It is off by default. Turn it on or change the port under **Settings \u2192 Advanced \u2192 MCP**, which also shows the setup commands with your port filled in.\n\n--- CHANGELOG.md ---\nCHANGELOG | Edge\n* [[MCP]]: SilverBullet Server can now serve an MCP endpoint at `/.mcp`, so AI assistants can directly read, write, search and query your spaces. Clients sign in with OAuth and act as the account that approved them, on the spaces chosen on a consent page. MCP is off by default: an admin turns it on in the APIs tab.\n* **Potentially breaking:** the legacy `/.auth/authorize` and `/.auth/token` endpoints now only accept SilverBullet\u2019s own clients (`silverbullet-app`, `silverbullet-cli` and `silverbullet-share`); other `client_id`s are refused.\n* Fix: slow filesystem watcher registration no longer delays space startup. Polling tracks changes while native notifications start, and a resync reconciles changes made during registration.\n\n--- MCP.md ---\nTools\nSilverBullet can act as an [MCP](https://modelcontextprotocol.io) (Model Context Protocol) server, so AI assistants can read, write, query and pimp up your spaces.\n\nMCP is available in [[Dashboard|multi-space mode]] and in [[Desktop]]. The endpoint is `/.mcp` on your server, for example `https://notes.example.com/.mcp`. A single-space server does not serve it. On a server it is off by default: an admin turns it on in the APIs tab of the [[Dashboard]].\n\n--- TLS.md ---\nLAN HTTP (no TLS) | localhost (http)\nIf you run SilverBullet _locally_ on your machine, this is the easiest option. Everything runs fine as long as the browser sees `localhost` or `127.0.0.1` appear in the URL, even with `http://`.\n\nThe obvious drawback of this approach is that your SilverBullet instance is _only accessible from the machine you run it on_.\n\n--- Install/Desktop.md ---\nDownload\nSilverBullet Desktop runs on macOS, Windows and Linux.",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

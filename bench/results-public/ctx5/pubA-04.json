@@ -1,0 +1,22 @@
+{
+ "id": "pubA-04",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 816,
+ "seconds": 0.006,
+ "e2e_seconds": 1.86,
+ "source_hits": 0.0,
+ "block": "## What does the Space Lua percent-decoding helper return if I hand it a broken escape sequence?\n\n--- [vault:corpus/docs/ADR/006 Space Lua Integrated Query.md] ---\n### Consequences > Positive\n\n## Positive\n* **Declarative and familiar.** SQL/LINQ-style reads far better than hand-rolled loops for the common select/filter/aggregate task.\n* **Still one language.** SLIQ is sugar *within* Lua, not a separate DSL \u2014 it preserves the \u201cone language, no seams\u201d win of [[ADR/005 Space Lua]] (a query can `select` a template call, use Lua helpers, etc.).\n* **Uniform over any data.** Because `from` takes a Lua expression, the same syntax queries indexed objects or arbitrary in-memory tables.\n\n--- [vault:corpus/docs/Schema.md] ---\n### Schema helper functions\n\n# Schema helper functions\nThe [[^Library/Std/APIs/Schema]] library provides convenience functions like `schema.string()`, `schema.number()`, `schema.array(typ)`, etc. for building JSON Schema objects in Lua. See the API page for the full list.\n\n--- [vault:corpus/docs/API/table.md] ---\n### Untitled\n\nThe `table` namespace contains the Lua table library and Space Lua collection helpers.\n\n<!--#lua spacelua.renderApiDocumentation(\"table\") -->\n\n--- [vault:corpus/docs/API/syntax.md] ---\n### Escaping\n\n# Escaping\nWithin the body of an inline syntax extension, backslash (`\\`) acts as an escape character. Use `\\` before the end marker to include it literally in the body. The render callback receives the **raw** body text with escape sequences intact. The renderer is responsible for unescaping if needed.\n\n--- [vault:corpus/docs/Library/Website.md] ---\n### Navigation (1)\n\n# Navigation\nThe left-hand **Navigate** view: a hand-curated tree of this site.\n\n```space-lua\ndocsNav = docsNav or {}",
+ "meta": {
+  "engine_seconds": 0.006123374999995576,
+  "sources": [
+   "vault:corpus/docs/ADR/006 Space Lua Integrated Query.md",
+   "vault:corpus/docs/Schema.md",
+   "vault:corpus/docs/API/table.md",
+   "vault:corpus/docs/API/syntax.md",
+   "vault:corpus/docs/Library/Website.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

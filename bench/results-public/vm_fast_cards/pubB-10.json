@@ -1,0 +1,20 @@
+{
+ "id": "pubB-10",
+ "type": "single",
+ "answer": "Yes, that's expected: the current dispatcher passes only the first captured value to `run`. The workaround is to capture the whole suffix (e.g. `pattern = \"lookup:(.+)\"`) and parse it inside the callback, such as `local kind, id = suffix:match(\"([^:]+):(.+)\")`.",
+ "tokens": 1227,
+ "seconds": 0.503,
+ "e2e_seconds": 3.11,
+ "source_hits": 1.0,
+ "block": "Memory for: My virtual page pattern has two capture groups but my run function only seems to get one value. Is that expected, and what's the workaround?\n[1] Virtual Pages.md (How it works)\n  Multiple capture groups: The current dispatcher passes only the first match value to `run`. If you need several values, capture the complete suffix and parse it inside the callback: / ```lua / virtualPage.define { / pattern = \"lookup:(.+)\", / run = function(suffix) / local kind, id = suffix:match(\"([^:]+):(.+)\") / if not kind then return \"Use lookup:kind:id\" end / return \"# \" .. kind .. \"\\nLooking up: \" .. id / end / } / ```\n  How it works: You define a virtual page by calling `virtualPage.define` with a Lua pattern and a function. When someone navigates to a page name matching the pattern, SilverBullet calls your function instead of loading a file from disk. / The current standard-library dispatcher passes the first captured value from the pattern to the function. The function returns the Markdown content to display. Put definitions in a `space-lua` block in your own space, then run `System: Reload`. / ```lua / virtualPage.define { / pattern = \"greeting:(.+)\", / run = function(name) / return \"# Hello, \" .. name .. \"!\\nWelcome to this virtual page.\" / end / } / ``` / Navigating to `greeting:World` renders a page with the heading \u201cHello, World!\u201d \u2014 but no file is created. / Virtual pages are always **read-only**. The editor disables editing controls automatically.\n  - The standard library's event listener checks all registered patterns against the page name, and a matching `run` function's return value becomes the page content with read-only permissions.\n  - A virtual page is defined by calling `virtualPage.define` with a Lua pattern and a function.\n  - The current standard-library dispatcher passes the first captured value from the pattern to the function.\n[2] CHANGELOG.md (CHANGELOG)\n  2.10.0: * Fix: Space Lua now correctly truncates a parenthesized expression to a single value (Lua 5.4 semantics). Previously `(string.gsub(...))` and other parenthesized multi-return calls leaked their extra return values into `return`, call-argument, and assignment positions (e.g. `table.insert(t, (string.gsub(...)))` inserted two elements). Parentheses now yield exactly one value. / * Fix: Lua pattern matching lost capture groups, because `ipairs` dropped `nil` values from the result table (by [henrikx](https://github.com/henrikx)). / * Fix: `lintObjects` threw when a page\u2019s `pageMeta` was undefined (by [josh-j](https://github.com/josh-j)). / * Fix: `mq.poll` materialized the entire queue on every poll (by [josh-j](https://github.com/josh-j)).\n[3] API/capture.md (Example)\n  - The capture.readFile and capture.saveFile functions only work inside the run function of the capture action that is running.\n  - Each capture action is defined with a service.define call that has a match function and a run function.\nExact facts:\n- [1] The most commonly used virtual pages are **tag pages**. When you click a hashtag like `#project`, SilverBullet navigates to `tag:project`, which is a virtual page that lists all objects with that tag \u2014 grouped by type (pages, tasks, items, data, etc.).\n- [1] Tag pages are defined in the standard library and work out of the box. You can override the default tag page by defining your own `virtualPage.define` with the pattern `tag:(.+)`.",
+ "meta": {
+  "notes": [
+   "Virtual Pages.md",
+   "CHANGELOG.md",
+   "API/capture.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

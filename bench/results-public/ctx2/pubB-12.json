@@ -1,0 +1,19 @@
+{
+ "id": "pubB-12",
+ "type": "single",
+ "answer": "Yes, the link still works. If no page is spelled `note` exactly, SilverBullet falls back to a case-insensitive lookup, so `[[note]]` finds the page `Note`.",
+ "tokens": 831,
+ "seconds": 0.005,
+ "e2e_seconds": 2.21,
+ "source_hits": 1.0,
+ "block": "## If I link [[note]] and the only page is called Note with a capital N, does the link still work?\n\n--- [vault:corpus/docs/Link.md] ---\n### Link resolution\n\n# Link resolution\nA wiki link target is resolved against the space in two steps:\n\n1. **Exact path match**: if the ref matches a page or document path from the space root, that file is the target. An exact match always wins.\n2. **Name lookup**: if no file exists at the literal path, SilverBullet looks for files matching the ref _anywhere_ in the space, comparing case-insensitively. A bare name (no `/`) matches any file carrying that name. A ref containing `/` matches any file whose path _ends_ in it (on folder boundaries, so `[[api/Auth]]` matches `docs/api/Auth` but not `webapi/Auth`). Candidates spelled with the exact same case are preferred. If exactly one remains, that is the target.\n\nSo `[[Note]]` finds `some/folder/Note` when that is the only page named `Note`, `[[note]]` finds `Note` when nothing is spelled `note` exactly, and `[[api/Auth]]` finds `docs/api/Auth` when no other path ends in `api/Auth`.\n\nSuffix matching is what makes links independent of where the space root sits: open a space at the _parent_ of the folder it was authored in, and both its bare links and its path-qualified ones keep resolving, because neither encodes the root.\n\nBecause an exact match always wins, a page at the space root beats a page in your own folder: with both `Config` and `docs/api/Config` in the space, a `[[Config]]` written on `docs/api/Auth` resolves to the root-level `Config`. Such a link is *not* flagged as ambiguous \u2014 its text is already the full path of the page it finds, so the\n\n--- [vault:corpus/docs/Names.md] ---\n### Case sensitivity\n\n# Case sensitivity\nNames keep the case you give them, and an exactly matching name always wins when a [[Link|link]] is resolved. But a link that matches nothing exactly falls back to a case-insensitive lookup across the space \u2014 by name for a bare link, by path suffix for a qualified one \u2014 so `[[note]]` finds a page called `Note`, and `[[project/notes]]` finds `project/Notes`. See [[Link#Link resolution]].",
+ "meta": {
+  "engine_seconds": 0.004493959000000018,
+  "sources": [
+   "vault:corpus/docs/Link.md",
+   "vault:corpus/docs/Names.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

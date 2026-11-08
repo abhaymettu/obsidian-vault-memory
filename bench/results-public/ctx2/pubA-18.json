@@ -1,0 +1,20 @@
+{
+ "id": "pubA-18",
+ "type": "verbatim",
+ "answer": "You must allow unauthenticated access to `/service_worker.js` and `/.client/*`. These are only static code files, so exposing them is safe. Without them, PWA functionality may not work and SilverBullet may break in unexpected ways.",
+ "tokens": 905,
+ "seconds": 0.003,
+ "e2e_seconds": 2.32,
+ "source_hits": 1.0,
+ "block": "## Behind Authelia or another auth proxy, which URL paths must be allowed without login so the app works?\n\n--- [vault:corpus/docs/Authentication Proxy.md] ---\n### Untitled\n\nIn case you would like to run SilverBullet behind an authentication proxy (such as Authelia, Authentik or the ones integrated with Cloudflare Zero Trust or Pangolin) there is one key configuration tweak you need to make:\n\n**You must exclude a few paths from authentication**. If you don\u2019t do this a lot of PWA functionality may not work and SilverBullet may break in unexpected ways. Doing this is perfectly safe, it just gives browsers unauthorized access to some client code, not any of your content.\n\nAdd **rules to allow unauthenticated access** for the following paths:\n\n* `/service_worker.js`\n* `/.client/*`\n\nThis is perfectly safe, they are just static (code) files.\n\n--- [vault:corpus/docs/Single Sign-On.md] ---\n### Connect a provider > OpenID Connect providers\n\n### OpenID Connect providers\nCreate a confidential OIDC client, register the displayed callback and enable Authorization Code with PKCE. Use the provider\u2019s issuer URL and client credentials. The provider must supply a stable subject and a verified email, using the `openid`, `email` and `profile` scopes.\n\nSilverBullet\u2019s provider integration tests use [Pocket ID](https://pocket-id.org/docs/), but the same generic configuration is intended for standards-compliant providers such as [Authentik](https://docs.goauthentik.io/add-secure-apps/providers/oauth2/), [Authelia](https://www.authelia.com/integration/openid-connect/introduction/), [Keycloak](https://www.keycloak.org/securing-apps/oidc-layers), and [ZITADEL](https://zitadel.com/docs/guides/integrate/login/oidc). Provider defaults vary, so verify the required scopes, PKCE support, client authentication method, and `email_verified` claim with the sign-in test before enabling SSO. ID tokens with additional audiences (such as a ZITADEL project ID) are accepted when their `azp` claim equals the client ID. The user\u2019s email must be verified at the provider.\n\nThe server must reach the issuer\u2019s discovery, authorization metadata, token and key endpoints. A private certificate authority can be supplied with `SB_OIDC_CA_FILE`, pointing to a PEM certificate trusted for provider connections. Certificate verification remains enabled.",
+ "meta": {
+  "engine_seconds": 0.0033875830000000065,
+  "sources": [
+   "vault:corpus/docs/Authentication Proxy.md",
+   "vault:corpus/docs/Single Sign-On.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

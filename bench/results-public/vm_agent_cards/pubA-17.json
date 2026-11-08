@@ -1,0 +1,22 @@
+{
+ "id": "pubA-17",
+ "type": "verbatim",
+ "answer": "SilverBullet writes a sibling copy named `name.conflicted-<hash>.ext` next to the original. The `<hash>` is a short hash of the losing version's bytes. This comes from `Collaboration.md`.",
+ "tokens": 1405,
+ "seconds": 3.951,
+ "e2e_seconds": 3.95,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3770,
+  "final_context": 5157,
+  "billed_input": 8927,
+  "turns": 2,
+  "cost_usd": 0.009285999999999999,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"When two versions of an image genuinely conflict, what is the name of the copy SilverBullet writes next to it?\\\"\"}\nMemory for: When two versions of an image genuinely conflict, what is the name of the copy SilverBullet writes next to it?\n[1] Collaboration.md (Auto-merging concurrent edits)\n  - A genuine binary conflict in SilverBullet produces a sibling copy named name.conflicted-<hash>.ext next to the original, where <hash> is a short hash of the losing version's bytes.\n  Binary conflicts: Images, PDFs and other binaries (and text files over the 1 MB merge limit) can\u2019t be merged, so a genuine conflict instead produces a sibling copy named `name.conflicted-<hash>.ext` next to the original, where `<hash>` is a short hash of the losing version\u2019s bytes.\n  - When both sides really changed the same words, SilverBullet writes the file with Git-style conflict markers.\n  - A reference page explaining how SilverBullet merges concurrent edits to the same file, how conflicts are written and shown, and how live external, offline and deletion cases are handled. Names: SilverBullet, Google Docs, Desktop, Git, Obsidian.\n  - The SilverBullet editor Live Previews each conflicted section as an edit conflict widget showing both sides as well as the original.\n[2] Guide/Make it your own.md (Get comfortable)\n  - If SilverBullet reports a shortcut conflict, another key combination must be chosen.\n[3] Install/Docker.md (Release channels)\n  Release channels: Every release version of SilverBullet is tagged with its version number, but there are two release channels you can use: / * `:latest` always points to the latest _release_. / * `:edge` always points to the latest _edge build_ (the last commit to `main`). / The default image includes Chromium and enables the [[Runtime API]]. For the smaller image without Chromium, use `:edge-slim` instead of `:edge` or legacy `:v2`, `:latest-slim` instead of `:latest`, or append `-slim` to a version such as `:2.11.0-slim`.\n[4] Workbench/Overview.md (Overview)\n  * **Edits by person:** who made the edits of the last month, with a count for each. It only shows when more than one person edits the space. / * **Git sync:** the state of Git sync, when it is enabled: \u201cSync failed\u201d, \u201cPaused\u201d, \u201cSyncing\u2026\u201d or the number of conflicted files when sync isn\u2019t idle, otherwise the number of pending changes or \u201cUp to date\u201d. / * **Runtime:** the SilverBullet version, and how many scripts and styles are loaded. Scripts and styles link to their tabs.\n[5] Link.md (Internal links)\n  Link write format: The `linkWriteFormat` option in your [[CONFIG]] controls how SilverBullet writes wiki links _it_ generates (through auto complete, and the backlink rewriting that happens when you rename a page). It has no effect on [[#Link resolution|resolution]]: all formats resolve identically, so a space mixing them works fine. / Options: / * `full-path` (the default): always write the full path. / * `shortest`: write the bare page name when that name is unique in the space, and the full path when it is not. / * `shortest-suffix`: like `shortest`, but when the name collides, write the shortest path suffix that still uniquely identifie ...\nExact facts:\n- [2] 3. If SilverBullet reports a conflict, choose another combination.\n- [3] Conveniently, SilverBullet is published as a [docker image on GHCR](https://github.com/silverbulletmd/silverbullet/pkgs/container/silverbullet). The image supports a few architectures:\n- [3] > The same docker images are both available from [GHCR](https://github.com/silverbulletmd/silverbullet/pkgs/container/silverbullet) and [Docker Hub](https://hub.docker.com/r/zefhemel/silverbullet), use whichever you prefer."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

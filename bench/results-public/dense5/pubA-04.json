@@ -1,0 +1,13 @@
+{
+ "id": "pubA-04",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 538,
+ "seconds": 0.003,
+ "e2e_seconds": 2.06,
+ "source_hits": 0.0,
+ "block": "--- Space Lua/Quirks.md ---\nLua implementation notes\nA few notable [[Space Lua]] quirks.\n\n--- Workbench/Code.md ---\nCode | description\nThe Space Lua and Space Style blocks of your space: load order, errors and parsed rules.\n\n--- CHANGELOG.md ---\nCHANGELOG | Edge > 2.10.0\n* Fix: Space Lua now correctly truncates a parenthesized expression to a single value (Lua 5.4 semantics). Previously `(string.gsub(...))` and other parenthesized multi-return calls leaked their extra return values into `return`, call-argument, and assignment positions (e.g. `table.insert(t, (string.gsub(...)))` inserted two elements). Parentheses now yield exactly one value.\n* Fix: Lua pattern matching lost capture groups, because `ipairs` dropped `nil` values from the result table (by [henrikx](https://github.com/henrikx)).\n* Fix: `lintObjects` threw when a page\u2019s `pageMeta` was undefined (by [josh-j](https://github.com/josh-j)).\n* Fix: `mq.poll` materialized the entire queue on every poll (by [josh-j](https://github.com/josh-j)).\n\n--- Reference/Space Lua and APIs.md ---\nSpace Lua\nLanguage syntax, extension mechanisms and callable APIs.\n\n--- Space Lua/Conventions.md ---\nIndentation\nSome coding conventions for [[Space Lua]]. Work in progress.",
+ "meta": {},
+ "score": 0.0,
+ "judge": "WRONG"
+}

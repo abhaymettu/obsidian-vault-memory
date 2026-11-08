@@ -1,0 +1,22 @@
+{
+ "id": "pubA-28",
+ "type": "verbatim",
+ "answer": "Commit `3cf7b72e` first brought Lua into SilverBullet, in October 2024 (2024-10). The notes give only the month, not a specific day.",
+ "tokens": 1438,
+ "seconds": 4.498,
+ "e2e_seconds": 4.5,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3756,
+  "final_context": 5190,
+  "billed_input": 8946,
+  "turns": 2,
+  "cost_usd": 0.009025700000000001,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"Which commit first brought Lua into SilverBullet, and when?\\\"\"}\nMemory for: Which commit first brought Lua into SilverBullet, and when?\n[1] ADR/005 Space Lua.md (Context)\n  References: * First Lua integration: [commit 3cf7b72e](https://github.com/silverbulletmd/silverbullet/commit/3cf7b72e) (2024-10). / * [[Space Lua]] \u00b7 [[Space Lua/Integrated Query]] \u00b7 [[Migrate from v1]] \u2014 what changed from directives / Handlebars / Space Script.\n  - The first Lua integration was commit 3cf7b72e, made in 2024-10.\n  - An architecture decision record (ADR) explaining why SilverBullet adopted Space Lua, a custom Lua implementation, as its single embedded language for scripting, templating and querying, replacing Space Script and the v1 query and template mechanisms. Names: SilverBullet, Space Lua, Space Script, Lua, Lua 5.4, LuaJIT, Fengari, WebAssembly, Handlebars, JavaScript, Space Lua Integrated Query, SLIQ, Live Preview, Live Templates, Live Template Widgets, Page Templates, Object Index, commit 3cf7b72e.\n  - The decision adopts Lua as a single embedded language, Space Lua, that unifies scripting, templating and querying in SilverBullet.\n[2] ADR/004 Federation.md (Context)\n  - An architecture decision record (ADR 004) about the federation feature, covering its context, decision, consequences, and its later deprecation and removal. Names: SilverBullet, Space Lua, federation, commit dbfc5995.\n[3] Workbench/Code/Scripts.md (Scripts)\n  - SilverBullet loads Space Lua scripts by priority, highest first.\n[4] Virtual Pages.md (How it works)\n  How it works: You define a virtual page by calling `virtualPage.define` with a Lua pattern and a function. When someone navigates to a page name matching the pattern, SilverBullet calls your function instead of loading a file from disk. / The current standard-library dispatcher passes the first captured value from the pattern to the function. The function returns the Markdown content to display. Put definitions in a `space-lua` block in your own space, then run `System: Reload`. / ```lua / virtualPage.define { / pattern = \"greeting:(.+)\", / run = function(name) / return \"# Hello, \" .. name .. \"!\\nWelcome to this virtual page.\" / end / } / ``` / Navigating to `greeting:World` renders a page with the heading \u201cHello, World!\u201d \u2014 but no file is created. / Virtual pages are always **read-only**. The editor disables editing controls automatically.\n[5] Architecture/Space Lua.md (Space Lua)\n  [[Space Lua]] is SilverBullet\u2019s embedded Lua dialect and runtime for extensions. It implements most of the Lua 5.4 standard library plus Space Lua-specific [[API]]s, and can reach all [[Architecture/Syscalls]].\n[6] Space Lua/Quirks.md (Lua implementation notes)\n  - Coroutines are missing from Space Lua; they are not planned because they are not useful in the SilverBullet context.\n[7] Development.md (Stack)\n  - At its most basic level, SilverBullet development can be done using Space Lua.\n[8] Extensions.md (Libraries)\n  - Space Lua is SilverBullet's embedded scripting language.\nExact facts:\n- [1] SilverBullet lets users put dynamic content: live queries, computed views, templated rendering, and custom logic directly in their pages. In v1 this was spread across **three separate mechanisms**, each with its own syntax:\n- [1] `space-lua` code blocks define space-wide functions and config.\n- [1] Space Lua Integrated Query (SLIQ)** \u2014 `${query[[ from ... select ... ]]}` replaces the old query language. Because the body after `from` is a Lua expression, it can query the [[Object Index|object index]] *or* any Lua table."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,23 @@
+{
+ "id": "pubA-21",
+ "type": "verbatim",
+ "answer": "Use `:latest-slim`. It points to the latest release without Chromium or the runtime API. You can also pin a version with the suffix, such as `:2.11.0-slim`.",
+ "tokens": 1323,
+ "seconds": 0.003,
+ "e2e_seconds": 2.11,
+ "source_hits": 1.0,
+ "block": "## Which Docker tag gives me the latest release without the bundled Chromium?\n\n--- [vault:corpus/docs/Development.md] ---\n### Development > Server vs. client > Docker\n\n### Docker\nMulti-arch (amd64 + arm64 + arm/v7) Docker images are published to Docker Hub and the GitHub Container Registry. The **edge** channel is rebuilt on every push to `main`. **Stable** images come from git tags:\n\n* `zefhemel/silverbullet:edge` (also `:v2`) / `:latest` + `:X.Y.Z` \u2014 the server with Chromium for the server-side Lua runtime (`/.runtime/*`). The old `-runtime-api` tags remain as compatibility aliases.\n* `\u2026:edge-slim` / `:latest-slim` + `:X.Y.Z-slim` \u2014 the smaller server image without Chromium or the runtime API.\n\nThere is no `:v2-slim` alias. Deployments moving from the legacy `:v2` image to slim should use `:edge-slim`.\n\nBoth images are mirrored to `ghcr.io/silverbulletmd/silverbullet` under the same tags.\n\nTo run one:\n\n```shell\ndocker run -p 3000:3000 -v <PATH-TO-YOUR-DATA-FOLDER>:/data zefhemel/silverbullet:edge\n```\n\nThese are built by `.github/workflows/ci.yml`, which cross-compiles the binary natively (`cargo build --target` with installed musl cross-toolchains) and copies it into a small Alpine image.\n\n--- [vault:corpus/docs/Install/Docker.md] ---\n### Docker Compose > Upgrading\n\n## Upgrading\nTo upgrade, change the specific version you point to in your `compose.yml` file (not necessary when using `:latest`, `:edge`, or the legacy `:v2`) and then:\n\n```shell\ndocker compose pull\ndocker compose stop\ndocker compose up -d\n```\n\n--- [vault:corpus/docs/Install/Docker.md] ---\n### Plain Docker > Upgrades\n\n## Upgrades\nTo upgrade your version of SilverBullet, first pull the new image:\n\n```shell\ndocker pull ghcr.io/silverbulletmd/silverbullet:latest\n# Then stop the current container\ndocker stop silverbullet\n# Remove the existing container\ndocker rm silverbullet\n```\n\nThen start the container again as before.\n\n--- [vault:corpus/docs/Install/Docker.md] ---\n### Release channels\n\n# Release channels\nEvery release version of SilverBullet is tagged with its version number, but there are two release channels you can use:\n\n* `:latest` always points to the latest _release_.\n* `:edge` always points to the latest _edge build_ (the last commit to `main`).\n\nThe default image includes Chromium and enables the [[Runtime API]]. For the smaller image without Chromium, use `:edge-slim` instead of `:edge` or legacy `:v2`, `:latest-slim` instead of `:latest`, or append `-slim` to a version such as `:2.11.0-slim`.\n\n--- [vault:corpus/docs/Install/Server Binary.md] ---\n### Upgrading\n\n# Upgrading\nYou can upgrade your SilverBullet install based on the version you\u2019d like to run.\n\nTo upgrade to the latest **stable** release:\n```bash\n./silverbullet upgrade\n```\n\nTo upgrade to the latest **edge** release (which keeps in sync with the `main` development branch):\n```bash\n./silverbullet upgrade-edge\n```\n\nTo upgrade your client, be sure to refresh your page _twice_ somewhat slowly.",
+ "meta": {
+  "engine_seconds": 0.002501041000010446,
+  "sources": [
+   "vault:corpus/docs/Development.md",
+   "vault:corpus/docs/Install/Docker.md",
+   "vault:corpus/docs/Install/Docker.md",
+   "vault:corpus/docs/Install/Docker.md",
+   "vault:corpus/docs/Install/Server Binary.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

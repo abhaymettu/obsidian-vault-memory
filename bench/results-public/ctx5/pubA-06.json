@@ -1,0 +1,22 @@
+{
+ "id": "pubA-06",
+ "type": "single",
+ "answer": "`sync.isEnabled()` returns false when the `SB_DISABLE_SERVICE_WORKER` is set or when the browser has no service worker.",
+ "tokens": 958,
+ "seconds": 0.005,
+ "e2e_seconds": 1.98,
+ "source_hits": 1.0,
+ "block": "## Under what conditions does the Lua check for whether client sync is on come back false?\n\n--- [vault:corpus/docs/API/sync.md] ---\n### sync.isEnabled\n\n## sync.isEnabled\n`sync.isEnabled()`\n\nWhether client Sync is enabled. False when the service worker is off.\n\n**Returns:**\n\n- `boolean` \u2014 False when SB_DISABLE_SERVICE_WORKER is set or the browser has no service worker.\n\n--- [vault:corpus/docs/API/sync.md] ---\n### sync.hasInitialSyncCompleted\n\n## sync.hasInitialSyncCompleted\n`sync.hasInitialSyncCompleted()`\n\nChecks whether the initial client synchronization has completed.\n\n**Returns:**\n\n- `boolean` \u2014 Whether initial sync is complete.\n\n--- [vault:corpus/docs/API/editor.md] ---\n### editor.isNarrowScreen\n\n## editor.isNarrowScreen\n`editor.isNarrowScreen()`\n\nChecks whether the client is currently laid out for a narrow screen, i.e. below the breakpoint where sidebar panels become full-width drawers.\n\n**Returns:**\n\n- `boolean` \u2014 Whether the narrow-screen layout is in effect.\n\n--- [vault:corpus/docs/API/sync.md] ---\n### sync.areFilesReadyToIndex\n\n## sync.areFilesReadyToIndex\n`sync.areFilesReadyToIndex(paths)`\n\nFor each file, whether indexing it now would read it locally or cheaply (true), or race the initial sync and expensively re-download it (false).\n\n**Parameters:**\n\n- `paths` (`string[]`) \u2014 Space-relative file paths.\n\n**Returns:**\n\n- `boolean[]` \u2014 Per-path readiness, in input order.\n\n--- [vault:corpus/docs/Guide/Desktop Setup.md] ---\n### Protect and troubleshoot your space\n\n# Protect and troubleshoot your space\nBack up your local folder and test a restore into a separate folder. Sync can copy an unwanted edit or deletion to another device, so it does not replace a backup.\n\nIf another device is missing an edit, first check the Server sync status in the space\u2019s settings and whether the Server is reachable. If the issue is inside the shared editor, start with [[Log]] and [[Troubleshooting]]. The browser cache reset instructions on that page apply to browser clients, not Desktop\u2019s local files.\n\nFor shared configuration and libraries across Desktop spaces, see [[Meta Space]].",
+ "meta": {
+  "engine_seconds": 0.005188166000007186,
+  "sources": [
+   "vault:corpus/docs/API/sync.md",
+   "vault:corpus/docs/API/sync.md",
+   "vault:corpus/docs/API/editor.md",
+   "vault:corpus/docs/API/sync.md",
+   "vault:corpus/docs/Guide/Desktop Setup.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

@@ -1,0 +1,13 @@
+{
+ "id": "pubB-11",
+ "type": "single",
+ "answer": "Because it reads every page, runs every lint rule, and renders each page's `${\u2026}` expressions and Lua widgets, it can take a while on a large space. So it only runs when you press **Run space-wide lint**.",
+ "tokens": 790,
+ "seconds": 0.003,
+ "e2e_seconds": 2.26,
+ "source_hits": 1.0,
+ "block": "--- Workbench/Maintenance.md ---\nSpace-wide lint\nThe Maintenance tab lists (potential) problems in your space in one place.\n\n${widgets.commandButton(\"Workbench: Maintenance\")} opens this tab in the [[Workbench]].\n\nThe checks below are instant, and refresh as your space changes:\n* **Broken links:** links to pages that don\u2019t exist yet ([[Tag/aspiring-page|aspiring pages]]).\n* **Ambiguous links:** links that could mean more than one page (see [[Link#Ambiguous links]]).\n* **Scripts and styles:** scripts that failed to load or are quarantined, and styles that hold CSS the browser parsed no rules from.\n* **Merge conflicts:** unresolved merges that need your decision.\n\n--- Workbench/Maintenance.md ---\nSpace-wide lint | description\nFind broken links, script failures, merge conflicts and space-wide lint errors.\n\n--- Workbench.md ---\nWorkbench\n* [[Workbench/Libraries|Libraries]]: install, update and remove [[Library|libraries]] and [[Repository|repositories]], and check what has an update.\n* [[Workbench/Maintenance|Maintenance]]: problems in your space, such as broken links, failed scripts, merge conflicts and (on demand) lint errors.\n* [[Workbench/Console|Console]]: everything your space logs, plus a [[Space Lua]] REPL.\n\n--- Guide/When Results Update.md ---\nAfter editing a page | If the result still looks stale\nVerify you are looking at the intended space and a live expression rather than a code example or baked output. Inspect the source page: was the tag attached to a task or a page? In Workbench, query the source records before adding filters. Then check **Console** for errors. [[Object Index]], [[Workbench/Data]] and [[Space Lua/Integrated Query]] describe the underlying behavior and limitations.\n\n--- Workbench/Maintenance.md ---\nSpace-wide lint | Space-wide lint\nThe space-wide lint runs [[API/space#space.lint]] over every page. This reads each page, runs every lint rule and renders its `${\u2026}` expressions and Lua widgets, so on a large space it can take a while. That\u2019s why it never runs by itself: press **Run space-wide lint** when you want it.",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT"
+}

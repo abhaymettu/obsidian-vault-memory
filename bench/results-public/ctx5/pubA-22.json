@@ -1,0 +1,23 @@
+{
+ "id": "pubA-22",
+ "type": "verbatim",
+ "answer": "Not in memory. The only edge-tracking command it gives is `sb upgrade-edge`, and that belongs to the optional `sb` CLI client, not the standalone `silverbullet` server binary.",
+ "tokens": 1181,
+ "seconds": 0.003,
+ "e2e_seconds": 2.81,
+ "source_hits": 1.0,
+ "block": "## With the standalone server binary, what command moves me onto builds that track the main branch?\n\n--- [vault:corpus/docs/Install.md] ---\n### Server\n\n# Server\nRun Server when you want browser access, a shared team space or a synchronization point for Desktop installations. Install it with [[Install/Docker|Docker]] or the [[Install/Server Binary|standalone binary]]. You can start on this computer and make it reachable from other devices when needed.\n\n[[Guide/Server Setup]] covers setup and administration. [[Install/Server]] describes deployment choices and filesystem requirements.\n\n--- [vault:corpus/docs/Install/Server Binary.md] ---\n### Untitled\n\ndescription: \"Download and run the standalone SilverBullet Server binary.\"\ntags: getting-started\nreferences:\n- bin/silverbullet/src/main.rs\n- bin/silverbullet/build.rs\n\n--- [vault:corpus/docs/CLI.md] ---\n### Untitled\n\n> **note** This is **not** the server\n> `sb` is the optional **CLI client**, it talks to an already-running SilverBullet instance over HTTP. If you\u2019re looking for the actual server binary, that\u2019s [[Install/Server Binary]] (`silverbullet`), not this. You do not need `sb` to use SilverBullet.\n\nThe SilverBullet CLI is a companion command-line tool for interacting with a running SilverBullet instance from your terminal. It communicates with the server over HTTP. File commands use the [[HTTP API]] directly. Lua, queries, screenshots and logs use the [[Runtime API]]. `sb help` gives an AI assistant or a person the space\u2019s skills and a map of the space (see [[#`help [topic]`]]).\n\n--- [vault:corpus/docs/CLI.md] ---\n### Installation\n\n# Installation\nOn macOS, Linux and FreeBSD:\n```bash\ncurl -fsSL https://silverbullet.md/install-sb.sh | sh\n```\nThis installs `sb` to `~/.local/bin` (set `SB_INSTALL_DIR` to change that). Add `-s -- --edge` after `sh` for the edge build, or `-s -- --version <version>` for a specific release.\n\nOn Windows (PowerShell):\n```powershell\nirm https://silverbullet.md/install-sb.ps1 | iex\n```\nThis installs `sb.exe` to `%LOCALAPPDATA%\\SilverBullet\\bin` and adds that folder to your user `Path`. Set `$env:SB_CHANNEL = \"edge\"` or `$env:SB_VERSION` first to choose another build.\n\nThe binaries are also available on the [GitHub releases page](https://github.com/silverbulletmd/silverbullet/releases) (or the [edge](https://github.com/silverbulletmd/silverbullet/releases/tag/edge) build).\n\nOnce installed, it can self-update:\n```bash\nsb upgrade       # latest stable release\nsb upgrade-edge  # latest edge (main branch) build\n```\n\n--- [vault:corpus/docs/Zero Tracking.md] ---\n### Untitled\n\ndescription: \"SilverBullet Server has no trackers or telemetry.\"",
+ "meta": {
+  "engine_seconds": 0.0027087500000052387,
+  "sources": [
+   "vault:corpus/docs/Install.md",
+   "vault:corpus/docs/Install/Server Binary.md",
+   "vault:corpus/docs/CLI.md",
+   "vault:corpus/docs/CLI.md",
+   "vault:corpus/docs/Zero Tracking.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "WRONG",
+ "exact": 1.0
+}

@@ -1,0 +1,22 @@
+{
+ "id": "pubB-33",
+ "type": "verbatim",
+ "answer": "Append `?resetClient=1` to the space URL. After you confirm, it clears browser storage, unregisters the service worker and reloads the client to sync again, and any unsynchronized edits will be lost.",
+ "tokens": 1250,
+ "seconds": 0.312,
+ "e2e_seconds": 3.05,
+ "source_hits": 1.0,
+ "block": "Memory for: What do I append to the space URL to get a full browser client reset?\n[1] Troubleshooting.md (Desktop)\n  Reset a browser client: If the problem is in the browser\u2019s local cache, adding `?resetClient=1` to the space URL offers a full client reset. After confirmation, it clears browser storage, unregisters the service worker and reloads the client to synchronize again. / > **warning** Unsynchronized edits will be lost / > Check that the Server is accessible and preserve any edits that have not reached it before resetting the browser. This clears the browser\u2019s copy, not the Server\u2019s files.\n  Disable client features: Temporarily disable a feature by appending one of these options to the space URL, for example `http://localhost:3000/?disableSpaceLua=1`: / * `?disableSync=1` disables browser offline synchronization with the Server. / * `?disableSpaceLua=1` disables loading [[Space Lua]] scripts. / * `?disableSpaceStyle=1` disables loading [[Space Style]]. / * `?disablePlugs=1` disables loading non-built-in [[Plugs]]. / Combine options with `&`, for example `?disableSpaceLua=1&disableSpaceStyle=1`. Remove the options when you finish diagnosing the problem.\n[2] Guide/Server Setup.md (Install and create a space)\n  Recovery and troubleshooting: Back up your space files and test restoration. For a full Server restore, preserve configuration and authentication state as well as page and attachment files. / If a space will not open or save, check [[Log]] and [[Troubleshooting]]. Distinguish a Server problem from a browser\u2019s offline copy before resetting client storage: a reset can discard edits that have not reached the Server.\n[3] Guide/Desktop Setup.md (Install and open a space)\n  Protect and troubleshoot your space: Back up your local folder and test a restore into a separate folder. Sync can copy an unwanted edit or deletion to another device, so it does not replace a backup. / If another device is missing an edit, first check the Server sync status in the space\u2019s settings and whether the Server is reachable. If the issue is inside the shared editor, start with [[Log]] and [[Troubleshooting]]. The browser cache reset instructions on that page apply to browser clients, not Desktop\u2019s local files. / For shared configuration and libraries across Desktop spaces, see [[Meta Space]].\n[4] Runtime API.md (Setup)\n  Profiles: Each user of a space has one Chrome profile, holding the client's index and browser storage. It is kept when the runtime stops (whether idle, by an administrator's **Stop**, or at server shutdown) and reused next time. / A profile is deleted on **Reset**, when the user loses Write or runtime access or their credentials change, when the Runtime API is switched off, and when the space is deleted. / Profiles live under `.chrome-data` in the server's data folder, or under `SB_CHROME_DATA_DIR` when set. Their directory names are hashes of the server folder, space and user.\nExact facts:\n- [1] Start with the section for the application you use. If you ask the [community for help](https://community.silverbullet.md/), include whether you use Desktop or a browser connected to Server, the version, what you expected and what happened.\n- [2] Choose [[Install/Docker|Docker]] or the [[Install/Server Binary|standalone binary]]. Start with an empty data folder and open the Server\u2019s address in a browser. The setup wizard creates your first administrator account and space. [[Dashboard]] explains how to manage additional spaces afterward.\n- [4] curl -o full.png 'http://localhost:3000/.runtime/screenshot?fullPage=1'",
+ "meta": {
+  "notes": [
+   "Troubleshooting.md",
+   "Guide/Server Setup.md",
+   "Guide/Desktop Setup.md",
+   "Runtime API.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

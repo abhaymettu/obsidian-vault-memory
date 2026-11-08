@@ -1,0 +1,22 @@
+{
+ "id": "pubA-15",
+ "type": "single",
+ "answer": "No. Git remote sync for a managed space is primarily a backup mechanism (and for history) and \"should not be considered for any type of collaboration\"; for collaboration, use a shared Server space instead.",
+ "tokens": 665,
+ "seconds": 0.004,
+ "e2e_seconds": 2.23,
+ "source_hits": 1.0,
+ "block": "## Is the Git remote sync for a managed space meant for working together with other people?\n\n--- [vault:corpus/docs/Guide/Git Sync.md] ---\n### Syncing with a remote\n\n# Syncing with a remote\nA managed space can automatically fetch, merge, and push its Git repository. This is primarily a **backup mechanism**, it should not be considered for any type of collaboration.\n\n--- [vault:corpus/docs/Revisions.md] ---\n### Syncing with a remote\n\n# Syncing with a remote\nA managed space can fetch, merge and push its revision repository. Follow [[Guide/Git Sync]] for setup, timing and recovery. This is primarily for history and backup. Use a shared Server space for collaboration.\n\n--- [vault:corpus/docs/Revisions.md] ---\n### Syncing with a remote > Conflicts\n\n## Conflicts\nSee [[Guide/Git Sync#Conflicts]].\n\n--- [vault:corpus/docs/Revisions.md] ---\n### Syncing with a remote > Scope\n\n## Scope\nSee [[Guide/Git Sync#Scope]].\n\n--- [vault:corpus/docs/Git.md] ---\n### Untitled\n\nGit is a [free and open source version control system](https://git-scm.com/) originally developed by Linus Torvalds (of Linux fame) and the de-facto standard in the industry.\n\nSilverBullet uses Git for [[Revisions]]. Managed spaces can optionally fetch, merge and push to a remote through [[Guide/Git Sync]]. For access from another device, compare the alternatives in [[Guide/Devices and Publishing]].",
+ "meta": {
+  "engine_seconds": 0.003548957999999402,
+  "sources": [
+   "vault:corpus/docs/Guide/Git Sync.md",
+   "vault:corpus/docs/Revisions.md",
+   "vault:corpus/docs/Revisions.md",
+   "vault:corpus/docs/Revisions.md",
+   "vault:corpus/docs/Git.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

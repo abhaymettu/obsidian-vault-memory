@@ -1,0 +1,20 @@
+{
+ "id": "pubA-20",
+ "type": "verbatim",
+ "answer": "The command is **Editor: Toggle Keyboard Bar**. It turns the keyboard bar off or on, and the choice is remembered per device.",
+ "tokens": 576,
+ "seconds": 0.004,
+ "e2e_seconds": 2.44,
+ "source_hits": 1.0,
+ "block": "## What command turns the on-screen editing shortcut strip above a phone keyboard off and on?\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Disabling keyboard shortcuts\n\n# Disabling keyboard shortcuts\nYou can use the [[^Library/Std/APIs/Command#command.update(commandDef)]] API to disable keyboard shortcuts of existing commands by setting them to an empty string, for example:\n\n```lua\ncommand.update {\n  name = \"Task: Cycle State\",\n  key = \"\",\n  mac = \"\"\n}\n```\n\n--- [vault:corpus/docs/API/keyboardBar.md] ---\n### Untitled\n\nAPIs to add buttons to the keyboard bar.\n\nOn phones and tablets, the keyboard bar shows editing shortcuts above the on-screen keyboard (or along the bottom of the screen with a hardware keyboard). Its buttons come from the `keyboardBar` option in [[^Library/Std/Config]]: replace the whole list with `config.set`, or add to it with `keyboardBar.define`. Buttons can be limited to where the cursor is, so e.g. the indent and outdent buttons only appear inside outlines.\n\nThe bar is on by default. **Editor: Toggle Keyboard Bar** turns it off or on again. The choice is remembered per device. Setting `keyboardBar` to an empty list hides it everywhere.\n\n> **success** Success\n> Put your `keyboardBar.define` calls in your [[CONFIG]] page.",
+ "meta": {
+  "engine_seconds": 0.004445250000000016,
+  "sources": [
+   "vault:corpus/docs/Keyboard Shortcuts.md",
+   "vault:corpus/docs/API/keyboardBar.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

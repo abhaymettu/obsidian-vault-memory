@@ -1,0 +1,23 @@
+{
+ "id": "pubA-25",
+ "type": "verbatim",
+ "answer": "The config key is `fonts.editorSize`. It defaults to 18 (pixels) and can range from 10 to 48.",
+ "tokens": 1264,
+ "seconds": 0.005,
+ "e2e_seconds": 2.2,
+ "source_hits": 1.0,
+ "block": "## What config key sets the size of page text in the editor, and what are its default and allowed range?\n\n--- [vault:corpus/docs/API/config.md] ---\n### config.define\n\n## config.define\n`config.define(key, schema)`\n\nDefines a JSON schema for a configuration key.\n\n**Parameters:**\n\n- `key` (`string`) \u2014 Configuration key.\n- `schema` (`table`) \u2014 JSON Schema definition. `default` supplies missing values, and `ui` annotations expose the field in Workbench\u2019s Configuration tab.\n\n**Example:**\n\n```lua\nconfig.define(\"shortWikiLinks\", {\n  description = \"Render short wiki link labels\",\n  type = \"boolean\",\n  default = true,\n  ui = {category = \"Editor\", label = \"Short wiki links\", priority = 1},\n})\n```\n\n--- [vault:corpus/docs/Fonts.md] ---\n### Editor font size\n\n# Editor font size\n**Editor font size**, also under **Appearance**, sets the size of page text in the editor, in pixels: 18 by default, from 10 to 48. Headings, code and list indents scale with it. A proportional font often looks smaller than a monospace one at the same size, so you may want to raise it after switching. In [[CONFIG]]:\n\n```lua\nconfig.set(\"fonts.editorSize\", 20)\n```\n\n--- [vault:corpus/docs/Document.md] ---\n### Uploading\n\n# Uploading\nTo upload documents you have a few options:\n\n* Use the `Upload: File` command (especially useful on mobile devices)\n* Drag & drop files or images onto a page\n* Copy & paste files or images onto a page\n\nAll options will prompt you for a file name to use to store the document, and then include the document as an embedded image (if it was an image) or link to the file.\n\nBy default the maximum allowed filesize for an upload is 10MB, you can change that with the `maximumDocumentSize` option.\n```lua\nconfig.set(\"maximumDocumentSize\", 100)\n```\n\n--- [vault:corpus/docs/Search.md] ---\n### Semantic search > Space size\n\n## Space size\nOnce a model is configured, spaces with up to 5,000 Markdown pages are eligible for semantic search by default. Larger spaces require explicit opt-in. A space that grows past this threshold keeps its existing semantic search and shows a warning about relevance. 5,000 is a default policy threshold, not a hard page limit. Full-text search remains available.\n\n--- [vault:corpus/docs/Fonts.md] ---\n### Notes for theme authors\n\n# Notes for theme authors\nIf your [[Space Style]] sets fonts, a few things changed with this feature:\n\n* **Code no longer follows `--editor-font`.** It uses `--editor-monospace-font`. A theme that set `--editor-font` to a monospace font, and expected code to follow, should set `--editor-monospace-font` too.\n* **The editor's text size is the `--editor-font-size` variable** (18px in the theme), no longer a fixed `font-size` on `#sb-main .cm-editor`.\n* **A `space-style` that sets `--editor-font`, `--ui-font`, `--editor-monospace-font` or `--editor-font-size` wins over the Configuration setting**, whether it sets them on `html` or `:root`. Remove it from your style to pick fonts in Configuration instead.\n* **Numbered lists right-align their numbers** to the widest number in the list, so items `9.` and `10.` start their text in the same place.",
+ "meta": {
+  "engine_seconds": 0.0046610419999924485,
+  "sources": [
+   "vault:corpus/docs/API/config.md",
+   "vault:corpus/docs/Fonts.md",
+   "vault:corpus/docs/Document.md",
+   "vault:corpus/docs/Search.md",
+   "vault:corpus/docs/Fonts.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

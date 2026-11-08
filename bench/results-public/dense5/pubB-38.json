@@ -1,0 +1,14 @@
+{
+ "id": "pubB-38",
+ "type": "verbatim",
+ "answer": "`_CTX.sourcePage` gives the page the expression's text comes from (`{ name = \u2026 }`). Inside a transclusion it is the transcluded page, whereas `_CTX.currentPage` is the currently open page.",
+ "tokens": 824,
+ "seconds": 0.004,
+ "e2e_seconds": 2.1,
+ "source_hits": 1.0,
+ "block": "--- Space Lua/Thread Locals.md ---\nThread Locals\nThere is \u201cmagic\u201d `_CTX` global variable available from which you can access some context-specific values. Currently the following keys are available:\n\n* `_CTX.currentPage` providing access to the currently open page (PageMeta object)\n* `_CTX.sourcePage` the page the expression\u2019s text comes from (`{ name = \u2026 }`): the transcluded page inside a transclusion, otherwise the current page\n\n--- API/widget.md ---\nWhat a plain `${...}` renders | Widget types > Markdown widgets > Showing text without evaluating it\nMarkdown widgets evaluate what they render: `${...}` expressions run, and `![[Page]]` pulls in other pages. When a widget shows text written by someone else (an imported note, a form entry, generated text), pass `evaluate = false`. The text is still rendered as Markdown (formatting, lists, links), but expressions and transclusions stay literal text:\n\n```lua\nwidget.markdownBlock(importedText, { evaluate = false })\nwidget.new { markdown = importedText, evaluate = false }\n```\n\nFor text placed inside HTML, escape it with `string.escapeHtml` instead.\n\n--- Transclusions.md ---\nMedia | Pages\nSyntax:\n* `![[page name]]` embed an entire page\n* `![[page name#header]]` embed only a section (guarded by the given header)\n\nText and source documents are not transcluded as highlighted source. The editable text-document fallback does not change this boundary: page transclusion remains limited to Markdown pages.\n\n--- Guide/Knowledge Base.md ---\nCreate topic pages | Reuse content across pages\nInsert a [[Transclusions|transclusion]] with `![[Page name]]` to display another page\u2019s content without maintaining a separate copy. This also works for an overview containing a query.\n\nLive queries render in SilverBullet. [[Baked Sections]] explains how to store computed output when you need portable Markdown.\n\n--- Live Preview.md ---\nRevealing the source | Widget rendering\n[[Space Lua#Expressions]] (`${...}`) are rendered inline in place. The underlying code follows the source-reveal rules above. Queries, templates and widgets display their results within the document. An expression re-runs when something it read changes. See [[API/widget#When expressions update]]. Use the \u22ef menu on a block widget to reload, copy or bake it.",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

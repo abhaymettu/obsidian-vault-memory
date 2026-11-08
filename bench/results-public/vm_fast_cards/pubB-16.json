@@ -1,0 +1,21 @@
+{
+ "id": "pubB-16",
+ "type": "multi",
+ "answer": "The `lua` tool depends on the Runtime API, which runs the code in a headless Chrome instance (a real SilverBullet client) via Chrome DevTools Protocol. The memory says MCP is turned on by an admin in the APIs tab of the Dashboard, but it doesn't say explicitly where the Runtime API itself is enabled, so that part is Not in memory.",
+ "tokens": 1348,
+ "seconds": 0.473,
+ "e2e_seconds": 2.93,
+ "source_hits": 1.0,
+ "block": "Memory for: The MCP tool that runs Lua in a live space depends on another server feature. What actually executes that code, and where does a multi-space admin switch it on?\n[1] MCP.md (Tools)\n  - The `lua` tool runs Space Lua in the live space and returns the result and console output, and it needs the Runtime API.\n  SilverBullet can act as an [MCP](https://modelcontextprotocol.io) (Model Context Protocol) server, so AI assistants can read, write, query and pimp up your spaces. / MCP is available in [[Dashboard|multi-space mode]] and in [[Desktop]]. The endpoint is `/.mcp` on your server, for example `https://notes.example.com/.mcp`. A single-space server does not serve it. On a server it is off by default: an admin turns it on in the APIs tab of the [[Dashboard]].\n  - Writing a page with Space Lua or Space Style through MCP reloads it and reports any load errors.\n[2] Runtime API.md (Setup)\n  How it works: Once ready, the server communicates with the browser directly via Chrome DevTools Protocol (CDP). Because Lua code runs inside a real SilverBullet client, it has access to the full API surface \u2014 `editor.*`, `space.*`, queries, and everything else available to in-page scripts and widgets. The results reflect live client state.\n  The Runtime API lets you interact with a SilverBullet client programmatically via HTTP. / Requests are evaluated via Chrome DevTools Protocol (CDP) in a headless Chrome instance, which does the actual execution so all results reflect the live c ...\n[3] Security.md (Access levels)\n  Capability endpoints: A few endpoints can reach beyond the space\u2019s own content, and all require `write`: / * **Shell** (`/.shell`) \u2014 runs any command on the server. (Off by default) / * **HTTP proxy** (`/.proxy`, exposed to Lua as [[API/net#net.proxyFetch(url, options?)|net.proxyFetch]]) \u2014 fetches an external URL through the server, on the server\u2019s network. / * **Runtime API** (`/.runtime`) \u2014 evaluates Lua and scripts via a headless browser instance, see [[Runtime API]].\n[4] CHANGELOG.md (CHANGELOG)\n  2.10.0: * [[Dashboard]]: multi-space hosting with multiple accounts is here. A fresh install pointed at an empty folder opens a browser-based first-run **setup wizard** that creates an admin account and your first space, then serves it in place with no restart. One server can host any number of [[Space|spaces]], each bound to a URL prefix or hostname. / * [[Baked Sections]]: bake `${...}` Lua expressions and widgets into / HTML-comment-delimited markdown (`<!--#lua EXPR -->` \u2026 `<!--/lua-->`). / * Space Lua: **code complete now shows documentation** (where available), all available via [[API/spacelua]] reflection APIs. / * Backend and CLI have been ported to Rust ([see background on this](https://no.silverbullet.plus/tech-stacks)), both should be behavior preserving (that is: you shouldn\u2019t really notice): / * The server backend (previously written in Go) has now been replaced by an adapted version of [SilverBullet+](https://silverbullet.plus/)\u2019s backend written in Rust, more unifying those code bases.\nExact facts:\n- [1] `help`: the first call. Lists the spaces you can use, whether each has a runtime, and the skills available. Tools take a space by its name or its id, the id is needed only when two of your spaces share a name.\n- [1] `read`, `write` and `edit`: read pages (a part of one, several at once, or rendered with queries evaluated and lint problems listed), write whole pages, or make targeted edits. Writing a page with Space Lua or Space Style reloads it and reports any load errors.",
+ "meta": {
+  "notes": [
+   "MCP.md",
+   "Runtime API.md",
+   "Security.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

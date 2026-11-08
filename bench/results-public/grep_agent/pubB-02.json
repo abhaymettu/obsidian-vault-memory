@@ -1,0 +1,21 @@
+{
+ "id": "pubB-02",
+ "type": "single",
+ "answer": "In Managed mode, SilverBullet commits about 30 seconds after you stop typing by default. During a long editing session it still commits at least every 5 minutes. You can change this per space under **Commit frequency**: Responsive (the default), Balanced or Relaxed. This is described in `Revisions.md`.",
+ "tokens": 582,
+ "seconds": 3.957,
+ "e2e_seconds": 3.96,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3706,
+  "final_context": 4257,
+  "billed_input": 7963,
+  "turns": 2,
+  "cost_usd": 0.0073326,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"(?i)auto.?commit|commit.*(idle|after|seconds|minutes)\", \"output_mode\": \"content\", \"-n\": true, \"head_limit\": 30}\nRevisions.md:28:In _Managed_ mode, changes are committed a short while after things go quiet \u2014 about 30 seconds by default, and at least every 5 minutes during a long editing session. You can change this per space, under **Commit frequency**: **Responsive** (the default), **Balanced**, or **Relaxed**. A slower setting means fewer, larger commits.\nHTTP API.md:65:* `GET /.revisions/<path>?format=diff`: With no `rev`, the *uncommitted* change instead \u2014 HEAD versus what is on disk, as `text/plain`. A file that has never been committed reads as wholly added. `404` when it matches HEAD after all.\nAPI/space.md:97:Summarizes revision activity. Returns `{commits, topFiles, authors}`: `commits` is a list of commit timestamps (unix seconds) since `since`, `topFiles` lists the most frequently changed files since `filesSince` as `{path, count}`, and `authors` lists the commit count per author name since `filesSince` as `{name, count}`, most active first. All arguments are optional unix times in seconds (and `top` a count). Omitted ones use the server defaults. Fails if revisions are not enabled for the space."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

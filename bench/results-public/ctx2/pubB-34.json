@@ -1,0 +1,20 @@
+{
+ "id": "pubB-34",
+ "type": "verbatim",
+ "answer": "`SB_RUNTIME_IDLE_TIMEOUT` sets the idle timeout in minutes (for example `SB_RUNTIME_IDLE_TIMEOUT=120`), and `0` keeps runtimes running. The default is 30 minutes.",
+ "tokens": 763,
+ "seconds": 0.003,
+ "e2e_seconds": 2.42,
+ "source_hits": 1.0,
+ "block": "## In single-space mode, which environment variable changes how long an idle runtime waits before it stops?\n\n--- [vault:corpus/docs/Runtime API.md] ---\n### How it works > Idle stop\n\n## Idle stop\nA runtime that has received no requests for 30 minutes is stopped: its Chrome exits and it uses no memory or CPU. The next request starts it again on the same profile, so the client picks up where it left off instead of rebuilding its index. That takes about a second, plus the time to index pages that changed in the meantime.\n\nWhile a runtime is stopped, nothing runs in its client, including Space Lua event listeners such as `cron:secondPassed`.\n\nTo change the timeout, in minutes (`0` keeps runtimes running):\n* In single-space mode, set `SB_RUNTIME_IDLE_TIMEOUT`, for example `SB_RUNTIME_IDLE_TIMEOUT=120`.\n* In multi-space mode, use **Stop idle runtimes after** in the administrator's **APIs** tab, stored as `runtimeIdleTimeout` in `server.json`.\n\n--- [vault:corpus/docs/Runtime API.md] ---\n### Setup\n\n# Setup\nThe Runtime API is enabled automatically when Chrome, Chromium, or Chromium headless shell is detected on your system \u2014 no configuration needed. Auto-detection prefers headless shell when it is available on `PATH`.\n\nIf Chrome is not auto-detected, for some reason, set the path explicitly:\n```\nSB_CHROME_PATH=/usr/bin/chromium\n```\n\nIn single-instance mode, set `SB_RUNTIME_API=0` to disable the Runtime API, and `SB_RUNTIME_IDLE_TIMEOUT` to change when an idle runtime stops (see [[#Idle stop]]). In multi-space mode these variables are ignored: use the **Enable runtime API** toggle in the administrator\u2019s **APIs** tab. Each writer has an independent **Runtime API** permission in the space\u2019s access grid. Existing writers default to enabled unless explicitly opted out.",
+ "meta": {
+  "engine_seconds": 0.0034092079999999783,
+  "sources": [
+   "vault:corpus/docs/Runtime API.md",
+   "vault:corpus/docs/Runtime API.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

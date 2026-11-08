@@ -1,0 +1,22 @@
+{
+ "id": "pubB-43",
+ "type": "verbatim",
+ "answer": "The v1 migration guide (`Migrate from v1.md`) says to use the `System: Wipe Client` command. Other pages, `Client Encryption.md` and `API/system.md`, call the same action `Client: Wipe`, which suggests that is the current name. The `system.wipeClient` API does the same thing.",
+ "tokens": 459,
+ "seconds": 4.46,
+ "e2e_seconds": 4.46,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3679,
+  "final_context": 4134,
+  "billed_input": 11947,
+  "turns": 2,
+  "cost_usd": 0.007730900000000001,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"online mode|Client: Wipe|Wipe\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 30}\nClient Encryption.md:10:However, if you are accessing SilverBullet from an \u201cuntrusted\u201d device, such as a public computer, this is not a great option, because even after closing your browser all content remains stored on the device unencrypted. You can use commands like `Client: Wipe` and `Client: Logout` to remove data locally, but there\u2019s a chance you will forget at some point.\nAPI/system.md:14:> **Deprecated:** Use system.wipeClient or the Client: Wipe command instead.\nAPI/system.md:179:## system.wipeClient\nAPI/system.md:180:`system.wipeClient(logout?)`\nAPI/system.md:182:Wipes local client state, cached files, databases, and optionally the login session.\nMigrate from v1.md:52:* Online mode: v2 is sync mode only, meaning all your content will be synced into your browser. A simpler Online mode may be added back later. If you like to wipe your local content at any time, use the `System: Wipe Client` command."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

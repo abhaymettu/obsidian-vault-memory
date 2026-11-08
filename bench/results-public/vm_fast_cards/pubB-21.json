@@ -1,0 +1,21 @@
+{
+ "id": "pubB-21",
+ "type": "multi",
+ "answer": "In v2, install plugs from the Libraries tab of the Workbench, which you open with `Libraries: Manager`, since legacy `plugs:` config entries are ignored. The memory doesn't say what extra the installer asks when you give it a plug URI, so that part is not in memory.",
+ "tokens": 1340,
+ "seconds": 0.548,
+ "e2e_seconds": 3.46,
+ "source_hits": 0.5,
+ "block": "Memory for: Moving from v1, my plugs: config entries no longer do anything. How do I install a plug now, and what extra does the installer ask when I give it a plug URI?\n[1] Migrate from v1.md (Queries)\n  Plugs: Many existing plugs _should_ keep working, but some may need updating. Plug installation is now handled in the [[Workbench/Libraries|Libraries]] tab of the Workbench (open with `Libraries: Manager`). Legacy `plugs:` config entries are ignored \u2014 install plugs from the Libraries UI instead.\n  - In v2, legacy `plugs:` config entries are ignored, so plugs should be installed from the Libraries UI instead.\n  Removed features: Certain features have been removed: / * Online mode: v2 is sync mode only, meaning all your content will be synced into your browser. A simpler Online mode may be added back later. If you like to wipe your local content at any time, use the `System: Wipe Client` command. / * [Federation](https://v1.silverbullet.md/Federation) / * [Share](https://v1.silverbullet.md/Plugs/Share) replaced by [[^Library/Std/Infrastructure/Export]] / * Space Script: replaced by [[Space Lua]] / * Space Config: replaced by the [[API/config]] APIs. / * Command link syntax (`{[...]})`) replaced by the `${widgets.commandButton(...)}` API.\n  - In v2, plug installation is handled in the Libraries tab of the Workbench, which is opened with `Libraries: Manager`.\n[2] CHANGELOG.md (CHANGELOG)\n  2.3.0: * If you have third-party plugs installed and intend to reinstall them as Libraries: be sure to delete the old versions first. You can do so by cleaning out your `_plug` folder right on the file system, or use the document picker, filter on `plug.js` and delete every single document that\u2019s in the `_plug` folder that way. / * If you somehow end up in a state where SilverBullet doesn\u2019t load properly, have a look at [[Troubleshooting]] for hints on what to try to fix it.\n[3] ADR/007 Core Application Logic on the Client.md (Context)\n  Context: SilverBullet\u2019s [[Plugs]] runtime was originally designed so that plugs could run **either on the server or in the client**. Through \u201cv1\u201d this surfaced as two switchable modes: / * **Server mode** \u2014 indexing and plug execution ran on the server, the client delegated a lot of logic to the server. / * **Sync mode** \u2014 the space is *also* synced to the browser and indexing + plug execution ran client-side as well. You could switch between the two. / This was flexible and genuinely powerful, but maintaining **two runtime environments** for PlugOS was a persistent burden: every capability had to work and the dual model produced subtle, hard-to-diagnose issues. The goal for v2 was to be genuinely **offline-first** without that complexity.\n[4] Reference/Technical Reference.md (External interfaces)\n  Architecture and project history: * [[Architecture]] \u2014 how the system fits together. / * [[Plugs/Development/Architecture]], [[Plugs/Development/Document Editors]] and [[Plugs/Development/Reference]] \u2014 plug architecture and contracts. / * [[ADR]], [[CHANGELOG]] and [[Migrate from v1]]  ...\nExact facts:\n- [1] SilverBullet v2 removed a slew of features that were still present in the 0.x series (also known as \u201cv1\u201d). Sadly, we just had to rip the bandaid on this one.\n- [1] v2 does not have support for old-style [queries](https://v1.silverbullet.md/Query%20Language) (live queries) anymore. They have been replaced with [[Space Lua/Integrated Query]]. Give the linked page a read, but generally there\u2019s a few differences:",
+ "meta": {
+  "notes": [
+   "Migrate from v1.md",
+   "CHANGELOG.md",
+   "ADR/007 Core Application Logic on the Client.md",
+   "Reference/Technical Reference.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

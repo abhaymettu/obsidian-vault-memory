@@ -1,0 +1,22 @@
+{
+ "id": "pubB-10",
+ "type": "single",
+ "answer": "Yes, that's expected: the current dispatcher passes only the first captured value to `run`. The workaround is to capture the whole suffix with one group (e.g. `pattern = \"lookup:(.+)\"`) and parse it inside the callback, such as with `suffix:match(\"([^:]+):(.+)\")` to get `kind` and `id`.",
+ "tokens": 1350,
+ "seconds": 0.005,
+ "e2e_seconds": 2.47,
+ "source_hits": 1.0,
+ "block": "## My virtual page pattern has two capture groups but my run function only seems to get one value. Is that expected, and what's the workaround?\n\n--- [vault:corpus/docs/Virtual Pages.md] ---\n### Multiple capture groups\n\n# Multiple capture groups\nThe current dispatcher passes only the first match value to `run`. If you need several values, capture the complete suffix and parse it inside the callback:\n\n```lua\nvirtualPage.define {\n  pattern = \"lookup:(.+)\",\n  run = function(suffix)\n    local kind, id = suffix:match(\"([^:]+):(.+)\")\n    if not kind then return \"Use lookup:kind:id\" end\n    return \"# \" .. kind .. \"\\nLooking up: \" .. id\n  end\n}\n```\n\n--- [vault:corpus/docs/Virtual Pages.md] ---\n### Defining your own virtual pages\n\n# Defining your own virtual pages\nHere\u2019s a more complete example that queries the object index:\n\n```lua\nvirtualPage.define {\n  pattern = \"recent:(%d+)\",\n  run = function(count)\n    local n = tonumber(count)\n    local pages = query[[\n      from index.pages()\n      order by lastModified desc\n      limit n\n    ]]\n    local result = \"# \" .. count .. \" Most Recent Pages\\n\"\n    for _, page in ipairs(pages) do\n      result = result .. \"* \" .. markdown.link(page.name) .. \"\\n\"\n    end\n    return result\n  end\n}\n```\n\nNavigate to `recent:10` to see the 10 most recently modified pages.\n\n--- [vault:corpus/docs/Virtual Pages.md] ---\n### Built-in virtual pages > Tag pages\n\n## Tag pages\nThe most commonly used virtual pages are **tag pages**. When you click a hashtag like `#project`, SilverBullet navigates to `tag:project`, which is a virtual page that lists all objects with that tag \u2014 grouped by type (pages, tasks, items, data, etc.).\n\nTag pages are defined in the standard library and work out of the box. You can override the default tag page by defining your own `virtualPage.define` with the pattern `tag:(.+)`.\n\n--- [vault:corpus/docs/Virtual Pages.md] ---\n### How it works\n\n# How it works\nYou define a virtual page by calling `virtualPage.define` with a Lua pattern and a function. When someone navigates to a page name matching the pattern, SilverBullet calls your function instead of loading a file from disk.\n\nThe current standard-library dispatcher passes the first captured value from the pattern to the function. The function returns the Markdown content to display. Put definitions in a `space-lua` block in your own space, then run `System: Reload`.\n\n```lua\nvirtualPage.define {\n  pattern = \"greeting:(.+)\",\n  run = function(name)\n    return \"# Hello, \" .. name .. \"!\\nWelcome to this virtual page.\"\n  end\n}\n```\n\nNavigating to `greeting:World` renders a page with the heading \u201cHello, World!\u201d \u2014 but no file is created.\n\nVirtual pages are always **read-only**. The editor disables editing controls automatically.\n\n--- [vault:corpus/docs/API/string.md] ---\n### string.match\n\n## string.match\n`string.match(s, pattern, init?)`\n\nReturns captures from the first Lua-pattern match, or `nil` when none is found.\n\n**Parameters:**\n\n- `s` (`string`)\n- `pattern` (`string`)\n- `init?` (`integer`)\n\n**Returns:**\n\n- Value \u2014 Pattern captures, whole match, or `nil`.\n\n**Example:**\n\n```lua\nlocal year, month = string.match(\"2024-03\", \"(%d+)%-(%d+)\")\n```",
+ "meta": {
+  "engine_seconds": 0.004582291999991867,
+  "sources": [
+   "vault:corpus/docs/Virtual Pages.md",
+   "vault:corpus/docs/Virtual Pages.md",
+   "vault:corpus/docs/Virtual Pages.md",
+   "vault:corpus/docs/Virtual Pages.md",
+   "vault:corpus/docs/API/string.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

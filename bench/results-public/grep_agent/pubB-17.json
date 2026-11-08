@@ -1,0 +1,21 @@
+{
+ "id": "pubB-17",
+ "type": "multi",
+ "answer": "A non-Docker server listens on `127.0.0.1`, port `3000`, if you set nothing. These come from the defaults for `SB_HOSTNAME` and `SB_PORT` in `Install/Configuration.md`. I didn't open the troubleshooting page itself.",
+ "tokens": 564,
+ "seconds": 3.647,
+ "e2e_seconds": 3.65,
+ "source_hits": 0.5,
+ "block": null,
+ "meta": {
+  "first_context": 3703,
+  "final_context": 4239,
+  "billed_input": 7942,
+  "turns": 2,
+  "cost_usd": 0.006776,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"SB_HOSTNAME\", \"output_mode\": \"content\", \"-C\": 2}\nInstall/Configuration.md-7-\nInstall/Configuration.md-8-# Network\nInstall/Configuration.md:9:* `SB_HOSTNAME`: Set to the hostname to bind to (defaults to `127.0.0.1`, set to `0.0.0.0` to accept outside connections for the local setup, defaults to `0.0.0.0` for docker)\nInstall/Configuration.md-10-* `SB_PORT`: Sets the port to listen to, e.g. `SB_PORT=1234`, default is `3000`\nInstall/Configuration.md-11-\n--\nInstall/Configuration.md-46-\nInstall/Configuration.md-47-## Network\nInstall/Configuration.md:48:* `SB_UNIX_SOCKET`: Instead of listening to a TCP port, listen to a Unix socket at the specified path, e.g. `SB_UNIX_SOCKET=/tmp/silverbullet.sock`. Note: when this is set, `SB_HOSTNAME` and `SB_PORT` are ignored.\nInstall/Configuration.md-49-* `SB_URL_PREFIX`: Host SilverBullet on a particular URL prefix, e.g. `SB_URL_PREFIX=/notes`\nInstall/Configuration.md-50-"
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

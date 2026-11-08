@@ -1,0 +1,20 @@
+{
+ "id": "pubA-30",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 359,
+ "seconds": 0.005,
+ "e2e_seconds": 1.87,
+ "source_hits": 0.0,
+ "block": "## What's the keyboard shortcut to refresh every frozen query output on the current page?\n\n--- [vault:corpus/docs/Local Space.md] ---\n### Global keyboard shortcuts\n\n# Global keyboard shortcuts\nBind system-wide keyboard shortcuts to any SilverBullet [[Command]] in any space.\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Untitled\n\nSilverBullet uses [CodeMirror](https://codemirror.net) under the hood, which does the majority of the keyboard handling. In addition, it allows to for customization of (most) keys on a per-command basis. When you open the [[Command Palette]], you will see the currently assigned keyboard shortcut(s).\n\nIt is by far the easiest to configure your keyboard shortcuts in the Key bindings section of [[Workbench/Configuration]].",
+ "meta": {
+  "engine_seconds": 0.0045104579999999716,
+  "sources": [
+   "vault:corpus/docs/Local Space.md",
+   "vault:corpus/docs/Keyboard Shortcuts.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

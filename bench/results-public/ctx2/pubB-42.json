@@ -1,0 +1,20 @@
+{
+ "id": "pubB-42",
+ "type": "verbatim",
+ "answer": "In Firefox, go to `about:debugging#/runtime/this-firefox`, find SilverBullet under the Service Worker section, and click \"Inspect\".",
+ "tokens": 845,
+ "seconds": 0.003,
+ "e2e_seconds": 2.95,
+ "source_hits": 1.0,
+ "block": "## Where in Firefox do I go to see SilverBullet's service worker logs?\n\n--- [vault:corpus/docs/Runtime API.md] ---\n### Endpoints > Console logs\n\n## Console logs\n`GET /.runtime/logs`\n\nReturns recent console log entries from the headless browser.\n\n* `limit`: Maximum number of entries to return (default: 100, server retains up to 1000)\n* `since`: Unix millisecond timestamp \u2014 only return entries newer than this\n\n```bash\ncurl http://localhost:3000/.runtime/logs?limit=5\n```\n\n**Response:** `Content-Type: application/json`\n```json\n{\n  \"logs\": [\n    {\"level\": \"log\", \"text\": \"[Client] Booting SilverBullet client\", \"timestamp\": 1710000000000},\n    {\"level\": \"info\", \"text\": \"Service worker disabled.\", \"timestamp\": 1710000000050}\n  ]\n}\n```\n\nEach entry has:\n* `level` \u2014 one of `log`, `info`, `warn`, `error`, `debug`\n* `text` \u2014 the concatenated console message\n* `timestamp` \u2014 unix milliseconds when the entry was captured\n\n--- [vault:corpus/docs/Log.md] ---\n### Untitled\n\nTo better understand what SilverBullet is doing, especially when [[Troubleshooting]], it is good to know where and how to look at SilverBullet logs.\n\nStart with [[Workbench/Console]] for the combined Lua, JavaScript, plug and service-worker log. For lower-level diagnostics, open your browser\u2019s JavaScript console.\n\n* Client logs: Check your browser\u2019s JavaScript console. Usually these are part of \u201c(Web) Developer Tools\u201d buried somewhere in a Tools or Developer menu.\n* Service worker logs (especially useful when debugging [[Sync]] issues):\n  * In Chromium-based browsers these logs are mixed with the regular JavaScript console.\n  * In Firefox start at `about:debugging#/runtime/this-firefox` then find it under the Service Worker section and click \u201cInspect\u201d.\n  * In Safari they can be accessed via `Developer > Service workers`.\n* Server logs: Server logs are written to the standard output of the server process.\n* Reverse proxy logs: if you use some sort of reverse proxy, check those as well. Reverse proxies may do some surprising stuff, like block certain requests.",
+ "meta": {
+  "engine_seconds": 0.0030812920000000757,
+  "sources": [
+   "vault:corpus/docs/Runtime API.md",
+   "vault:corpus/docs/Log.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

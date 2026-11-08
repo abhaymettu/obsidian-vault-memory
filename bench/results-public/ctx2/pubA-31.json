@@ -1,0 +1,19 @@
+{
+ "id": "pubA-31",
+ "type": "multi",
+ "answer": "Not in memory. The memory says the server moved to Go in 2025 but gives no date for the client build toolchain move from Deno to Node (ADR 009), so the order can't be determined.",
+ "tokens": 565,
+ "seconds": 0.006,
+ "e2e_seconds": 2.46,
+ "source_hits": 0.5,
+ "block": "## Which was decided first: rewriting the server in Go, or moving the client build toolchain off Deno onto Node?\n\n--- [vault:corpus/docs/ADR/010 Rust Backend.md] ---\n### Context\n\n# Context\nThe server does very little. Since [[ADR/007 Core Application Logic on the Client|all application logic moved to the client]], the server is primarily a file store: it lists, reads, writes and deletes files, handles authentication, serves the static client, and runs shell commands. When the [[Runtime API]] is enabled, it manages a Chrome sub-process and delegates calls to it. This makes the server\u2019s *implementation language* a relatively low-stakes, swappable choice, and over the project\u2019s life it has changed several times.\n\nThe server has been, in turn: Node.js (earliest prototypes), then **Deno** for years, then **Go** (2025), and now **Rust** (2026). (The separate move of the *client* build toolchain from Deno to Node is [[ADR/009 Client Build Toolchain|its own decision]].) This is further discussed in [On Tech Stacks](https://no.silverbullet.md/tech-stacks).\n\n--- [vault:corpus/docs/ADR/009 Client Build Toolchain.md] ---\n### Decision\n\n# Decision\nThe client build toolchain moved from **Deno to Node.js** (npm + ESBuild, with [vitest](https://vitest.dev/) for tests). It was done gradually and completed in the `to-node` migration.",
+ "meta": {
+  "engine_seconds": 0.006220958000000052,
+  "sources": [
+   "vault:corpus/docs/ADR/010 Rust Backend.md",
+   "vault:corpus/docs/ADR/009 Client Build Toolchain.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

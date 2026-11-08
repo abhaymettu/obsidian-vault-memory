@@ -1,0 +1,22 @@
+{
+ "id": "pubB-40",
+ "type": "verbatim",
+ "answer": "Run the **Editor: Vim: Load Vim Config** command. The Vim page (`Vim.md`) says to use it to manually reload the `vim` section of your CONFIG.",
+ "tokens": 1023,
+ "seconds": 3.564,
+ "e2e_seconds": 3.56,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3682,
+  "final_context": 4698,
+  "billed_input": 8380,
+  "turns": 2,
+  "cost_usd": 0.0077587,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"vim\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 40}\nReference/SilverBullet Features.md:13:* [[Outlines]], [[Completion]], [[Vim]] and [[Keyboard Shortcuts]] \u2014 editing and keyboard behavior.\nWidget.md:67:* `embed.vimeo(url)` \u2014 embeds a Vimeo video\nAPI/editor.md:68:## editor.configureVimMode\nAPI/editor.md:69:`editor.configureVimMode()`\nAPI/editor.md:71:Configures CodeMirror Vim mode from the current SilverBullet Vim settings.\nAPI/editor.md:916:## editor.vimEx\nAPI/editor.md:917:`editor.vimEx(exCommand)`\nAPI/editor.md:919:Executes a Vim Ex command in the active Vim-mode editor.\nCHANGELOG.md:326:  * Bundle size optimization: chunked builds with ESBuild, JIT loading of larger modules (vim, syntax modes).\nCHANGELOG.md:386:* [[Vim]] mode: [allow passing arguments to vim ex commands](https://github.com/silverbulletmd/silverbullet/pull/1924) (by [Felix Riedel](https://github.com/felixr)).\nCHANGELOG.md:540:  * [Vimeo](https://github.com/silverbulletmd/silverbullet/pull/1616)\nLibrary/Website.md:148:        { ref = \"Vim\" },\nEvent.md:47:* `editor:modeswitch`: Toggled between [[Vim]] mode and normal mode\nVim.md:2:description: \"Vim editing mode with configurable key mappings and ex commands.\"\nVim.md:5:- plugs/editor/vim.ts\nVim.md:6:- client/vim_loader.ts\nVim.md:8:SilverBullet has a basic Vim mode. You can toggle it using the ${widgets.commandButton(\"Editor: Toggle Vim Mode\")} command.\nVim.md:18:SilverBullet [[Command]] bindings take precedence over Vim bindings, you may wish to update or disable some [[Keyboard Shortcuts]] or remap the desired functionality in Vim as shown below.\nVim.md:20:To manually reload the `vim` section of your [[CONFIG]], use the ${widgets.commandButton(\"Editor: Vim: Load Vim Config\")} command.\nVim.md:27:  vim = {\nPlugs/Development/Reference.md:83:All command fields: `name` (required), `key` / `mac`, `priority`, `contexts`, `requireMode`, `requireEditor`, `requireServiceWorker`, `hide`, `disableInVim`."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

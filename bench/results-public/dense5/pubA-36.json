@@ -1,0 +1,13 @@
+{
+ "id": "pubA-36",
+ "type": "multi",
+ "answer": "Hook the `editor:complete` event via [[Space Lua]]; your handler receives the cursor context and returns additional completion items. The memory doesn't name the specific Lua call that registers the handler (it only mentions \"subscribing\" to the event, and shows `event.dispatch` for dispatching custom events), so that part is not in memory.",
+ "tokens": 743,
+ "seconds": 0.003,
+ "e2e_seconds": 2.62,
+ "source_hits": 0.5,
+ "block": "--- Completion.md ---\nPage link completion\nSilverBullet provides context-aware autocomplete to help you write faster. Completions are triggered automatically or via keyboard shortcuts as you type.\n\n--- Event.md ---\nSubscribing to events | Dispatching events\nYou can dispatch your own custom events:\n\n```lua\nevent.dispatch(\"my-custom-event\", {message = \"Hello!\"})\n```\n\nOther scripts can then listen for `my-custom-event`.\n\n--- Completion.md ---\nPage link completion | Custom completions\nYou can extend the completion system by subscribing to the `editor:complete` event via [[Space Lua]]. Your handler receives the current cursor context and can return additional completion items.\n\nSee also: [[API/event]]\n\n--- View.md ---\nWidgets and views | Custom views\nIn your own space, put the following definition in a `space-lua` block, then run `System: Reload`. Register a view with `view.define` to give it a name, a command, and a dock. This example adds a task-list modal:\n```lua\nview.define {\n  name = \"tasks\",\n  title = \"Open tasks\",\n  command = \"Navigate: Open Tasks\",\n  dock = \"modal\",\n  source = function()\n    return query [[\n      from t = index.tasks()\n      where not t.done\n      order by t.page\n    ]]\n  end,\n  presentation = {\n    mode = \"list\",\n    row = {\n      primary = \"name\",\n      description = \"page\"\n    }\n  },\n  onSelect = function(task)\n    editor.navigate(task.ref)\n  end,\n}\n```\n\nIn this flat row definition, `name`, `source` and `onSelect` are required. `command` registers a [[Command]] that opens the view, and `key`/`mac` define a key binding for it. Open one from anywhere Lua runs with `view.open(\"tasks\")`.\n\n--- Event.md ---\nSubscribing to events | Built-in events > Interaction events\n* `page:click`: User clicked a location on the page\n* `editor:complete`: Editor completion triggered \u2014 return completion results to extend [[Completion]]\n* `slash:complete`: Slash completion triggered \u2014 return completion results\n* `editor:lint`: Lint request \u2014 return errors to show in the editor",
+ "meta": {},
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

@@ -1,0 +1,22 @@
+{
+ "id": "pubA-26",
+ "type": "verbatim",
+ "answer": "The server has been written in Rust as of v2.10.0, according to ADR 010. The CHANGELOG also says that in 2.9.0 the legacy Go server was removed, leaving the Rust server as the only implementation.",
+ "tokens": 1416,
+ "seconds": 0.451,
+ "e2e_seconds": 3.77,
+ "source_hits": 1.0,
+ "block": "Memory for: From which SilverBullet version has the server been the Rust implementation?\n[1] ADR/008 Go Backend.md (Context)\n  - An architecture decision record that rewrote the SilverBullet server in Go, which was later superseded by a Rust backend. Names: SilverBullet, SilverBullet+, Deno, TypeScript, Go, Rust, CRDT.\n[2] ADR/010 Rust Backend.md (Context)\n  - The SilverBullet server is written in Rust as of v2.10.0.\n  - An architecture decision record (ADR 010) stating that the SilverBullet server is written in Rust, with the context, consequences and alternatives for that choice. Names: SilverBullet, Rust, Go, Deno, Node.js, TypeScript, Chrome, Runtime API, Plugs, CRDT, PR1555, PR2010, On Tech Stacks, ADR/009 Client Build Toolchain, ADR/002 Sync Engine, ADR/007 Core Application Logic on the Client.\n[3] Development.md (Stack)\n  Code structure: * `client/`: The SilverBullet client, implemented with TypeScript / * `server/`: The SilverBullet server library (Rust): HTTP router, handlers, auth, runtime seam / * `server-common/`: Shared Rust crate (space primitives, shared types) / * `server-runtime-chrome/`: Headless-Chrome runtime backend (Rust) / * `bin/silverbullet/`: The standalone server binary (Rust) / * `bin/sb/`: The `sb` command-line client (Rust) / * `plugs`: Set of built-in plugs that are distributed with SilverBullet / * `libraries`: A set of libraries (space scripts, page templates, slash templates) distributed with SilverBullet / * `plug-api/`: Useful APIs for use in plugs / * `lib/`: Useful libraries to be used in plugs / * `syscalls/`: TypeScript wrappers around syscalls / * `types/`: Various (client) types that can be references from plugs / * `bin/plug-compile.ts`: the plug compiler / * `scripts/`: Useful scripts / * `docs/`: silverbullet.md website content\n  - The SilverBullet server is written in Rust as a Cargo workspace.\n  - The server/ directory contains the SilverBullet server library (Rust), which includes the HTTP router, handlers, auth, and runtime seam.\n  - The SilverBullet server is a compiled binary, and it must be rebuilt and restarted after Rust code changes.\n  - The bin/silverbullet/ directory is the standalone server binary written in Rust.\n  Server vs. client: SilverBullet has two halves you rebuild **independently** \u2014 knowing which one you changed saves time: / * The **server** (Rust: `server/`, `server-common/`, `server-runtime-chrome/`, `bin/silverbullet/`) is a compiled binary. / * The **client** (TypeScript: `client/`) is built by ESBuild into `client_bundle/`, which the server serves. / Ru ...\n[4] CHANGELOG.md (CHANGELOG)\n  2.9.0: * Fix: Ctrl/Cmd-clicking a link inside rendered widgets (query/template results) now navigates in a new window via the normal navigation path / * Fix: tag autocomplete no longer triggers while typing markdown header prefixes (`##`, `###`, etc.) / * Internal: the legacy Go server and `sb` CLI have been removed. The Rust server (`silverbullet`) and Rust `sb` CLI are now the only implementations. No user-facing behavior change is expected.\nExact facts:\n- [1] The server had been a Deno-based TypeScript runtime since 2022. After [[ADR/007 Core Application Logic on the Client|v2 moved all logic to the client]], the server became a thin file store so the heavier, TypeScript-oriented Deno runtime bought little, and a leaner compiled server looked attractive.\n- [1] Cheap to attempt, thanks to the thin-server model ([[ADR/007 Core Application Logic on the Client]]).",
+ "meta": {
+  "notes": [
+   "ADR/008 Go Backend.md",
+   "ADR/010 Rust Backend.md",
+   "Development.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

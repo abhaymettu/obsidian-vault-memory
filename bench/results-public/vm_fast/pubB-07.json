@@ -1,0 +1,21 @@
+{
+ "id": "pubB-07",
+ "type": "single",
+ "answer": "The page gets the icon from the first tag in its `tags` list that sets one, since when several tags set the same field the first tag wins. If the page sets its own `pageDecoration` (in its frontmatter or via a `transform`), that wins over the tags' decorations.",
+ "tokens": 1412,
+ "seconds": 0.41,
+ "e2e_seconds": 2.75,
+ "source_hits": 1.0,
+ "block": "Memory for: A page carries several tags that each define a page icon through tag.define. Which icon does it end up with, and what if the page sets its own?\n[1] CHANGELOG.md (CHANGELOG)\n  Edge: * `tag.define` takes a `pageDecoration` that applies to every page with the tag, such as `tag.define { name = \"person\", pageDecoration = { icon = \"user\" } }`, replacing the `transform` boilerplate. Changing it re-indexes just the pages with that tag. See [[Page Decorations#Apply to every page with a tag]]. / * Hashtags in headers and table rows are now recorded as tags, and every tag records the root tag it is used on as its `parent` (hashtags in paragraphs used to say `page`). Headers and table rows now get `itags` like other objects. / * [[Tag/data]] block keys can no longer overwrite `ref`, `tag` or `itags`, and relations from data blocks now point at the object they\u2019re written in. A data block named after a built-in tag (` ```#task `) is no longer indexed. Lint flags it.\n[2] Page Decorations.md (Supported decorations)\n  Apply to every page with a tag: To decorate every page with a tag, give the tag a `pageDecoration` in [[API/tag|tag.define]] in your [[CONFIG]]: / ```lua / tag.define { / name = \"person\", / pageDecoration = { icon = \"user\", cssClasses = { \"person-page\" } }, / } / ``` / A page\u2019s own `pageDecoration` (from its frontmatter, or a `transform`) wins over the tag\u2019s. When several of a page\u2019s tags set the same field, the first tag in its `tags` wins. `cssClasses` from all of them are combined. Changing a tag\u2019s decoration re-indexes the pages with that tag, so there is no need to run `Space: Reindex`.\n[3] Workbench/Data.md (The tag list)\n  The tag list: Tags from [[Tag/data|data blocks]] carry a small `data` label. Drag the list's right edge to make it wider; double-click the edge to reset it. Typing in the filter narrows every section; Enter picks the first match. Each tag shows its icon: a tag's `icon`, or else the icon of its `pageDecoration` (see [[API/tag]]).\n[4] API/tag.md (API)\n  Frontmatter live previews: When multiple tags in a page\u2019s `tags` field define `renderFrontmatter`, the first one wins. Pages without such a tag fall back to the renderer of the `page` tag, which every page carries. The `page` tag\u2019s renderer is the default form. The `liveEdit.frontmatter` setting (**Edit frontmatter as a form** in the [[Workbench/Configuration|Configuration tab]]) turns it off, and so does `tag.define { name = \"page\", renderFrontmatter = config.unset }`. Without any renderer, frontmatter shows as plain YAML. A tag\u2019s own `renderFrontmatter` applies either way.\n  tag.define(spec): Defines a tag explicitly. / `spec` is a table that can contain: / * `name` (required) the name of the tag / * `tagPage` page to navigate to when clicking the tag (defaults to `tag:name`) / * `metatable` to set a custom Lua metatable for objects with this tag. / * `mustValidate` a boolean defining whether or not schema validation must pass for the object to be indexed / * `schema` [[Schema]] to validate against / * `icon` a [ ...\nExact facts:\n- [1] [[Space Lua/Page Lua]]: turns a page into a small spreadsheet. Define values inline with `${name = expression}` or with `page-lua` code blocks, use them in any `${...}` on the page.\n- [1] [[Workbench/Overview]]: \u201cFun facts\u201d about your space (replacing the old Space Overview page that nobody found)\n- [1] [[Workbench/Data]]: for each tag, **Objects** builds queries visually (exportable as [[Space Lua/Integrated Query]] to paste in your page) and **Schema** shows and edits its attributes, saved to CONFIG.",
+ "meta": {
+  "notes": [
+   "CHANGELOG.md",
+   "Page Decorations.md",
+   "Workbench/Data.md",
+   "API/tag.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

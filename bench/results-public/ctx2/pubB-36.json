@@ -1,0 +1,20 @@
+{
+ "id": "pubB-36",
+ "type": "verbatim",
+ "answer": "The callback path is `/.auth/central/oidc/callback`. Each space doesn't need a separate provider callback.",
+ "tokens": 1059,
+ "seconds": 0.003,
+ "e2e_seconds": 2.13,
+ "source_hits": 1.0,
+ "block": "## What callback path do I register with my OIDC provider for SilverBullet SSO?\n\n--- [vault:corpus/docs/Single Sign-On.md] ---\n### Connect a provider > OpenID Connect providers\n\n### OpenID Connect providers\nCreate a confidential OIDC client, register the displayed callback and enable Authorization Code with PKCE. Use the provider\u2019s issuer URL and client credentials. The provider must supply a stable subject and a verified email, using the `openid`, `email` and `profile` scopes.\n\nSilverBullet\u2019s provider integration tests use [Pocket ID](https://pocket-id.org/docs/), but the same generic configuration is intended for standards-compliant providers such as [Authentik](https://docs.goauthentik.io/add-secure-apps/providers/oauth2/), [Authelia](https://www.authelia.com/integration/openid-connect/introduction/), [Keycloak](https://www.keycloak.org/securing-apps/oidc-layers), and [ZITADEL](https://zitadel.com/docs/guides/integrate/login/oidc). Provider defaults vary, so verify the required scopes, PKCE support, client authentication method, and `email_verified` claim with the sign-in test before enabling SSO. ID tokens with additional audiences (such as a ZITADEL project ID) are accepted when their `azp` claim equals the client ID. The user\u2019s email must be verified at the provider.\n\nThe server must reach the issuer\u2019s discovery, authorization metadata, token and key endpoints. A private certificate authority can be supplied with `SB_OIDC_CA_FILE`, pointing to a PEM certificate trusted for provider connections. Certificate verification remains enabled.\n\n--- [vault:corpus/docs/Single Sign-On.md] ---\n### Connect a provider\n\n## Connect a provider\n1. Sign in as a local administrator and open **Admin \u2192 Authentication** in the Dashboard.\n2. Choose Google Workspace or OpenID Connect.\n3. The central login origin comes from **Admin \u2192 Server** when a primary URL is configured.\n4. Copy the displayed callback URL into the provider\u2019s client configuration. The path is `/.auth/central/oidc/callback`. Each space does not need a separate provider callback.\n5. Enter the issuer URL, client ID and client secret. Save and test sign-in, then finish provider sign-in in the test window.\n6. Review the returned identity and enable SSO. The test does not create an account or replace your administrator session. Changing a draft requires another successful test before activation.\n\nAn enabled SSO administrator can be the sole administrator: you can delete, demote or disable the initial local administrator after provisioning an SSO administrator. SilverBullet prevents deleting, demoting or disabling the last enabled administrator, regardless of login method. Keeping a working local administrator for recovery is optional. Client secrets are stored in the data folder\u2019s `authentication.json`. Protect and back up this file together with `users.json` and the server\u2019s authentication state.",
+ "meta": {
+  "engine_seconds": 0.002759208000000001,
+  "sources": [
+   "vault:corpus/docs/Single Sign-On.md",
+   "vault:corpus/docs/Single Sign-On.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

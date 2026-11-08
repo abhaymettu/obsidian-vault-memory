@@ -1,0 +1,22 @@
+{
+ "id": "pubB-13",
+ "type": "single",
+ "answer": "The `shell` and `fetch` syscalls fail unless the plug lists the matching permission in `requiredPermissions` in its manifest. They throw at call time if the permission wasn't declared, while most other syscalls are available to every plug.",
+ "tokens": 1462,
+ "seconds": 0.004,
+ "e2e_seconds": 2.18,
+ "source_hits": 1.0,
+ "block": "## Which plug API calls fail unless the plug declares a permission in its manifest, and when do they fail?\n\n--- [vault:corpus/docs/Plugs/Development/Reference.md] ---\n### Syscalls\n\n# Syscalls\nPlug code reaches the editor, space, and storage exclusively through _syscalls_. Import them from `@silverbulletmd/silverbullet/syscalls`:\n\n```typescript\nimport { editor, space, system } from \"@silverbulletmd/silverbullet/syscalls\";\n\nawait editor.flashNotification(\"Hi\");\nconst pages = await space.listPages();\n```\n\nUnder the hood, each of these calls `globalThis.syscall(\"editor.flashNotification\", \"Hi\")` which is forwarded from the Web Worker to the main thread (`silverbullet/plug-api/syscall.ts`). Syscalls that need a permission throw if the plug didn\u2019t declare it in `requiredPermissions`.\n\n--- [vault:corpus/docs/Plugs/Development/Reference.md] ---\n### Syscalls > Declaring your own syscall\n\n## Declaring your own syscall\nAny plug function can be exposed as a syscall by adding `syscall: yourplug.foo` to its manifest entry. The object form shown above additionally exposes structured documentation to Space Lua through `spacelua.describe()` and `spacelua.listFunctions()`. Other plugs can call the syscall via `system`, and Space Lua code can call it as `yourplug.foo(...)`. See the [[#Syscalls]] above.\n\n--- [vault:corpus/docs/Plugs/Development/Architecture.md] ---\n### Permissions\n\n# Permissions\nThe manifest\u2019s `requiredPermissions` list is stamped onto the plug when it loads. Syscalls that require a permission (currently `shell` and `fetch`) throw at call time if the plug didn\u2019t declare the permission. Other syscalls \u2014 most of them \u2014 are available to every plug.\n\n--- [vault:corpus/docs/Plugs/Development/Reference.md] ---\n### Manifest\n\n# Manifest\nA plug is described by a single YAML file, conventionally named `{plugname}.plug.yaml`. Top-level keys:\n\n* `name`: Plug name (required, must be unique)\n* `requiredPermissions`: List of permissions this plug may use. Recognized values: `fetch`, `shell`.\n* `functions`: function-name to [[#Function definitions|function mappings]] \u2014 the heart of the manifest.\n* `assets`: Glob patterns of files to bundle into the plug. Readable at runtime via [[API/asset]] calls.\n* `build`: Optional pre-bundle transforms (`esbuild` / `sass` / `copy`). Rarely needed.\n\n--- [vault:corpus/docs/Plugs/Development/Architecture.md] ---\n### Runtime model\n\n# Runtime model\nAt a \u201cbehind the scenes\u201d level, a plug is a JavaScript bundle (`*.plug.js`) that exports `{manifest, functionMapping}`. It is compiled from a `*.plug.yaml` manifest plus the TypeScript files it references, it can also bundle additional asset files that can be loaded from inside the plug.\n\nAt load time, each plug runs in its own **Web Worker sandbox**, isolated from the main thread and other plugs. The plug never touches the DOM directly. All interaction with the editor, space, and storage goes through _syscalls_.\n\nTwo kinds of messages flow between the sandbox and the main thread:\n\n* **Invoke** (main \u2192 worker): \u201crun function `foo` with args X\u201d. Dispatched whenever a hook (command, event, slash command, MQ, code widget, document editor, syscall) fires for that plug.\n* **Syscall** (worker \u2192 main): the plug calls `globalThis.syscall(name, ...args)` to reach editor APIs, storage, and so on. Plug authors don\u2019t call this directly \u2014 importing from `@silverbulletmd/silverbullet/syscalls` generates these calls for you.",
+ "meta": {
+  "engine_seconds": 0.003867500000007567,
+  "sources": [
+   "vault:corpus/docs/Plugs/Development/Reference.md",
+   "vault:corpus/docs/Plugs/Development/Reference.md",
+   "vault:corpus/docs/Plugs/Development/Architecture.md",
+   "vault:corpus/docs/Plugs/Development/Reference.md",
+   "vault:corpus/docs/Plugs/Development/Architecture.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

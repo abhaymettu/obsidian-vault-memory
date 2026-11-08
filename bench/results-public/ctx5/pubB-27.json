@@ -1,0 +1,22 @@
+{
+ "id": "pubB-27",
+ "type": "multi",
+ "answer": "Any name is a valid mention, so you can address anyone or anything with `@name` (e.g. @sales) without declaring it first; mentioning it makes it a known identity. Names can contain dots, so dotted usernames like @pete.smith and @sam.rivera each count as one mention, but they can't contain spaces.",
+ "tokens": 1472,
+ "seconds": 0.004,
+ "e2e_seconds": 2.89,
+ "source_hits": 1.0,
+ "block": "## Who can I address with @name for the Mention Inbox: can the name contain dots, and do I need to declare it first?\n\n--- [vault:corpus/docs/API/identity.md] ---\n### API > identity.mentions(recipient?, options?)\n\n## identity.mentions(recipient?, options?)\nReturns the same open mentions and page-level recipients used by the [[Recipient#The Mention Inbox|Mention Inbox]]. Pass a name with or without `@` to filter case-insensitively. Omit it to include all recipients. Completed tasks are excluded.\n\n```lua\nidentity.mentions(\"helper\", {limit = 100, offset = 0})\n```\n\nThe result contains `recipient` when filtered, `mentions`, `total`, and `truncated`. `limit` is optional. Without it all remaining matches are returned. `offset` defaults to zero. Entries are ordered by page, UTF-16 position, and target identity. `total` counts all matches before pagination. `truncated` means more matches remain after the current page. Index changes between calls can affect pagination.\n\nEach entry has `kind` (`mention` or `page`), `page`, `ref`, `target`, `snippet`, and `by` (author names). Inline mentions include `range`, `pos`, `nickname`, `fromTag`, and `inComment`. `replyTo` is the first signed author, or the current identity when no signed author is available. It is absent when neither is known. Page recipients use the current identity fallback, so inspect page authorship before replying. Signatures are self-declared and do not authenticate the author. References and offsets can become stale after an edit.\n\nFrom the [[CLI]]:\n\n```sh\nsb --space notes eval 'identity.mentions(\"helper\", {limit=100})' --json\n```\n\n--- [vault:corpus/docs/At-Mention.md] ---\n### `@name` syntax\n\n# `@name` syntax\nType `@` followed by a name with no spaces, e.g. @jo. While typing, autocomplete offers every known identity.\n\nA name may contain dots, so dotted usernames carry whole: @pete.smith and @sam.rivera are each one mention.\n\n**Any name is a valid mention.** Nothing needs declaring up front: mentioning @sales makes `sales` a known identity. See [[Identity]] for more info.\n\nFor a complete request, reply and resolution workflow, see [[Guide/Comments, Mentions and Replies]].\n\n--- [vault:corpus/docs/Recipient.md] ---\n### Untitled\n\ndescription: \"An identity addressed with @name, whose mentions appear in the Mention Inbox.\"\ntags: glossary maturity/experimental\nreferences:\n- plugs/index/relation.ts\n- plugs/index/indexer.ts\n- plugs/editor/navigate.ts\n- libraries/Library/Std/Editor/Mention Inbox.md\n\n--- [vault:corpus/docs/Recipient.md] ---\n### The Mention Inbox\n\n# The Mention Inbox\nThe Mention Inbox is a [[View|view]] listing open `@mention`s, grouped by page. It opens in the right sidebar by default, and its dock menu can move it to the left sidebar, bottom panel, or a modal. Open it with `Navigate: Mentions`, or by clicking any mention.\n\n--- [vault:corpus/docs/Guide/Comments, Mentions and Replies.md] ---\n### Resolve a comment or request\n\n# Resolve a comment or request\nClick **Resolve** on a comment to delete the whole comment, including its replies. Copy any decisions you want to keep into the page\u2019s main text first.\n\nTo keep the discussion but clear a request from the inbox, choose **Remove mention** on its inbox row to remove its `@name` from the source while keeping the surrounding text. **Delete task/item/paragraph** removes the containing content and asks for confirmation. These actions require write access. If the page changed since indexing, reopen the mention and retry.\n\nFor a completed task, mark its checkbox done. For a page addressed through `recipients:` frontmatter, edit that field to remove a recipient.",
+ "meta": {
+  "engine_seconds": 0.003957541000010678,
+  "sources": [
+   "vault:corpus/docs/API/identity.md",
+   "vault:corpus/docs/At-Mention.md",
+   "vault:corpus/docs/Recipient.md",
+   "vault:corpus/docs/Recipient.md",
+   "vault:corpus/docs/Guide/Comments, Mentions and Replies.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

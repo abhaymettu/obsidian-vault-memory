@@ -1,0 +1,19 @@
+{
+ "id": "pubB-04",
+ "type": "single",
+ "answer": "Alt-click (Option-click on Mac) the rendered link to reveal its underlying markdown source. You can then select and copy it, and it stays visible while your selection touches its range. Read-only access still doesn't let you edit the page.",
+ "tokens": 677,
+ "seconds": 0.006,
+ "e2e_seconds": 2.42,
+ "source_hits": 1.0,
+ "block": "## On a read-only page links stay rendered when I move the cursor. How do I get at the underlying markdown so I can copy it?\n\n--- [vault:corpus/docs/Guide/Reading These Docs.md] ---\n### Read a page and reveal its source\n\n# Read a page and reveal its source\nSilverBullet uses [[Live Preview]] to show formatted Markdown. Hold **Alt** (called **Option** on macOS) and click rendered content to reveal its underlying source. In read-only docs you can inspect, select and copy that source. This does not grant editing access. Clicking a different part of the page lets the revealed content render again.\n\n![Read-only Photo Walk with the source Reading List revealed and selected.](../Screenshots/read-docs-source-selected-source.png)\nFor example, this block shows the Markdown for a heading and a checkbox:\n\n```markdown\n# Plan\n* [ ] Charge camera battery\n```\n\nCopy only the contents of a code block, without its surrounding backticks, unless the instructions explicitly ask you to create a fenced code block. Paste Markdown into the body of a page in your practice space. Other examples state when something belongs in Workbench\u2019s Console or in a `space-lua` block instead.\n\n--- [vault:corpus/docs/Live Preview.md] ---\n### Revealing the source\n\n# Revealing the source\nOn an editable page, moving the cursor inside a formatted element reveals its source. **Alt-click** (or **Option-click** on Mac) explicitly reveals source in both editable and read-only pages.\n\nIn a read-only page, ordinary keyboard navigation keeps links and widgets rendered. Alt/Option-click to reveal source, then select and copy it. The source stays visible while the selection touches its range. Moving entirely outside it hides the source again. Read-only access does not allow you to change the page.",
+ "meta": {
+  "engine_seconds": 0.0058143749999999845,
+  "sources": [
+   "vault:corpus/docs/Guide/Reading These Docs.md",
+   "vault:corpus/docs/Live Preview.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

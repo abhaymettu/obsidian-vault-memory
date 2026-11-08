@@ -1,0 +1,21 @@
+{
+ "id": "pubB-34",
+ "type": "verbatim",
+ "answer": "`SB_RUNTIME_IDLE_TIMEOUT` sets the idle timeout in minutes (for example `SB_RUNTIME_IDLE_TIMEOUT=120`), and `0` keeps runtimes running. The default is 30 minutes.",
+ "tokens": 1343,
+ "seconds": 0.31,
+ "e2e_seconds": 2.78,
+ "source_hits": 1.0,
+ "block": "Memory for: In single-space mode, which environment variable changes how long an idle runtime waits before it stops?\n[1] Runtime API.md (Setup)\n  Idle stop: A runtime that has received no requests for 30 minutes is stopped: its Chrome exits and it uses no memory or CPU. The next request starts it again on the same profile, so the client picks up where it left off instead of rebuilding its index. That takes about a second, plus the time to index pages that changed in the meantime. / While a runtime is stopped, nothing runs in its client, including Space Lua event listeners such as `cron:secondPassed`. / To change the timeout, in minutes (`0` keeps runtimes running): / * In single-space mode, set `SB_RUNTIME_IDLE_TIMEOUT`, for example `SB_RUNTIME_IDLE_TIMEOUT=120`. / * In multi-space mode, use **Stop idle runtimes after** in the administrator's **APIs** tab, stored as `runtimeIdleTimeout` in `server.json`.\n  Setup: The Runtime API is enabled automatically when Chrome, Chromium, or Chromium headless shell is detected on your system \u2014 no configuration needed. Auto-detection prefers headless shell when it is available on `PATH`. / If Chrome is not auto-detected, for some reason, set the path explicitly: / ``` / SB_CHROME_PATH=/usr/bin/chromium / ``` / In single-instance mode, set `SB_RUNTIME_API=0` to disable the Runtime API, and `SB_RUNTIME_IDLE_TIMEOUT` to change when an idle runtime stops (see [[#Idle stop]]). In multi-space mode these variables are ignored: use the **Enable runtime API** toggle in the administrator\u2019s **APIs** tab. Each writer has an independent **Runtime API** permission in the space\u2019s access grid. Existing writers default to enabled unless explicitly opted out.\n[2] Install/Configuration.md (Network)\n  Run mode: * `SB_READ_ONLY` *(legacy)*: If you want to run the SilverBullet client and server in read-only mode (you get the full SilverBullet client, but all edit functionality and commands are disabled), you can do this by setting this environment variable to a non-empty value. Upon the server start a full space index will happen, after which all write operations will be disabled. Prefer the per-space settings in the [[Dashboard]]: give the public read access to publish a space (see [[Publishing]]), or **Freeze this space** to stop all writes.\n  Legacy \u201csingle-space\u201d mode options: > **warning** Warning / > Configuring SilverBullet in a single-space server setup with environment variables is now considered a **legacy** feature and **deprecated**. / > / The environment variables below configure a **single-space** server. A fresh install will run SilverBullet in multi-space mode and let you configure most options via the [[Dashboard]].\n[3] HTTP API.md (Authentication)\n  Runtime API: Enabled when Chrome/Chromium is available and runtime access is permitted. In single-space mode, `SB_RUNTIME_API=0` disables it. In multi-space mode, use the administrator\u2019s APIs controls and per-writer Runtime API permission. See [[Runtime API]] for full documentation, setup instructions, and examples.\nExact facts:\n- [1] A full-page image stops at about 12000 CSS pixels. When the page is longer, the response carries `X-Screenshot-Truncated: true`. A long page can take several seconds to capture, so raise `X-Timeout` if needed.\n- [1] The Lua endpoints and `/.runtime/screenshot` can first wait until the space\u2019s index has caught up with recent file changes (edits made through the [[HTTP API]], a script or another device), so a query sees a page written a moment ago. Send `X-Await-Index: 1` (`true` and `yes` also count). The server",
+ "meta": {
+  "notes": [
+   "Runtime API.md",
+   "Install/Configuration.md",
+   "HTTP API.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

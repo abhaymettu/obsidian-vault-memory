@@ -1,0 +1,20 @@
+{
+ "id": "pubB-32",
+ "type": "verbatim",
+ "answer": "SilverBullet Desktop's MCP endpoint defaults to `http://127.0.0.1:3999/.mcp`, a loopback listener. It is off by default, and you can turn it on or change the port under Settings \u2192 Advanced \u2192 MCP.",
+ "tokens": 436,
+ "seconds": 0.004,
+ "e2e_seconds": 2.17,
+ "source_hits": 1.0,
+ "block": "## What's the default local address of SilverBullet Desktop's MCP endpoint?\n\n--- [vault:corpus/docs/MCP.md] ---\n### Untitled\n\nSilverBullet can act as an [MCP](https://modelcontextprotocol.io) (Model Context Protocol) server, so AI assistants can read, write, query and pimp up your spaces.\n\nMCP is available in [[Dashboard|multi-space mode]] and in [[Desktop]]. The endpoint is `/.mcp` on your server, for example `https://notes.example.com/.mcp`. A single-space server does not serve it. On a server it is off by default: an admin turns it on in the APIs tab of the [[Dashboard]].\n\n--- [vault:corpus/docs/MCP.md] ---\n### Desktop\n\n# Desktop\nSilverBullet Desktop serves MCP too, for the spaces registered in the app, on a loopback listener at `http://127.0.0.1:3999/.mcp`. It is off by default. Turn it on or change the port under **Settings \u2192 Advanced \u2192 MCP**, which also shows the setup commands with your port filled in.",
+ "meta": {
+  "engine_seconds": 0.003477125000000001,
+  "sources": [
+   "vault:corpus/docs/MCP.md",
+   "vault:corpus/docs/MCP.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

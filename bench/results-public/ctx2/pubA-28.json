@@ -1,0 +1,20 @@
+{
+ "id": "pubA-28",
+ "type": "verbatim",
+ "answer": "Lua was first brought into SilverBullet by commit 3cf7b72e, in 2024-10.",
+ "tokens": 545,
+ "seconds": 0.004,
+ "e2e_seconds": 2.34,
+ "source_hits": 1.0,
+ "block": "## Which commit first brought Lua into SilverBullet, and when?\n\n--- [vault:corpus/docs/ADR/005 Space Lua.md] ---\n### References\n\n# References\n* First Lua integration: [commit 3cf7b72e](https://github.com/silverbulletmd/silverbullet/commit/3cf7b72e) (2024-10).\n* [[Space Lua]] \u00b7 [[Space Lua/Integrated Query]] \u00b7 [[Migrate from v1]] \u2014 what changed from directives / Handlebars / Space Script.\n\n--- [vault:corpus/docs/API/share.md] ---\n### Services > share:writeBatch:<root>\n\n## share:writeBatch:<root>\nWrites and deletes everything of one collection publish in a single call, for example as one commit. `share.publishCollection` invokes the best service matching `share:writeBatch:<root>` with `{root, writes, deletes}`: `writes` lists `{uri, content}`, `deletes` lists URIs. An error marks every write and delete of the call as failed. GitHub registers one that makes a single commit, asking for the commit message first. A service the user cancels returns `{cancelled = true}` (GitHub\u2019s does when the commit message is dismissed or empty): the publish then writes nothing and reports `cancelled`. Without such a service, `net.writeURI` and `net.deleteURI` are called per file, which applies to gists and SilverBullet spaces (GitHub has no `net.deleteURI`).",
+ "meta": {
+  "engine_seconds": 0.003501791999999995,
+  "sources": [
+   "vault:corpus/docs/ADR/005 Space Lua.md",
+   "vault:corpus/docs/API/share.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

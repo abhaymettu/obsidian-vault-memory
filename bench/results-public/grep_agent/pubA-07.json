@@ -1,0 +1,21 @@
+{
+ "id": "pubA-07",
+ "type": "single",
+ "answer": "Setting `done = true` in `taskState.define` only affects the `Task: Remove Completed` command, which treats tasks in that state as done. Beyond that, the definition is mainly used to offer code completion for custom task states. This is from `API/taskState.md`.",
+ "tokens": 1054,
+ "seconds": 5.21,
+ "e2e_seconds": 5.21,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3692,
+  "final_context": 4729,
+  "billed_input": 12677,
+  "turns": 3,
+  "cost_usd": 0.0091572,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"IN PROGRESS\", \"output_mode\": \"content\", \"-C\": 3}\nTask.md-23-Example:\nTask.md-24-\nTask.md-25-* [NOT STARTED] Choose a photo-walk route\nTask.md:26:* [IN PROGRESS] Charge camera battery\nTask.md-27-\nTask.md-28-Restrictions:\nTask.md-29-\n--\nAPI/taskState.md-23-}\nAPI/taskState.md-24-\nAPI/taskState.md-25-taskState.define {\nAPI/taskState.md:26:  name = \"IN PROGRESS\"\nAPI/taskState.md-27-}\nAPI/taskState.md-28-\nAPI/taskState.md-29-taskState.define {\n--\nMarkdown/Basics.md-33-\nMarkdown/Basics.md-34-When you click the checkbox, it will toggle its state and replace the ` ` inside the box with `x`. SilverBullet also supports custom task statuses by putting text in between `[` and `]`. When you click on such custom task states, it cycles through the states configured in your space using [[API/taskState]]. See [[Task#Custom states]]:\nMarkdown/Basics.md-35-\nMarkdown/Basics.md:36:* [IN PROGRESS] This task is in progress\nMarkdown/Basics.md-37-* [DONE] This task is done\nMarkdown/Basics.md-38-* [TO DO] This task is still to be done\nMarkdown/Basics.md-39-\n{\"file_path\": \"corpus/docs/API/taskState.md\"}\n1\t---\n2\ttags: maturity/experimental api/space-lua\n3\treferences:\n4\t- libraries/Library/Std/APIs/Task State.md\n5\t- plugs/index/task.ts\n6\t- plugs/index/item.ts\n7\t---\n8\tAPIs to define [[Task#Custom states]].\n9\t\n10\t# API\n11\t## taskState.define(def)\n12\tDefines a custom task state. Options:\n13\t* `name`: name of the state\n14\t* `done`: whether or not the state should be considered \u201cdone\u201d or not, used by the `Task: Remove Completed` command\n15\t\n16\tPrimarily used to offer code completion for custom task states for now.\n17\t\n18\t## Example\n19\tInstall these definitions in a `space-lua` block in your own space and reload them:\n20\t```lua\n21\ttaskState.define {\n22\t  name = \"TO DO\"\n23\t}\n24\t\n25\ttaskState.define {\n26\t  name = \"IN PROGRESS\"\n27\t}\n28\t\n29\ttaskState.define {\n30\t  name = \"DONE\",\n31\t  done = true\n32\t}\n33\t```\n34\tUse:\n35\t* [TO DO] Still to do\n36\t* [DONE] Task already completed\n37\t"
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

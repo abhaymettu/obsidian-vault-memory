@@ -1,0 +1,21 @@
+{
+ "id": "pubA-30",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 1226,
+ "seconds": 0.362,
+ "e2e_seconds": 2.69,
+ "source_hits": 0.0,
+ "block": "Memory for: What's the keyboard shortcut to refresh every frozen query output on the current page?\n[1] Page Picker.md (Result ordering)\n  Keyboard shortcuts: * `Enter`: selects the highlighted page from the list and navigate there. If that page is marked with a `Create` chip it will create that page. / * `Shift-Enter`: navigate to the page entered in as the filter phrase, creating it if it doesn\u2019t already exist. Does nothing in anchor or tag mode, where there is nothing to create. / * `Space`: with an empty filter phrase will attempt to do something intelligent: / * If the currently opened page is nested in a [[Folder|folder]], it will auto complete the current folder name in its place. / * If the currently opened page name starts with an emoji, it will complete that emoji in its place. / * Otherwise, it will complete the full page name of the currently open page. / * Typing `$` at the start of the filter phrase switches to [[Markdown/Anchor|anchor]] navigation\n  Keyboard shortcuts: * `ArrowUp`/`ArrowDown`: move up and down the highlighted page list / * `PageUp`/`PageDown`: move up and down 5 entries in the page list in one go / * `Home`: moves to the ...\n[2] Guide/When Results Update.md (After editing a page)\n  Choose the relevant refresh: * **A paragraph, task, tag or frontmatter value:** Allow saving and indexing to finish. Queries consume indexed page data. / * **A query\u2019s filters, columns or rendering:** Use **Update page** in its builder, or finish editing the expression. The page contains the query instructions. / * **A reusable `space-lua` definition:** Run `System: Reload`, then inspect Workbench\u2019s **Scripts** and **Console** tabs. Space-wide definitions need to be loaded again. / * **A tag transform that changes indexed objects:** Put the definition in `CONFIG`, reload it and run `Space: Reindex`. Existing records must be rebuilt under the new transform. / * **A baked section\u2019s input data:** Use its **Update** menu or `Baked Sections: Update`. Baking writes a stored Markdown snapshot. / * **An external source used by a custom widget or script:** Follow that feature\u2019s refresh contract. External changes may not be tracked as index dependencies.\n[3] API/widget.md (What a plain `${...}` renders)\n  Content functions: For content instead of rows, pass `content(ctx)` to `widget.new`. It returns any value a `${...}` expression accepts: Markdown, a table or query result, a number, a fragment, a sandbox, a DOM node, or a nested list, tree or table widget. It re-runs when what it read changes. Add `refreshOn` for anything else. / ```lua / widget.new { / content = function() / return \"## Current page\\n\\n\" .. editor.getCurrentPage() / end, / } / ``` / A query becomes a table that follows the index: / ```lua / widget.new { / content = function() / return query [[from index.tag(\"task\") where not _.done limit 5]] / end, / } / ``` / A page-docked content view runs its `content` once per page load. Content views don\u2019t support row options. `stateKey` saves expansion only. Focus and selection are not persisted.\nExact facts:\n- [1] If the filter phrase starts with `$`, the picker switches to navigating [[Markdown/Anchor|anchors]] instead of pages: everything after the `$` filters anchor names from across your [[Space]], and each result shows a snippet of the anchored content along with the host page it lives on. Deleting the `",
+ "meta": {
+  "notes": [
+   "Page Picker.md",
+   "Guide/When Results Update.md",
+   "API/widget.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

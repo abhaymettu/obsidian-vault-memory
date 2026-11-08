@@ -1,0 +1,21 @@
+{
+ "id": "pubA-36",
+ "type": "multi",
+ "answer": "Hook the `editor:complete` event. Register your handler with `event.listen { name = \"editor:complete\", run = function(e) ... end }`. The handler gets the current cursor context and can return additional completion items.",
+ "tokens": 1345,
+ "seconds": 3.972,
+ "e2e_seconds": 3.97,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3768,
+  "final_context": 5097,
+  "billed_input": 8865,
+  "turns": 2,
+  "cost_usd": 0.009047000000000001,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"To add my own autocomplete suggestions, which event do I hook and which Lua call registers the handler?\\\"\"}\nMemory for: To add my own autocomplete suggestions, which event do I hook and which Lua call registers the handler?\n[1] Space Lua/DOM.md (Basic usage)\n  Event handlers: Attributes starting with `on` are registered as event listeners: / ```lua / dom.button { / onclick = function() / editor.flashNotification(\"Clicked!\") / end, / \"Click me\" / } / ``` / This is equivalent to calling `addEventListener(\"click\", fn)` on the button element.\n[2] Event.md (Subscribing to events)\n  Dispatching events: You can dispatch your own custom events: / ```lua / event.dispatch(\"my-custom-event\", {message = \"Hello!\"}) / ``` / Other scripts can then listen for `my-custom-event`.\n  Subscribing to events: Use `event.listen` to subscribe to an event: / ```lua / event.listen { / name = \"editor:pageLoaded\", / run = function(e) / print(\"Loaded page: \" .. e.data.name) / end / } / ``` / The `run` callback receives an event object with a `data` field containing event-specific information. To see what data an event provides, add a `print` call and check the [[Log|logs]].\n[3] Completion.md (Page link completion)\n  - Custom completions are added by subscribing to the `editor:complete` event via Space Lua, and the handler receives the current cursor context and can return additional completion items.\n  Custom completions: You can extend the completion system by subscribing to the `editor:complete` event via [[Space Lua]]. Your handler receives the current cursor context and can return additional completion items. / See also: [[API/event]]\n  - A reference page on SilverBullet's context-aware autocomplete, covering page link, tag, emoji, frontmatter key, slash command, Lua code and custom completions. Names: SilverBullet, Space Lua, editor., space., index., editor:complete.\n[4] API/event.md (event)\n  event.listen: `event.listen(listener)` / Registers a Space Lua listener on the event bus. / **Parameters:** / - `listener` (`table`) \u2014 Listener definition with name and run callback. / **Example:** / ```lua / event.listen { name = \"my-event\", run = function(e) print(e.data) end } / ``` / <!--/lua-->\n  - event.listen(listener) registers a Space Lua listener on the event bus.\n  - API reference page for the event Lua namespace, describing functions that dispatch events, list event names with listeners, and register listeners on SilverBullet's event bus. Names: SilverBullet, event, event.dispatch, event.listEvents, event.listen, Space Lua.\n[5] Plugs/Development/Reference.md (Manifest)\n  - Other plugs can call a syscall with `await system.invokeFunction(\"myplug.add\", 1, 2)`, and Lua can call `myplug.add(1, 2)`.\n[6] Extensions.md (Libraries)\n  - Space Lua scripts can define functions, commands, widgets, event handlers, and more.\n[7] CLI.md (Installation)\n  Exploring your space: These calls inspect the connected space itself, so results reflect its own tags, Space Lua functions, and commands, including those added by its libraries. `sb --help` lists the same calls. / Tags and their fields: / ```bash / sb query 'from t = index.tags() select t ...\nExact facts:\n- [1] The DOM builder API provides a clean, declarative way to construct HTML elements from [[Space Lua]]. It is typically used to build [[API/widget|Widgets]] for rendering dynamic UI in your pages.\n- [1] Markdown support**: String children are automatically processed as markdown. So `\"**bold**\"` renders as bold text."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

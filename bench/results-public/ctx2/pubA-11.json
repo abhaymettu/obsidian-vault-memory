@@ -1,0 +1,19 @@
+{
+ "id": "pubA-11",
+ "type": "single",
+ "answer": "Your edit wins. A deletion never silently wins over a concurrent edit, so the edit survives and the deletion is suppressed, with a notification shown to you.",
+ "tokens": 632,
+ "seconds": 0.005,
+ "e2e_seconds": 2.39,
+ "source_hits": 1.0,
+ "block": "## I edited a page offline while a colleague deleted it on the server. Which change wins when I reconnect?\n\n--- [vault:corpus/docs/PWA.md] ---\n### How offline works\n\n# How offline works\nSilverBullet\u2019s [[Sync]] engine keeps configured space content in the browser\u2019s IndexedDB. Pages are synchronized by default. Documents and ignored paths have different rules. When online, changes are continuously synced between the browser and the server. When offline, you work against the local copy. On reconnection, the sync engine reconciles any changes.\n\nA service worker caches the application code itself, so even the SilverBullet UI loads without a network connection.\n\nSee also: [[Sync]], [[Collaboration]] (what happens to your offline edits when you reconnect), [[Architecture]]\n\n--- [vault:corpus/docs/Collaboration.md] ---\n### Offline and flaky networks\n\n# Offline and flaky networks\nWith browser offline access enabled (see [[Sync]]), edits you make offline (or while [[Sync]] is struggling with a flaky connection) accumulate locally and reconcile with the server once you\u2019re back online, following the same merge and conflict rules as above. A deletion never silently wins over a concurrent edit \u2014 if you edited a page that someone else deleted (or vice versa) while you were offline, the edit survives and the deletion is suppressed, surfaced to you as a notification rather than quietly discarding your work.\n\nDesktop edits its local folder without browser-style synchronization to its embedded server. Its optional external Server connection is [[Desktop Sync]]. Use [[Guide/Comments, Mentions and Replies]] for requests and replies alongside these concurrent-edit mechanics.",
+ "meta": {
+  "engine_seconds": 0.004764458000000019,
+  "sources": [
+   "vault:corpus/docs/PWA.md",
+   "vault:corpus/docs/Collaboration.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

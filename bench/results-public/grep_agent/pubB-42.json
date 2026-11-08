@@ -1,0 +1,22 @@
+{
+ "id": "pubB-42",
+ "type": "verbatim",
+ "answer": "In Firefox, go to `about:debugging#/runtime/this-firefox`. Find SilverBullet under the Service Worker section and click \"Inspect\". This comes from `Log.md`.",
+ "tokens": 586,
+ "seconds": 4.007,
+ "e2e_seconds": 4.01,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3686,
+  "final_context": 4261,
+  "billed_input": 7947,
+  "turns": 2,
+  "cost_usd": 0.0066987,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"Firefox\", \"-i\": true, \"output_mode\": \"content\", \"-C\": 2}\nLog.md-6-* Service worker logs (especially useful when debugging [[Sync]] issues):\nLog.md-7-  * In Chromium-based browsers these logs are mixed with the regular JavaScript console.\nLog.md:8:  * In Firefox start at `about:debugging#/runtime/this-firefox` then find it under the Service Worker section and click \u201cInspect\u201d.\nLog.md-9-  * In Safari they can be accessed via `Developer > Service workers`.\nLog.md-10-* Server logs: Server logs are written to the standard output of the server process.\n--\nCHANGELOG.md-320-* Fix: symlinks inside the space directory are no longer accidentally removed when cleaning up empty parent directories after a file delete.\nCHANGELOG.md-321-* Fix: slash commands now resolve the syntax node ending at the cursor, so they no longer get incorrectly suppressed adjacent to comment blocks or links.\nCHANGELOG.md:322:* Fix: [Service Worker is now built without `import` statements](https://github.com/silverbulletmd/silverbullet/pull/1949) so it loads on Firefox versions before 147 (by [Carlos Fdez. Llamas](https://github.com/sirikon)).\nCHANGELOG.md-323-\nCHANGELOG.md-324-## 2.6.1"
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

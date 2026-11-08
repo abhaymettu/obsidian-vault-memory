@@ -1,0 +1,22 @@
+{
+ "id": "pubB-35",
+ "type": "verbatim",
+ "answer": "A SilverBullet Desktop Pro license key looks like `SBPLS-XXXXX-XXXXX-XXXXX-XXXXX`. You paste it into the **Pro** tab of the Desktop dashboard and click **Activate**. This comes from `Licensing.md`.",
+ "tokens": 320,
+ "seconds": 3.667,
+ "e2e_seconds": 3.67,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3682,
+  "final_context": 3995,
+  "billed_input": 7677,
+  "turns": 2,
+  "cost_usd": 0.0063628999999999995,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"license key\", \"-i\": true, \"output_mode\": \"content\", \"head_limit\": 30}\nLicensing.md:4:Open the Desktop dashboard, go to the **Pro** tab, paste your license key (it looks like `SBPLS-XXXXX-XXXXX-XXXXX-XXXXX`) and click **Activate**. A Pro license belongs to one user, who can activate it on as many of their own devices as they like.\nLicensing.md:9:Manage your subscription, license keys and invoices from your [account page](https://silverbullet.md/account). The [FAQ](https://silverbullet.md/faq) explains how to get an invoice with your company details."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

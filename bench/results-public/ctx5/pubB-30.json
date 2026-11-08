@@ -1,0 +1,22 @@
+{
+ "id": "pubB-30",
+ "type": "multi",
+ "answer": "An aspiring-page record carries `name` (the unresolved page name), `page` (the source page containing the link), `pos` (the start of the unresolved link), and `ref` (the reference identifying that occurrence). X-Ray will not underline it, because `range`-less objects such as `aspiring-page` aren't shown.",
+ "tokens": 1081,
+ "seconds": 0.003,
+ "e2e_seconds": 2.61,
+ "source_hits": 1.0,
+ "block": "## Which attributes does an aspiring-page record carry, and will the X-Ray lens underline it in the editor?\n\n--- [vault:corpus/docs/Markdown/HTML.md] ---\n### Inline HTML > Heading with <u>underlined</u> bit\n\n## Heading with <u>underlined</u> bit\n| Tag | Example |\n|-----|---------|\n| `<kbd>` | <kbd>Esc</kbd> |\n| `<sub>` | H<sub>2</sub>O |\n\n--- [vault:corpus/docs/X-Ray.md] ---\n### Untitled\n\nX-Ray is an editor lens that shows you the structure SilverBullet\u2019s indexer sees in your document. When switched on, every text range the indexer extracts as an [[Object]] is underlined. When you hover your mouse over it, it will show you all the attributes extracted as [[YAML]].\n\nYou may also be interested in the [[Graph View]].\n\n--- [vault:corpus/docs/X-Ray.md] ---\n### Limitations\n\n# Limitations\n* `range`-less objects (`page`, `tag`, `aspiring-page`, `anchor`) aren\u2019t shown \u2014 except a tag that occurs only inside a comment, which the indexer gives a range, so X-Ray underlines it (and its card won\u2019t show `inComment`, since `xrayInfo` calls the indexers directly, skipping the comment-marking pass).\n* Constructs that the editor renders as a widget may not always show the underline. Hover still works, the tooltip will appear.\n\n--- [vault:corpus/docs/Tag/aspiring-page.md] ---\n### Attributes\n\n## Attributes\n* `name`: unresolved page name.\n* `page`: source page containing the link.\n* `pos`: start of the unresolved link.\n* `ref`: reference identifying that occurrence.\n\nRecords are rebuilt when the source page is indexed. Creating the target page removes its aspiring-page entries.\n\n--- [vault:corpus/docs/Tag/ambiguous-link.md] ---\n### Untitled\n\nAn `ambiguous-link` object records a [[Link|link]] whose name lookup matches more than one page in the space \u2014 a bare name carried by several pages, or a path-qualified link that is the suffix of several paths \u2014 with no exact match among them. The link still resolves \u2014 see [[Link#Ambiguous links]] for the ranking that picks the winner \u2014 but which page it means depends on where it is written, so each occurrence is indexed for you to find and disambiguate. A link that matches a page exactly is never recorded here: its text is already that page\u2019s full path.\n\nLike [[Tag/aspiring-page|aspiring pages]], these records are produced by the relation indexer and are recomputed whenever the page is re-indexed, so an ambiguity disappears from the index as soon as it is fixed (by qualifying the link, or by renaming one of the colliding pages).",
+ "meta": {
+  "engine_seconds": 0.0028514999999897555,
+  "sources": [
+   "vault:corpus/docs/Markdown/HTML.md",
+   "vault:corpus/docs/X-Ray.md",
+   "vault:corpus/docs/X-Ray.md",
+   "vault:corpus/docs/Tag/aspiring-page.md",
+   "vault:corpus/docs/Tag/ambiguous-link.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

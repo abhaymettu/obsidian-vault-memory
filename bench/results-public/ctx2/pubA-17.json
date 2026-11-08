@@ -1,0 +1,20 @@
+{
+ "id": "pubA-17",
+ "type": "verbatim",
+ "answer": "SilverBullet writes a sibling copy named `name.conflicted-<hash>.ext` next to the original, where `<hash>` is a short hash of the losing version's bytes.",
+ "tokens": 544,
+ "seconds": 0.005,
+ "e2e_seconds": 2.1,
+ "source_hits": 1.0,
+ "block": "## When two versions of an image genuinely conflict, what is the name of the copy SilverBullet writes next to it?\n\n--- [vault:corpus/docs/Collaboration.md] ---\n### Conflicts > Binary conflicts\n\n## Binary conflicts\nImages, PDFs and other binaries (and text files over the 1 MB merge limit) can\u2019t be merged, so a genuine conflict instead produces a sibling copy named `name.conflicted-<hash>.ext` next to the original, where `<hash>` is a short hash of the losing version\u2019s bytes.\n\n--- [vault:corpus/docs/ADR/007 Core Application Logic on the Client.md] ---\n### Context\n\n# Context\nSilverBullet\u2019s [[Plugs]] runtime was originally designed so that plugs could run **either on the server or in the client**. Through \u201cv1\u201d this surfaced as two switchable modes:\n\n* **Server mode** \u2014 indexing and plug execution ran on the server, the client delegated a lot of logic to the server.\n* **Sync mode** \u2014 the space is *also* synced to the browser and indexing + plug execution ran client-side as well. You could switch between the two.\n\nThis was flexible and genuinely powerful, but maintaining **two runtime environments** for PlugOS was a persistent burden: every capability had to work and the dual model produced subtle, hard-to-diagnose issues. The goal for v2 was to be genuinely **offline-first** without that complexity.",
+ "meta": {
+  "engine_seconds": 0.0047999580000000035,
+  "sources": [
+   "vault:corpus/docs/Collaboration.md",
+   "vault:corpus/docs/ADR/007 Core Application Logic on the Client.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,21 @@
+{
+ "id": "pubA-31",
+ "type": "multi",
+ "answer": "The Go server rewrite (ADR/008) was decided first. ADR/009 says the move from Deno to Node came after the server had become a thin file store, which is the state the Go rewrite produced. The memory gives no explicit dates for the two decisions, so this order is inferred from that context and the ADR numbering (008 before 009).",
+ "tokens": 1346,
+ "seconds": 0.426,
+ "e2e_seconds": 5.62,
+ "source_hits": 1.0,
+ "block": "Memory for: Which was decided first: rewriting the server in Go, or moving the client build toolchain off Deno onto Node?\n[1] ADR/009 Client Build Toolchain.md (Context)\n  Decision: The client build toolchain moved from **Deno to Node.js** (npm + ESBuild, with [vitest](https://vitest.dev/) for tests). It was done gradually and completed in the `to-node` migration.\n  Context: Since [[ADR/007 Core Application Logic on the Client|v2]] the client is where all the logic lives, and it is built with TypeScript + ESBuild. For years that toolchain ran on **Deno**, chosen early when Deno\u2019s sandboxed-worker permissions also suited running [[Plugs|plugs]] on the server (see [[ADR/010 Rust Backend]]). / Once the server became a thin file store, only the client remained to build, and the trade-off shifted: Deno\u2019s distinctive advantages no longer bought SilverBullet much, while its churn \u2014 repeated changes in package management (HTTP imports \u2192 import maps \u2192 JSR \u2192 varying npm support) and the occasional regression \u2014 was a recurring distraction.\n[2] ADR/010 Rust Backend.md (Context)\n  Decision: The server is written in **Rust** (as of v2.10.0). The progression was **Node.js -> Deno -> Go -> Rust**: / * Deno: a modern, secure-by-default TypeScript runtime, a sensible fit while the server still ran [[Plugs|plug]] logic and sandboxing mattered (pre-[[ADR/007 Core Application Logic on the Client|v2]]). / * Go (2025): once the server was just a file store, it was rewritten in Go: \u201csignificantly less memory and significantly smaller in size.\u201d / * Rust (2026): the Go server was replaced by an adaptation of the Rust backend used elsewhere in the project, converging the whole codebase on **TypeScript + Rust**.\n  Alternatives considered: * **Revert the server to TypeScript (Deno or Node).** Rejected: a JS runtime buys little for a process that just serves files and it is resource heavy. / * **Stay on Go.** Rejected: Go meant maintaining a backend separate from the project\u2019s Rust code, and its ecosystem made the desired CRDT direction impractical.\n[3] ADR/008 Go Backend.md (Context)\n  Decision: Rewrite the server in **Go**. Being just a file store, the whole backend was ported becoming significantly less memory and significantly smaller in size than the Deno build.\n[4] CHANGELOG.md (CHANGELOG)\n  2.6.1: * **Technical: Deno \u2192 Node.js migration**: The TypeScript/client codebase has been migrated from Deno to Node.js, now using vitest for tests. / * Bundle size optimization: chunked builds with ESBuild, JIT loading of larger modules (vim, syntax modes). / * **[[Runtime API]]** and accompanying [[CLI]] (==Experimental==): programmatically interact with a (remote) SilverBullet server over via `silverbullet-cli` or a [[Runtime API|HTTP API]]: evaluate Lua expressions, run scripts, and retrieve console logs. Powered by a headless Chrome instance running the full SilverBullet client via CDP, so all results reflect live client state. / * New query shortcuts: `index.contentPages()` (pages excluding meta pages) and `index.metaPages()`  ...\nExact facts:\n- [1] Lower barrier to contribution.** Far more developers know Node/npm than Deno.\n- [1] More moving parts.** Deno bundled fmt/lint/test out of the box. On Node these are assembled from separate packages (biome, vitest), a slightly larger dependency surface.\n- [1] Client toolchain migration: [PR1839](https://github.com/silverbulletmd/silverbullet/pull/1839).",
+ "meta": {
+  "notes": [
+   "ADR/009 Client Build Toolchain.md",
+   "ADR/010 Rust Backend.md",
+   "ADR/008 Go Backend.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

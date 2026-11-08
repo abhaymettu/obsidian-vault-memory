@@ -1,0 +1,22 @@
+{
+ "id": "pubB-42",
+ "type": "verbatim",
+ "answer": "In Firefox, go to `about:debugging#/runtime/this-firefox`. Find SilverBullet under the Service Worker section and click \"Inspect\" (source: Log.md).",
+ "tokens": 1307,
+ "seconds": 4.508,
+ "e2e_seconds": 4.51,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3761,
+  "final_context": 5059,
+  "billed_input": 8820,
+  "turns": 2,
+  "cost_usd": 0.0089126,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"Where in Firefox do I go to see SilverBullet's service worker logs?\\\"\"}\nMemory for: Where in Firefox do I go to see SilverBullet's service worker logs?\n[1] Log.md (Log)\n  - A reference guide on where and how to find SilverBullet logs for client, service worker, server, and reverse proxy diagnostics. Names: SilverBullet, Lua, JavaScript, Chromium, Firefox, Safari.\n  To better understand what SilverBullet is doing, especially when [[Troubleshooting]], it is good to know where and how to look at SilverBullet logs. / Start with [[Workbench/Console]] for the combined Lua, JavaScript, plug and service-worker log. For lower-level diagnostics, open your browser\u2019s JavaScript console. / * Client logs: Check your browser\u2019s JavaScript console. Usually these are part of \u201c(Web) Developer Tools\u201d buried somewhere in a Tools or Developer menu. / * Service worker logs (especially useful when debugging [[Sync]] issues): / * In Chromium-based browsers these logs are mixed with the regular JavaScript console. / * In Firefox start at `about:debugging#/runtime/this-firefox` then find it under the Service Worker section and click \u201cInspect\u201d. / * In Safari they can be accessed via `Developer > Service workers`. / * Server logs: Server logs are written to the standard output of the server process.\n  - In Firefox, service worker logs are found by starting at `about:debugging#/runtime/this-firefox`, finding the Service Worker section, and clicking \u201cInspect\u201d.\n[2] Workbench/Console.md (The log)\n  - Service worker log lines written while no SilverBullet window is open are not shown in the log.\n  The log: The log collects: / * **Lua:** output of `print` in your scripts, with a link to the line that printed it, plus everything you run in the REPL. / * **JS:** anything SilverBullet\u2019s own code writes to the browser\u2019s console, plus uncaught errors. / * **Plug:** log lines from [[Plugs]], labeled with the plug\u2019s name. / * **SW:** log lines from the service worker, which handles syncing and offline support. Lines it logs while no SilverBullet window is open are not shown. / The log keeps the most recent 1000 entries. Use the filter field to search them (a plug\u2019s name matches too), and the **All**, **Lua**, **JS**, **Plug**, **SW** and **Error** buttons to show one source, or only errors.\n[3] Architecture/Service Worker.md (Service Worker)\n  - Architecture note describing SilverBullet's browser service worker, covering its per-scope registration, offline caching, embedded Sync engine, local HTTP API interception, and the sync.documents setting. Names: SilverBullet, IndexedDB, sync.documents, /.fs.\n[4] Client Encryption.md (Details)\n  Details: A strong 256-bit cryptographic key is derived (using _PBKDF2_) on the client from your username/password combo entered upon login. This key is kept in the service worker for SilverBullet clients to obtain so that the user is not required to constant log in when refreshing a tab, or opening new SilverBullet tabs and windows. / On an account-managed multi-space server, every prefix uses the server\u2019s shared encryption salt. Prefixes have separate service-worker scopes, s ...\nExact facts:\n- [3] One registration per space URL scope in a browser profile. Tabs using the same scope share its active worker. The [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) makes SilverBullet offline-capable: it caches and serves the client code, embeds the [[Sync]] engine"
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

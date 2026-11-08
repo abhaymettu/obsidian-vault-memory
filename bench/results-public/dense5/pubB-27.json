@@ -1,0 +1,13 @@
+{
+ "id": "pubB-27",
+ "type": "multi",
+ "answer": "You can address any [[Identity]] with `@name`, and any name is valid, so nothing needs to be declared first: mentioning `@sales` makes `sales` a known identity. Names can contain dots and are kept whole, so `@pete.smith` and `@sam.rivera` are each one mention (but no spaces).",
+ "tokens": 776,
+ "seconds": 0.004,
+ "e2e_seconds": 2.66,
+ "source_hits": 1.0,
+ "block": "--- Recipient.md ---\nThe Mention Inbox | description\nAn identity addressed with @name, whose mentions appear in the Mention Inbox.\n\n--- Recipient.md ---\nThe Mention Inbox\nA **recipient** is an [[Identity]] you address. When mentioned with `@name`, it is indexed to be queried, and clicking it in the editor will open the \u201cMentions Inbox\u201d.\n\nSee [[At-Mention]] for the `@name` syntax, and [[Identity]] for where names come from (accounts, `identity.define`, or simply being mentioned).\n\n--- Recipient.md ---\nThe Mention Inbox | Querying mentions\nAt-mentions are indexed like any other [[Object Index|relation]], with `kind == \"at-mention\"`. `to` is always the `@name` identifier (`toTag == \"identity\"`) and `alias` holds the name as typed. Build your own view over them with SLIQ, for example @sam.rivera:\n\n${query[[\n  from index.relations \"at-mention\"\n  where _.to == \"@sam.rivera\"\n  select { page = _.page, snippet = _.snippet }\n]]}\n\nFrontmatter declarations are relations too, with `kind == \"recipients\"`.\n\nFor a complete request, reply and resolution workflow, see [[Guide/Comments, Mentions and Replies]].\n\n--- At-Mention.md ---\n`@name` syntax | `@name` syntax\nType `@` followed by a name with no spaces, e.g. @jo. While typing, autocomplete offers every known identity.\n\nA name may contain dots, so dotted usernames carry whole: @pete.smith and @sam.rivera are each one mention.\n\n**Any name is a valid mention.** Nothing needs declaring up front: mentioning @sales makes `sales` a known identity. See [[Identity]] for more info.\n\nFor a complete request, reply and resolution workflow, see [[Guide/Comments, Mentions and Replies]].\n\n--- At-Mention.md ---\n`@name` syntax\nAn **at-mention** is the `@name` span you type in text. It refers to an [[Identity]], and it has two directions: written plainly it *addresses* that identity, making it a [[Recipient]], or when used as a signature it *credits* that identity instead, see [[Authorship]].",
+ "meta": {},
+ "score": 1.0,
+ "judge": "CORRECT"
+}

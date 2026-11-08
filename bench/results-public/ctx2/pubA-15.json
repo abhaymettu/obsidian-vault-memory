@@ -1,0 +1,19 @@
+{
+ "id": "pubA-15",
+ "type": "single",
+ "answer": "No. The Git remote sync for a managed space is primarily a backup mechanism (and for history) and should not be considered for any type of collaboration; for collaboration, use a shared Server space.",
+ "tokens": 305,
+ "seconds": 0.004,
+ "e2e_seconds": 2.38,
+ "source_hits": 1.0,
+ "block": "## Is the Git remote sync for a managed space meant for working together with other people?\n\n--- [vault:corpus/docs/Guide/Git Sync.md] ---\n### Syncing with a remote\n\n# Syncing with a remote\nA managed space can automatically fetch, merge, and push its Git repository. This is primarily a **backup mechanism**, it should not be considered for any type of collaboration.\n\n--- [vault:corpus/docs/Revisions.md] ---\n### Syncing with a remote\n\n# Syncing with a remote\nA managed space can fetch, merge and push its revision repository. Follow [[Guide/Git Sync]] for setup, timing and recovery. This is primarily for history and backup. Use a shared Server space for collaboration.",
+ "meta": {
+  "engine_seconds": 0.004367874999999998,
+  "sources": [
+   "vault:corpus/docs/Guide/Git Sync.md",
+   "vault:corpus/docs/Revisions.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

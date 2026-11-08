@@ -1,0 +1,22 @@
+{
+ "id": "pubA-34",
+ "type": "multi",
+ "answer": "No. A member with `read` access cannot reach capability endpoints like the shell, because those require `write`. The shell endpoint is `/.shell`, and it is off by default.",
+ "tokens": 1299,
+ "seconds": 0.006,
+ "e2e_seconds": 2.44,
+ "source_hits": 1.0,
+ "block": "## Can a member with read access to a space run server commands through the shell endpoint, and what is that endpoint's path and default state?\n\n--- [vault:corpus/docs/Dashboard.md] ---\n### Spaces > Access\n\n## Access\nAccess to a space can be configured to one of three levels:\n\n* **`none`:** Not visible, no access.\n* **`read`:** May read content. May not modify anything, and may not reach any capability endpoint (shell, proxy, runtime API).\n* **`write`:** Full access to the space\u2019s content and capabilities.\n\n`write` carries real trust \u2014 see [[Security#What `write` really means]].\n\nThe effective level for a request is the **maximum** of three independent sources:\n\n* **`access` \u2014 what a visitor with no session gets:** `none` (default), `read`, `write`.\n* **`username.role` \u2014 what one account gets:** absent (no access), `read`, `write`.\n* **admin:** always `write` on every space.\n\n--- [vault:corpus/docs/Publishing.md] ---\n### Make a space public\n\n# Make a space public\nIn the [[Dashboard]], open the space\u2019s **Space settings \u2192 Access**. Under **Who has access**, set **Public (not signed in)** to **Read**. Anyone can now read the space without signing in. Page history and [[Revisions]] stay members-only.\n\nVisitors get the full SilverBullet client, including navigation, [[Linked Mention|linked mentions]] and live [[Space Lua/Integrated Query|queries]], but can\u2019t edit anything or reach capability endpoints such as the shell or the [[Runtime API]]. Members with `write` access keep editing as usual, and visitors see changes as soon as they\u2019re saved. See [[Dashboard#Access]] for how public access combines with member roles.\n\nUnder **Space settings \u2192 General**, set **Index page** to choose the page visitors land on (see [[Index Page]]).\n\n--- [vault:corpus/docs/Security.md] ---\n### Capability endpoints\n\n# Capability endpoints\nA few endpoints can reach beyond the space\u2019s own content, and all require `write`:\n\n* **Shell** (`/.shell`) \u2014 runs any command on the server. (Off by default)\n* **HTTP proxy** (`/.proxy`, exposed to Lua as [[API/net#net.proxyFetch(url, options?)|net.proxyFetch]]) \u2014 fetches an external URL through the server, on the server\u2019s network.\n* **Runtime API** (`/.runtime`) \u2014 evaluates Lua and scripts via a headless browser instance, see [[Runtime API]].\n\n--- [vault:corpus/docs/Authentication.md] ---\n### Accounts\n\n# Accounts\nWhen the server runs in the default [[Dashboard|multi-space]] mode, authentication is account-based:\n\n* Each member has an [[Account]], provisioned by an administrator with local credentials or [[Single Sign-On]].\n* Each [[Space]] has an [[Dashboard#Access|access level]] \u2014 `none`, `read`, or `write` \u2014 for visitors with no account, plus per-member `read`/`write` roles. Admins can reach every space and the admin UI.\n* Accounts, spaces, and access are all managed in the [[Dashboard]], which every account can open.\n* Every space has a login page, including one that permits anonymous access.\n\n--- [vault:corpus/docs/Architecture/File System API.md] ---\n### Untitled\n\nThe server\u2019s file-access and RPC surface behind the [[HTTP API]]: listing/reading/writing/deleting files, plus shell execution and the HTTP proxy.",
+ "meta": {
+  "engine_seconds": 0.0060467919999937295,
+  "sources": [
+   "vault:corpus/docs/Dashboard.md",
+   "vault:corpus/docs/Publishing.md",
+   "vault:corpus/docs/Security.md",
+   "vault:corpus/docs/Authentication.md",
+   "vault:corpus/docs/Architecture/File System API.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

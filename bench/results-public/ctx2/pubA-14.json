@@ -1,0 +1,19 @@
+{
+ "id": "pubA-14",
+ "type": "single",
+ "answer": "The Global tab of the graph shows every content page in the space with the `mention` relations between them, all expanded. Other relations only appear if you turn them on in the filters.",
+ "tokens": 823,
+ "seconds": 0.005,
+ "e2e_seconds": 2.1,
+ "source_hits": 1.0,
+ "block": "## When I open the whole-space map in the graph explorer, which kind of connection is shown before I change any filters?\n\n--- [vault:corpus/docs/Graph View.md] ---\n### Opening the graph\n\n# Opening the graph\nThe graph is a view (`std.graph`) with two tabs:\n\n* **Local**: a graph around the open page. Its direct relations are loaded straight away. Add more by clicking ghost nodes.\n* **Global**: every content page in the space and the `mention` relations between them, all expanded. Turn other relations on in the filters to show more connections.\n\nThese commands open it:\n\n* ${widgets.commandButton(\"Graph: Explore\")} (`Ctrl/Cmd-Shift-G`): opens the graph on its Local tab.\n* ${widgets.commandButton(\"Graph: Global Page Map\")}: opens the graph on its Global tab.\n\nThe graph opens in a large window over the editor. Its dock menu moves it to the left or right sidebar or the bottom panel instead, and it stays there. Docked, the local graph follows the page you open in the editor, and opening an object from the graph leaves it open. To make a sidebar the default for a space, set `view.defaults` (see [[View]]):\n\n```lua\nconfig.set(\"view.defaults\", {\n  [\"std.graph\"] = { dock = \"rhs\" },\n})\n```\n\n--- [vault:corpus/docs/Guide/Git Sync.md] ---\n### Syncing with a remote > Change or pause a connection\n\n## Change or pause a connection\n**Edit connection** creates a draft. Its URL, remote branch, credentials, and frequency do not become active until **Apply changes**. Checking a draft does contact its candidate repository, but does not replace the active remote or merge anything into the space. **Cancel** discards the draft and preserves the active connection. If the active connection is still running while you edit, the page identifies it.\n\n**Pause sync** retains the connection and credentials while stopping background Git network work. **Resume sync** starts it again. Removing a connection preserves the space\u2019s files and history. Removing a local deploy key does not revoke the public key at the repository host. Remove it there if it should no longer grant access.\n\nThe connection is bound to its reviewed destination and branch mapping. If those are changed outside SilverBullet, review the connection before syncing resumes.",
+ "meta": {
+  "engine_seconds": 0.0044391660000000005,
+  "sources": [
+   "vault:corpus/docs/Graph View.md",
+   "vault:corpus/docs/Guide/Git Sync.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

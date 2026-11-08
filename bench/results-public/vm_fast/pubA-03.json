@@ -1,0 +1,22 @@
+{
+ "id": "pubA-03",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 1329,
+ "seconds": 0.672,
+ "e2e_seconds": 2.78,
+ "source_hits": 0.0,
+ "block": "Memory for: Is there a Space Lua hash function I can use to compute the same ids git uses for objects, and can I use it for security?\n[1] Space Lua/JavaScript Interop.md (Accessing browser APIs)\n  Converting between Lua and JavaScript values: Lua tables and JavaScript objects/arrays are different types. Space Lua converts between them automatically where possible. Use these functions when you need an explicit conversion: / * `js.tojs(luaValue)` \u2014 converts a Lua value to its JavaScript equivalent / * `js.tolua(jsValue)` \u2014 converts a JavaScript value to its Lua equivalent\n[2] MCP.md (Tools)\n  Tools: Every client sees the same tools on every space: / * `help`: the first call. Lists the spaces you can use, whether each has a runtime, and the skills available. Tools take a space by its name or its id, the id is needed only when two of your spaces share a name. / * `read`, `write` and `edit`: read pages (a part of one, several at once, or rendered with queries evaluated and lint problems listed), write whole pages, or make targeted edits. Writing a page with Space Lua or Space Style reloads it and reports any load errors. / * `search`: full-text (and, where enabled, semantic) [[Search]] over a space. / * `lua`: run [[Space Lua]] in the live space, with the result and console output. Needs the [[Runtime API]].\n[3] API/index.md (index)\n  Query and manage the [[Object Index]], inspect schemas and index Markdown. / The main query API is `index.objects`. The other collection functions are mostly convenient filters over the same index. / <!--#lua spacelua.renderApiDocumentation(\"index\") -->\n[4] Migrate from v1.md (Queries)\n  Queries: v2 does not have support for old-style [queries](https://v1.silverbullet.md/Query%20Language) (live queries) anymore. They have been replaced with [[Space Lua/Integrated Query]]. Give the linked page a read, but generally there\u2019s a few differences: / 1. Space Lua Integrated Queries tend to start with `from index.objects(\"tag-name\")` instead of plain `tag-name`. This is a bit longer, but since whatever comes after `from` is a Lua expression, you can not just query [[Object]], you can query any Lua table as well in the same way. / 2. In the old query language, you access attribute simply by their name, this works in SLIQ too, but stylistically it\u2019s nicer to use either `_.attribute`, or to give the object you\u2019re iterating over a name, using `from page = index.pages()`, for instance. / 3. The `=` equals operator is `==` in Lua \ud83d\ude04\n[5] ADR/005 Space Lua.md (Context)\n  Decision: Adopt **Lua** as a single embedded language ([[Space Lua]]) that unifies scripting, templating, and querying: / * `space-lua` code blocks define space-wide functions and config. / * `${...}` expressions render inline via [[Live Preview]], replacing Handlebars templates. / * **Space Lua Integrated Query (SLIQ)** \u2014 `${query[[ from ... select ... ]]}` replaces the old query language. Because the body after `from` is a Lua expression, it can query the [[Object Index|object index]] *or* any Lua table. / [[Space Lua] ...\nExact facts:\n- [1] Space Lua runs in the browser and has direct access to JavaScript APIs through the `js` module. This enables you to use the browser\u2019s native capabilities and import external JavaScript libraries. Imported code runs with the same browser access as your Space Lua.\n- [1] Space Lua handles JavaScript promises transparently. When a JavaScript function returns a Promise, Space Lua automatically awaits it \u2014 you don\u2019t need to write any special async/await code:\n- [1] See also: [[API/js]], [[Space Lua]]",
+ "meta": {
+  "notes": [
+   "Space Lua/JavaScript Interop.md",
+   "MCP.md",
+   "API/index.md",
+   "Migrate from v1.md",
+   "ADR/005 Space Lua.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

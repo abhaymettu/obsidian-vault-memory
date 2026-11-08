@@ -1,0 +1,22 @@
+{
+ "id": "pubA-24",
+ "type": "verbatim",
+ "answer": "The default limit is 10MB. You can raise it with the `maximumDocumentSize` option (from `Document.md`).",
+ "tokens": 202,
+ "seconds": 3.213,
+ "e2e_seconds": 3.21,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3688,
+  "final_context": 3877,
+  "billed_input": 7565,
+  "turns": 2,
+  "cost_usd": 0.0057072,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"(?i)upload.*(limit|size)|maxUploadSize|MAX_UPLOAD|SB_MAX\", \"output_mode\": \"content\", \"head_limit\": 30}\nDocument.md:16:By default the maximum allowed filesize for an upload is 10MB, you can change that with the `maximumDocumentSize` option."
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,19 @@
+{
+ "id": "pubA-11",
+ "type": "single",
+ "answer": "Your edit wins: in SilverBullet a deletion never silently wins over a concurrent edit, so the edited page survives and the deletion is suppressed. You're notified about it rather than having your work quietly discarded.",
+ "tokens": 1109,
+ "seconds": 0.389,
+ "e2e_seconds": 2.64,
+ "source_hits": 1.0,
+ "block": "Memory for: I edited a page offline while a colleague deleted it on the server. Which change wins when I reconnect?\n[1] Collaboration.md (Auto-merging concurrent edits)\n  Offline and flaky networks: With browser offline access enabled (see [[Sync]]), edits you make offline (or while [[Sync]] is struggling with a flaky connection) accumulate locally and reconcile with the server once you\u2019re back online, following the same merge and conflict rules as above. A deletion never silently wins over a concurrent edit \u2014 if you edited a page that someone else deleted (or vice versa) while you were offline, the edit survives and the deletion is suppressed, surfaced to you as a notification rather than quietly discarding your work. / Desktop edits its local folder without browser-style synchronization to its embedded server. Its optional external Server connection is [[Desktop Sync]]. Use [[Guide/Comments, Mentions and Replies]] for requests and replies alongside these concurrent-edit mechanics.\n  - In SilverBullet a deletion never silently wins over a concurrent edit: if you edited a page someone else deleted, or vice versa, while offline, the edit survives and the deletion is suppressed.\n  - With browser offline access enabled (see Sync), SilverBullet accumulates offline edits locally and reconciles them with the server once back online, following the same merge and conflict rules.\n  Auto-merging concurrent edits: When two edits land on the same file around the same time, the server reconciles them with a three-way merge (each side\u2019s edit against the last version they agreed on) rather than just letting the last write win. / Merging is line- and word-aware: if you and someone else edit *different words* in the same line or paragraph, both edits should land cleanly with no conflict. Edits that touch the same words collide \u2014 and so, occasionally, can edits that don\u2019t, when a slow or flaky connection leaves one side merging against an older version of the page than it has already received. / Propagation is near-realtime: a change made elsewhere typically shows up wherever else the file is open within a couple of seconds.\n[2] PWA.md (What the PWA gives you)\n  - Edits made offline in the PWA are stored locally and reconciled when you reconnect.\n  How offline works: SilverBullet\u2019s [[Sync]] engine keeps configured space content in the browser\u2019s IndexedDB. Pages are synchronized by default. Documents and ignored paths have different rules. When online, changes are continuously synced between the browser and the server. When offline, you work against the local copy. On reconnection, the sync engine reconciles any changes. / A service worker caches the application code itself, so even the SilverBullet UI loads without a network connection. / See also: [[Sync]], [[Collaboration]] (what happens to your offline edits when you reconnect), [[Architecture]]\n  - When online, changes are continuously synced between the browser and the server; when offline, you work against the local copy, and on reconnection the sync engine re ...\nExact facts:\n- [1] Changes written to a page you have open are applied to your open editor within moments, as small, cursor-preserving edits rather than a full page reload. They land in the undo history like any other edit, so `Cmd/Ctrl-z` reverts an external change too. The inserted text is briefly highlighted, fadin",
+ "meta": {
+  "notes": [
+   "Collaboration.md",
+   "PWA.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

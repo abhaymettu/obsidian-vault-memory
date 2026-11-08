@@ -1,0 +1,21 @@
+{
+ "id": "pubA-05",
+ "type": "single",
+ "answer": "Call `mq.getQueueStats(queue)`. It returns a table with the queued (waiting), processing (in flight) and dead-letter (permanently failed) counts for that queue. It's documented in `API/mq.md`. The `queue` parameter is optional. The doc doesn't name the fields of the returned table.",
+ "tokens": 602,
+ "seconds": 5.374,
+ "e2e_seconds": 5.37,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3695,
+  "final_context": 4277,
+  "billed_input": 11833,
+  "turns": 3,
+  "cost_usd": 0.008736999999999998,
+  "base_key": "agent_base",
+  "seen": "{\"pattern\": \"mq\\\\.getQueueStats|getQueueStats|queueStats\", \"-n\": true, \"output_mode\": \"content\"}\nAPI/mq.md:64:## mq.getQueueStats\nAPI/mq.md:65:`mq.getQueueStats(queue?)`\n{\"file_path\": \"corpus/docs/API/mq.md\", \"offset\": 55, \"limit\": 30}\n55\t## mq.flushQueue\n56\t`mq.flushQueue(queue)`\n57\t\n58\tRemoves all messages from a queue.\n59\t\n60\t**Parameters:**\n61\t\n62\t- `queue` (`string`) \u2014 Queue name.\n63\t\n64\t## mq.getQueueStats\n65\t`mq.getQueueStats(queue?)`\n66\t\n67\tGets queued, processing, and dead-letter counts for a queue.\n68\t\n69\t**Parameters:**\n70\t\n71\t- `queue?` (`string`) \u2014 Queue name.\n72\t\n73\t**Returns:**\n74\t\n75\t- `table` \u2014 Queue statistics.\n76\t\n77\t## mq.send\n78\t`mq.send(queue, body)`\n79\t\n80\tSends a message to a queue.\n81\t\n82\t**Parameters:**\n83\t\n84\t- `queue` (`string`) \u2014 Queue name."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

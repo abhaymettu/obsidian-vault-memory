@@ -1,0 +1,22 @@
+{
+ "id": "pubA-13",
+ "type": "single",
+ "answer": "No. A baked section is a stored Markdown snapshot, so it doesn't refresh by itself, and you have to update the baked section when you want to refresh it. Only live queries re-evaluate when their data changes.",
+ "tokens": 1021,
+ "seconds": 0.005,
+ "e2e_seconds": 2.66,
+ "source_hits": 0.0,
+ "block": "## If the data behind a query I froze into the page as plain Markdown changes, does the frozen copy update on its own?\n\n--- [vault:corpus/docs/Guide/Aggregator Pages.md] ---\n### Keep a portable copy\n\n# Keep a portable copy\nLive queries render in SilverBullet. Use [[Baked Sections]] if you also need stored Markdown that other tools can display. Update the baked section when you want to refresh that snapshot.\n\n[[Workbench/Data]] documents the builder controls. [[Object Index]] explains the available query sources.\n\n--- [vault:corpus/docs/ADR/003 Indexed Object Graph.md] ---\n### Context\n\n# Context\nSilverBullet\u2019s power features \u2014 [[Space Lua/Integrated Query]], [[Linked Mention]], the [[Linked Tasks]], [[Graph View]] \u2014 all need *structured, queryable* data. But the source of truth is plain markdown files. Something needs to turn that prose into queryable data without making the markdown any less plain.\n\n--- [vault:corpus/docs/Guide/When Results Update.md] ---\n### After editing a page\n\n# After editing a page\nSilverBullet saves the Markdown and updates its [[Object Index]] asynchronously. A query reads indexed records, so a new task or changed attribute can take a moment to appear. Live expressions track their dependencies and reevaluate when relevant data changes. This is not a guarantee that every widget polls every external resource.\n\nAfter changing data used by a query, allow saving and indexing to settle. Its result updates without rebuilding the query or running `System: Reload`.\n\nSearch has its own index and startup behavior. [[Search#The search index]] explains when text search may still be catching up.\n\n--- [vault:corpus/docs/Markdown.md] ---\n### Untitled\n\nMarkdown uses plain text to mark headings, lists, emphasis and links. SilverBullet renders that formatting while you write, and keeps the source in ordinary `.md` files.\n\nCompletely new to markdown? Start with [[Guide/My First Markdown Page]] for a short exercise, or use [[Markdown/Basics]] as a syntax reference.\n\n--- [vault:corpus/docs/Guide/Reading These Docs.md] ---\n### Try a copied example\n\n# Try a copied example\nIn your own pace, press **Cmd-k** on macOS or **Ctrl-k** on Windows/Linux, type `Markdown Practice`, and press **Shift-Enter**. Paste the block above into the page body. Move your cursor away to see a heading and an unchecked task. Click the checkbox to mark it complete. Your practice page changes, while this documentation stays unchanged.",
+ "meta": {
+  "engine_seconds": 0.004834833000000799,
+  "sources": [
+   "vault:corpus/docs/Guide/Aggregator Pages.md",
+   "vault:corpus/docs/ADR/003 Indexed Object Graph.md",
+   "vault:corpus/docs/Guide/When Results Update.md",
+   "vault:corpus/docs/Markdown.md",
+   "vault:corpus/docs/Guide/Reading These Docs.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

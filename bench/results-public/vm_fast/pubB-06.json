@@ -1,0 +1,21 @@
+{
+ "id": "pubB-06",
+ "type": "single",
+ "answer": "Put the `space-lua` block inside a comment: a commented-out block isn't indexed and is skipped by the pages read at boot ([[CONFIG]], libraries), so it stays disabled. It will still be linted for syntax errors, though.\n\nIf you only need to diagnose a problem, you can instead add `?disableSpaceLua=1` to the space URL to stop all Space Lua scripts from loading.",
+ "tokens": 1299,
+ "seconds": 0.301,
+ "e2e_seconds": 2.96,
+ "source_hits": 1.0,
+ "block": "Memory for: What's the cleanest way to switch off a space-lua script temporarily without deleting it?\n[1] Markdown/Comment.md (Use cases)\n  Scripts stay off: A `space-lua` or `space-style` block inside a comment is _not_ indexed, and the pages read at boot ([[CONFIG]], [[Library|libraries]]) skip it as well, so commenting a script out is how you disable it. / What a comment does not switch off is live evaluation in the open editor: `${...}` [[Space Lua#Expressions|expressions]] and Lua-registered [[API/codeWidget|code widgets]] inside a comment still run and render, and a commented-out `space-lua` block is still linted for syntax errors.\n[2] Troubleshooting.md (Desktop)\n  Disable client features: Temporarily disable a feature by appending one of these options to the space URL, for example `http://localhost:3000/?disableSpaceLua=1`: / * `?disableSync=1` disables browser offline synchronization with the Server. / * `?disableSpaceLua=1` disables loading [[Space Lua]] scripts. / * `?disableSpaceStyle=1` disables loading [[Space Style]]. / * `?disablePlugs=1` disables loading non-built-in [[Plugs]]. / Combine options with `&`, for example `?disableSpaceLua=1&disableSpaceStyle=1`. Remove the options when you finish diagnosing the problem.\n[3] CHANGELOG.md (CHANGELOG)\n  Edge: * Fix: while Space Lua scripts reloaded (after editing a script page), widgets on the open page could briefly fail with errors such as \"attempt to index a nil value\", because they rendered against a half-loaded environment. Scripts now load into a fresh environment that takes over only once all of them have run. / * Fix: index-backed views no longer refresh halfway through a queued reindex, which could temporarily hide the page being edited. / * Fix: Git sync errors caused by unrelated histories now offer a recovery action to check and combine both histories. Automatic revisions created during the connection check no longer invalidate it.\n  2.11.0: * [[Space Lua]]: scripts that runs too long no longer freeze the editor: after a couple of seconds it offers to stop the script, while the rest of the app stays responsive. / * Fix: Space Lua patterns no longer mistake some non-ASCII characters for ASCII punctuation, which could corrupt page names in `string.gsub` or produce false matches. / * Fix: releasing a drag-selection on top of a link no longer navigates to it \u2014 only a real click (pointer down and up in the same spot) follows a link. / * Fix: on Safari/WebKit, selecting a word in a wrapped paragraph could highlight the entire visual line even though only the word was selected. / * Fix: a markdown table whose column happens to be named `ref`, `tag`, `tags`, `itags`, `page` or `tableref` no longer overwrites the indexed row\u2019s own identity.\n[4] Space Lua.md (Definitions)\n  Authoring loop: When iterating on a `space-lua` block, follow this loop: / 1. **Edit** the script in the editor. / 2. **Reload**: run `System: Reload` (Ctrl-Alt-r) to re-execute all `space-lua` definitions without a full page reload (you can reload the browser also ...\nExact facts:\n- [2] For an error inside an open space, inspect the log in [[Workbench/Console]]. If it started after adding a script, style or library, review that change through the relevant Workbench tab.\n- [2] For errors after the editor opens, inspect [[Workbench/Console]] and the browser\u2019s JavaScript console. The following browser options help isolate scripts, styles, plugs and offline-cache problems.",
+ "meta": {
+  "notes": [
+   "Markdown/Comment.md",
+   "Troubleshooting.md",
+   "CHANGELOG.md",
+   "Space Lua.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

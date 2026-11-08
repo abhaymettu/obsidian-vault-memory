@@ -1,0 +1,21 @@
+{
+ "id": "pubA-37",
+ "type": "multi",
+ "answer": "Not in memory. The memory says to put the proxy in front of an open server in single-space mode (and to exclude `/service_worker.js` and `/.client/*` from authentication), but it doesn't say whether encrypted browser storage can be turned on in that setup.",
+ "tokens": 1232,
+ "seconds": 0.331,
+ "e2e_seconds": 2.78,
+ "source_hits": 0.5,
+ "block": "Memory for: If I put Authelia in front of an open single-space server instead of using built-in logins, can I still turn on encrypted browser storage?\n[1] Authentication.md (Accounts)\n  Authentication proxies: Alternatively, or in addition, you can use an [[Authentication Proxy]] to delegate authentication to an external system (like Authelia, Authentik, or a reverse proxy\u2019s built-in auth). This is common in more complex self-hosted setups. In accounts mode, pair a proxy with **public** spaces so the proxy owns identity. In single-space mode, put the proxy in front of an open server. / For all authentication-related configuration options, see [[Install/Configuration#Authentication]].\n  How you authenticate depends on how the server is running: / * **Multi-space mode (the default).** A fresh install manages accounts and controls who can reach each space. This is the recommended setup \u2014 see [[#Accounts]]. / * **Single-space mode.** One folder served as one space, authenticated by a single set of environment-variable credentials \u2014 see [[#Single-space mode]]. / * **No authentication.** A single-space server with no credentials set is open to anyone who can reach it.\n[2] Install/Server Modes.md (Single-space mode)\n  Single-space mode: Single-space mode serves one folder with one optional login configured through `SB_USER`. / * It has no multiple-account management or per-member space roles. / * [[Revisions]] has limited configuration, including remote Git setup. / * [[Single Sign-On]] is unavailable. / * Mentions still support ad-hoc and API-defined identities. Account-based completion is unavailable. / Use [[Install/Configuration]] for legacy environment variables. Without authentication, anyone who can reach the server can access the space. Migrate to multi-space mode for account-managed sharing.\n[3] Dashboard.md (Setup wizard)\n  Dashboard access: When no space is bound to the server root (`/`), opening `/` redirects to `/.dashboard` instead of opening a space. Any account can log in there. Ordinary accounts see spaces with anonymous [[#Access|access]] and spaces where they are members, administrators see every space, plus the admin screens.\n[4] Authentication Proxy.md (Authentication Proxy)\n  In case you would like to run SilverBullet behind an authentication proxy (such as Authelia, Authentik or the ones integrated with Cloudflare Zero Trust or Pangolin) there is one key configuration tweak you need to make: / **You must exclude a few paths from authentication**. If you don\u2019t do this a lot of PWA functionality may not work and SilverBullet may break in unexpected ways. Doing this is perfectly safe, it just gives browsers unauthorized access to some client code, not any of your content. / Add **rules to allow unauthenticated access** for the following paths: / * `/service_worker.js` / * `/.client/*` / This is perfectly safe, they are just static (code) files.\nExact facts:\n- [1] Single-space mode serves one folder as one space, authenticated the \u201cclassic\u201d way: a single set of credentials set via the `SB_USER` environment variable in `username:password` form.\n- [1] Replace the example password before running the command. This configures one login named `sam`. When authentication is enabled, SilverBullet shows a login page on first access.\n- [1] For programmatic access via the [[HTTP API]], you can use bearer token authentication. In single-space mode, this token is configured with an environment variable, see [[Install/Configuration]]. In multi-space mode, new API tokens can be issued via the [[Dashboard]] UI.",
+ "meta": {
+  "notes": [
+   "Authentication.md",
+   "Install/Server Modes.md",
+   "Dashboard.md",
+   "Authentication Proxy.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

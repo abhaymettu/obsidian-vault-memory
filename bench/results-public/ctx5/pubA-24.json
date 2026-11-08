@@ -1,0 +1,23 @@
+{
+ "id": "pubA-24",
+ "type": "verbatim",
+ "answer": "The default maximum upload size is 10MB, and you can raise it with the `maximumDocumentSize` option, e.g. `config.set(\"maximumDocumentSize\", 100)`.",
+ "tokens": 1246,
+ "seconds": 0.004,
+ "e2e_seconds": 2.13,
+ "source_hits": 1.0,
+ "block": "## Uploads over a certain size are refused. What is the default limit and the config option to raise it?\n\n--- [vault:corpus/docs/Fonts.md] ---\n### Editor font size\n\n# Editor font size\n**Editor font size**, also under **Appearance**, sets the size of page text in the editor, in pixels: 18 by default, from 10 to 48. Headings, code and list indents scale with it. A proportional font often looks smaller than a monospace one at the same size, so you may want to raise it after switching. In [[CONFIG]]:\n\n```lua\nconfig.set(\"fonts.editorSize\", 20)\n```\n\n--- [vault:corpus/docs/API/widget.md] ---\n### API > widget.markdownSummary(text, options?)\n\n## widget.markdownSummary(text, options?)\nCreates a composable inline widget for a short Markdown excerpt. It keeps emphasis, inline code and links, and flattens headings, lists and blockquotes to text. Expressions appear as an ellipsis and never run. An excerpt made up only of expressions renders empty.\n\n- `sourcePage` gives relative links their original context. Defaults to the current page.\n- `maxChars` limits visible characters, including the truncation ellipsis. Defaults to 160.\n\n```lua\n\"* \" .. markdown.link(page.name) .. \" \" ..\n  widget.markdownSummary(excerpt, { sourcePage = page.name })\n```\n\n--- [vault:corpus/docs/Search.md] ---\n### Semantic search > Space size\n\n## Space size\nOnce a model is configured, spaces with up to 5,000 Markdown pages are eligible for semantic search by default. Larger spaces require explicit opt-in. A space that grows past this threshold keeps its existing semantic search and shows a warning about relevance. 5,000 is a default policy threshold, not a hard page limit. Full-text search remains available.\n\n--- [vault:corpus/docs/Document.md] ---\n### Uploading\n\n# Uploading\nTo upload documents you have a few options:\n\n* Use the `Upload: File` command (especially useful on mobile devices)\n* Drag & drop files or images onto a page\n* Copy & paste files or images onto a page\n\nAll options will prompt you for a file name to use to store the document, and then include the document as an embedded image (if it was an image) or link to the file.\n\nBy default the maximum allowed filesize for an upload is 10MB, you can change that with the `maximumDocumentSize` option.\n```lua\nconfig.set(\"maximumDocumentSize\", 100)\n```\n\n--- [vault:corpus/docs/API/search.md] ---\n### search.related\n\n## search.related\n`search.related(page, options?)`\n\nFinds pages related to a page, leaving out pages hidden by a page decoration. Raises an error while `search.status().capabilities.related` is false (no semantic search, or its index is still building) or when the page isn\u2019t in the semantic index yet.\n\n**Parameters:**\n\n- `page` (`string`) \u2014 Page name.\n- `options?` (`table`) \u2014 `limit` (maximum number of pages), `scope` (`pages`, `meta` or `all`, as in `search.find`, defaults to `all`). A page outside the scope has no related pages: with `scope = \"pages\"`, a Meta page gets none.\n\n**Returns:**\n\n- `table` \u2014 `{items, total, partial, notice}`, as `search.find` returns: the related pages best first, one item per page with its closest passage.",
+ "meta": {
+  "engine_seconds": 0.0040761250000068685,
+  "sources": [
+   "vault:corpus/docs/Fonts.md",
+   "vault:corpus/docs/API/widget.md",
+   "vault:corpus/docs/Search.md",
+   "vault:corpus/docs/Document.md",
+   "vault:corpus/docs/API/search.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

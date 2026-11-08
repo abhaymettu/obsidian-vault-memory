@@ -1,0 +1,22 @@
+{
+ "id": "pubA-43",
+ "type": "multi",
+ "answer": "The graph explorer draws from the `relation` index (the `Tag/relation` tag, whose references include `plugs/object-graph/src/graph_builder.ts`). That indexer was introduced in commit 91349448 on 2026-05-21, \"Introduce 'relation' indexer, demote 'link' to virtual view\".",
+ "tokens": 1338,
+ "seconds": 0.002,
+ "e2e_seconds": 2.8,
+ "source_hits": 1.0,
+ "block": "## Which index does the graph explorer draw from, and when did that index get introduced?\n\n--- [vault:corpus/docs/Library/silverbullet-diagram/Mermaid.md] ---\n### API > Views > mermaid.relationGraph(spec)\n\n### mermaid.relationGraph(spec)\nA flowchart. Node labels use the page\u2019s last path segment. Clicking still navigates to the full page.\n\nSpec keys:\n * `pages` \u2014 the page list to graph, e.g. `query[[from index.pages(\"adr\")]]`.\n * `relations` *(optional)* \u2014 frontmatter fields holding `[[page]]` links to draw as edges, e.g. `{\"dependsOn\", \"related\"}`. A `supersededBy` relation is drawn dotted. **When omitted, all relations are auto-detected** \u2014 every frontmatter field whose value(s) are `[[links]]` to other pages in the set becomes an edge (labeled by the field name, excluding `groupBy`, which drives subgraph nesting). Pass an explicit `relations` list to restrict edges to specific fields.\n * `groupBy` *(optional)* \u2014 a frontmatter field naming a **container** page. Members nest inside that container\u2019s **subgraph**. (The `Architecture` page uses `groupBy = \"partOf\"` to draw the Client / Service Worker / Server layers.)\n * `direction` *(optional)* \u2014 `\"LR\"` (default), `\"TD\"`, etc.\n * `color` *(optional)* \u2014 a frontmatter field whose value becomes a Mermaid CSS class on each node (e.g. `\"status\"`). Supply matching `classDef`s to style them. Without them the nodes render unstyled. *Auto-`classDef` from observed values is a planned enhancement.)*\n * `max` *(optional, default 60)* \u2014 node cap. A \u201cshowing N of M\u201d note is added when exceeded.\n\n--- [vault:corpus/docs/Graph View.md] ---\n### Untitled\n\nAn interactive object-graph explorer visualizes [[Object|objects]] (pages, items, blocks) and the typed [[Tag/relation|relations]] between them \u2014 letting you navigate your space by structure rather than by name.\n\n--- [vault:corpus/docs/Tag/paragraph.md] ---\n### Untitled\n\nTop-level paragraphs (that is: paragraphs not embedded in a list) are indexed using the `paragraph` tag, any additional tags can be added using [[Tag]].\n\nBy default, paragraphs are indexed when they contain a tag or anchor. However, you can enable indexing _all_ paragraphs by adding the following to your [[CONFIG]]:\n\n```lua\nconfig.set(\"index.paragraph.all\", true)\n```\n\nExample query, querying a paragraph with a #paragraph-tag:\n\n${query[[from index.paragraphs(\"paragraph-tag\")]]}\n\n--- [vault:corpus/docs/Tag/relation.md] ---\n### Untitled\n\ndescription: \"Connections between objects: links, mentions and typed attributes.\"\ntagKind: edge\nreferences:\n- plugs/index/relation.ts\n- plugs/index/link.ts\n- plugs/object-graph/src/graph_builder.ts\n\n--- [vault:corpus/docs/ADR/003 Indexed Object Graph.md] ---\n### References\n\n# References\n* [[Object]] \u00b7 [[Object Index]] \u00b7 [[Tag/relation]] \u00b7 [[Graph View]].\n* Generalized relation: [commit 91349448](https://github.com/silverbulletmd/silverbullet/commit/91349448) (2026-05-21) \u2014 \u201cIntroduce \u2018relation\u2019 indexer, demote \u2018link\u2019 to virtual view\u201d",
+ "meta": {
+  "engine_seconds": 0.002366416000004392,
+  "sources": [
+   "vault:corpus/docs/Library/silverbullet-diagram/Mermaid.md",
+   "vault:corpus/docs/Graph View.md",
+   "vault:corpus/docs/Tag/paragraph.md",
+   "vault:corpus/docs/Tag/relation.md",
+   "vault:corpus/docs/ADR/003 Indexed Object Graph.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

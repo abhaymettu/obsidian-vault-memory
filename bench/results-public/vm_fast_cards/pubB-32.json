@@ -1,0 +1,21 @@
+{
+ "id": "pubB-32",
+ "type": "verbatim",
+ "answer": "SilverBullet Desktop serves its MCP endpoint on a loopback listener at `http://127.0.0.1:3999/.mcp`. It is off by default, and you can turn it on or change the port under **Settings \u2192 Advanced \u2192 MCP**.",
+ "tokens": 1372,
+ "seconds": 0.471,
+ "e2e_seconds": 2.69,
+ "source_hits": 1.0,
+ "block": "Memory for: What's the default local address of SilverBullet Desktop's MCP endpoint?\n[1] CHANGELOG.md (CHANGELOG)\n  Edge: * [[MCP]]: SilverBullet Server can now serve an MCP endpoint at `/.mcp`, so AI assistants can directly read, write, search and query your spaces. Clients sign in with OAuth and act as the account that approved them, on the spaces chosen on a consent page. MCP is off by default: an admin turns it on in the APIs tab. / * **Potentially breaking:** the legacy `/.auth/authorize` and `/.auth/token` endpoints now only accept SilverBullet\u2019s own clients (`silverbullet-app`, `silverbullet-cli` and `silverbullet-share`); other `client_id`s are refused. / * Fix: slow filesystem watcher registration no longer delays space startup. Polling tracks changes while native notifications start, and a resync reconciles changes made during registration.\n  - SilverBullet Server can serve an MCP endpoint at `/.mcp` so AI assistants can read, write, search and query spaces, and MCP is off by default until an admin turns it on in the APIs tab.\n[2] MCP.md (Tools)\n  Desktop: SilverBullet Desktop serves MCP too, for the spaces registered in the app, on a loopback listener at `http://127.0.0.1:3999/.mcp`. It is off by default. Turn it on or change the port under **Settings \u2192 Advanced \u2192 MCP**, which also shows the setup commands with your port filled in.\n  SilverBullet can act as an [MCP](https://modelcontextprotocol.io) (Model Context Protocol) server, so AI assistants can read, write, query and pimp up your spaces. / MCP is available in [[Dashboard|multi-space mode]] and in [[Desktop]]. The endpoint is `/.mcp` on your server, for example `https://notes.example.com/.mcp`. A single-space server does not serve it. On a server it is off by default: an admin turns it on in the APIs tab of the [[Dashboard]].\n  - SilverBullet Desktop serves MCP for the spaces registered in the app, on a loopback listener at `http://127.0.0.1:3999/.mcp`.\n  - A reference note on how SilverBullet works as an MCP server: its endpoint, the tools and skills it offers, access rules, client setup, Desktop support, and security. Names: SilverBullet, MCP, Model Context Protocol, OAuth 2.1, PKCE, Codex, Claude Code, Claude.ai, ChatGPT, Dashboard, Desktop, Space Lua, Space Style, Runtime API, help, read, write, edit, search, lua, screenshot, meta/skill, meta/library, Library/Std, private_key_jwt, RS256, PS256, ES256, http://127.0.0.1:3999/.mcp.\n[3] TLS.md (LAN HTTP (no TLS))\n  - On LAN HTTP, silverBullet is opened using its LAN address, for example http://192.168.1.20:3000, and the server must listen on an address reachable from the LAN.\n  localhost (http): If you run SilverBullet _locally_ on your machine, this is the easiest option. Everything runs fine as long as the browser sees `localhost` or `127.0.0.1` appear in the URL, even with `http://`. / The obvious drawback of this approach is that your SilverBullet instance is _only accessible from the machine you run it on_.\nExact facts:\n- [1] [[CLI]] unification. There is now a single `sb` CLI (installation instructions in [[CLI#Installation]]) that can be used both remotely with Server, and locally with [[Desktop]].\n- [1] Near real-time content updates**: if multiple clients/process edit the same page, SilverBullet will do its best to reconcile those changes with local ones. In cases of unresolvable conflicts a new _conflict widget_ will show helping you to resolve the conflict.",
+ "meta": {
+  "notes": [
+   "CHANGELOG.md",
+   "MCP.md",
+   "TLS.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

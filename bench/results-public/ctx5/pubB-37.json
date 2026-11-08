@@ -1,0 +1,23 @@
+{
+ "id": "pubB-37",
+ "type": "verbatim",
+ "answer": "Set `SB_OIDC_CA_FILE` to a PEM certificate file for your private CA. SilverBullet will then trust it for provider connections, and certificate verification stays enabled.",
+ "tokens": 1423,
+ "seconds": 0.004,
+ "e2e_seconds": 2.14,
+ "source_hits": 1.0,
+ "block": "## My OIDC provider uses a certificate from a private CA. Which environment variable points SilverBullet at it?\n\n--- [vault:corpus/docs/TLS.md] ---\n### TLS (https) > Tailscale SSL certificate\n\n## Tailscale SSL certificate\nIf you\u2019re a [Tailscale](https://tailscale.com/) user, this a simple solution. If not, you may consider becoming one \u2014\u00a0it\u2019s a solid service, very friendly to self hosters, and _free_ for this use case.\n\nPart of the [guide to setup SilverBullet on Linux](https://community.silverbullet.md/t/install-silverbullet-on-a-64-bit-debian-ubuntu-raspianos-internet-accessible-via-tailscale/48) are instructions on how to install  (a free service) and use it to expose a local server (like SilverBullet) locally on your VPN, or the Internet \u2014 a setup that gives you a `.ts.net` subdomain with TLS certificate.\n\nThe advantage of this approach is that you have the choice to expose your SilverBullet to the wide Internet, or limit it to just your Tailscale VPN. The disadvantage is that you now rely on a third party (Tailscale).\n\n--- [vault:corpus/docs/Single Sign-On.md] ---\n### Connect a provider > OpenID Connect providers\n\n### OpenID Connect providers\nCreate a confidential OIDC client, register the displayed callback and enable Authorization Code with PKCE. Use the provider\u2019s issuer URL and client credentials. The provider must supply a stable subject and a verified email, using the `openid`, `email` and `profile` scopes.\n\nSilverBullet\u2019s provider integration tests use [Pocket ID](https://pocket-id.org/docs/), but the same generic configuration is intended for standards-compliant providers such as [Authentik](https://docs.goauthentik.io/add-secure-apps/providers/oauth2/), [Authelia](https://www.authelia.com/integration/openid-connect/introduction/), [Keycloak](https://www.keycloak.org/securing-apps/oidc-layers), and [ZITADEL](https://zitadel.com/docs/guides/integrate/login/oidc). Provider defaults vary, so verify the required scopes, PKCE support, client authentication method, and `email_verified` claim with the sign-in test before enabling SSO. ID tokens with additional audiences (such as a ZITADEL project ID) are accepted when their `azp` claim equals the client ID. The user\u2019s email must be verified at the provider.\n\nThe server must reach the issuer\u2019s discovery, authorization metadata, token and key endpoints. A private certificate authority can be supplied with `SB_OIDC_CA_FILE`, pointing to a PEM certificate trusted for provider connections. Certificate verification remains enabled.\n\n--- [vault:corpus/docs/Install/Configuration.md] ---\n### Legacy \u201csingle-space\u201d mode options\n\n# Legacy \u201csingle-space\u201d mode options\n> **warning** Warning\n> Configuring SilverBullet in a single-space server setup with environment variables is now considered a **legacy** feature and **deprecated**.\n>\n\nThe environment variables below configure a **single-space** server. A fresh install will run SilverBullet in multi-space mode and let you configure most options via the [[Dashboard]].\n\n--- [vault:corpus/docs/Install/Configuration.md] ---\n### Untitled\n\nWhile most of SilverBullet\u2019s configuration happens through the [[Dashboard]] these days, a few options remain configurable via environment variables.\n\n--- [vault:corpus/docs/Install/Configuration.md] ---\n### Metrics\n\n# Metrics\nSilverBullet offers a few basic Prometheus metrics, these can be configured with the following environment variables:\n\n* `SB_METRICS_PORT`: HTTP port to expose metrics (under the default `/metrics` endpoint) on",
+ "meta": {
+  "engine_seconds": 0.004034040999991703,
+  "sources": [
+   "vault:corpus/docs/TLS.md",
+   "vault:corpus/docs/Single Sign-On.md",
+   "vault:corpus/docs/Install/Configuration.md",
+   "vault:corpus/docs/Install/Configuration.md",
+   "vault:corpus/docs/Install/Configuration.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

@@ -1,0 +1,19 @@
+{
+ "id": "pubB-17",
+ "type": "multi",
+ "answer": "Not in memory.",
+ "tokens": 541,
+ "seconds": 0.006,
+ "e2e_seconds": 2.09,
+ "source_hits": 0.5,
+ "block": "## The troubleshooting page tells me to verify the server's listening address and port. If I set nothing, what address and port does a non-Docker server listen on?\n\n--- [vault:corpus/docs/Troubleshooting.md] ---\n### Server\n\n# Server\nIf the Server cannot be reached, check that its process is running, then inspect its logs and any reverse-proxy logs. See [[Log]]. Verify the listening address and port in [[Install/Configuration]] and the setup in [[Install/Network and Internet]]. If the Server responds but access is denied, check the account and space access settings in the [[Dashboard]].\n\nFor errors after the editor opens, inspect [[Workbench/Console]] and the browser\u2019s JavaScript console. The following browser options help isolate scripts, styles, plugs and offline-cache problems.\n\n--- [vault:corpus/docs/Guide/Server Setup.md] ---\n### Configure the Server\n\n# Configure the Server\nManage spaces and accounts through the [[Dashboard]]. Use [[Install/Configuration]] for process settings such as the listening address and port. [[Install/Server Modes]] distinguishes current multi-space setup from legacy single-space deployments.\n\nEditor preferences and space behavior are configured separately through [[Workbench/Configuration]]. Server administrators should also understand [[Security]] before granting write access or enabling capabilities for a space.",
+ "meta": {
+  "engine_seconds": 0.005602374999999995,
+  "sources": [
+   "vault:corpus/docs/Troubleshooting.md",
+   "vault:corpus/docs/Guide/Server Setup.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

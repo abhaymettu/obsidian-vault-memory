@@ -1,0 +1,19 @@
+{
+ "id": "pubB-05",
+ "type": "single",
+ "answer": "Press **Shift-Enter** in the Page Picker (Cmd-k / Ctrl-k). It opens or creates a page with exactly the name you typed, whereas **Enter** opens the closest existing match.",
+ "tokens": 826,
+ "seconds": 0.006,
+ "e2e_seconds": 2.36,
+ "source_hits": 0.0,
+ "block": "## When I type a new page name in the picker it keeps opening the closest existing match. Which key makes it open or create exactly what I typed?\n\n--- [vault:corpus/docs/Guide/My First Markdown Page.md] ---\n### Creating a page\n\n# Creating a page\nIn your space, press **Cmd-k** on macOS or **Ctrl-k** on Windows/Linux to open the [[Page Picker]] (or click the book icon in the top navigation bar).\n\nThe Page Picker serves two purposes:\n1. Navigating to _existing_ pages\n2. Creating _new_ pages\n\nWhile unusual to mix these activities, it has a purpose: [[Discovery]]. It is quite common that we want to create pages about topics we\u2019ve already created pages for _before, but we\u2019ve forgotten_.\n\nUsing the page picker to create new pages, this \u201crediscovery\u201d tends to happen organically, as those pages (may) resurface as you type in the name of your new page.\n\nIn the page picker input box type `Photo Walk`, then press **Shift-Enter** to create a page with exactly that name. If your space already contains other pages that match \u201cphoto walk\u201d in their name, they may appear here too and hitting **Enter** would open that old page rather than create a new page, pressing **Shift-Enter** ensures you create a new page.\n\nIt\u2019s time to start typing. Enter the following markdown (or copy and paste it):\n\n```markdown\nSam Rivera is planning a photo walk on 2026-06-14.\n\n# Plan\n* Meet at the riverside path at 08:00.\n\n# Pack\n* [ ] Charge camera battery\n* [ ] Pack binoculars\n* [x] Check the weather\n\nNext weekend, let\u2019s go on a [[Woodland Hike]].\n```\n\n--- [vault:corpus/docs/Guide/Knowledge Base.md] ---\n### Create topic pages\n\n# Create topic pages\nStart with subjects you want to return to. In the [[Page Picker]] (**Cmd-k / Ctrl-k**), type a title and press **Shift-Enter** to open that exact name. Write enough context that the page makes sense when opened directly.\n\nKeep each page focused enough that its name is useful in a sentence. You can start at the top level and add folders later. [[Guide/Best Practices]] describes the tradeoffs.",
+ "meta": {
+  "engine_seconds": 0.005948791000000029,
+  "sources": [
+   "vault:corpus/docs/Guide/My First Markdown Page.md",
+   "vault:corpus/docs/Guide/Knowledge Base.md"
+  ]
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

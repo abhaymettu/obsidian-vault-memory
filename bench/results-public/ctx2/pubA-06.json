@@ -1,0 +1,19 @@
+{
+ "id": "pubA-06",
+ "type": "single",
+ "answer": "Not in memory. The memory only documents `sync.hasInitialSyncCompleted()`, which returns a boolean for whether initial sync is complete, and it doesn't say when that check returns false.",
+ "tokens": 449,
+ "seconds": 0.005,
+ "e2e_seconds": 2.87,
+ "source_hits": 1.0,
+ "block": "## Under what conditions does the Lua check for whether client sync is on come back false?\n\n--- [vault:corpus/docs/API/sync.md] ---\n### sync.hasInitialSyncCompleted\n\n## sync.hasInitialSyncCompleted\n`sync.hasInitialSyncCompleted()`\n\nChecks whether the initial client synchronization has completed.\n\n**Returns:**\n\n- `boolean` \u2014 Whether initial sync is complete.\n\n--- [vault:corpus/docs/Guide/Desktop Setup.md] ---\n### Protect and troubleshoot your space\n\n# Protect and troubleshoot your space\nBack up your local folder and test a restore into a separate folder. Sync can copy an unwanted edit or deletion to another device, so it does not replace a backup.\n\nIf another device is missing an edit, first check the Server sync status in the space\u2019s settings and whether the Server is reachable. If the issue is inside the shared editor, start with [[Log]] and [[Troubleshooting]]. The browser cache reset instructions on that page apply to browser clients, not Desktop\u2019s local files.\n\nFor shared configuration and libraries across Desktop spaces, see [[Meta Space]].",
+ "meta": {
+  "engine_seconds": 0.004524041000000011,
+  "sources": [
+   "vault:corpus/docs/API/sync.md",
+   "vault:corpus/docs/Guide/Desktop Setup.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

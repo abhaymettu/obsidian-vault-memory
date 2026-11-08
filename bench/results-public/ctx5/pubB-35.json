@@ -1,0 +1,23 @@
+{
+ "id": "pubB-35",
+ "type": "verbatim",
+ "answer": "A SilverBullet Desktop Pro license key looks like `SBPLS-XXXXX-XXXXX-XXXXX-XXXXX`. You paste it into the **Pro** tab of the Desktop dashboard and click **Activate**.",
+ "tokens": 1023,
+ "seconds": 0.004,
+ "e2e_seconds": 2.1,
+ "source_hits": 1.0,
+ "block": "## What does a SilverBullet Desktop Pro license key look like?\n\n--- [vault:corpus/docs/Search.md] ---\n### Semantic search > SilverBullet Desktop\n\n## SilverBullet Desktop\nOpen **Settings \u2192 Advanced** and choose a model under **Semantic search**. The download starts right away. Semantic search is then on for every space. To keep a space on full-text search only, open its settings, go to **Advanced** and uncheck **Semantic search**. The same 5,000-page rule applies. Changing the model reloads the open spaces, after asking first. The model and the indexes live in the app\u2019s data folder.\n\n--- [vault:corpus/docs/Licensing.md] ---\n### Activating a license\n\n# Activating a license\nOpen the Desktop dashboard, go to the **Pro** tab, paste your license key (it looks like `SBPLS-XXXXX-XXXXX-XXXXX-XXXXX`) and click **Activate**. A Pro license belongs to one user, who can activate it on as many of their own devices as they like.\n\nTo stop using a key on a device, click **Remove key** on the same tab.\n\n--- [vault:corpus/docs/Reference/SilverBullet Features.md] ---\n### Server and Desktop\n\n# Server and Desktop\n* [[Meta Space]] \u2014 shared configuration and libraries across Desktop spaces.\n* [[Zero Tracking]] \u2014 Server\u2019s telemetry policy.\n* [[Dashboard]] \u2014 spaces, accounts and access settings.\n* [[Desktop]], [[Install/Server Modes]] and [[Install/Configuration]] \u2014 product and runtime configuration.\n* [[Account]], [[Authentication]], [[Authentication Proxy]], [[Single Sign-On]] and [[Authelia]] \u2014 accounts and sign-in.\n* [[Security]], [[Security Profiles]], [[TLS]] and [[Client Encryption]] \u2014 trust, transport and encryption.\n* [[Licensing]] \u2014 usage and licensing terms.\n\n--- [vault:corpus/docs/Licensing.md] ---\n### Untitled\n\nSilverBullet Desktop is free for personal and education use. Using it at work requires a Pro license. Tiers, prices and seats are explained on the [pricing page](https://silverbullet.md/pricing) and in the [FAQ](https://silverbullet.md/faq).\n\n--- [vault:corpus/docs/Licensing.md] ---\n### Invoices and subscriptions\n\n# Invoices and subscriptions\nManage your subscription, license keys and invoices from your [account page](https://silverbullet.md/account). The [FAQ](https://silverbullet.md/faq) explains how to get an invoice with your company details.",
+ "meta": {
+  "engine_seconds": 0.0035192089999909514,
+  "sources": [
+   "vault:corpus/docs/Search.md",
+   "vault:corpus/docs/Licensing.md",
+   "vault:corpus/docs/Reference/SilverBullet Features.md",
+   "vault:corpus/docs/Licensing.md",
+   "vault:corpus/docs/Licensing.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

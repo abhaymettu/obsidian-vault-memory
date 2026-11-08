@@ -1,0 +1,23 @@
+{
+ "id": "pubA-20",
+ "type": "verbatim",
+ "answer": "**Editor: Toggle Keyboard Bar** turns the keyboard bar off or on again, and the choice is remembered per device.",
+ "tokens": 1492,
+ "seconds": 0.004,
+ "e2e_seconds": 2.12,
+ "source_hits": 1.0,
+ "block": "## What command turns the on-screen editing shortcut strip above a phone keyboard off and on?\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Disabling keyboard shortcuts\n\n# Disabling keyboard shortcuts\nYou can use the [[^Library/Std/APIs/Command#command.update(commandDef)]] API to disable keyboard shortcuts of existing commands by setting them to an empty string, for example:\n\n```lua\ncommand.update {\n  name = \"Task: Cycle State\",\n  key = \"\",\n  mac = \"\"\n}\n```\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Assigning keyboard shortcuts\n\n# Assigning keyboard shortcuts\nKeyboard shortcuts can be assigned to [[Command|Commands]] with `key` or `mac`. If only `key` is defined, this keyboard shortcut will be used for all operating systems, if `mac` is set, this keyboard will be used for macOS.\n\nTo (re)assign a keyboard shortcut for an _existing_ command, you can use the [[^Library/Std/APIs/Command#command.update(commandDef)]] API as follows:\n```lua\ncommand.update {\n  name = \"Task: Cycle State\",\n  key = \"Ctrl-Shift-t\",\n}\n```\n\nWhen you define your own command, you can simply make them part of your command definition:\n\n```lua\ncommand.define {\n  name = \"My command\",\n  key = \"Ctrl-Shift-t\",\n  run = function()\n    editor.flashNotification \"Hello world \"\n  end\n}\n```\n\nYou can also specify multiple keyboard shortcuts by passing in a table to either `key` or `mac`:\n\n```lua\ncommand.define {\n  name = \"My command\",\n  key = {\"Ctrl-Shift-t\", \"Ctrl-Shift-o\"},\n  run = function()\n    editor.flashNotification \"Hello world \"\n  end\n}\n```\n\n--- [vault:corpus/docs/Local Space.md] ---\n### Global keyboard shortcuts\n\n# Global keyboard shortcuts\nBind system-wide keyboard shortcuts to any SilverBullet [[Command]] in any space.\n\n--- [vault:corpus/docs/Reference/SilverBullet Features.md] ---\n### Navigation and editing\n\n# Navigation and editing\n* [[Command Palette]] \u2014 finding and running commands.\n* [[Editor]], [[Top Bar]], [[Page Namer]] and [[Live Preview]] \u2014 the editing surface.\n* [[Page Picker]], [[Meta Picker]], [[Anything Picker]], [[Tag Picker]] and [[File Tree]] \u2014 finding and opening content.\n* [[Search]], [[Graph View]] and [[X-Ray]] \u2014 searching and exploring connections.\n* [[Linked Mention]] and [[Linked Tasks]] \u2014 incoming references and tasks linked to a page.\n* [[Slash Command]] \u2014 inserting content through slash commands.\n* [[Outlines]], [[Completion]], [[Vim]] and [[Keyboard Shortcuts]] \u2014 editing and keyboard behavior.\n\n--- [vault:corpus/docs/API/keyboardBar.md] ---\n### Untitled\n\nAPIs to add buttons to the keyboard bar.\n\nOn phones and tablets, the keyboard bar shows editing shortcuts above the on-screen keyboard (or along the bottom of the screen with a hardware keyboard). Its buttons come from the `keyboardBar` option in [[^Library/Std/Config]]: replace the whole list with `config.set`, or add to it with `keyboardBar.define`. Buttons can be limited to where the cursor is, so e.g. the indent and outdent buttons only appear inside outlines.\n\nThe bar is on by default. **Editor: Toggle Keyboard Bar** turns it off or on again. The choice is remembered per device. Setting `keyboardBar` to an empty list hides it everywhere.\n\n> **success** Success\n> Put your `keyboardBar.define` calls in your [[CONFIG]] page.",
+ "meta": {
+  "engine_seconds": 0.003894083999999566,
+  "sources": [
+   "vault:corpus/docs/Keyboard Shortcuts.md",
+   "vault:corpus/docs/Keyboard Shortcuts.md",
+   "vault:corpus/docs/Local Space.md",
+   "vault:corpus/docs/Reference/SilverBullet Features.md",
+   "vault:corpus/docs/API/keyboardBar.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

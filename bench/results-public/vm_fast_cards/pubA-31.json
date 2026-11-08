@@ -1,0 +1,20 @@
+{
+ "id": "pubA-31",
+ "type": "multi",
+ "answer": "The Go server rewrite was decided first. It is ADR/008 Go Backend, while the Deno-to-Node toolchain move is ADR/009 Client Build Toolchain, which was written after the server had become a thin file store.",
+ "tokens": 1286,
+ "seconds": 0.54,
+ "e2e_seconds": 3.56,
+ "source_hits": 1.0,
+ "block": "Memory for: Which was decided first: rewriting the server in Go, or moving the client build toolchain off Deno onto Node?\n[1] ADR/010 Rust Backend.md (Context)\n  - The separate move of the client build toolchain from Deno to Node is decided in ADR/009 Client Build Toolchain.\n  Decision: The server is written in **Rust** (as of v2.10.0). The progression was **Node.js -> Deno -> Go -> Rust**: / * Deno: a modern, secure-by-default TypeScript runtime, a sensible fit while the server still ran [[Plugs|plug]] logic and sandboxing mattered (pre-[[ADR/007 Core Application Logic on the Client|v2]]). / * Go (2025): once the server was just a file store, it was rewritten in Go: \u201csignificantly less memory and significantly smaller in size.\u201d / * Rust (2026): the Go server was replaced by an adaptation of the Rust backend used elsewhere in the project, converging the whole codebase on **TypeScript + Rust**.\n  - An architecture decision record (ADR 010) stating that the SilverBullet server is written in Rust, with the context, consequences and alternatives for that choice. Names ...\n[2] ADR/009 Client Build Toolchain.md (Context)\n  Decision: The client build toolchain moved from **Deno to Node.js** (npm + ESBuild, with [vitest](https://vitest.dev/) for tests). It was done gradually and completed in the `to-node` migration.\n  - An architecture decision record, titled Context, stating that the SilverBullet client build toolchain moved from Deno to Node.js, with its consequences and rejected alternatives. Names: SilverBullet, Deno, Node.js, npm, ESBuild, TypeScript, vitest, biome, Playwright, Bun, PR1839, to-node, plugs.\n  - The SilverBullet client build toolchain moved from Deno to Node.js, using npm and ESBuild, with vitest for tests.\n  Context: Since [[ADR/007 Core Application Logic on the Client|v2]] the client is where all the logic lives, and it is built with TypeScript + ESBuild. For years that toolchain ran on **Deno**, chosen early when Deno\u2019s sandboxed-worker permissions also suited running [[Plugs|plugs]] on the server (see [[ADR/010 Rust Backend]]). / Once the server became a thin file store, only the client remained to build, and the trade-off shifted: Deno\u2019s distinctive advantages no longer bought SilverBullet much, while its churn \u2014 repeated changes in package management (HTTP imports \u2192 import maps \u2192 JSR \u2192 varying npm support) and the occasional regression \u2014 was a recurring distraction.\n  - The SilverBullet client build toolchain ran on Deno for years, chosen early when Deno's sandboxed-worker permissions also suited running plugs on the server.\n[3] ADR/008 Go Backend.md (Context)\n  Decision: Rewrite the server in **Go**. Being just a file store, the whole backend was ported becoming significantly less memory and significantly smaller in size than the Deno build.\n  - The decision was to rewrite the server in Go.\n  - An architecture decision record that rewrote the SilverBullet server in Go, which was later superseded by a Rust backend. Names: SilverBullet, SilverBullet+, Deno, TypeScript, Go, Rust, CRDT.\nExact facts:\n- [1] The server does very little. Since [[ADR/007 Core Application Logic on the Client|all application logic moved to the client]], the server is primarily a file store: it lists, reads, writes and deletes files, handles authentication, serves the static client, and runs shell commands. When the [[Runtim",
+ "meta": {
+  "notes": [
+   "ADR/010 Rust Backend.md",
+   "ADR/009 Client Build Toolchain.md",
+   "ADR/008 Go Backend.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

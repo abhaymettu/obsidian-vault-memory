@@ -1,0 +1,19 @@
+{
+ "id": "pubA-10",
+ "type": "single",
+ "answer": "Closing all SilverBullet tabs flushes the encryption key, since no keys are written to disk. The content stays on the device but is encrypted, so it can't be viewed without the key derived from your username and password (i.e., you'd need to log in again).",
+ "tokens": 1136,
+ "seconds": 0.005,
+ "e2e_seconds": 2.5,
+ "source_hits": 1.0,
+ "block": "## With encrypted local storage turned on, what happens if I close every SilverBullet tab and come back later?\n\n--- [vault:corpus/docs/Client Encryption.md] ---\n### Details\n\n# Details\nSome technical details on how client encryption works.\n\nNote that this is _client_ encryption only, not end-to-end encryption. Data on the server is only encrypted if your space folder is kept on some encrypted volume on the server side. Use [[TLS|HTTPS]] to encrypt data in transit. A plain HTTP connection does not encrypt traffic, whether or not local client storage is encrypted.\n\nOn the client, all of SilverBullet\u2019s local data storage is built on a small key-value based [abstract interface](https://github.com/silverbulletmd/silverbullet/blob/main/client/data/kv_primitives.ts). By default this interface is implemented to [directly](https://github.com/silverbulletmd/silverbullet/blob/main/client/data/indexeddb_kv_primitives.ts) communicate with your browser\u2019s [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API). On top of this we build the sync engine and all our database indexing features. When you enable client encryption, we put a layer in-between: the encryption layer, which based on a cryptographic key will encrypt and decrypt both keys and values on the fly.\n\nA strong 256-bit cryptographic key is derived (using _PBKDF2_) on the client from your username/password combo entered upon login. This key is kept in the service worker for SilverBullet clients to obtain so that the user is not required to constant log in when refreshing a tab, or opening new SilverBullet tabs and windows.\n\nOn an account-managed multi-space server, every prefix use\n\n--- [vault:corpus/docs/Client Encryption.md] ---\n### Untitled\n\nBy default SilverBullet keeps a copy of all your files as well as the index, unencrypted in your browser\u2019s IndexedDB. As long as you control your device and other people do not have access to it, this should be perfectly safe. Browsers do not allow access to these databases from other websites and domains.\n\nHowever, if you are accessing SilverBullet from an \u201cuntrusted\u201d device, such as a public computer, this is not a great option, because even after closing your browser all content remains stored on the device unencrypted. You can use commands like `Client: Wipe` and `Client: Logout` to remove data locally, but there\u2019s a chance you will forget at some point.\n\n> **note** Note\n> Client encryption right now is only available for users of SilverBullet\u2019s native [[Authentication]] system.\n\nThis is what SilverBullet\u2019s **client encryption** is for. When you authenticate using SilverBullet\u2019s [[Authentication]] system, you will have a checkbox \u201cEnable client encryption\u201d. When checked, _all_ your content kept on the client will be encrypted (both your synced files and index). Since no encryption keys are written to disk at any stage, closing your browser or even closing all SilverBullet tabs will flush the key. While content remains on the device, it cannot be viewed without the encryption key derived from your username and password, leaving it useless to malicious actors.\n\nThis safety does come at a cost:\n\n1. **Performance:** due to constant encryption and decryption SilverBullet will ",
+ "meta": {
+  "engine_seconds": 0.005105125000000015,
+  "sources": [
+   "vault:corpus/docs/Client Encryption.md",
+   "vault:corpus/docs/Client Encryption.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

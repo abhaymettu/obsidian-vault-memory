@@ -1,0 +1,19 @@
+{
+ "id": "pubB-01",
+ "type": "single",
+ "answer": "Not in memory.\n\nThe retrieved notes describe `document` as the tag for non-Markdown files (images, PDFs, attachments) and explain that offline access is unavailable over plain LAN HTTP. They don't mention any setting for making attachments available offline, or whether where it is set matters.",
+ "tokens": 592,
+ "seconds": 0.005,
+ "e2e_seconds": 2.74,
+ "source_hits": 0.0,
+ "block": "## I want PDFs and other attachments to be available offline in the browser client too. What do I set, and does it matter where I set it?\n\n--- [vault:corpus/docs/Tag/document.md] ---\n### Untitled\n\ndescription: \"Every non-Markdown file in your space: images, PDFs, attachments.\"\ntagKind: root\nreferences:\n- plugs/index/document.ts\n- server-common/src/types.rs\n\n--- [vault:corpus/docs/TLS.md] ---\n### LAN HTTP (no TLS)\n\n# LAN HTTP (no TLS)\nOpen your server using its LAN address, for example `http://192.168.1.20:3000`. The server must listen on an address reachable from your LAN. Editing, indexing, queries, Space Lua, plugs, attachments, and local password login remain available.\n\nThe limitations are:\n* The server must remain reachable. Offline startup, cached file access, and offline synchronization are unavailable. If saving fails, keep the editor open until it can save.\n* Local data encryption and OIDC/SSO sign-in are disabled. Use a local account with a password. The local index is stored unencrypted in the browser.\n* Browser-based CLI authorization still requires HTTPS or loopback.\n* Text copy buttons use the browser\u2019s legacy copying support. Normal keyboard copy/paste remains available. Programmatic image/binary copying requires HTTPS or localhost.\n\nAnd obviously, HTTP does not encrypt or authenticate network traffic: credentials, notes, and application code can be intercepted or modified by someone with access to the connection.",
+ "meta": {
+  "engine_seconds": 0.004487583000000029,
+  "sources": [
+   "vault:corpus/docs/Tag/document.md",
+   "vault:corpus/docs/TLS.md"
+  ]
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

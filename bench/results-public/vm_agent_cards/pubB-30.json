@@ -1,0 +1,21 @@
+{
+ "id": "pubB-30",
+ "type": "multi",
+ "answer": "An aspiring-page record carries four attributes:\n- `name`: the unresolved page name.\n- `page`: the source page that contains the link.\n- `pos`: the start of the unresolved link.\n- `ref`: the reference that identifies that occurrence.\n\nNo, X-Ray won't underline it. Aspiring-page records have no `range`, and X-Ray doesn't show `range`-less objects. (From `Tag/aspiring-page.md` and `X-Ray.md`.)",
+ "tokens": 1363,
+ "seconds": 4.548,
+ "e2e_seconds": 4.55,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3766,
+  "final_context": 5115,
+  "billed_input": 8881,
+  "turns": 2,
+  "cost_usd": 0.0100226,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"Which attributes does an aspiring-page record carry, and will the X-Ray lens underline it in the editor?\\\"\"}\nMemory for: Which attributes does an aspiring-page record carry, and will the X-Ray lens underline it in the editor?\n[1] X-Ray.md (Activation)\n  - A reference note on the X-Ray editor lens, which shows the objects and attributes SilverBullet's indexer extracts from a document, including its activation and limitations. Names: SilverBullet, X-Ray, Editor: Toggle X-Ray, tag.define(spec), xrayInfo, inComment, page, tag, aspiring-page, anchor.\n  Limitations: * `range`-less objects (`page`, `tag`, `aspiring-page`, `anchor`) aren\u2019t shown \u2014 except a tag that occurs only inside a comment, which the indexer gives a range, so X-Ray underlines it (and its card won\u2019t show `inComment`, since `xrayInfo` calls the indexers directly, skipping the comment-marking pass). / * Constructs that the editor renders as a widget may not always show the underline. Hover still works, the tooltip will appear.\n  X-Ray is an editor lens that shows you the structure SilverBullet\u2019s indexer sees in your document. When switched on, every text range the indexer extracts as an [[Object]] is underlined. When you hover your mouse over it, it will show you all the attributes extracted as [[YAML]]. / You may also be interested in the [[Graph View]].\n  - Constructs that the editor renders as a widget may not always show the X-Ray underline, but hover still works and the tooltip appears.\n  - X-Ray is an editor lens that shows the structure SilverBullet's indexer sees in a document.\n  - Hovering over an X-Ray underline shows all the attributes extracted as YAML.\n[2] Tag/aspiring-page.md (aspiring-page)\n  - The `ref` attribute of an aspiring-page record is the reference identifying that occurrence.\n  - The `pos` attribute of an aspiring-page record is the start of the unresolved link.\n  - The `page` attribute of an aspiring-page record is the source page containing the link.\n  - The `name` attribute of an aspiring-page record is the unresolved page name.\n  Attributes: * `name`: unresolved page name. / * `page`: source page containing the link. / * `pos`: start of the unresolved link. / * `ref`: reference identifying that occurrence. / Records are rebuilt when the source page is indexed. Creating the target page removes its aspiring-page entries.\n[3] CHANGELOG.md (CHANGELOG)\n  2.8.0: * [[X-Ray]]: an editor lens (run `Editor: Toggle X-Ray`) to inspect indexed objects inline. / * New built-in [[Guide/Journal|Journal]] library. / * Runtime API: Expose objects (with filter) `/.runtime/objects/*` for external integrations and the [[CLI]], see [[Runtime API]]. / * New `SB_DISABLE_SERVICE_WORKER` : server-side switch to disable the client service worker for all clients, this will disable sync (all loads and saves will go directly to the server) and disable any offline support. / * UX: now showing spinners instead of underlying (Lua) code in states where widgets aren\u2019t ready to render yet (e.g. before an initial index hasn\u2019t completed) / * Fix: indexed `range` for `data` blocks (and `#tag` data blocks) now points at the YAML content instead of the sur ...\nExact facts:\n- [1] Run ${widgets.commandButton \"Editor: Toggle X-Ray\"}. The setting is sticky, it persists across page navigations and reloads until you run the command again.\n- [3] Fix: YAML data blocks split only on standalone `---` lines. X-Ray includes attributes added during indexing."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

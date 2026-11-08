@@ -1,0 +1,21 @@
+{
+ "id": "pubA-08",
+ "type": "single",
+ "answer": "No. If GitHub rejects `github.token`, SilverBullet won't prompt you to sign in instead. You have to fix or remove the token (see `API/github.md`).\n\nOnly a token that came from signing in gets different treatment: SilverBullet drops it and signs in again once.",
+ "tokens": 1407,
+ "seconds": 3.948,
+ "e2e_seconds": 3.95,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3783,
+  "final_context": 5159,
+  "billed_input": 8942,
+  "turns": 2,
+  "cost_usd": 0.0096037,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"If I configured a GitHub personal access token for sharing and GitHub starts rejecting it, will SilverBullet fall back to the sign-in flow?\\\"\"}\nMemory for: If I configured a GitHub personal access token for sharing and GitHub starts rejecting it, will SilverBullet fall back to the sign-in flow?\n[1] API/github.md (Configuration)\n  Configuration: * `github.token`: a personal access token with repo and gist permissions. Used when set and there is no stored credential from signing in. It is not copied into the credential store, and when Github rejects it you are not asked to sign in instead: fix or remove the token. / * `github.clientId`: client ID of your own Github OAuth app (device flow enabled), used instead of the default one for signing in. / * `github.name` and `github.email`: author of commits made when sharing to repositories. / ```lua / config.set(\"github.token\", \"your token\") / config.set(\"github.clientId\", \"your client id\") / ``` / The provider supplies `Authorization`. API requests add `Accept` themselves.\n  - When Github rejects github.token, the user is not asked to sign in instead, so the token must be fixed or removed.\n  - When a token rejected from signing in is dropped, github.request signs in again once.\n  github.request(url, method, body?): Makes a Github API request with [[API/auth|auth.fetch]], signing in when needed (or using `github.token`). A rejected token from signing in is dropped and you sign in again, once. Returns the response.\n[2] Share.md (Modes)\n  Support: Out of the box, sharing is supported for: / * Plain `https://` URIs (_Pull_ mode only) (implemented in [[^Library/Std/Infrastructure/URI]]). / * [[^Library/Std/Infrastructure/Github]] (`https://github.com/*` for repository files and `https://gist.github.com/*` URLs): both in _Pull_ mode, and _Push_ mode after signing in to Github through a device code (or with a personal token configured instead). Technically _Sync_ should work except that Github aggressively caches files, making this impractical. / * [[^Library/Std/Infrastructure/SilverBullet Share|SilverBullet space]]: pages in another SilverBullet space, in _Push_, _Pull_ and _Sync_ mode, signing in with a device code. / To implement your own share provider, have a look at the implementations linked to understand how they work.\n[3] CHANGELOG.md (CHANGELOG)\n  Edge: * Sign in to GitHub with a device code instead of configuring a personal access token. Credentials stay on the current device and are never synced. `Credentials: List` and `Credentials: Clear` let you inspect and remove them. Sharing individual pages with another SilverBullet space now supports push, pull and sync with device-code sign-in. See [[API/auth]] and [[API/github]]. / * [[CLI]] unification. There is now a single `sb` CLI (installation instructions in [[CLI#Installation]]) that can be used both remotely with Server, and locally with [[Desktop]]. / * New `sb help` lists your spaces, the space's skills and an outline of it, and `sb help <topic>` prints a skill. The seven built-in skills are embedded in `sb`, and a reachable space's own copy wins. See [[CLI#`help [topic]`]].\nExact facts:\n- [1] APIs and configuration of the [[^Library/Std/Infrastructure/Github]] integration, which reads and writes Github repository files and gists for [[Share]].\n- [1] Signing in uses the `github` provider of [[API/auth|auth]], which runs the device flow of [[API/oauth|oauth.deviceFlow]]. The token is stored on the device only.\n- [2] uri: https://github.com/me/notes/blob/main/Post.md\n- [3] _These changes are available from the [edge builds](https://github.com/silverbulletmd/silverbullet/releases/tag/edge)_"
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

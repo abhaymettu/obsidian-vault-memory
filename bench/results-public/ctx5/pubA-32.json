@@ -1,0 +1,22 @@
+{
+ "id": "pubA-32",
+ "type": "multi",
+ "answer": "The switch is `SB_DISABLE_SERVICE_WORKER`. The memory only says it keeps online-only mode (no service worker) deliberately available. Online-only mode has no offline support and needs a network round-trip on every operation. The memory doesn't spell out the sync behavior beyond that.",
+ "tokens": 1531,
+ "seconds": 0.004,
+ "e2e_seconds": 2.37,
+ "source_hits": 0.5,
+ "block": "## The offline-first decision says an online-only mode is still deliberately available. What switch enables it, and what does it do to sync and offline use?\n\n--- [vault:corpus/docs/ADR.md] ---\n### Active decisions\n\n# Active decisions\n* [[ADR/011 Link Resolution by Name|011 Link Resolution by Name]] \u2014 accepted, 2026-08-24, Owner: [[Zef Hemel]]\n* [[ADR/010 Rust Backend|010 Rust Backend]] \u2014 accepted, 2026-06-16, Owner: [[Zef Hemel]]\n* [[ADR/009 Client Build Toolchain|009 Client Build Toolchain]] \u2014 accepted, 2026-03-10, Owner: [[Zef Hemel]]\n* [[ADR/007 Core Application Logic on the Client|007 Core Application Logic on the Client]] \u2014 accepted, 2025-08-29, Owner: [[Zef Hemel]]\n* [[ADR/006 Space Lua Integrated Query|006 Space Lua Integrated Query]] \u2014 accepted, 2025-01-13, Owner: [[Zef Hemel]]\n* [[ADR/005 Space Lua|005 Space Lua]] \u2014 accepted, 2024-10-03, Owner: [[Zef Hemel]]\n* [[ADR/001 Offline-First PWA|001 Offline-First PWA]] \u2014 accepted, 2022-04-06, Owner: [[Zef Hemel]]\n* [[ADR/002 Sync Engine|002 Sync Engine]] \u2014 accepted, 2022-04-06, Owner: [[Zef Hemel]]\n* [[ADR/003 Indexed Object Graph|003 Indexed Object Graph]] \u2014 accepted, 2022-04-06, Owner: [[Zef Hemel]]\n\n--- [vault:corpus/docs/ADR/007 Core Application Logic on the Client.md] ---\n### Decision\n\n# Decision\nv2 **eliminates the server-side PlugOS runtime**: plug execution, indexing, the query engine, [[Space Lua]], page rendering, and the [[Sync|sync engine]] now run **only in the client**. In effect, **sync mode becomes the only mode**, and the **server is reduced to a file store** \u2014 it lists, reads, writes and deletes files, handles authentication, serves the static client, and runs shell commands. See [[Architecture]].\n\n--- [vault:corpus/docs/TLS.md] ---\n### Untitled\n\n#getting-started\n\nWhile silverBullet works over plain HTTP on a LAN IP or hostname in online-only mode, _HTTPS_ enables the full feature set, including offline use and local encryption. This page documents a few deployment options.\n\n> **note** Note\n> This is a browser enforced restriction: browsers restrict service workers, crypto, and programmatic clipboard access to secure contexts. This is why the recommended deployment model is TLS, but SilverBullet will make a best effort to work without it.\n\n--- [vault:corpus/docs/ADR/001 Offline-First PWA.md] ---\n### Alternatives considered\n\n# Alternatives considered\n* **Online-only (no service worker).** Rejected: no offline support and a network round-trip on every operation \u2014 defeats the offline-first goal. (Still available deliberately via `SB_DISABLE_SERVICE_WORKER`.)\n* **Bundle a native runtime for offline.** Rejected: heavier and platform-specific. A PWA delivers offline on every platform from one codebase.\n\n--- [vault:corpus/docs/ADR/007 Core Application Logic on the Client.md] ---\n### Alternatives considered\n\n# Alternatives considered\n* **Keep the dual-mode (server + sync) architecture.** Rejected: maintaining two PlugOS runtimes in parity was the core pain \u2014 an ongoing maintenance burden and a source of subtle bugs. It was also confusing for plug developers.\n* **Make *server mode* the only mode** (thin client, the server does everything). Rejected: defeats offline-first and the run-anywhere goal, and keeps the product tied to an always-available, more capable backend.",
+ "meta": {
+  "engine_seconds": 0.0041720840000052705,
+  "sources": [
+   "vault:corpus/docs/ADR.md",
+   "vault:corpus/docs/ADR/007 Core Application Logic on the Client.md",
+   "vault:corpus/docs/TLS.md",
+   "vault:corpus/docs/ADR/001 Offline-First PWA.md",
+   "vault:corpus/docs/ADR/007 Core Application Logic on the Client.md"
+  ]
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

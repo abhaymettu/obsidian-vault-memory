@@ -1,0 +1,20 @@
+{
+ "id": "pubA-23",
+ "type": "verbatim",
+ "answer": "The Quick Note command is bound to \"Ctrl-q q\" in the page template override example.",
+ "tokens": 231,
+ "seconds": 0.003,
+ "e2e_seconds": 2.17,
+ "source_hits": 0.0,
+ "block": "## What key combo creates a quick note?\n\n--- [vault:corpus/docs/Page Template.md] ---\n### Overriding page templates > Example: overriding the Quick Note template\n\ncommand: Quick Note\nkey: \"Ctrl-q q\"\nsuggestedName: \"Quick notes/${os.date('%Y-%m-%d/%H-%M-%S')}\"\nconfirmName: false\ntags: meta/template/page\n\n--- [vault:corpus/docs/Page Template.md] ---\n### Creating a page template > Example: Daily note\n\n* |^|\n~~~",
+ "meta": {
+  "engine_seconds": 0.0032525829999999873,
+  "sources": [
+   "vault:corpus/docs/Page Template.md",
+   "vault:corpus/docs/Page Template.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

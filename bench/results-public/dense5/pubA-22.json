@@ -1,0 +1,14 @@
+{
+ "id": "pubA-22",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 1045,
+ "seconds": 0.003,
+ "e2e_seconds": 2.17,
+ "source_hits": 1.0,
+ "block": "--- Install/Server Binary.md ---\nSteps | description\nDownload and run the standalone SilverBullet Server binary.\n\n--- Install/Server Binary.md ---\nSteps\nSilverBullet is distributed as a single server binary available for the following platforms:\n\n* macOS (Intel and Apple Silicon) (platform name \u201cdarwin\u201d)\n* Linux (x86_64 and arm64) (note that this will run on Raspberry Pi as well, but requires a 64-bit Linux distribution)\n* Windows (64-bit)\n* FreeBSD (x86_64)\n\n> **note** Which file should I download?\n> The [releases page](https://github.com/silverbulletmd/silverbullet/releases) lists two families of zip files:\n> * `silverbullet-server-<os>-<arch>.zip`: **this is what you want**, the actual SilverBullet server.\n> * `sb-<os>-<arch>.zip` \u2014 the optional [[CLI]] tool (`sb`) for scripting against a _running_ server.\n\n--- CLI.md ---\nInstallation\n> **note** This is **not** the server\n> `sb` is the optional **CLI client**, it talks to an already-running SilverBullet instance over HTTP. If you\u2019re looking for the actual server binary, that\u2019s [[Install/Server Binary]] (`silverbullet`), not this. You do not need `sb` to use SilverBullet.\n\nThe SilverBullet CLI is a companion command-line tool for interacting with a running SilverBullet instance from your terminal. It communicates with the server over HTTP. File commands use the [[HTTP API]] directly. Lua, queries, screenshots and logs use the [[Runtime API]]. `sb help` gives an AI assistant or a person the space\u2019s skills and a map of the space (see [[#`help [topic]`]]).\n\n--- Reference/Technical Reference.md ---\nExternal interfaces | Deployment and storage\n* [[Install/Server]] \u2014 Server deployment choices and filesystem requirements.\n\n--- Library/Website.md ---\nNavigation | Navigation\n{ ref = \"Install\", label = \"Choose Desktop or Server\" },\n    { ref = \"Guide/Desktop Setup\", label = \"Desktop\",\n      { ref = \"Install/Desktop\", label = \"Installation and updates\" },\n      { ref = \"Local Space\", label = \"Local spaces\" },\n      { ref = \"Desktop Sync\", label = \"Sync with a Server\" },\n    },\n    { ref = \"Guide/Server Setup\", label = \"Server\",\n      { ref = \"Install/Docker\", label = \"Install with Docker\" },\n      { ref = \"Install/Server Binary\", label = \"Install the binary\" },\n      { ref = \"Authentication\", label = \"Access and authentication\" },\n      { ref = \"Install/Network and Internet\", label = \"Network access\" },\n      { ref = \"Deployments/Caddy\" },\n      { ref = \"Install/Server\", label = \"Deployment and storage\" },\n    },\n    { ref = \"Guide/Git Sync\" },\n    { ref = \"Troubleshooting\" },\n    { ref = \"Log\" },\n  },",
+ "meta": {},
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}

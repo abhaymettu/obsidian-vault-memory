@@ -1,0 +1,20 @@
+{
+ "id": "pubA-21",
+ "type": "verbatim",
+ "answer": "Use `:latest-slim` (or pin a version with `-slim`, such as `:2.11.0-slim`). It tracks the latest release without Chromium or the Runtime API.",
+ "tokens": 791,
+ "seconds": 0.003,
+ "e2e_seconds": 2.29,
+ "source_hits": 1.0,
+ "block": "## Which Docker tag gives me the latest release without the bundled Chromium?\n\n--- [vault:corpus/docs/Development.md] ---\n### Development > Server vs. client > Docker\n\n### Docker\nMulti-arch (amd64 + arm64 + arm/v7) Docker images are published to Docker Hub and the GitHub Container Registry. The **edge** channel is rebuilt on every push to `main`. **Stable** images come from git tags:\n\n* `zefhemel/silverbullet:edge` (also `:v2`) / `:latest` + `:X.Y.Z` \u2014 the server with Chromium for the server-side Lua runtime (`/.runtime/*`). The old `-runtime-api` tags remain as compatibility aliases.\n* `\u2026:edge-slim` / `:latest-slim` + `:X.Y.Z-slim` \u2014 the smaller server image without Chromium or the runtime API.\n\nThere is no `:v2-slim` alias. Deployments moving from the legacy `:v2` image to slim should use `:edge-slim`.\n\nBoth images are mirrored to `ghcr.io/silverbulletmd/silverbullet` under the same tags.\n\nTo run one:\n\n```shell\ndocker run -p 3000:3000 -v <PATH-TO-YOUR-DATA-FOLDER>:/data zefhemel/silverbullet:edge\n```\n\nThese are built by `.github/workflows/ci.yml`, which cross-compiles the binary natively (`cargo build --target` with installed musl cross-toolchains) and copies it into a small Alpine image.\n\n--- [vault:corpus/docs/Install/Docker.md] ---\n### Release channels\n\n# Release channels\nEvery release version of SilverBullet is tagged with its version number, but there are two release channels you can use:\n\n* `:latest` always points to the latest _release_.\n* `:edge` always points to the latest _edge build_ (the last commit to `main`).\n\nThe default image includes Chromium and enables the [[Runtime API]]. For the smaller image without Chromium, use `:edge-slim` instead of `:edge` or legacy `:v2`, `:latest-slim` instead of `:latest`, or append `-slim` to a version such as `:2.11.0-slim`.",
+ "meta": {
+  "engine_seconds": 0.003087916000000007,
+  "sources": [
+   "vault:corpus/docs/Development.md",
+   "vault:corpus/docs/Install/Docker.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

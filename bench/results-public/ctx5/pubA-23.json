@@ -1,0 +1,23 @@
+{
+ "id": "pubA-23",
+ "type": "verbatim",
+ "answer": "`Ctrl-q q` creates a Quick Note (the `Ctrl-q` prefix is reserved for Page Template use cases).",
+ "tokens": 1042,
+ "seconds": 0.003,
+ "e2e_seconds": 1.96,
+ "source_hits": 1.0,
+ "block": "## What key combo creates a quick note?\n\n--- [vault:corpus/docs/Plugs/Development.md] ---\n### Quick start\n\n# Quick start\nThe easiest way to start is to click the \u201cUse this template\u201d button on the [silverbullet-plug-template](https://github.com/silverbulletmd/silverbullet-plug-template) repo. Then:\n\n```shell\nnpm install\nnpm run build\n```\n\nThis produces a `yourplug.plug.js` bundle. For development, copy somewhere in your [[Space]] (it doesn\u2019t really matter where):\n\n```shell\ncp yourplug.plug.js ~/myspace/\n```\n\nWithin a few seconds watch your browser\u2019s JavaScript console \u2014 the plug file should be synced locally. You can now run the `Plugs: Reload` command to \u201chot\u201d reload it, without a full page refresh.\n\n--- [vault:corpus/docs/Page Template.md] ---\n### Overriding page templates > Example: overriding the Quick Note template\n\ncommand: Quick Note\nkey: \"Ctrl-q q\"\nsuggestedName: \"Quick notes/${os.date('%Y-%m-%d/%H-%M-%S')}\"\nconfirmName: false\ntags: meta/template/page\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Combos\n\n# Combos\nGenerally keyboard shortcuts are single stroke, however it possible to configure them as \u201ccombos\u201d (multiple shortcuts entered in sequence). Out of the box, SilverBullet reserves two prefix keys for this \u201ccombo\u201d use:\n\n* `Mod-.` (so \u201ccommand dot\u201d or Mac and \u201cCtrl dot\u201d on Linux/Windows), used for various [[Outlines]] related commands\n* `Ctrl-q` used and reserved for [[Page Template]] use cases\n  * `Ctrl-q q` creates a [[^Library/Std/Page Templates/Quick Note]]\n  * `Ctrl-q t` runs the `Page: From Template` command\n* `Ctrl-g` reserved for navigational commands:\n  * `Ctrl-g h` navigates to the index (home) page\n\n--- [vault:corpus/docs/Library/silverbullet-diagram/Mermaid.md] ---\n### Quick start\n\n# Quick start\nA raw Mermaid string:\n\n${mermaid.diagram(\"flowchart LR\\n  A[\\\"Hello\\\"] --> B[\\\"World\\\"]\")}\n\nA relation graph built live from frontmatter:\n\n${mermaid.diagram(mermaid.relationGraph{\n  pages = query[[from index.pages(\"adr\")]],\n  relations = {\"dependsOn\", \"related\", \"supersededBy\"},\n})}\n\n--- [vault:corpus/docs/Page Template.md] ---\n### Creating a page template > Example: Daily note\n\n* |^|\n~~~",
+ "meta": {
+  "engine_seconds": 0.00268154200000572,
+  "sources": [
+   "vault:corpus/docs/Plugs/Development.md",
+   "vault:corpus/docs/Page Template.md",
+   "vault:corpus/docs/Keyboard Shortcuts.md",
+   "vault:corpus/docs/Library/silverbullet-diagram/Mermaid.md",
+   "vault:corpus/docs/Page Template.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT",
+ "exact": 1.0
+}

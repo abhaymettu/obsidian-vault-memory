@@ -1,0 +1,21 @@
+{
+ "id": "pubA-07",
+ "type": "single",
+ "answer": "Setting `done = true` on a custom state in `taskState.define` affects the `Task: Remove Completed` command, which uses it to decide which tasks count as completed (API/taskState.md). It also makes the task's `done` attribute `true` (Tag/task.md). Beyond that, custom state definitions mainly give you code completion for now.",
+ "tokens": 1264,
+ "seconds": 4.415,
+ "e2e_seconds": 4.42,
+ "source_hits": 1.0,
+ "block": null,
+ "meta": {
+  "first_context": 3761,
+  "final_context": 5016,
+  "billed_input": 8777,
+  "turns": 2,
+  "cost_usd": 0.009339100000000001,
+  "base_key": "vm_agent_base",
+  "seen": "{\"command\": \"vault-memory recall \\\"When I define my own task state like IN PROGRESS, what does marking it as finished actually affect?\\\"\"}\nMemory for: When I define my own task state like IN PROGRESS, what does marking it as finished actually affect?\n[1] API/taskState.md (API)\n  - The example defines the custom task states TO DO, IN PROGRESS, and DONE, where DONE has done set to true.\n  - API reference for taskState.define, which defines custom task states, with an example and usage notes. Names: taskState.define, Task: Remove Completed, space-lua, TO DO, IN PROGRESS, DONE.\n  taskState.define(def): Defines a custom task state. Options: / * `name`: name of the state / * `done`: whether or not the state should be considered \u201cdone\u201d or not, used by the `Task: Remove Completed` command / Primarily used to offer code completion for custom task states for now.\n  Example: Install these definitions in a `space-lua` block in your own space and reload them: / ```lua / taskState.define { / name = \"TO DO\" / } / taskState.define { / name = \"IN PROGRESS\" / } / taskState.define { / name = \"DONE\", / done = true / } / ``` / Use: / * [TO DO] Still to do / * [DONE] Task already completed\n  - taskState.define(def) defines a custom task state.\n  - The done option of taskState.define states whether the state should be considered done, and is used by the Task: Remove Completed command.\n[2] Task.md (Custom states)\n  Custom states: Tasks support the default `x` and ` ` states (done and not done), but custom states as well. Support for this is still basic, however. / Example: / * [NOT STARTED] Choose a photo-walk route / * [IN PROGRESS] Charge camera battery / Restrictions: / * Task states cannot contain `:` to avoid ambiguity with [[Attribute]] syntax. / To define custom states explicitly (and get code completion for them), use the [[API/taskState]] API.\n  - Example custom task states are `[NOT STARTED] Choose a photo-walk route` and `[IN PROGRESS] Charge camera battery`.\n  - Tasks support the default `x` and ` ` states, meaning done and not done, as well as custom states, though support for custom states is still basic.\n[3] Markdown/Basics.md (Basic markup)\n  Lists and tasks: When you click the checkbox, it will toggle its state and replace the ` ` inside the box with `x`. SilverBullet also supports custom task statuses by putting text in between `[` and `]`. When you click on such custom task states, it cycles through the states configured in your space using [[API/taskState]]. See [[Task#Custom states]]: / * [IN PROGRESS] This task is in progress / * [DONE] This task is done / * [TO DO] This task is still to be done\n[4] Tag/task.md (task)\n  - The done attribute of a task is true for x, X, or a custom state registered with done = true, and false otherwise.\n  - The state attribute of a task is the checkbox text between [ and ], including a single space for an unchecked task.\n  - Custom task states are described in API/taskState.\n[5] Reference/Concepts.md (Pages and files)\n  - Task covers task lists and completion states.\nExact facts:\n- [1] APIs to define [[Task#Custom states]].\n- [3] SilverBullet also supports a variant of the unordered list item to define task. Tasks are defined using the `* [ ] Task name` syntax:\n- [4] `state`: checkbox text between `[` and `]`, including a single space for an unchecked task. See [[API/taskState]] for custom states."
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

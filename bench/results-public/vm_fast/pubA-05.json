@@ -1,0 +1,22 @@
+{
+ "id": "pubA-05",
+ "type": "single",
+ "answer": "Not in memory.",
+ "tokens": 1329,
+ "seconds": 0.384,
+ "e2e_seconds": 2.68,
+ "source_hits": 1.0,
+ "block": "Memory for: How can a script find out how many messages in a Lua message queue are waiting, in flight, or have failed permanently?\n[1] Workbench/Code/Scripts.md (Scripts)\n  The **Space Lua** section of the [[Workbench/Code|Code]] tab lists every `space-lua` block in your space, in the order SilverBullet loads them: by priority, highest first (see [[Space Lua#Definition loading]]). / ${widgets.commandButton(\"Workbench: Scripts\")} opens the [[Workbench]] on this section. / Each row shows: / * **Status:** a green dot when the script loaded, red when it failed, and amber when it\u2019s quarantined. / * **Script:** the page it\u2019s on. When a page holds several scripts, each row also shows the script\u2019s position in the page, like `@66`. / * **Priority** and **Load:** its priority and how long running it took. / Scripts that failed to load show their error right below the row, with the same message, marked line and clickable stack as in the console. To narrow the list, use the filter field and two sets of buttons, each showing counts:\n[2] Runtime API.md (Setup)\n  Waiting for the index: The Lua endpoints and `/.runtime/screenshot` can first wait until the space\u2019s index has caught up with recent file changes (edits made through the [[HTTP API]], a script or another device), so a query sees a page written a moment ago. Send `X-Await-Index: 1` (`true` and `yes` also count). The server waits for its file watcher to pass changes on, then for the client\u2019s index queue to empty, for at most the smaller of 5 seconds and `X-Timeout`. The request then runs with its full `X-Timeout`. / `POST /.search/query` (see [[HTTP API#Search]]) honours the same header: a signed-in member\u2019s query first waits, for at most the smaller of 5 seconds and `X-Timeout`, until the search index has caught up with recent file changes. Public visitors\u2019 queries do not wait and get `X-Index-Status: unknown`.\n[3] API/mq.md (mq)\n  mq.subscribe: `mq.subscribe(spec)` / Subscribes a Space Lua callback to a message queue. / **Parameters:** / - `spec` (`table`) \u2014 Subscription with queue, optional batchSize and pollInterval, autoAck (default true), and a run(messages) callback. Each message has queue, id, and body fields. / **Example:** / ```lua / mq.subscribe { queue = \"tasks\", batchSize = 1, run = function(messages) print(messages[1].body) end } / ``` / <!--/lua-->\n[4] Workbench/Console.md (The log)\n  The log: Lua errors show their message, a hint when there is one, and the offending line with the failing part marked. **Stack** lists where the error passed through.\n[5] CHANGELOG.md (CHANGELOG)\n  Edge: * Fix: while Space Lua scripts reloaded (after editing a script page), widgets on the open page could briefly fail with errors such as \"attempt to index a nil value\", because they rendered against a half-loaded environment. Scripts now load into a fresh environment that takes over only once all of them have run. / * Fix: index-backed views no longer refresh halfway through a queued reindex, which could temporarily hide the page being edited. / * Fix: Git syn ...\nExact facts:\n- [1] A script is **quarantined** when you stop it for running too long while it loads. It\u2019s then skipped on later loads until you use **Re-enable** in the quarantine notification banner, or until you edit it. A script you stopped during the current load also shows as quarantined. See [[Space Lua#Runaway \n- [2] `POST /.runtime/lua_script`\n- [2] The request body is a raw Lua script as plain text. This allows multi-statement scripts with explicit `return` statements.\n- [2] http://localhost:3000/.runtime/lua_script",
+ "meta": {
+  "notes": [
+   "Workbench/Code/Scripts.md",
+   "Runtime API.md",
+   "API/mq.md",
+   "Workbench/Console.md",
+   "CHANGELOG.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 0.0,
+ "judge": "WRONG"
+}

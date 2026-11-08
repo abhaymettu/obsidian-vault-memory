@@ -1,0 +1,22 @@
+{
+ "id": "pubA-42",
+ "type": "multi",
+ "answer": "The shortcut is **Ctrl-q j**. Yes, its first key, `Ctrl-q`, is a prefix SilverBullet reserves, for [[Page Template]] use cases (e.g. `Ctrl-q q` creates a Quick Note and `Ctrl-q t` runs `Page: From Template`).",
+ "tokens": 1365,
+ "seconds": 0.005,
+ "e2e_seconds": 2.2,
+ "source_hits": 1.0,
+ "block": "## What is the shortcut for opening today's journal page, and is its first key a prefix SilverBullet reserves for something?\n\n--- [vault:corpus/docs/Guide/Make it your own.md] ---\n### Choose a shortcut\n\n# Choose a shortcut\nIn Configuration, select **Key bindings** and use the filter to find a command you use often. **Journal: Today** is one option if you keep a journal.\n\n1. Click **+** beside the command to add an alternate shortcut.\n2. Press the keys you want to use, then press **Enter** to keep them.\n3. If SilverBullet reports a conflict, choose another combination.\n4. Click **Save and apply**, return to the editor and try your shortcut.\n\nThe command\u2019s \u22ef menu offers **Reset** if you want its default bindings back. Save again to apply that reset. See [[Keyboard Shortcuts]] for reserved keys and shortcuts made of several keystrokes.\n\n--- [vault:corpus/docs/Guide/Journal.md] ---\n### Customize the journal\n\n# Customize the journal\nOpen **Workbench: Configuration** and select the **Journal** category. Save and apply your changes there.\n\n* **Enable journal** turns the journal commands on or off.\n* **Journal page prefix** controls the names of new entries. The default is `Journal/`. End the prefix with `/` to group entries in a folder.\n* **Journal tag** identifies journal pages for navigation. The default is `journal`.\n* **Journal template page** supplies the initial content of new entries.\n\nTo customize the template, copy [[^Library/Std/Journal/Template]] to a writable page, edit the copy, and select it in **Journal template page**. The bundled template is read-only.\n\nSee [[Workbench/Configuration]] for applying settings and [[Page Template]] for template syntax.\n\n--- [vault:corpus/docs/Keyboard Shortcuts.md] ---\n### Combos\n\n# Combos\nGenerally keyboard shortcuts are single stroke, however it possible to configure them as \u201ccombos\u201d (multiple shortcuts entered in sequence). Out of the box, SilverBullet reserves two prefix keys for this \u201ccombo\u201d use:\n\n* `Mod-.` (so \u201ccommand dot\u201d or Mac and \u201cCtrl dot\u201d on Linux/Windows), used for various [[Outlines]] related commands\n* `Ctrl-q` used and reserved for [[Page Template]] use cases\n  * `Ctrl-q q` creates a [[^Library/Std/Page Templates/Quick Note]]\n  * `Ctrl-q t` runs the `Page: From Template` command\n* `Ctrl-g` reserved for navigational commands:\n  * `Ctrl-g h` navigates to the index (home) page\n\n--- [vault:corpus/docs/Guide/Journal.md] ---\n### Open today\u2019s page\n\n# Open today\u2019s page\nRun **Journal: Today**, or press **Ctrl-q j**. The command opens today\u2019s page, normally `Journal/YYYY-MM-DD`. If it does not exist, SilverBullet creates it from the journal template, with a bullet list ready for writing. Running the command again returns to the same page.\n\nWrite entries as bullets, paragraphs or tasks. Journal pages are ordinary Markdown pages, so you can organize their content however you prefer.\n\n--- [vault:corpus/docs/Page Template.md] ---\n### Creating a page template > Example: Daily note\n\n## Example: Daily note\nThe following creates a page template that can be run using the `Journal: Daily Note` command, it automatically creates `Daily/today\u2019s date` if it does not already exist with a bulleted list, putting the cursor at the first bullet. If the page already exists, it navigates there.\n\n~~~",
+ "meta": {
+  "engine_seconds": 0.004458500000007916,
+  "sources": [
+   "vault:corpus/docs/Guide/Make it your own.md",
+   "vault:corpus/docs/Guide/Journal.md",
+   "vault:corpus/docs/Keyboard Shortcuts.md",
+   "vault:corpus/docs/Guide/Journal.md",
+   "vault:corpus/docs/Page Template.md"
+  ]
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

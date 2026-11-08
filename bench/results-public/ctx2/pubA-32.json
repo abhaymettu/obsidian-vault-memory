@@ -1,0 +1,19 @@
+{
+ "id": "pubA-32",
+ "type": "multi",
+ "answer": "The switch is `SB_DISABLE_SERVICE_WORKER`, which gives an online-only mode with no service worker. That means no offline support and a network round-trip on every operation. The memory doesn't say anything specific about how it affects sync.",
+ "tokens": 876,
+ "seconds": 0.004,
+ "e2e_seconds": 2.88,
+ "source_hits": 0.5,
+ "block": "## The offline-first decision says an online-only mode is still deliberately available. What switch enables it, and what does it do to sync and offline use?\n\n--- [vault:corpus/docs/ADR.md] ---\n### Active decisions\n\n# Active decisions\n* [[ADR/011 Link Resolution by Name|011 Link Resolution by Name]] \u2014 accepted, 2026-08-24, Owner: [[Zef Hemel]]\n* [[ADR/010 Rust Backend|010 Rust Backend]] \u2014 accepted, 2026-06-16, Owner: [[Zef Hemel]]\n* [[ADR/009 Client Build Toolchain|009 Client Build Toolchain]] \u2014 accepted, 2026-03-10, Owner: [[Zef Hemel]]\n* [[ADR/007 Core Application Logic on the Client|007 Core Application Logic on the Client]] \u2014 accepted, 2025-08-29, Owner: [[Zef Hemel]]\n* [[ADR/006 Space Lua Integrated Query|006 Space Lua Integrated Query]] \u2014 accepted, 2025-01-13, Owner: [[Zef Hemel]]\n* [[ADR/005 Space Lua|005 Space Lua]] \u2014 accepted, 2024-10-03, Owner: [[Zef Hemel]]\n* [[ADR/001 Offline-First PWA|001 Offline-First PWA]] \u2014 accepted, 2022-04-06, Owner: [[Zef Hemel]]\n* [[ADR/002 Sync Engine|002 Sync Engine]] \u2014 accepted, 2022-04-06, Owner: [[Zef Hemel]]\n* [[ADR/003 Indexed Object Graph|003 Indexed Object Graph]] \u2014 accepted, 2022-04-06, Owner: [[Zef Hemel]]\n\n--- [vault:corpus/docs/ADR/001 Offline-First PWA.md] ---\n### Alternatives considered\n\n# Alternatives considered\n* **Online-only (no service worker).** Rejected: no offline support and a network round-trip on every operation \u2014 defeats the offline-first goal. (Still available deliberately via `SB_DISABLE_SERVICE_WORKER`.)\n* **Bundle a native runtime for offline.** Rejected: heavier and platform-specific. A PWA delivers offline on every platform from one codebase.",
+ "meta": {
+  "engine_seconds": 0.00409420799999998,
+  "sources": [
+   "vault:corpus/docs/ADR.md",
+   "vault:corpus/docs/ADR/001 Offline-First PWA.md"
+  ]
+ },
+ "score": 0.5,
+ "judge": "PARTIAL"
+}

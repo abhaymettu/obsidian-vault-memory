@@ -1,0 +1,22 @@
+{
+ "id": "pubA-36",
+ "type": "multi",
+ "answer": "Hook the `editor:complete` event, and register your handler with `event.listen`, e.g. `event.listen { name = \"editor:complete\", run = function(e) ... end }`. The handler receives the current cursor context and can return additional completion items.",
+ "tokens": 1357,
+ "seconds": 0.405,
+ "e2e_seconds": 3.26,
+ "source_hits": 1.0,
+ "block": "Memory for: To add my own autocomplete suggestions, which event do I hook and which Lua call registers the handler?\n[1] Space Lua/DOM.md (Basic usage)\n  Event handlers: Attributes starting with `on` are registered as event listeners: / ```lua / dom.button { / onclick = function() / editor.flashNotification(\"Clicked!\") / end, / \"Click me\" / } / ``` / This is equivalent to calling `addEventListener(\"click\", fn)` on the button element.\n[2] Event.md (Subscribing to events)\n  Dispatching events: You can dispatch your own custom events: / ```lua / event.dispatch(\"my-custom-event\", {message = \"Hello!\"}) / ``` / Other scripts can then listen for `my-custom-event`.\n  Subscribing to events: Use `event.listen` to subscribe to an event: / ```lua / event.listen { / name = \"editor:pageLoaded\", / run = function(e) / print(\"Loaded page: \" .. e.data.name) / end / } / ``` / The `run` callback receives an event object with a `data` field containing event-specific information. To see what data an event provides, add a `print` call and check the [[Log|logs]].\n[3] API/event.md (event)\n  event.listen: `event.listen(listener)` / Registers a Space Lua listener on the event bus. / **Parameters:** / - `listener` (`table`) \u2014 Listener definition with name and run callback. / **Example:** / ```lua / event.listen { name = \"my-event\", run = function(e) print(e.data) end } / ``` / <!--/lua-->\n[4] Completion.md (Page link completion)\n  Custom completions: You can extend the completion system by subscribing to the `editor:complete` event via [[Space Lua]]. Your handler receives the current cursor context and can return additional completion items. / See also: [[API/event]]\n[5] CLI.md (Installation)\n  Exploring your space: These calls inspect the connected space itself, so results reflect its own tags, Space Lua functions, and commands, including those added by its libraries. `sb --help` lists the same calls. / Tags and their fields: / ```bash / sb query 'from t = index.tags() select t.name' / sb lua 'index.tagSchema(\"page\")' / ``` / Lua API: / ```bash / sb lua 'table.keys(_G)'                                 # global names, namespaces included / sb lua 'spacelua.listFunctions()'                       # documented global functions / sb lua 'spacelua.listFunctions(\"editor\")'               # functions in a namespace / sb lua 'spacelua.describe(\"editor.getText\")'            # one function's signature and docs / sb lua 'spacelua.renderApiDocumentation(\"index\")' --text  # Markdown, printed as is / sb lua 'system.reboot()'                                 # after changing files outside sb / ``` / Checking pages: / ```bash / sb lua 'space.lint(\"Page\")'                             # problems on a page (YAML, Lua, failing widgets); space.lint() for all / ``` / Commands: / ```bash / sb lua 'system.listCommands()' / ``` / Query syntax: / ```bash / sb fs read 'Library/Std/Docs/SLIQ Reference.md' / ```\nExact facts:\n- [1] The DOM builder API provides a clean, declarative way to construct HTML elements from [[Space Lua]]. It is typically used to build [[API/widget|Widgets]] for rendering dynamic UI in your pages.\n- [1] Markdown support**: String children are automatically processed as markdown. So `\"**bold**\"` renders as bold text.\n- [1] Under the hood, `dom` uses a Lua metatable so that any property access (e.g. `dom.span`) returns a constructor function. That function calls `js.window.document.createElement(tag)` and processes the spec table to set attributes, add event listeners, and append children.\n- [3] <!--#lua spacelua.renderApiDocumentation(\"event\") -->",
+ "meta": {
+  "notes": [
+   "Space Lua/DOM.md",
+   "Event.md",
+   "API/event.md",
+   "Completion.md",
+   "CLI.md"
+  ],
+  "synth_usage": null
+ },
+ "score": 1.0,
+ "judge": "CORRECT"
+}

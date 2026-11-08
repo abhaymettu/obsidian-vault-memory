@@ -1,0 +1,14 @@
+{
+ "id": "pubB-35",
+ "type": "verbatim",
+ "answer": "Not in memory.",
+ "tokens": 751,
+ "seconds": 0.003,
+ "e2e_seconds": 2.21,
+ "source_hits": 1.0,
+ "block": "--- Licensing.md ---\nActivating a license\nSilverBullet Desktop is free for personal and education use. Using it at work requires a Pro license. Tiers, prices and seats are explained on the [pricing page](https://silverbullet.md/pricing) and in the [FAQ](https://silverbullet.md/faq).\n\n--- Install/Desktop.md ---\nDownload\nSilverBullet Desktop runs on macOS, Windows and Linux.\n\n--- Client Encryption.md ---\nDetails | Details\nA strong 256-bit cryptographic key is derived (using _PBKDF2_) on the client from your username/password combo entered upon login. This key is kept in the service worker for SilverBullet clients to obtain so that the user is not required to constant log in when refreshing a tab, or opening new SilverBullet tabs and windows.\n\nOn an account-managed multi-space server, every prefix uses the server\u2019s shared encryption salt. Prefixes have separate service-worker scopes, so a newly opened space asks the server\u2019s other same-origin SilverBullet workers for the in-memory key. As long as another unlocked space remains open, moving between spaces does not require entering the password again. Once every worker has discarded the key, the login page is required to unlock client storage again even if the server session cookie is still valid.\n\n--- Guide/Make it your own.md ---\nGet comfortable\nYou can change how SilverBullet looks and behaves without writing code. Let\u2019s try a different font, adjust a keyboard shortcut and look at the [[Library|Libraries]] you can install.\n\n--- Desktop.md ---\nIn this section\n#desktop\n\nSilverBullet Desktop is the native SilverBullet app for macOS, Windows and Linux: it keeps each space in a folder on your computer and can sync it with a SilverBullet Server.\n\nDesktop runs the shared editor and extension system from [[Install|SilverBullet Server]]. Writing, navigation, queries and Space Lua work the same way. Installation, authentication and device connections depend on where the space is hosted. Desktop does not need an external Server or browser-style synchronization with its embedded server. Downloads and pricing are on the [SilverBullet Desktop page](https://silverbullet.md/desktop).",
+ "meta": {},
+ "score": 0.0,
+ "judge": "WRONG",
+ "exact": 0.0
+}
